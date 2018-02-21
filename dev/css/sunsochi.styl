@@ -14,8 +14,36 @@ em
 
 $transitionAnimation = cubic-bezier(0.250, 0.460, 0.450, 0.940)
 
-/* fonts */
+$colorDarkGray = #3a4347
+$colorGray = #9b9b9b
+$colorLightBlue = #f7f8fb
+$colorLightGray = #e3e3e3
+$colorTurquoise = #e1e8eb
+$colorLightBlack = #2C2F2F
+$colorOrange = #f99d22
+$colorRed = #f01624
+$colorBlue = #009ecc
 
+/* fonts */
+@font-face
+	font-family "ProximaNovaBlack"
+	src url("../fonts/ProximaNova-Black.woff") format("woff")
+
+@font-face
+	font-family "ProximaNovaLight"
+	src url("../fonts/ProximaNova-Light.woff") format("woff")
+
+@font-face
+	font-family "ProximaNovaRegular"
+	src url("../fonts/ProximaNova-Regular.woff") format("woff")
+
+@font-face
+	font-family "ProximaNovaSemibold"
+	src url("../fonts/ProximaNova-Semibold.woff") format("woff")
+
+@font-face
+	font-family "ProximaNovaBold"
+	src url("../fonts/ProximaNova-Bold.woff") format("woff")
 /* //fonts */
 
 
@@ -28,9 +56,9 @@ body
 	min-height 100vh
 	line-height 1
 	cursor default
+	font-family "ProximaNovaRegular"
 
 /*** //Settings ***/
-
 
 /*** main style ***/
 .page
@@ -47,4 +75,273 @@ body
 	margin 0 auto
 	box-sizing border-box
 
+	&--w1
+		max-width 970px
+
+/** header **/
+.page-header
+	width 100%
+
+.header-row-items
+	display flex
+	justify-content  space-between
+	align-items center
+
+.header-row--top
+	width 100%
+	margin-bottom 45px
+	background-color $colorDarkGray
+
+.header-top
+	padding 15px 0
+
+	.header-top-item-holder
+		display inline-block
+		margin-right 40px
+
+		&:last-child
+			margin-right 0
+
+		.header-top-item
+			font-size 14px
+			font-family "ProximaNovaSemibold"
+
+.header-logo
+	display flex
+	max-width 460px
+
+	.header-logo-img
+		display inline-block
+		margin-right 20px
+		float left
+		max-width 215px
+		width 100%
+
+		svg
+			display block
+			width 100%
+
+	.header-logo-title
+		display block
+		width 50%
+		padding-top 4px
+		vertical-align top
+
+		box-sizing border-box
+
+		font-size 14px
+
+.header-mobile
+	.header-mobile-title
+		display block
+		margin-bottom 10px
+
+		font-size 14px
+		color $colorBlue
+
+	.header-mobile-item
+		display block
+
+		font-size 22px
+		font-family "ProximaNovaBold"
+
+		color $colorBlue
+
+.header-row-items
+	.header-call
+		padding 15px 25px
+		font-size 14px
+		max-height 47px
+
+
+.header-row--middle
+	margin-bottom 30px
+
+.header-bottom-inner
+	.header-bottom-item-holder
+		display inline-block
+		margin-right 35px
+
+		&:last-child
+			margin-right 0
+
+		.header-bottom-item
+			font-size 16px
+
+			font-family "ProximaNovaSemibold"
+
+.header-favorites
+	display flex
+	align-items center
+
+	.header-favorites-holder
+		display block
+		width 25px
+		height 25px
+
+		svg
+			display block
+			width 100%
+
+			path
+				transition fill 0.3s $transitionAnimation
+
+		&:hover
+			svg
+				path
+					fill $colorOrange
+
+	.header-favorites-count
+		padding-left 10px
+		box-sizing border-box
+		font-size 15px
+		font-family "ProximaNovaSemibold"
+
+		color $colorLightBlack
+
+.header-row--bottom
+	padding 20px 0
+	border-top 2px solid $colorLightBlue
+
+/** //header **/
+
+/** footer **/
+
+.page-footer
+	background $colorDarkGray
+	padding 55px 70px 40px 70px
+
+.footer-row
+	display flex
+	justify-content space-between
+	align-items center
+
+	&--top
+		margin-bottom 25px
+
+	&--bottom
+		margin-top 70px
+
+.footer-top-item-holder
+	display inline-block
+	margin-right 20px
+
+	&:last-child
+		margin-right 0
+
+	.footer-top-item
+		font-size 16px
+		font-family "ProximaNovaSemibold"
+
+.footer-next-item-holder
+	display inline-block
+	margin-right 30px
+
+	&:last-child
+		margin-right 0
+
+	.footer-next-item
+		font-size 15px
+
+.footer-info
+	.footer-info-private
+		display block
+		margin-bottom 10px
+		padding-bottom 1px
+		color $colorOrange
+
+		border-bottom 1px solid transparent
+		transition border-bottom-color 0.3s $transitionAnimation
+
+		font-size 15px
+
+		&:hover
+			border-bottom-color $colorOrange
+
+	.footer-info-name
+		display block
+		margin-bottom 10px
+
+		font-size 15px
+
+		color #fff
+
+	.footer-creators
+		.footer-creators-title
+			margin-right 5px
+			color #fff
+			font-size 15px
+		.footer-creators-name
+			color $colorOrange
+			font-size 15px
+			border-bottom 1px solid transparent
+			transition border-bottom-color 0.3s $transitionAnimation
+		&:hover
+			.footer-creators-name
+				border-bottom-color $colorOrange
+
+.footer-social
+	display grid
+	grid-template-columns 1fr 1fr 1fr 1fr
+	grid-gap 0 20px
+
+	.footer-social-item
+		display block
+		width 25px
+		height 25px
+
+		border-radius 7px
+		overflow hidden
+
+		cursor pointer
+
+		svg
+			display block
+			width 100%
+			path
+				fill-opacity 1
+				transition fill 0.3s $transitionAnimation
+
+		&:hover
+			svg
+				path
+					fill $colorOrange
+
+
+/** //footer **/
+
 /** button and link **/
+.link
+	text-decoration none
+
+.link-white
+	color #fff
+
+.link-black
+	color $colorLightBlack
+
+.link--orange
+	transition color 0.3s $transitionAnimation
+
+	&:hover
+		color $colorOrange
+
+.button
+	display block
+	padding 10px 15px
+	box-sizing border-box
+
+	border-radius 45px
+
+	border 2px solid
+
+.button--orange
+	border-color $colorOrange
+	color $colorOrange
+	line-height 1
+
+	transition color 0.3s $transitionAnimation, border-color 0.3s $transitionAnimation, background 0.3s $transitionAnimation
+
+	&:hover
+		background $colorOrange
+		color #fff

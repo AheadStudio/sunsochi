@@ -55,16 +55,199 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 		])
 
 	body(itemscope, itemtype="http://schema.org/WebPage")
-
 		div(class="page")
 			header(class="page-header", itemscope, itemtype="http://schema.org/WPHeader")
+				div(class="header-row header-row--top")
+					div(class="page-inner page-inner--w1")
+						+menu({
+							rootClass: "header-top",
+							items: [
+								{
+									name: "О компании",
+									href: "about.html",
+									linkClass: "link link-white link--orange",
+								}, {
+									name: "Сотрудники",
+									href: "personals.html",
+									linkClass: "link link-white link--orange",
+								}, {
+									name: "Отзывы",
+									href: "reviews.html",
+									linkClass: "link link-white link--orange",
+								}, {
+									name: "Новости",
+									href: "news.html",
+									linkClass: "link link-white link--orange",
+								}, {
+									name: "Блог",
+									href: "blog.html",
+									linkClass: "link link-white link--orange",
+								}, {
+									name: "Застройщики",
+									href: "builders.html",
+									linkClass: "link link-white link--orange",
+								}, {
+									name: "Партнеры",
+									href: "partners.html",
+									linkClass: "link link-white link--orange",
+								}, {
+									name: "Контакты",
+									href: "contacts.html",
+									linkClass: "link link-white link--orange",
+								}, 
+							]
+						})
+				div(class="header-row header-row--middle")
+					div(class="page-inner page-inner--w1")
+						div(class="header-row-items")
+							div(class="header-logo")
+								a(href="home.html", class="link header-logo-img")
+									include ../svg/logo.svg
+								span(class="header-logo-title") Вся жилая и коммерческая недвижимость в Сочи с помощью выбора и оформления
+							
+							div(class="header-mobile")
+								span(class="header-mobile-title") Звоните нам бесплатно по РФ
+								a(href="tell:+78007075523", class="link header-mobile-item") 8-800-707-55-23
 
-
-			main(class="page-content")
+							a(href="#", class="link button button--orange header-call") Заказать звонок
+							
+				div(class="header-row header-row--bottom")
+					div(class="page-inner page-inner--w1")
+						div(class="header-row-items")
+							+menu({
+							rootClass: "header-bottom",
+							items: [
+								{
+									name: "Новостройки",
+									href: "about.html",
+									linkClass: "link link-black link--orange",
+								}, {
+									name: "Квартиры",
+									href: "personals.html",
+									linkClass: "link link-black link--orange",
+								}, {
+									name: "Элитные",
+									href: "reviews.html",
+									linkClass: "link link-black link--orange",
+								}, {
+									name: "Дома",
+									href: "news.html",
+									linkClass: "link link-black link--orange",
+								}, {
+									name: "Участки",
+									href: "blog.html",
+									linkClass: "link link-black link--orange",
+								}, {
+									name: "Коммерческие",
+									href: "builders.html",
+									linkClass: "link link-black link--orange",
+								}, {
+									name: "Инвестиции",
+									href: "partners.html",
+									linkClass: "link link-black link--orange",
+								}, 
+							]
+							})
+							div(class="header-favorites")
+								a(href="#", class="link header-favorites-holder")
+									include ../svg/star.svg
+								span(class="header-favorites-count", data-favorite="0") 0
+				
+			main(class="page-content") 
 				block content
 
 		footer(class="page-footer", itemscope, itemtype="http://schema.org/WPFooter")
-
+			div(class="page-inner page-inner--w1")
+				div(class="footer-row footer-row--top")
+				+menu({
+					rootClass: "footer-top",
+					items: [
+						{
+							name: "Новостройки",
+							href: "about.html",
+							linkClass: "link link-white link--orange",
+						}, {
+							name: "Квартиры",
+							href: "personals.html",
+							linkClass: "link link-white link--orange",
+						}, {
+							name: "Элитные",
+							href: "reviews.html",
+							linkClass: "link link-white link--orange",
+						}, {
+							name: "Дома",
+							href: "news.html",
+							linkClass: "link link-white link--orange",
+						}, {
+							name: "Участки",
+							href: "blog.html",
+							linkClass: "link link-white link--orange",
+						}, {
+							name: "Коммерческие",
+							href: "builders.html",
+							linkClass: "link link-white link--orange",
+						}, {
+							name: "Инвестиции",
+							href: "partners.html",
+							linkClass: "link link-white link--orange",
+						}, 
+					]
+				})
+				div(class="footer-row footer-row--top")
+				+menu({
+					rootClass: "footer-next",
+					items: [
+						{
+							name: "О компании",
+							href: "about.html",
+							linkClass: "link link-white link--orange",
+						}, {
+							name: "Сотрудники",
+							href: "personals.html",
+							linkClass: "link link-white link--orange",
+						}, {
+							name: "Отзывы",
+							href: "reviews.html",
+							linkClass: "link link-white link--orange",
+						}, {
+							name: "Новости",
+							href: "news.html",
+							linkClass: "link link-white link--orange",
+						}, {
+							name: "Блог",
+							href: "blog.html",
+							linkClass: "link link-white link--orange",
+						}, {
+							name: "Застройщики",
+							href: "builders.html",
+							linkClass: "link link-white link--orange",
+						}, {
+							name: "Партнеры",
+							href: "partners.html",
+							linkClass: "link link-white link--orange",
+						}, {
+							name: "Контакты",
+							href: "contacts.html",
+							linkClass: "link link-white link--orange",
+						}, 
+					]
+				})
+				div(class="footer-row footer-row--bottom")
+					div(class="footer-info")
+						a(href="#", class="link link-bottom-orange footer-info-private") Политика обработки персональных данных
+						div(class="footer-info-name") SunSochi.com - Недвижимость в Сочи
+						a(href="#", class="link footer-creators") 
+							span(class="footer-creators-title") Поддержка сайта
+							span(class="footer-creators-name") Aheadstudio
+					div(class="footer-social")
+						div(class="footer-social-item")
+							include ../svg/vk.svg
+						div(class="footer-social-item")
+							include ../svg/fb.svg
+						div(class="footer-social-item")
+							include ../svg/instagram.svg
+						div(class="footer-social-item")
+							include ../svg/youtube.svg
 
 		+addJS([
 			{
