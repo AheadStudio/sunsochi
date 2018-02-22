@@ -1,4 +1,167 @@
 extends ../templates/base
 
 block content
-    div(class="page-inner")
+    div(class="intro")
+        img(src="../dummy/sochi.png", class="intro-img")
+        div(class="intro-text") Выберите жилье вашей мечты из каталога проверенных объектов и получите цену от застройщика
+        
+    div(class="page-inner page-inner--w1")
+        div(class="page-text")
+            h2 Поиск по объектам
+        div(class="filter")
+            a(href="#", class="link filter-clear", data-filter-tab="0") Очистить все
+            div(class="filter-tabs")
+                div(class="filter-tab", data-filter-tab="1") Новостройки
+                div(class="filter-tab", data-filter-tab="2") Квартиры
+                div(class="filter-tab", data-filter-tab="3") Дома
+                div(class="filter-tab", data-filter-tab="4") Участки
+                div(class="filter-tab", data-filter-tab="5") Коммерческие
+            div(class="filter-list")
+                div(class="filter-item", data-filter-item="0")
+                    form(class="form form-filter", action="#")
+                        div(class="filter-selected-regions-list")
+                        button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
+                div(class="filter-item", data-filter-item="1")
+                    form(class="form form-filter", action="#")
+                        div(class="form-row")
+                            div(class="form-row-100")
+                                div(class="form-holder")
+                                    label(class="form-label")
+                                        input(type="checkbox", class="form-item form-item--checkbox")
+                                        span(class="form-item-checkbox-title") ФЗ-214
+                                    label(class="form-label")
+                                        input(type="checkbox", class="form-item form-item--checkbox")
+                                        span(class="form-item-checkbox-title") Сданные
+                                    label(class="form-label")
+                                        input(type="checkbox", class="form-item form-item--checkbox")
+                                        span(class="form-item-checkbox-title") Ипотека
+                                    label(class="form-label")
+                                        input(type="checkbox", class="form-item form-item--checkbox")
+                                        span(class="form-item-checkbox-title") Военная ипотека
+                                    label(class="form-label")
+                                        input(type="checkbox", class="form-item form-item--checkbox")
+                                        span(class="form-item-checkbox-title") Близость к морю
+                        
+                        div(class="form-row") 
+                            div(class="form-row-50")
+                                div(class="form-item-title") Площадь
+                                div(class="form-holder")
+                                    input(type="range", multiple="", value="20,100", min="10", max="150", step="10", class="form-item form-item--range")
+                            div(class="form-row-50") 
+                                div(class="form-item-title") Цена
+                                div(class="form-holder")
+                                    input(type="range", multiple="", value="708000,3000000", min="700000", max="100000000", step="1000", class="form-item form-item--range")
+                        
+                        div(class="form-row")
+                            div(class="form-row-50")
+                                div(class="form-holder")
+                                    div(class="regions-container white-popup mfp-hide")
+                                        div(class="regions-container-list")
+                                            ul
+                                                li 
+                                                    span(class="select") Адлер
+                                                li 
+                                                    span Быхта
+                                                li 
+                                                    span Догомыс
+                                                li 
+                                                    span Донская
+                                                li 
+                                                    span Завокзальный
+                                                li 
+                                                    span Заречный
+                                                li 
+                                                    span Касная Пляна
+                                                li 
+                                                    span КСМ
+                                                li 
+                                                    span Кудепста
+                                                li 
+                                                    span Курортный городок
+                                                li 
+                                                    span Лазаревский
+                                                li 
+                                                    span Макаренко
+                                                li 
+                                                    span Мамайка
+                                                li 
+                                                    span Мацеста
+                                                li 
+                                                    span Новый сочи
+                                                li 
+                                                    span Олимпийский парк
+                                                li 
+                                                    span Приморье
+                                                li 
+                                                    span Раздольное
+                                                li 
+                                                    span Светлана
+                                                li 
+                                                    span Соболевка
+                                                li 
+                                                    span Хоста
+                                                li 
+                                                    span Центр
+                                                li 
+                                                    span Яна Фабрициуса     
+                                                                                   
+                                    a(href=".regions-container", class="link link-black jcf-select-form-item--select mfp-modal")
+                                        span(class="jcf-select-text")
+                                            span Район
+                                        span(class="jcf-select-opener")
+                                        
+                            div(class="form-row-50") 
+                                div(class="form-holder")
+                                    input(type="text", class="form-item form-item--text", placeholder="Поиск по названию или улице")
+                                    button(type="button", class="form-filter-search")
+                                        span(class="form-filter-search-icon")
+                                            include ../svg/loupe.svg
+                        
+                        div(class="filter-selected-regions-list")
+                            div(class="filter-selected-regions-item")
+                                span(class="selected-regions-item-text") Мамайка
+                                div(class="selected-regions-item-close")
+                                    include ../svg/close_gray.svg
+                                    
+                        button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
+                
+                div(class="filter-item hide hide-block", data-filter-item="2")
+                    form(class="form form-filter", action="#")
+                        div(class="form-row")
+                            div(class="form-row-100")
+                                div(class="form-holder")
+                                    label(class="form-label")
+                                        input(type="checkbox", class="form-item form-item--checkbox")
+                                        span(class="form-item-checkbox-title") ФЗ-214
+                                    label(class="form-label")
+                                        input(type="checkbox", class="form-item form-item--checkbox")
+                                        span(class="form-item-checkbox-title") Сданные
+                                    label(class="form-label")
+                                        input(type="checkbox", class="form-item form-item--checkbox")
+                                        span(class="form-item-checkbox-title") Ипотека
+                                    label(class="form-label")
+                                        input(type="checkbox", class="form-item form-item--checkbox")
+                                        span(class="form-item-checkbox-title") Военная ипотека
+                                    label(class="form-label")
+                                        input(type="checkbox", class="form-item form-item--checkbox")
+                                        span(class="form-item-checkbox-title") Близость к морю
+                        
+                        div(class="form-row") 
+                            div(class="form-row-50")
+                                div(class="form-item-title") Площадь
+                                div(class="form-holder")
+                                    input(type="range", multiple="", value="20,100", min="10", max="150", step="10", class="form-item form-item--range")
+                            div(class="form-row-50") 
+                                div(class="form-item-title") Цена
+                                div(class="form-holder")
+                                    input(type="range", multiple="", value="708000,3000000", min="700000", max="100000000", step="1000", class="form-item form-item--range")
+                                                
+                        div(class="filter-selected-regions-list")
+                            div(class="filter-selected-regions-item")
+                                span(class="selected-regions-item-text") Мамайка
+                                div(class="selected-regions-item-close")
+                                    include ../svg/close_gray.svg
+                                    
+                        button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
+                
+            

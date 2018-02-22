@@ -45,11 +45,15 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 		+addCSS([
 			{
 				media: "screen",
-				href: "../css/sprite.css",
+				href: "../css/plugins/magnific-popup.css",
 				noCache: true,
 			}, {
 				media: "screen",
 				href: "../css/" + info.code + ".css",
+				noCache: true,
+			}, {
+				media: "screen",
+				href: "../css/" + info.code + ".responsive.css",
 				noCache: true
 			}
 		])
@@ -159,79 +163,79 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 		footer(class="page-footer", itemscope, itemtype="http://schema.org/WPFooter")
 			div(class="page-inner page-inner--w1")
 				div(class="footer-row footer-row--top")
-				+menu({
-					rootClass: "footer-top",
-					items: [
-						{
-							name: "Новостройки",
-							href: "about.html",
-							linkClass: "link link-white link--orange",
-						}, {
-							name: "Квартиры",
-							href: "personals.html",
-							linkClass: "link link-white link--orange",
-						}, {
-							name: "Элитные",
-							href: "reviews.html",
-							linkClass: "link link-white link--orange",
-						}, {
-							name: "Дома",
-							href: "news.html",
-							linkClass: "link link-white link--orange",
-						}, {
-							name: "Участки",
-							href: "blog.html",
-							linkClass: "link link-white link--orange",
-						}, {
-							name: "Коммерческие",
-							href: "builders.html",
-							linkClass: "link link-white link--orange",
-						}, {
-							name: "Инвестиции",
-							href: "partners.html",
-							linkClass: "link link-white link--orange",
-						}, 
-					]
-				})
+					+menu({
+						rootClass: "footer-top",
+						items: [
+							{
+								name: "Новостройки",
+								href: "about.html",
+								linkClass: "link link-white link--orange",
+							}, {
+								name: "Квартиры",
+								href: "personals.html",
+								linkClass: "link link-white link--orange",
+							}, {
+								name: "Элитные",
+								href: "reviews.html",
+								linkClass: "link link-white link--orange",
+							}, {
+								name: "Дома",
+								href: "news.html",
+								linkClass: "link link-white link--orange",
+							}, {
+								name: "Участки",
+								href: "blog.html",
+								linkClass: "link link-white link--orange",
+							}, {
+								name: "Коммерческие",
+								href: "builders.html",
+								linkClass: "link link-white link--orange",
+							}, {
+								name: "Инвестиции",
+								href: "partners.html",
+								linkClass: "link link-white link--orange",
+							}, 
+						]
+					})
 				div(class="footer-row footer-row--top")
-				+menu({
-					rootClass: "footer-next",
-					items: [
-						{
-							name: "О компании",
-							href: "about.html",
-							linkClass: "link link-white link--orange",
-						}, {
-							name: "Сотрудники",
-							href: "personals.html",
-							linkClass: "link link-white link--orange",
-						}, {
-							name: "Отзывы",
-							href: "reviews.html",
-							linkClass: "link link-white link--orange",
-						}, {
-							name: "Новости",
-							href: "news.html",
-							linkClass: "link link-white link--orange",
-						}, {
-							name: "Блог",
-							href: "blog.html",
-							linkClass: "link link-white link--orange",
-						}, {
-							name: "Застройщики",
-							href: "builders.html",
-							linkClass: "link link-white link--orange",
-						}, {
-							name: "Партнеры",
-							href: "partners.html",
-							linkClass: "link link-white link--orange",
-						}, {
-							name: "Контакты",
-							href: "contacts.html",
-							linkClass: "link link-white link--orange",
-						}, 
-					]
-				})
+					+menu({
+						rootClass: "footer-next",
+						items: [
+							{
+								name: "О компании",
+								href: "about.html",
+								linkClass: "link link-white link--orange",
+							}, {
+								name: "Сотрудники",
+								href: "personals.html",
+								linkClass: "link link-white link--orange",
+							}, {
+								name: "Отзывы",
+								href: "reviews.html",
+								linkClass: "link link-white link--orange",
+							}, {
+								name: "Новости",
+								href: "news.html",
+								linkClass: "link link-white link--orange",
+							}, {
+								name: "Блог",
+								href: "blog.html",
+								linkClass: "link link-white link--orange",
+							}, {
+								name: "Застройщики",
+								href: "builders.html",
+								linkClass: "link link-white link--orange",
+							}, {
+								name: "Партнеры",
+								href: "partners.html",
+								linkClass: "link link-white link--orange",
+							}, {
+								name: "Контакты",
+								href: "contacts.html",
+								linkClass: "link link-white link--orange",
+							}, 
+						]
+					})
 				div(class="footer-row footer-row--bottom")
 					div(class="footer-info")
 						a(href="#", class="link link-bottom-orange footer-info-private") Политика обработки персональных данных
@@ -251,7 +255,17 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 
 		+addJS([
 			{
-				src: "http://code.jquery.com/jquery-1.11.3.min.js"
+				src: "../js/jquery-3.2.1.min.js"
+			}, {
+				src: "../js/plugins/jcf.js"
+			}, {
+				src: "../js/plugins/jcf.checkbox.js"
+			}, {
+				src: "../js/plugins/jcf.range.js"
+			}, {
+				src: "../js/plugins/jcf.select.js"
+			}, {
+				src: "../js/plugins/jquery.magnific-popup.min.js"
 			}, {
 				src: "../js/" + info.code + ".js"
 			}

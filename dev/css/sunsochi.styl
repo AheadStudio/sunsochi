@@ -58,6 +58,8 @@ body
 	cursor default
 	font-family "ProximaNovaRegular"
 
+	color $colorLightBlack
+
 /*** //Settings ***/
 
 /*** main style ***/
@@ -307,6 +309,17 @@ body
 				path
 					fill $colorOrange
 
+.page-text
+	h2
+		display block
+		text-align center
+
+		font-family "ProximaNovaSemibold"
+		font-size 24px
+
+		line-height 54px
+
+		color $colorLightBlack
 
 /** //footer **/
 
@@ -345,3 +358,530 @@ body
 	&:hover
 		background $colorOrange
 		color #fff
+
+.button--orange-flood
+	background $colorOrange
+	color #fff
+	line-height 1
+
+	transition box-shadow 0.3s $transitionAnimation
+	border-color $colorOrange
+
+	&:hover
+		box-shadow 0px 5px 15px -5px rgba(0,0,0,0.75)
+
+/*** main style ***/
+
+/*** block intro ***/
+.intro
+	position relative
+	width 100%
+	margin-bottom 50px
+
+	&:after
+		content ""
+		position absolute
+		top 0
+		left 0
+		right 0
+		bottom 0
+
+		background-color rgba(0, 0, 0, 0.5)
+		z-index 1
+
+	.intro-img
+		position absolute
+		left 0
+		top 0
+		right 0
+		bottom 0
+
+		display block
+		width 100%
+		height 100%
+
+		z-index -1
+
+		object-fit cover
+
+	.intro-text
+		position relative
+		top 0
+		bottom 0
+
+		max-width 850px
+		margin 0 auto
+
+		padding 130px 0
+		box-sizing border-box
+
+		text-align center
+
+		font-size 50px
+		font-family "ProximaNovaBold"
+		line-height 60px
+
+		color #fff
+
+		z-index 10
+
+/*** //block intro ***/
+
+
+/*** block filter home ***/
+.filter
+	position relative
+
+	margin-top 30px
+	margin-bottom 35px
+
+	.filter-tabs
+		padding-top 25px
+
+		border-top 1px solid $colorTurquoise
+
+	.filter-clear
+		position absolute
+		right 0
+		top -65px
+
+		color #9B9A9B
+
+		font-family "ProximaNovaSemibold"
+		font-size 13px
+
+.filter-tabs
+	margin-bottom 30px
+
+	.filter-tab
+		display inline-block
+		margin-right 15px
+
+		padding 13px 20px
+		box-sizing border-box
+
+		border 1px solid $colorLightGray
+		border-radius 100px
+
+		font-family "ProximaNovaSemibold"
+		font-size 15px
+
+		cursor pointer
+
+		transition border-color 0.3s $transitionAnimation, background 0.3s $transitionAnimation, color 0.3s $transitionAnimation
+
+		&:hover
+			border-color $colorBlue
+			color $colorBlue
+
+		&.active-tab
+			border-color $colorBlue
+			background $colorBlue
+			color #fff
+
+			&:hover
+				background #fff
+				color $colorBlue
+
+		&:last-child
+			margin-right 0
+
+.filter-list
+	.filter-item
+		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+		&.hide-block
+			display none
+
+		&.hide
+			transform translateY(10px)
+			opacity 0
+
+
+.form-filter
+	.filter-submit
+		margin 30px auto 0 auto
+
+		font-size 18px
+		padding 13px 30px
+
+	.filter-selected-regions-list
+		display flex
+		justify-content flex-start
+		border-bottom 1px solid $colorTurquoise
+
+		.filter-selected-regions-item
+			position relative
+			display block
+			margin-bottom 20px
+
+			padding 13px 20px
+			box-sizing border-box
+
+			border-radius 50px
+
+			background #f6f7fa
+
+			cursor pointer
+
+			.selected-regions-item-text
+				font-size 14px
+				padding-right 25px
+
+			.selected-regions-item-close
+				position absolute
+				right 15px
+				top 15px
+				display block
+				width 13px
+				height 13px
+
+				svg
+					display block
+					width 100%
+
+					path
+						transition fill 0.3s $transitionAnimation
+
+				&:hover
+					svg
+						path
+							fill $colorLightBlack
+
+
+
+.form
+	margin-top 35px
+
+	.form-row
+		display flex
+		justify-content space-between
+
+		margin-bottom 35px
+
+		&-100
+			width 100%
+		&-50
+			width 48%
+
+		.form-holder
+			position relative
+			display inline-block
+			width 100%
+
+
+		.form-item-title
+			margin-bottom 15px
+
+		.form-item
+			display block
+			width 100%
+
+			padding 13px 17px
+			box-sizing border-box
+
+			border 1px solid $colorLightGray
+
+			border-radius 3px
+			font-size 16px
+			background #fff
+
+			transition background 0.3s $transitionAnimation
+
+			&:hover
+				background $colorLightGray
+
+			&--hidden
+				position absolute
+				opacity 0
+
+		.form-filter-search
+			position absolute
+			top 10px
+			right 13px
+
+			display block
+			width 27px
+			height 27px
+
+			.form-filter-search-icon
+				display block
+				width 100%
+
+				transition transform 0.3s $transitionAnimation
+
+				svg
+					display block
+					width 100%
+
+					path
+						fill $colorLightBlack
+
+			&:hover
+				.form-filter-search-icon
+					transform rotate(15deg)
+
+.form-label
+	display inline-block
+	margin-right 25px
+
+	cursor pointer
+
+	&:last-child
+		margin-right 0
+
+	input
+		position absolute
+		left 0
+		top 0
+
+		display block
+		width 100%
+		height 100%
+
+	.jcf-checkbox
+		position relative
+		display inline-block
+		width 30px
+		height 30px
+
+		vertical-align middle
+
+		border 1px solid #d0d0d0
+		margin-right 10px
+
+
+		span
+			position absolute
+			top 5.7px
+			left 4.9px
+
+			display block
+			width 22px
+			height 22px
+
+			background-image url("../svg/check_blue.svg")
+			background-repeat no-repeat
+			background-size contain
+
+			transform translateY(5px)
+			opacity 0
+
+			transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+		&.jcf-checked
+			span
+				opacity 1
+				transform translateY(0)
+
+.form
+	.jcf-range
+		display block
+		width 100%
+		height 100%
+
+		.jcf-range-wrapper
+			position relative
+			display block
+
+			.jcf-range-display-wrapper
+				display block
+				width 100%
+				height 100%
+
+			.jcf-range-display
+				position absolute
+				top 7px
+
+				display block
+				height 3px
+				background-color $colorBlue
+
+				z-index 20
+
+		.jcf-range-track
+			position relative
+			left 0
+			display block
+
+			width 100%
+			height 45px
+
+			&:after
+				content ""
+				position absolute
+				top 7px
+				display block
+				width 100%
+				height 3px
+
+				background-color $colorLightGray
+
+				z-index 10
+
+			.jcf-range-handle
+				position absolute
+
+				display block
+				width 15px
+				height 15px
+
+				border-radius 50%
+
+				background-color $colorBlue
+
+				cursor pointer
+
+				z-index 30
+
+				box-shadow 0px 0px 0px 7px rgba(#009ecc, 0.70)
+
+				.jcf-range-count
+					position absolute
+					top 30px
+
+					display block
+					width 100%
+					height 15px
+					background-color #ccc
+
+	.jcf-select-form-item--select
+		position relative
+		display block
+		width 100%
+
+		padding 13px 17px
+		box-sizing border-box
+
+		border 1px solid $colorLightGray
+
+		border-radius 3px
+		font-size 18px
+		font-family "ProximaNovaSemibold"
+
+		background #fff
+
+		cursor pointer
+		transition background 0.3s $transitionAnimation
+
+		.jcf-select-opener
+			position: absolute
+			top 54%
+			right: 17px
+
+			display block
+			width 20px
+			height 11px
+
+			background-image url(../svg/arrow_bottom.svg)
+
+			background-size contain
+			background-repeat no-repeat
+
+			transform translateY(-50%)
+			transition background-image 0.3s $transitionAnimation
+
+		&:hover
+			background $colorLightGray
+
+.regions-container
+	position relative
+	width auto
+	max-width 690px
+	margin 0 auto
+	display block
+	padding 55px 70px 40px 70px
+
+	background #fff
+	box-shadow 0px 0px 27px -1px rgba(158, 158, 158, 0.3)
+	z-index 100
+
+	.regions-container-list
+		ul
+			display grid
+			grid-template-columns 1fr 1fr 1fr
+			grid-gap 20px 80px
+
+			li
+				position relative
+				box-sizing border-box
+
+				cursor pointer
+
+				span
+					position relative
+					display block
+					padding 10px 35px 10px 15px
+					box-sizing border-box
+
+					border-radius 50px
+					background #fff
+					color #000
+
+					transition background 0.3s $transitionAnimation, color 0.3s $transitionAnimation
+
+					&.select
+						background $colorBlue
+						color #fff
+
+					&:after
+						content ""
+
+						position absolute
+						right 15px
+						top 11.5px
+
+						display block
+						width 13px
+						height 13px
+
+						background-image url("../svg/close_white.svg")
+						background-size contain
+
+	.regions-container-close
+		position absolute
+		top 20px
+		right 20px
+
+		display block
+		width 20px
+		height 20px
+
+		svg
+			display block
+			width 100%
+
+			path
+				transition fill 0.3s $transitionAnimation
+
+		&:hover
+			svg
+				path
+					fill $colorLightBlack
+
+.mfp-bg
+	background transparent
+	opacity 0
+
+.mfp-fade
+	&.mfp-bg
+		opacity 0
+		transition all 0.3s $transitionAnimation
+
+	&.mfp-bg.mfp-ready
+		opacity 0.8
+
+	&.mfp-bg.mfp-removing
+		opacity 0
+
+	&.mfp-wrap
+		.mfp-content
+			opacity 0
+			transition all 0.3s $transitionAnimation
+
+	&.mfp-wrap.mfp-ready
+		.mfp-content
+			opacity 1
+	&.mfp-wrap.mfp-removing
+		.mfp-content
+			opacity 0
