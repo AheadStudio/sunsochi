@@ -17,10 +17,11 @@ block content
                 div(class="filter-tab", data-filter-tab="4") Участки
                 div(class="filter-tab", data-filter-tab="5") Коммерческие
             div(class="filter-list")
-                div(class="filter-item", data-filter-item="0")
+                div(class="filter-item hide hide-block", data-filter-item="0")
                     form(class="form form-filter", action="#")
                         div(class="filter-selected-regions-list")
                         button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
+                
                 div(class="filter-item", data-filter-item="1")
                     form(class="form form-filter", action="#")
                         div(class="form-row")
@@ -46,66 +47,89 @@ block content
                             div(class="form-row-50")
                                 div(class="form-item-title") Площадь
                                 div(class="form-holder")
-                                    input(type="range", multiple="", value="20,100", min="10", max="150", step="10", class="form-item form-item--range")
+                                    input(type="range", multiple="", value="20,100", min="10", max="150", step="10", class="form-item form-item--range", data-valfrom="", data-valto="")
                             div(class="form-row-50") 
                                 div(class="form-item-title") Цена
                                 div(class="form-holder")
-                                    input(type="range", multiple="", value="708000,3000000", min="700000", max="100000000", step="1000", class="form-item form-item--range")
+                                    input(type="range", multiple="", value="10000000,50000000", min="700000", max="100000000", step="1000", class="form-item form-item--range", data-valfrom="", data-valto="")
                         
                         div(class="form-row")
                             div(class="form-row-50")
                                 div(class="form-holder")
-                                    div(class="regions-container white-popup mfp-hide")
+                                    div(id="regions-container--1", class="regions-container white-popup mfp-hide")
                                         div(class="regions-container-list")
                                             ul
-                                                li 
-                                                    span(class="select") Адлер
-                                                li 
-                                                    span Быхта
-                                                li 
-                                                    span Догомыс
-                                                li 
-                                                    span Донская
-                                                li 
-                                                    span Завокзальный
-                                                li 
-                                                    span Заречный
-                                                li 
-                                                    span Касная Пляна
-                                                li 
-                                                    span КСМ
-                                                li 
-                                                    span Кудепста
-                                                li 
-                                                    span Курортный городок
-                                                li 
-                                                    span Лазаревский
-                                                li 
-                                                    span Макаренко
-                                                li 
-                                                    span Мамайка
-                                                li 
-                                                    span Мацеста
-                                                li 
-                                                    span Новый сочи
-                                                li 
-                                                    span Олимпийский парк
-                                                li 
-                                                    span Приморье
-                                                li 
-                                                    span Раздольное
-                                                li 
-                                                    span Светлана
-                                                li 
-                                                    span Соболевка
-                                                li 
-                                                    span Хоста
-                                                li 
-                                                    span Центр
-                                                li 
-                                                    span Яна Фабрициуса     
+                                                li(name="adler")
+                                                    span(class="regions-text") Адлер
+                                                    div(class="regions-close")
+                                                li(name="bihta")
+                                                    span(class="regions-text") Быхта
+                                                    div(class="regions-close")
+                                                li(name="dogomis")
+                                                    span(class="regions-text") Догомыс
+                                                    div(class="regions-close")
+                                                li(name="dons")
+                                                    span(class="regions-text") Донская
+                                                    div(class="regions-close")
+                                                li(name="q")
+                                                    span(class="regions-text") Завокзальный
+                                                    div(class="regions-close")
+                                                li(name="w")
+                                                    span(class="regions-text") Заречный
+                                                    div(class="regions-close")
+                                                li(name="e")
+                                                    span(class="regions-text") Касная Пляна
+                                                    div(class="regions-close")
+                                                li(name="r")
+                                                    span(class="regions-text") КСМ
+                                                    div(class="regions-close")
+                                                li(name="t")
+                                                    span(class="regions-text") Кудепста
+                                                    div(class="regions-close")
+                                                li(name="y")
+                                                    span(class="regions-text") Курортный городок
+                                                    div(class="regions-close")
+                                                li(name="u")
+                                                    span(class="regions-text") Лазаревский
+                                                    div(class="regions-close")
+                                                li(name="i")
+                                                    span(class="regions-text") Макаренко
+                                                    div(class="regions-close")
+                                                li(name="o")
+                                                    span(class="regions-text") Мамайка
+                                                    div(class="regions-close")
+                                                li(name="a")
+                                                    span(class="regions-text") Мацеста
+                                                    div(class="regions-close")
+                                                li(name="f")
+                                                    span(class="regions-text") Новый сочи
+                                                    div(class="regions-close")
+                                                li(name="g")
+                                                    span(class="regions-text") Олимпийский парк
+                                                    div(class="regions-close")
+                                                li(name="h")
+                                                    span(class="regions-text") Приморье
+                                                    div(class="regions-close")
+                                                li(name="j")
+                                                    span(class="regions-text") Раздольное
+                                                    div(class="regions-close")
+                                                li(name="k")
+                                                    span(class="regions-text") Светлана
+                                                    div(class="regions-close")
+                                                li(name="l")
+                                                    span(class="regions-text") Соболевка
+                                                    div(class="regions-close")
+                                                li(name="z")
+                                                    span(class="regions-text") Хоста
+                                                    div(class="regions-close")
+                                                li(name="x")
+                                                    span(class="regions-text") Центр
+                                                    div(class="regions-close")
+                                                li(name="c")
+                                                    span(class="regions-text") Яна Фабрициуса     
+                                                    div(class="regions-close")
                                                                                    
-                                    a(href=".regions-container", class="link link-black jcf-select-form-item--select mfp-modal")
+                                    a(href="#regions-container--1", class="link link-black jcf-select-form-item--select mfp-modal")
                                         span(class="jcf-select-text")
                                             span Район
                                         span(class="jcf-select-opener")
@@ -118,10 +142,6 @@ block content
                                             include ../svg/loupe.svg
                         
                         div(class="filter-selected-regions-list")
-                            div(class="filter-selected-regions-item")
-                                span(class="selected-regions-item-text") Мамайка
-                                div(class="selected-regions-item-close")
-                                    include ../svg/close_gray.svg
                                     
                         button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
                 
@@ -130,38 +150,394 @@ block content
                         div(class="form-row")
                             div(class="form-row-100")
                                 div(class="form-holder")
+                                    div(class="checkbox-list-container")
+                                        div(class="checkbox-list-container-title") Планировка
+                                        label(class="form-label")
+                                            input(type="checkbox", class="form-item form-item--checkbox")
+                                            span(class="form-item-checkbox-title") 1
+                                        label(class="form-label")
+                                            input(type="checkbox", class="form-item form-item--checkbox")
+                                            span(class="form-item-checkbox-title") 2
+                                        label(class="form-label")
+                                            input(type="checkbox", class="form-item form-item--checkbox")
+                                            span(class="form-item-checkbox-title") 3
+                                        label(class="form-label")
+                                            input(type="checkbox", class="form-item form-item--checkbox")
+                                            span(class="form-item-checkbox-title") 4+
+                                        label(class="form-label")
+                                            input(type="checkbox", class="form-item form-item--checkbox")
+                                            span(class="form-item-checkbox-title") Студия
                                     label(class="form-label")
                                         input(type="checkbox", class="form-item form-item--checkbox")
-                                        span(class="form-item-checkbox-title") ФЗ-214
-                                    label(class="form-label")
-                                        input(type="checkbox", class="form-item form-item--checkbox")
-                                        span(class="form-item-checkbox-title") Сданные
-                                    label(class="form-label")
-                                        input(type="checkbox", class="form-item form-item--checkbox")
-                                        span(class="form-item-checkbox-title") Ипотека
-                                    label(class="form-label")
-                                        input(type="checkbox", class="form-item form-item--checkbox")
-                                        span(class="form-item-checkbox-title") Военная ипотека
-                                    label(class="form-label")
-                                        input(type="checkbox", class="form-item form-item--checkbox")
-                                        span(class="form-item-checkbox-title") Близость к морю
+                                        span(class="form-item-checkbox-title") С ремонтом
                         
                         div(class="form-row") 
                             div(class="form-row-50")
                                 div(class="form-item-title") Площадь
                                 div(class="form-holder")
-                                    input(type="range", multiple="", value="20,100", min="10", max="150", step="10", class="form-item form-item--range")
+                                    input(type="range", multiple="", value="20,100", min="10", max="150", step="10", class="form-item form-item--range", data-valfrom="", data-valto="")
                             div(class="form-row-50") 
                                 div(class="form-item-title") Цена
                                 div(class="form-holder")
-                                    input(type="range", multiple="", value="708000,3000000", min="700000", max="100000000", step="1000", class="form-item form-item--range")
+                                    input(type="range", multiple="", value="708000,50000000", min="700000", max="100000000", step="1000", class="form-item form-item--range", data-valfrom="", data-valto="")
+                
+                        div(class="form-row")
+                            div(class="form-row-50")
+                                div(class="form-holder")
+                                    div(id="regions-container--2", class="regions-container white-popup mfp-hide")
+                                        div(class="regions-container-list")
+                                            ul
+                                                li(name="adler")
+                                                    span(class="regions-text") Адлер
+                                                    div(class="regions-close")
+                                                li(name="bihta")
+                                                    span(class="regions-text") Быхта
+                                                    div(class="regions-close")
+                                                li(name="dogomis")
+                                                    span(class="regions-text") Догомыс
+                                                    div(class="regions-close")
+                                                li(name="dons")
+                                                    span(class="regions-text") Донская
+                                                    div(class="regions-close")
+                                                li(name="q")
+                                                    span(class="regions-text") Завокзальный
+                                                    div(class="regions-close")
+                                                li(name="w")
+                                                    span(class="regions-text") Заречный
+                                                    div(class="regions-close")
+                                                li(name="e")
+                                                    span(class="regions-text") Касная Пляна
+                                                    div(class="regions-close")
+                                                li(name="r")
+                                                    span(class="regions-text") КСМ
+                                                    div(class="regions-close")
+                                                li(name="t")
+                                                    span(class="regions-text") Кудепста
+                                                    div(class="regions-close")
+                                                li(name="y")
+                                                    span(class="regions-text") Курортный городок
+                                                    div(class="regions-close")
+                                                li(name="u")
+                                                    span(class="regions-text") Лазаревский
+                                                    div(class="regions-close")
+                                                li(name="i")
+                                                    span(class="regions-text") Макаренко
+                                                    div(class="regions-close")
+                                                li(name="o")
+                                                    span(class="regions-text") Мамайка
+                                                    div(class="regions-close")
+                                                li(name="a")
+                                                    span(class="regions-text") Мацеста
+                                                    div(class="regions-close")
+                                                li(name="f")
+                                                    span(class="regions-text") Новый сочи
+                                                    div(class="regions-close")
+                                                li(name="g")
+                                                    span(class="regions-text") Олимпийский парк
+                                                    div(class="regions-close")
+                                                li(name="h")
+                                                    span(class="regions-text") Приморье
+                                                    div(class="regions-close")
+                                                li(name="j")
+                                                    span(class="regions-text") Раздольное
+                                                    div(class="regions-close")
+                                                li(name="k")
+                                                    span(class="regions-text") Светлана
+                                                    div(class="regions-close")
+                                                li(name="l")
+                                                    span(class="regions-text") Соболевка
+                                                    div(class="regions-close")
+                                                li(name="z")
+                                                    span(class="regions-text") Хоста
+                                                    div(class="regions-close")
+                                                li(name="x")
+                                                    span(class="regions-text") Центр
+                                                    div(class="regions-close")
+                                                li(name="c")
+                                                    span(class="regions-text") Яна Фабрициуса     
+                                                    div(class="regions-close")
+                                                                                   
+                                    a(href="#regions-container--2", class="link link-black jcf-select-form-item--select mfp-modal")
+                                        span(class="jcf-select-text")
+                                            span Район
+                                        span(class="jcf-select-opener")
+                                        
+                            div(class="form-row-50") 
+                                div(class="form-holder")
+                                    input(type="text", class="form-item form-item--text", placeholder="Поиск по названию или улице")
+                                    button(type="button", class="form-filter-search")
+                                        span(class="form-filter-search-icon")
+                                            include ../svg/loupe.svg
                                                 
                         div(class="filter-selected-regions-list")
-                            div(class="filter-selected-regions-item")
-                                span(class="selected-regions-item-text") Мамайка
-                                div(class="selected-regions-item-close")
-                                    include ../svg/close_gray.svg
                                     
                         button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
                 
-            
+                div(class="filter-item hide hide-block", data-filter-item="3")
+                    form(class="form form-filter", action="#")                        
+                        div(class="form-row") 
+                            div(class="form-row-50")
+                                div(class="form-item-title") Площадь
+                                div(class="form-holder")
+                                    input(type="range", multiple="", value="20,100", min="10", max="150", step="10", class="form-item form-item--range", data-valfrom="", data-valto="")
+                            div(class="form-row-50") 
+                                div(class="form-item-title") Цена
+                                div(class="form-holder")
+                                    input(type="range", multiple="", value="708000,50000000", min="700000", max="100000000", step="1000", class="form-item form-item--range", data-valfrom="", data-valto="")
+                
+                        div(class="form-row")
+                            div(class="form-row-50")
+                                div(class="form-holder")
+                                    div(id="regions-container--3", class="regions-container white-popup mfp-hide")
+                                        div(class="regions-container-list")
+                                            ul
+                                                li(name="adler")
+                                                    span(class="regions-text") Адлер
+                                                    div(class="regions-close")
+                                                li(name="bihta")
+                                                    span(class="regions-text") Быхта
+                                                    div(class="regions-close")
+                                                li(name="dogomis")
+                                                    span(class="regions-text") Догомыс
+                                                    div(class="regions-close")
+                                                li(name="dons")
+                                                    span(class="regions-text") Донская
+                                                    div(class="regions-close")
+                                                li(name="q")
+                                                    span(class="regions-text") Завокзальный
+                                                    div(class="regions-close")
+                                                li(name="w")
+                                                    span(class="regions-text") Заречный
+                                                    div(class="regions-close")
+                                                li(name="e")
+                                                    span(class="regions-text") Касная Пляна
+                                                    div(class="regions-close")
+                                                li(name="r")
+                                                    span(class="regions-text") КСМ
+                                                    div(class="regions-close")
+                                                li(name="t")
+                                                    span(class="regions-text") Кудепста
+                                                    div(class="regions-close")
+                                                li(name="y")
+                                                    span(class="regions-text") Курортный городок
+                                                    div(class="regions-close")
+                                                li(name="u")
+                                                    span(class="regions-text") Лазаревский
+                                                    div(class="regions-close")
+                                                li(name="i")
+                                                    span(class="regions-text") Макаренко
+                                                    div(class="regions-close")
+                                                li(name="o")
+                                                    span(class="regions-text") Мамайка
+                                                    div(class="regions-close")
+                                                li(name="a")
+                                                    span(class="regions-text") Мацеста
+                                                    div(class="regions-close")
+                                                li(name="f")
+                                                    span(class="regions-text") Новый сочи
+                                                    div(class="regions-close")
+                                                li(name="g")
+                                                    span(class="regions-text") Олимпийский парк
+                                                    div(class="regions-close")
+                                                li(name="h")
+                                                    span(class="regions-text") Приморье
+                                                    div(class="regions-close")
+                                                li(name="j")
+                                                    span(class="regions-text") Раздольное
+                                                    div(class="regions-close")
+                                                li(name="k")
+                                                    span(class="regions-text") Светлана
+                                                    div(class="regions-close")
+                                                li(name="l")
+                                                    span(class="regions-text") Соболевка
+                                                    div(class="regions-close")
+                                                li(name="z")
+                                                    span(class="regions-text") Хоста
+                                                    div(class="regions-close")
+                                                li(name="x")
+                                                    span(class="regions-text") Центр
+                                                    div(class="regions-close")
+                                                li(name="c")
+                                                    span(class="regions-text") Яна Фабрициуса     
+                                                    div(class="regions-close")
+                                                                                   
+                                    a(href="#regions-container--3", class="link link-black jcf-select-form-item--select mfp-modal")
+                                        span(class="jcf-select-text")
+                                            span Район
+                                        span(class="jcf-select-opener")
+                                        
+                            div(class="form-row-50") 
+                                div(class="form-holder")
+                                    input(type="text", class="form-item form-item--text", placeholder="Поиск по названию или улице")
+                                    button(type="button", class="form-filter-search")
+                                        span(class="form-filter-search-icon")
+                                            include ../svg/loupe.svg
+                                                
+                        div(class="filter-selected-regions-list")
+                                    
+                        button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
+                
+    div(class="offers")
+        div(class="page-inner page-inner--w1")
+            div(class="page-text")
+                h2 Выгодные предложения
+            div(class="offers-list")
+                a(href="#", class="offers-item")
+                    div(class="offers-container")
+                        div(class="offers-container-mark") Акция
+                        img(src="../dummy/home_1.png", alt  class="offers-container-img")
+                        div(class="offers-container-price") 1 167 920 
+                    div(class="offers-information")
+                        div(class="offers-name") ЖК Семейный
+                        div(class="offers-district") Лазаревский район
+                        span(class="offers-time") II кв. 2020
+                        div(class="offers-version")
+                            div(class="offers-version-item") 
+                                span Студия
+                            div(class="offers-version-price") 
+                                span от 1 167 920 
+                            div(class="offers-version-item") 
+                                span 1 комн.
+                            div(class="offers-version-price") 
+                                span от 1 910 920
+                            div(class="offers-version-item") 
+                                span 2 комн.
+                            div(class="offers-version-price") 
+                                span от 1 910 920
+                a(href="#", class="offers-item")
+                    div(class="offers-container")
+                        img(src="../dummy/home_2.png", alt  class="offers-container-img")
+                        div(class="offers-container-price") 2 200 900
+                    div(class="offers-information")
+                        div(class="offers-name") ЖК Эко Хаус 2
+                        div(class="offers-district") Район Хоста
+                        span(class="offers-time") IV кв. 2018
+                        div(class="offers-version")
+                            div(class="offers-version-item") 
+                                span Студия
+                            div(class="offers-version-price") 
+                                span от 1 167 920 
+                            div(class="offers-version-item") 
+                                span 1 комн.
+                            div(class="offers-version-price") 
+                                span от 1 910 920
+                            div(class="offers-version-item") 
+                                span 2 комн.
+                            div(class="offers-version-price") 
+                                span от 1 910 920
+                a(href="#", class="offers-item")
+                    div(class="offers-container")
+                        div(class="offers-container-mark") Лучшиее инвестиции
+                        img(src="../dummy/home_3.png", alt  class="offers-container-img")
+                        div(class="offers-container-price") 2 330 000
+                    div(class="offers-information")
+                        div(class="offers-name") ЖК Лесная поляна 
+                            br 
+                            | (2-я очередь)
+                        div(class="offers-district") Район Дагомыс
+                        span(class="offers-time") СДАН
+                        div(class="offers-version")
+                            div(class="offers-version-item") 
+                                span Студия
+                            div(class="offers-version-price") 
+                                span от 1 167 920 
+                            div(class="offers-version-item") 
+                                span 1 комн.
+                            div(class="offers-version-price") 
+                                span от 1 910 920
+                            div(class="offers-version-item") 
+                                span 2 комн.
+                            div(class="offers-version-price") 
+                                span от 1 910 920
+                a(href="#", class="offers-item")
+                    div(class="offers-container")
+                        div(class="offers-container-mark") Спеццена
+                        img(src="../dummy/home_1.png", alt  class="offers-container-img")
+                        div(class="offers-container-price") 1 167 920 
+                    div(class="offers-information")
+                        div(class="offers-name") ЖК Семейный
+                        div(class="offers-district") Лазаревский район
+                        span(class="offers-time") II кв. 2020
+                        div(class="offers-version")
+                            div(class="offers-version-item") 
+                                span Студия
+                            div(class="offers-version-price") 
+                                span от 1 167 920 
+                            div(class="offers-version-item") 
+                                span 1 комн.
+                            div(class="offers-version-price") 
+                                span от 1 910 920
+                            div(class="offers-version-item") 
+                                span 2 комн.
+                            div(class="offers-version-price") 
+                                span от 1 910 920
+                a(href="#", class="offers-item")
+                    div(class="offers-container")
+                        div(class="offers-container-mark") Самый центр
+                        img(src="../dummy/home_2.png", alt  class="offers-container-img")
+                        div(class="offers-container-price") 2 200 900
+                    div(class="offers-information")
+                        div(class="offers-name") ЖК Эко Хаус 2
+                        div(class="offers-district") Район Хоста
+                        span(class="offers-time") IV кв. 2018
+                        div(class="offers-version")
+                            div(class="offers-version-item") 
+                                span Студия
+                            div(class="offers-version-price") 
+                                span от 1 167 920 
+                            div(class="offers-version-item") 
+                                span 1 комн.
+                            div(class="offers-version-price") 
+                                span от 1 910 920
+                            div(class="offers-version-item") 
+                                span 2 комн.
+                            div(class="offers-version-price") 
+                                span от 1 910 920
+                a(href="#", class="offers-item")
+                    div(class="offers-container")
+                        div(class="offers-container-mark") Лучшиее предложение!
+                        img(src="../dummy/home_3.png", alt  class="offers-container-img")
+                        div(class="offers-container-price") 2 330 000
+                    div(class="offers-information")
+                        div(class="offers-name") ЖК Лесная поляна 
+                            br
+                            | (2-я очередь)
+                        div(class="offers-district") Район Дагомыс
+                        span(class="offers-time") СДАН
+                        div(class="offers-version")
+                            div(class="offers-version-item") 
+                                span Студия
+                            div(class="offers-version-price") 
+                                span от 1 167 920 
+                            div(class="offers-version-item") 
+                                span 1 комн.
+                            div(class="offers-version-price") 
+                                span от 1 910 920
+                            div(class="offers-version-item") 
+                                span 2 комн.
+                            div(class="offers-version-price") 
+                                span от 1 910 920
+
+
+        div(class="section")
+            div(class="section-item")
+                div(class="section-container")
+                    div(class="section-container-mark") Квартиры по акции
+                    img(src="../dummy/section_home.png", alt="", class="section-container-img")
+            div(class="section-item")
+                div(class="section-information")
+                    div(class="section-information-container")
+                        div(class="section-name") ЖК Кватро
+                        div(class="section-developer") Застройщик ALK++Company
+                        div(class="section-district") Лазаревский район
+                        div(class="section-area") Площадь от 29 м
+                            sup 2
+                        div(class="section-price") Цена от 2 319 200
+                        div(class="section-version")
+                            div(class="section-version-item") 1 комн. от 36 м 
+                                sup 2
+                            div(class="section-version-price") от 1 910 920
+                            div(class="section-version-item") 2 комн. от 41 м 
+                                sup 2
+                            div(class="section-version-price") от 2 200 920
+                        a(href="#", target="_blank", class="link button button--white section-more") Подробнее

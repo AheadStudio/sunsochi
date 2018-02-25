@@ -359,6 +359,17 @@ body
 		background $colorOrange
 		color #fff
 
+.button--white
+	border-color #fff
+	color #fff
+	line-height 1
+
+	transition color 0.3s $transitionAnimation, border-color 0.3s $transitionAnimation, background 0.3s $transitionAnimation
+
+	&:hover
+		background #fff
+		color $colorOrange
+
 .button--orange-flood
 	background $colorOrange
 	color #fff
@@ -450,6 +461,9 @@ body
 		font-family "ProximaNovaSemibold"
 		font-size 13px
 
+		&.active
+			color #F89C21
+
 .filter-tabs
 	margin-bottom 30px
 
@@ -497,7 +511,6 @@ body
 			transform translateY(10px)
 			opacity 0
 
-
 .form-filter
 	.filter-submit
 		margin 30px auto 0 auto
@@ -508,12 +521,15 @@ body
 	.filter-selected-regions-list
 		display flex
 		justify-content flex-start
+		align-items center
+		flex-wrap wrap
 		border-bottom 1px solid $colorTurquoise
 
 		.filter-selected-regions-item
 			position relative
 			display block
 			margin-bottom 20px
+			margin-right 20px
 
 			padding 13px 20px
 			box-sizing border-box
@@ -523,6 +539,10 @@ body
 			background #f6f7fa
 
 			cursor pointer
+
+			.form-item--checkbox
+				display none
+				opacity 0
 
 			.selected-regions-item-text
 				font-size 14px
@@ -547,8 +567,6 @@ body
 					svg
 						path
 							fill $colorLightBlack
-
-
 
 .form
 	margin-top 35px
@@ -674,76 +692,146 @@ body
 				opacity 1
 				transform translateY(0)
 
+	.form-item-checkbox-title
+		font-family "ProximaNovaSemibold"
+
+.checkbox-list-container
+	display inline-block
+	margin-right 25px
+	vertical-align middle
+
+	.checkbox-list-container-title
+		display inline-block
+		margin-right 30px
+
+	.form-label
+		position relative
+		margin-right 15px
+
+		.jcf-checkbox
+			position absolute
+			top 0
+			left 0
+			width 100%
+			height 100%
+
+			border-radius 100px
+			box-sizing border-box
+
+			transition border-color 0.3s $transitionAnimation, background 0.3s $transitionAnimation, color 0.3s $transitionAnimation
+
+			span
+				display none
+
+			&:hover
+				border-color $colorBlue
+
+		.form-item-checkbox-title
+			position relative
+			display block
+			padding 10px 25px
+
+			transition color 0.3s $transitionAnimation
+
+			z-index 10
+
+		&.jcf-label-active
+			.jcf-checkbox
+				&.jcf-checked
+					border-color $colorBlue
+					background $colorBlue
+
+			.form-item-checkbox-title
+				color #fff
+
 .form
 	.jcf-range
 		display block
 		width 100%
 		height 100%
 
-		.jcf-range-wrapper
-			position relative
+	.jcf-range-wrapper
+		position relative
+		display block
+
+		.jcf-range-display-wrapper
 			display block
-
-			.jcf-range-display-wrapper
-				display block
-				width 100%
-				height 100%
-
-			.jcf-range-display
-				position absolute
-				top 7px
-
-				display block
-				height 3px
-				background-color $colorBlue
-
-				z-index 20
-
-		.jcf-range-track
-			position relative
-			left 0
-			display block
-
 			width 100%
-			height 45px
+			height 100%
 
-			&:after
-				content ""
+		.jcf-range-display
+			position absolute
+			top 7px
+
+			display block
+			height 3px
+			background-color $colorBlue
+
+			z-index 20
+
+	.jcf-range-track
+		position relative
+		left 0
+		display block
+
+		width 100%
+		height 45px
+
+		&:after
+			content ""
+			position absolute
+			top 7px
+			display block
+			width 100%
+			height 3px
+
+			background-color $colorLightGray
+
+			z-index 10
+
+		.jcf-range-handle
+			position absolute
+
+			display block
+			width 15px
+			height 15px
+
+			border-radius 50%
+
+			background-color $colorBlue
+
+			cursor pointer
+
+			z-index 30
+
+			box-shadow 0px 0px 0px 7px rgba(#009ecc, 0.70)
+
+			.jcf-range-count
 				position absolute
-				top 7px
+				top 30px
+
 				display block
 				width 100%
-				height 3px
-
-				background-color $colorLightGray
-
-				z-index 10
-
-			.jcf-range-handle
-				position absolute
-
-				display block
-				width 15px
 				height 15px
 
-				border-radius 50%
+				text-align center
 
-				background-color $colorBlue
+				font-size 16px
 
-				cursor pointer
-
-				z-index 30
-
-				box-shadow 0px 0px 0px 7px rgba(#009ecc, 0.70)
-
-				.jcf-range-count
-					position absolute
-					top 30px
+				.jcf-range-count-number
+					position relative
+					left 50%
 
 					display block
-					width 100%
-					height 15px
-					background-color #ccc
+					width max-content
+
+					text-align center
+
+					transform translateX(-40%)
+
+				sup
+					vertical-align top
+					font-size 10px
 
 	.jcf-select-form-item--select
 		position relative
@@ -808,7 +896,7 @@ body
 
 				cursor pointer
 
-				span
+				.regions-text
 					position relative
 					display block
 					padding 10px 35px 10px 15px
@@ -820,23 +908,24 @@ body
 
 					transition background 0.3s $transitionAnimation, color 0.3s $transitionAnimation
 
-					&.select
+
+				.regions-close
+					position absolute
+					right 15px
+					top 11.5px
+
+					display block
+					width 13px
+					height 13px
+
+					background-image url("../svg/close_white.svg")
+					background-size contain
+
+					z-index 10
+				&.select
+					span
 						background $colorBlue
 						color #fff
-
-					&:after
-						content ""
-
-						position absolute
-						right 15px
-						top 11.5px
-
-						display block
-						width 13px
-						height 13px
-
-						background-image url("../svg/close_white.svg")
-						background-size contain
 
 	.regions-container-close
 		position absolute
@@ -885,3 +974,295 @@ body
 	&.mfp-wrap.mfp-removing
 		.mfp-content
 			opacity 0
+
+/*** //block filter home ***/
+
+/*** block offers ***/
+
+.offers
+	padding-top 75px
+	box-sizing border-box
+
+	box-shadow inset 0px 15px 70px -10px rgba(#d2d2d2, 0.85)
+
+	background $colorLightBlue
+
+.offers-list
+	display grid
+	grid-template-columns repeat(3,minmax(300px,1fr))
+	grid-gap 45px 35px
+	margin-top 65px
+
+.offers-item
+	text-decoration none
+	color $colorLightBlack
+
+	.offers-container
+		position relative
+		display block
+		width 100%
+		height 215px
+
+		.offers-container-mark
+			position absolute
+			top 10px
+			left 0
+
+			display block
+			padding 5px 20px 5px 25px
+			box-sizing border-box
+
+			background-color $colorRed
+			font-size 13px
+			font-family "ProximaNovaBold"
+
+			color #fff
+
+			z-index 15
+
+		.offers-container-price
+			position absolute
+			bottom 10px
+			right 0
+
+			display block
+			padding 5px 25px 5px 20px
+			box-sizing border-box
+
+			background-color $colorOrange
+
+			font-size 15px
+			font-family "ProximaNovaSemibold"
+			letter-spacing 1px
+
+			color #fff
+
+			z-index 15
+
+		.offers-container-img
+			position absolute
+			top 0
+			left 0
+			right 0
+			bottom 0
+
+			display block
+			width 100%
+			height 100%
+
+			object-fit: cover
+
+			z-index 10
+
+			border-top-right-radius 5px
+			border-top-left-radius 5px
+
+		/*&:after
+			content ""
+			position absolute
+			left 0
+			top 0
+
+			display block
+			width 100%
+			height 100%
+
+			box-sizing border-box
+
+			box-shadow inset 0px 0px 20px -10px rgba(0,0,0,0.75)
+
+			z-index 20*/
+
+	.offers-information
+		position relative
+		padding 30px 15px
+		box-sizing border-box
+
+		background-color #fff
+
+		.offers-name
+			display block
+			margin-bottom 10px
+
+			font-size 20px
+			line-height 20px
+
+			text-align left
+
+		.offers-district
+			display block
+			font-size 13px
+			color #4A494A
+
+		.offers-time
+			position absolute
+			top 32px
+			right 15px
+
+			font-size 13px
+			font-family "ProximaNovaSemibold"
+			color #4A494A
+
+		.offers-version
+			display grid
+			grid-template-columns 1fr 1fr
+			grid-gap 20px 0
+			margin-top 50px
+
+			overflow hidden
+
+			.offers-version-item
+				position relative
+				font-size 15px
+				color #9B9A9B
+
+				span
+					position relative
+					padding-right 5px
+
+					background #fff
+					z-index 10
+
+				&:after
+					content ""
+					position absolute
+					bottom 2px
+					left 0
+					width 100em
+
+					border-bottom 1px dotted
+
+			.offers-version-price
+				font-size 15px
+				font-family "ProximaNovaSemibold"
+
+				color #4A494A
+				text-align right
+
+				span
+					position relative
+					padding-left 5px
+
+					background #fff
+					z-index 10
+/*** //block offers ***/
+
+
+/*** section block ***/
+.section
+	display flex
+	justify-content space-between
+
+	margin-top 70px
+	margin-bottom 90px
+
+.section-item
+	width 50%
+
+	.section-container
+		position relative
+		display block
+		width 100%
+		height 100%
+
+		&:after
+			content ""
+			position relative
+			top 0
+			left 0
+
+			display block
+			width 100%
+			padding-bottom 70%
+
+		.section-container-img
+			position absolute
+			top 0
+			left 0
+			bottom 0
+			right 0
+
+			display block
+			width 100%
+			height 100%
+
+			object-fit cover
+
+		.section-container-mark
+			position absolute
+			left 0
+			top 20px
+
+			display block
+			padding 10px 10px 10px 25px
+			box-sizing border-box
+
+			font-size 18px
+			font-family "ProximaNovaBold"
+
+			background $colorRed
+
+			color #fff
+
+			z-index 10
+
+	.section-information-container
+		position relative
+		top 50%
+		transform translateY(-50%)
+
+	.section-information
+		display block
+		width 100%
+		height 100%
+		padding 45px 0 45px 10%
+		box-sizing border-box
+		background $colorOrange
+
+		.section-name
+			margin-bottom 25px
+
+			font-size 28px
+			font-family  "ProximaNovaSemibold"
+			color #fff
+
+		.section-developer
+			margin-bottom 10px
+			font-size 20px
+			color #fff
+
+		.section-district
+			margin-bottom 40px
+			font-size 14px
+
+		.section-area
+			margin-bottom 25px
+			font-size 20px
+
+		sup
+			vertical-align top
+			font-size 12px
+
+		.section-price
+			margin-bottom 45px
+			font-size 20px
+
+		.section-version
+			display grid
+			grid-template-columns 1fr 1fr
+			grid-gap 20px 0
+			max-width 240px
+			margin-bottom 60px
+
+			.section-version-item
+				font-size 15px
+
+			.section-version-price
+				font-size 15px
+				text-align left
+
+		.section-more
+			max-width 135px
+			padding 13px 20px
+			text-align center
+/*** //section block ***/
