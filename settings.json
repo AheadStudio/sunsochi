@@ -26,7 +26,15 @@
         "home": {
             "name": "Главная",
             "progress": {
-                "desktop": "0",
+                "desktop": "80",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "new-buildings": {
+            "name": "Новостройки",
+            "progress": {
+                "desktop": "20",
                 "tablet": "0",
                 "mobile": "0"
             }

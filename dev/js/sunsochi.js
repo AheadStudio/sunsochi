@@ -14,7 +14,6 @@
 					var self = this;
 
 					self.toggleTabs.init();
-
 					self.formFilter.init();
 				},
 
@@ -28,8 +27,6 @@
 						var self = this,
 							$filterItem = $("[data-filter-tab]");
 
-						self.forms = $(".form-filter");
-
 						$filterItem.on("click", function(e) {
 							var item = $(this),
 								dataItem = item.data("filterTab"),
@@ -38,21 +35,7 @@
 
 							if (dataItem === 0) {
 								self.hideAll($allItem);
-
 								item.removeClass("active");
-
-								self.forms.each(function() {
-									var $form = $(this),
-										$itemForm = $form.find(".form-item");
-
-									$form[0].reset();
-
-									$itemForm.each(function() {
-										(function(el) {
-											jcf.refresh(el);
-										})($(this));
-									})
-								});
 								event.preventDefault();
 							}
 							$filterItem.removeClass("active-tab");
@@ -109,14 +92,18 @@
 
 					filter: "",
 
+					forms: "",
+
 					init: function() {
 						var self = this;
 
 						self.filter = $(".filter");
+						self.forms = $(".form-filter");
 
 						self.changeRange();
 						self.regions.init();
 						self.watchChangeInput();
+						self.resetFilter();
 					},
 
 					changeRange: function() {
@@ -126,34 +113,37 @@
 						$rangeInput.each(function() {
 
 							(function(el) {
-								var inputEl = $(el),
-									jcfContainer = inputEl.closest(".jcf-range"),
-									jcfFrom = jcfContainer.find(".jcf-index-1"),
-									jcfFromField = $(".jcf-range-count-number", jcfFrom),
-									jcfTo = jcfContainer.find(".jcf-index-2"),
-									jcfToField = $(".jcf-range-count-number", jcfTo),
+								var $inputEl = $(el),
+									$jcfContainer = $inputEl.closest(".jcf-range"),
+									jcfFrom = $jcfContainer.find(".jcf-index-1"),
+									$jcfFromField = $(".jcf-range-count-number", jcfFrom),
+									$jcfTo = $jcfContainer.find(".jcf-index-2"),
+									$jcfToField = $(".jcf-range-count-number", $jcfTo),
+									tplText = $inputEl.data("valtext"),
 									fromVal,toVal,valueArray;
 
-								valueArray = inputEl[0].defaultValue.split(",");
+								valueArray = $inputEl[0].defaultValue.split(",");
 
 								// text in container
-								jcfFromField.text(valueArray[0] + " м").append("<sup>2</sup>");
-								jcfToField.text(valueArray[1] + " м").append("<sup>2</sup>");
+								$jcfFromField.text(valueArray[0]).append(tplText);
+								$jcfToField.text(valueArray[1]).append(tplText);
 
-								inputEl.attr("data-valfrom", valueArray[0]);
-								inputEl.attr("data-valto", valueArray[1]);
+								$inputEl.attr("data-valfrom", valueArray[0]);
+								$inputEl.attr("data-valto", valueArray[1]);
 
-								inputEl.on("change input", function(e) {
-									var element = $(this);
+								$inputEl.on("change input", function(e) {
+									var $element = $(this);
+									fromVal = $element[0].valueLow;
+									toVal = $element[0].valueHigh;
 
-									fromVal = element[0].valueLow;
-									jcfFromField.text(fromVal + " м").append("<sup>2</sup>");
+									$jcfFromField.text(fromVal).append(tplText);
+									$jcfToField.text(toVal).append(tplText);
 
-									toVal = element[0].valueHigh;
-									jcfToField.text(toVal + " м").append("<sup>2</sup>");
+									$element.attr("data-valfrom", fromVal);
+									$element.attr("data-valto", toVal);
 
-									element.attr("data-valfrom", fromVal);
-									element.attr("data-valto", toVal);
+									var currentStateRange = jcf.getInstance($inputEl);
+									currentStateRange.refresh();
 								});
 
 							})($(this));
@@ -254,6 +244,28 @@
 							})
 
 						},
+
+					},
+
+					resetFilter: function() {
+						var self = this,
+							$clearFilter = $(".filter-clear", self.filter);
+
+						$clearFilter.on("click", function() {
+							self.forms.each(function() {
+								var $form = $(this),
+									$itemForm = $form.find(".form-item");
+
+								$form[0].reset();
+								setTimeout(function() {
+									$itemForm.each(function() {
+										(function(el) {
+											jcf.refresh(el);
+										})($(this));
+									})
+								}, 100);
+							});
+						})
 					}
 				},
 
@@ -353,14 +365,123 @@
 					}
 				}
 
-			}
+			},
 
+			maps: {
+				init: function() {
+					$(".map", $sel.body).each(function() {
+						var $map = $(this),
+							lng = parseFloat($map.data("lng"), 10) || 0,
+							lat = parseFloat($map.data("lat"), 10) || 0,
+							zoom = parseInt($map.data("zoom"));
+
+						var options = {
+							center: new google.maps.LatLng(lat, lng),
+							zoom: zoom,
+							mapTypeControl: false,
+							panControl: false,
+							zoomControl: true,
+							zoomControlOptions: {
+								style: google.maps.ZoomControlStyle.LARGE,
+								position: google.maps.ControlPosition.TOP_RIGHT
+							},
+							scaleControl: true,
+							streetViewControl: true,
+							streetViewControlOptions: {
+								position: google.maps.ControlPosition.TOP_RIGHT
+							},
+							mapTypeId: google.maps.MapTypeId.ROADMAP,
+							/*styles: [
+								{"featureType": "landscape", "stylers": [
+									{"saturation": -100},
+									{"lightness": 0},
+									{"visibility": "on"}
+								]},
+								{"featureType": "poi", "stylers": [
+									{"saturation": -300},
+									{"lightness": -10},
+									{"visibility": "simplified"}
+								]},
+								{"featureType": "road.highway", "stylers": [
+									{"saturation": -100},
+									{"visibility": "simplified"}
+								]},
+								{"featureType": "road.arterial", "stylers": [
+									{"saturation": -100},
+									{"lightness": 0},
+									{"visibility": "on"}
+								]},
+								{"featureType": "road.local", "stylers": [
+									{"saturation": -100},
+									{"lightness": 0},
+									{"visibility": "on"}
+								]},
+								{"featureType": "transit", "stylers": [
+									{"saturation": -100},
+									{"visibility": "simplified"}
+								]},
+								{"featureType": "administrative.province", "stylers": [
+									{"visibility": "off"}
+								]},
+								{"featureType": "water", "elementType": "labels", "stylers": [
+									{"visibility": "on"},
+									{"lightness": -25},
+									{"saturation": -100}
+								]},
+								{"featureType": "water", "elementType": "geometry", "stylers": [
+									{"hue": "#ffff00"},
+									{"lightness": -25},
+									{"saturation": -97}
+								]}
+							]*/
+						};
+
+						var iconMap= {
+							url: $map.data("icon"),
+							size: new google.maps.Size(45, 65),
+						};
+						var api = new google.maps.Map($map[0], options);
+						var point = new google.maps.Marker({
+							position: new google.maps.LatLng(lat, lng),
+							map: api,
+							icon: $map.data("icon")
+						});
+
+					});
+				}
+			},
+
+			sliders: {
+
+				init: function() {
+					var self = this;
+
+					self.owlCarousel();
+				},
+
+				owlCarousel:function() {
+					var self = this,
+						owlSlider = $('.owl-carousel');
+
+					$('.owl-carousel').owlCarousel({
+						margin: 10,
+						loop: false,
+						items: 1,
+						dots: true,
+						smartSpeed: 1000,
+					})
+
+				}
+
+			},
 		};
 
 	})();
 
 	SUNSOCHI.forms.init();
 	SUNSOCHI.filter.init();
+	SUNSOCHI.maps.init();
+	SUNSOCHI.sliders.init();
 	SUNSOCHI.modalWindow.init();
 
 })(jQuery);
