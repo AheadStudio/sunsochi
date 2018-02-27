@@ -78,12 +78,15 @@ body
 	box-sizing border-box
 
 	&--w1
-		max-width 990px
+		max-width 1000px
 		padding 0 20px
 
 	&--w2
 		max-width 810px
 		padding 0 20px
+
+	&--max
+		max-width auto
 
 /** header **/
 .page-header
@@ -153,6 +156,8 @@ body
 		font-family "ProximaNovaBold"
 
 		color $colorBlue
+
+		white-space nowrap
 
 .header-row-items
 	.header-call
@@ -329,6 +334,9 @@ body
 
 		color $colorLightBlack
 
+	h3
+		font-size 16px
+		font-family "ProximaNovaSemibold"
 	dl
 		display grid
 		grid-template-columns 1fr 1fr
@@ -366,6 +374,9 @@ body
 .link-black
 	color $colorLightBlack
 
+.link-blue
+	color $colorBlue
+
 .link--orange
 	transition color 0.3s $transitionAnimation
 
@@ -377,12 +388,26 @@ body
 	&:hover
 		opacity 0.8
 
+.link-blue--bottom
+	border-bottom 1px solid transparent
+	transition border-bottom-color 0.3s $transitionAnimation
+
+	&:hover
+		border-bottom-color $colorBlue
+
 .link-black--bottom
 	border-bottom 1px solid $colorLightBlack
 	transition border-bottom-color 0.3s $transitionAnimation
 
 	&:hover
 		border-bottom-color transparent
+
+.link-orange--bottom
+	border-bottom 1px solid transparent
+	transition border-bottom-color 0.3s $transitionAnimation
+
+	&:hover
+		border-bottom-color $colorOrange
 
 .link-white--bottom
 	border-bottom 1px solid #fff
@@ -489,6 +514,52 @@ body
 
 		z-index 10
 
+	.intro-advantages
+		position relative
+		left 50%
+
+		display flex
+		justify-content space-between
+
+		transform translateX(-50%)
+		max-width 870px
+
+		margin-top -50px
+		padding-bottom 130px
+
+		z-index 10
+
+		.intro-advantages-item
+			display flex
+			justify-content flex-start
+			width 30%
+
+			margin-right 3%
+
+			&:last-child
+				margin-right 0
+
+			.intro-advantages-icon
+				display inline-block
+				width 25px
+
+				margin-right 20px
+
+				vertical-align top
+
+				svg
+					display block
+					width 100%
+
+					path
+						fill #fff
+
+			.intro-advantages-text
+				display inline-block
+				font-size 20px
+				font-family "ProximaNovaSemibold"
+
+				color #fff
 /*** //block intro ***/
 
 
@@ -1006,27 +1077,22 @@ body
 	opacity 0
 
 .mfp-fade
-	&.mfp-bg
+	.mfp-content
 		opacity 0
+		transform translateY(-30px)
 		transition all 0.3s $transitionAnimation
 
-	&.mfp-bg.mfp-ready
-		opacity 0.8
-
-	&.mfp-bg.mfp-removing
-		opacity 0
-
 	&.mfp-wrap
-		.mfp-content
-			opacity 0
-			transition all 0.3s $transitionAnimation
+		&.mfp-ready
+			.mfp-content
+				opacity 1
+				transform translateY(0)
 
-	&.mfp-wrap.mfp-ready
-		.mfp-content
-			opacity 1
-	&.mfp-wrap.mfp-removing
-		.mfp-content
-			opacity 0
+
+		&.mfp-removing
+			.mfp-content
+				opacity 0
+				transform translateY(-30px)
 
 /*** //block filter home ***/
 
@@ -1042,13 +1108,37 @@ body
 
 .offers-list
 	display grid
-	grid-template-columns repeat(3,minmax(300px,1fr))
+	grid-template-columns repeat(3, minmax(290px, 1fr))
 	grid-gap 45px 35px
+
 	margin-top 65px
+	padding-bottom 80px
 
 .offers-item
+	position relative
 	text-decoration none
 	color $colorLightBlack
+
+	&:before
+		content ""
+		position absolute
+		top 0
+		left 0
+		right 0
+		bottom 0
+
+		display block
+		width 100%
+		height 100%
+
+		transform scale(0.8)
+		opacity 0
+
+		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+		background rgba(#ffffff, 0.9)
+
+		z-index 20
 
 	.offers-container
 		position relative
@@ -1126,6 +1216,77 @@ body
 
 			z-index 20*/
 
+	.offers-container-favorites
+		position absolute
+		top 65px
+		left 50%
+
+		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+		transform translate(-50%,-30px)
+
+		opacity 0
+
+		z-index 30
+
+		.offers-container-favorites-icon
+			display block
+			width 60px
+			height 60px
+
+			margin 0 auto 25px auto
+
+			svg
+				display block
+				width 100%
+
+				path[fill=none]
+					stroke-width 8
+
+				path
+					transition fill 0.3s $transitionAnimation
+
+			&:hover
+				svg
+					path
+						fill $colorOrange
+
+		.offers-container-favorites-text
+			font-size 16px
+			font-family  "ProximaNovaSemibold"
+			text-align center
+
+			color $colorOrange
+
+			white-space nowrap
+
+	.offers-container-more
+		position absolute
+		bottom 85px
+		left 50%
+
+		width auto
+		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+		transform translate(-50%,30px)
+
+		opacity 0
+
+		z-index 30
+
+	&:hover
+		&:before
+			transform scale(1)
+			opacity 1
+
+		.offers-container-favorites
+			opacity 1
+			transform translate(-50%,0px)
+
+		.offers-container-more
+			opacity 1
+			transform translate(-50%,0px)
+
 	.offers-information
 		position relative
 		padding 30px 15px
@@ -1191,7 +1352,6 @@ body
 	display flex
 	justify-content space-between
 
-	margin-top 70px
 	margin-bottom 90px
 
 .section-item
@@ -1311,8 +1471,6 @@ body
 	padding-bottom 80px
 	box-sizing border-box
 
-	margin-bottom 80px
-
 	h2
 		margin-bottom 55px
 		font-size 28px
@@ -1388,13 +1546,17 @@ body
 /*** feature ***/
 
 .feature
+	margin-top 65px
+	margin-bottom 90px
+
+	h2
+		margin-bottom 65px
+
+.feature-list
 	display flex
 	justify-content space-between
 	flex-wrap wrap
 	align-items baseline
-
-	margin-top 65px
-	margin-bottom 90px
 
 .feature-item
 	width 30%
@@ -1619,8 +1781,12 @@ body
 
 
 			svg
+				overflow initial
 				display block
 				width 100%
+
+				path
+					stroke-width 8
 
 		.reviews-name
 			margin-bottom 40px
@@ -1675,6 +1841,7 @@ body
 
 	h2
 		margin-bottom 55px
+		font-size 28px
 
 	.causes-text
 		columns 2
@@ -1686,4 +1853,115 @@ body
 		display block
 		width 85px
 		margin 0 auto
+
+		color #4A494A
+
+		transition color 0.3s $transitionAnimation
+
+		&:hover
+			color $colorOrange
 /*** //causes ***/
+
+.popular
+	display flex
+	justify-content space-between
+	margin-bottom 85px
+
+	h3
+		display block
+		width 100%
+		text-align left
+		margin-bottom 30px
+
+	.popular-col
+		width 100%
+
+		&--60
+			max-width 60%
+
+		&--40
+			max-width 40%
+
+		&--30
+			max-width 30%
+
+	.popular-list
+		&--column
+			columns 2
+			column-gap 0 20px
+
+		.popular-item-link
+			display inline-block
+			margin-right 15px
+			font-size 14px
+			margin-bottom 15px
+
+		.popular-item-count
+			font-size 14px
+			color $colorGray
+
+.find-result
+	display block
+	overflow hidden
+
+	.find-result-text
+		display inline-block
+		font-size 24px
+		color $colorLightBlack
+
+	.find-result-button
+		position relative
+		float right
+		display inline-block
+
+		padding 15px 15px 15px 40px
+		box-sizing border-box
+
+		vertical-align top
+		background #fff
+
+		font-size 14px
+		font-family "ProximaNovaSemibold"
+
+		color $colorOrange
+		line-height 1
+
+		border-color #fff
+		background #fff
+
+		transition border-color 0.3s $transitionAnimation, color 0.3s $transitionAnimation
+
+		&.link
+			margin-left 10px
+
+		.find-result-button-icon
+			position absolute
+			left 10px
+			top 50%
+			display block
+			max-width 20px
+
+			transform translateY(-50%)
+
+			svg
+				display block
+				width 100%
+
+				path
+					transition fill 0.3s $transitionAnimation
+
+		&:hover
+			border-color $colorBlue
+			color $colorBlue
+
+			&.find-result-button--list
+				.find-result-button-icon
+					svg
+						path
+							fill $colorOrange
+
+			&.find-result-button--map
+				.find-result-button-icon
+					svg
+						path
+							fill $colorBlue

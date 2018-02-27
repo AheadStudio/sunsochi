@@ -281,6 +281,14 @@
 					}
 
 					self.applyJcf($form);
+					self.mask($form);
+				},
+
+				mask: function($form) {
+					$("[data-number]", $form).each(function() {
+						var $item = $(this);
+						$item.mask($item.data("number"));
+					});
 				},
 
 				applyJcf: function($form) {
@@ -354,6 +362,7 @@
 							midClick: true,
 							closeMarkup: '<button title="%title%" type="button" class="mfp-close regions-container-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.8 44.8"><g data-name="Слой 2"><path d="M19.6 22.4L0 42l2.8 2.8 19.6-19.6L42 44.8l2.8-2.8-19.6-19.6L44.8 2.8 42 0 22.4 19.6 2.8 0 0 2.8z" fill="#d0d0d0" data-name="Слой 1"/></g></svg></button>',
 							mainClass: "mfp-fade",
+							removalDelay: 300,
 							callbacks: {
 								open: function(el) {
 									$(".regions-container-close").on("click", function() {
