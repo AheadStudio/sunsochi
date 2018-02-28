@@ -7,6 +7,44 @@
 		$sel.body = $("body", $sel.html);
 
 		return {
+			common: {
+				go: function(topPos, speed, callback) {
+					var curTopPos = $sel.window.scrollTop(),
+						diffTopPos = Math.abs(topPos - curTopPos);
+					$sel.body.add($sel.html).animate({
+						"scrollTop": topPos
+					}, speed, function() {
+						if(callback) {
+							callback();
+						}
+					});
+				}
+			},
+
+			header: {
+				init: function() {
+					var self = this;
+
+					self.scroll.init();
+				},
+				scroll: {
+					init: function() {
+						$sel.window.on("scroll", function() {
+							var hh = $(".page-header").outerHeight(),
+								sTop = $sel.window.scrollTop();
+							if(sTop > hh+50) {
+								$sel.body.addClass("fixed-header");
+								setTimeout(function() {
+									$sel.body.addClass("fixed-header--show");
+								}, 100);
+							} else {
+								$sel.body.removeClass("fixed-header--show");
+								$sel.body.removeClass("fixed-header");
+							}
+						});
+					}
+				},
+			},
 
 			filter: {
 
@@ -144,12 +182,35 @@
 
 									var currentStateRange = jcf.getInstance($inputEl);
 									currentStateRange.refresh();
+
+									self.positionTextTrueRange($element);
 								});
 
 							})($(this));
 
 						});
 
+					},
+
+					positionTextTrueRange: function(trueElem) {
+						var self = this,
+							$jcfContainer = trueElem.closest(".jcf-range"),
+							$minRange = $jcfContainer.find(".jcf-index-1"),
+							$maxRange = $jcfContainer.find(".jcf-index-2"),
+							$textLeft = $minRange.find(".jcf-range-count-number"),
+							$textRight = $maxRange.find(".jcf-range-count-number");
+
+						if ($minRange.position().left < 10 ) {
+							$textLeft.addClass("left");
+						} else {
+							$textLeft.removeClass("left");
+						}
+
+						if ($maxRange.position().left > ($jcfContainer.width() - 20) || $maxRange.position().left === 0) {
+							$textRight.addClass("right");
+						} else {
+							$textRight.removeClass("right");
+						}
 					},
 
 					watchChangeInput: function() {
@@ -252,6 +313,12 @@
 							$clearFilter = $(".filter-clear", self.filter);
 
 						$clearFilter.on("click", function() {
+							var $regionsLi = $("li.select", ".regions-container");
+							var $regionsCheckbox = $(".filter-selected-regions-item");
+
+							$regionsLi.removeClass("select");
+							$regionsCheckbox.remove();
+
 							self.forms.each(function() {
 								var $form = $(this),
 									$itemForm = $form.find(".form-item");
@@ -260,12 +327,22 @@
 								setTimeout(function() {
 									$itemForm.each(function() {
 										(function(el) {
+
+											if (el.hasClass("form-item--range")) {
+												var currentStateRange = jcf.getInstance(el);
+												currentStateRange.values = [currentStateRange.minValue, currentStateRange.maxValue];
+												currentStateRange.refresh();
+												self.positionTextTrueRange(el);
+											}
 											jcf.refresh(el);
 										})($(this));
 									})
 								}, 100);
 							});
-						})
+						});
+
+
+
 					}
 				},
 
@@ -483,14 +560,54 @@
 				}
 
 			},
+
+			ajaxLoader: function() {
+				$sel.body.on("click", ".load-more", function(event) {
+					var $linkAddress = $(this),
+						href = $linkAddress.attr("href"),
+						selector = $linkAddress.data("itemsselector"),
+						$container = $($linkAddress.data("container"));
+
+					$linkAddress.addClass("loading");
+
+					(function(href, $container, $link, selector) {
+						$.ajax({
+							url: href,
+							success: function(data) {
+								var $data = $('<div />').append(data),
+									$items = $data.find(selector),
+									$preloader = $data.find(".load");
+
+								$items.addClass("load-events-item");
+								$container.append($items);
+								$link.parent().remove();
+
+								if($preloader && $preloader.length) {
+									$container.parent().append($preloader);
+								}
+
+								setTimeout(function() {
+									$container.find(".load-events-item").removeClass("load-events-item");
+									$linkAddress.removeClass("loading");
+								}, 100);
+
+							}
+						})
+					})(href, $container, $linkAddress, selector);
+					event.preventDefault();
+				})
+			},
+
 		};
 
 	})();
 
+	SUNSOCHI.header.init();
 	SUNSOCHI.forms.init();
 	SUNSOCHI.filter.init();
 	SUNSOCHI.maps.init();
 	SUNSOCHI.sliders.init();
 	SUNSOCHI.modalWindow.init();
+	SUNSOCHI.ajaxLoader();
 
 })(jQuery);

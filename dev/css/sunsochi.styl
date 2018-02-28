@@ -141,6 +141,16 @@ body
 
 		font-size 14px
 
+	&.header-logo--mini
+		display none
+		width 25px
+
+		margin-right 0
+		height 100%
+
+		.header-logo-img
+			width 100%
+
 .header-mobile
 	.header-mobile-title
 		display block
@@ -215,6 +225,36 @@ body
 	padding 20px 0
 	border-top 2px solid $colorLightBlue
 
+.fixed-header
+	.header-row--middle
+		margin-bottom 97px
+
+	.header-row--bottom
+		position fixed
+		top 0
+		left 0
+		right 0
+
+		width 100%
+		padding 10px 0
+
+		background #fff
+		border-bottom 3px solid $colorLightGray
+
+		opacity 0
+		transform translateY(-100px)
+		transition transform 0.3s $transitionAnimation
+
+		z-index 1000
+
+		.header-logo
+			&.header-logo--mini
+				display block
+
+	&.fixed-header--show
+		.header-row--bottom
+			opacity 1
+			transform translateY(0)
 /** //header **/
 
 /** footer **/
@@ -297,6 +337,15 @@ body
 	grid-template-columns 1fr 1fr 1fr 1fr
 	grid-gap 0 20px
 
+	&:hover
+		.footer-social-item
+			svg
+				display block
+				width 100%
+
+				path[fill="#fff"]
+					fill-opacity 0.5
+
 	.footer-social-item
 		display block
 		width 25px
@@ -307,17 +356,20 @@ body
 
 		cursor pointer
 
+		transition opacity 0.3s $transitionAnimation
+
 		svg
 			display block
 			width 100%
-			path
+			path[fill="#fff"]
 				fill-opacity 1
-				transition fill 0.3s $transitionAnimation
+				transition fill 0.3s $transitionAnimation, fill-opacity 0.3s $transitionAnimation
 
 		&:hover
 			svg
-				path
-					fill $colorOrange
+				path[fill="#fff"]
+					fill #fff
+					fill-opacity 1
 
 .page-text
 	font-size 16px
@@ -434,6 +486,17 @@ body
 
 	&:hover
 		background $colorOrange
+		color #fff
+
+.button--blue
+	border-color $colorBlue
+	color $colorBlue
+	line-height 1
+
+	transition color 0.3s $transitionAnimation, border-color 0.3s $transitionAnimation, background 0.3s $transitionAnimation
+
+	&:hover
+		background $colorBlue
 		color #fff
 
 .button--white
@@ -943,7 +1006,7 @@ body
 				font-size 16px
 
 				.jcf-range-count-number
-					position relative
+					position absolute
 					left 50%
 
 					display block
@@ -953,6 +1016,14 @@ body
 
 					transform translateX(-40%)
 
+					&.left
+						left -7px
+						transform translateX(0)
+
+					&.right
+						left auto
+						right -7px
+						transform translateX(0)
 				sup
 					vertical-align top
 					font-size 10px
@@ -1098,8 +1169,9 @@ body
 
 /*** block offers ***/
 
-.offers
+.section-shadow
 	padding-top 75px
+	padding-bottom 80px
 	box-sizing border-box
 
 	box-shadow inset 0px 15px 70px -10px rgba(#d2d2d2, 0.85)
@@ -1112,13 +1184,12 @@ body
 	grid-gap 45px 35px
 
 	margin-top 65px
-	padding-bottom 80px
 
 .offers-item
 	position relative
-	text-decoration none
+	height max-content
 	color $colorLightBlack
-
+	transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
 	&:before
 		content ""
 		position absolute
@@ -1344,6 +1415,17 @@ body
 
 					background #fff
 					z-index 10
+
+	&.load-events-item
+		transform translateY(-30px)
+		opacity 0
+.offers-more
+	margin-top 55px
+	text-align center
+
+	.link
+		max-width 220px
+		margin 0 auto
 /*** //block offers ***/
 
 
@@ -1848,6 +1930,9 @@ body
 		column-gap 40px
 
 		margin-bottom 60px
+
+		p
+			display flex
 
 	.causes-more
 		display block

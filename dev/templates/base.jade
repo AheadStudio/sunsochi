@@ -15,14 +15,14 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 			robots: "index, follow",
 			viewport: "width=device-width, initial-scale=1.0"
 		})
-		+openGraph({
+		+openGraph({ 
 			type: "website",
 			siteName: info.siteName,
 			title: info.title,
 			description: info.description,
 			url: info.productionUrl,
 			image: info.image
-		})
+		}) 
 		+webIcons({
 			favicon: {
 				src: "/i/favicon.ico"
@@ -122,39 +122,42 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				div(class="header-row header-row--bottom")
 					div(class="page-inner page-inner--w1")
 						div(class="header-row-items")
+							div(class="header-logo header-logo--mini")
+								a(href="home.html", class="link header-logo-img")
+									include ../../prod/svg/logo-mini.svg
 							+menu({
-							rootClass: "header-bottom",
-							items: [
-								{
-									name: "Новостройки",
-									href: "about.html",
-									linkClass: "link link-black link--orange",
-								}, {
-									name: "Квартиры",
-									href: "personals.html",
-									linkClass: "link link-black link--orange",
-								}, {
-									name: "Элитные",
-									href: "reviews.html",
-									linkClass: "link link-black link--orange",
-								}, {
-									name: "Дома",
-									href: "news.html",
-									linkClass: "link link-black link--orange",
-								}, {
-									name: "Участки",
-									href: "blog.html",
-									linkClass: "link link-black link--orange",
-								}, {
-									name: "Коммерческие",
-									href: "builders.html",
-									linkClass: "link link-black link--orange",
-								}, {
-									name: "Инвестиции",
-									href: "partners.html",
-									linkClass: "link link-black link--orange",
-								}, 
-							]
+								rootClass: "header-bottom",
+								items: [
+									{
+										name: "Новостройки",
+										href: "about.html",
+										linkClass: "link link-black link--orange",
+									}, {
+										name: "Квартиры",
+										href: "personals.html",
+										linkClass: "link link-black link--orange",
+									}, {
+										name: "Элитные",
+										href: "reviews.html",
+										linkClass: "link link-black link--orange",
+									}, {
+										name: "Дома",
+										href: "news.html",
+										linkClass: "link link-black link--orange",
+									}, {
+										name: "Участки",
+										href: "blog.html",
+										linkClass: "link link-black link--orange",
+									}, {
+										name: "Коммерческие",
+										href: "builders.html",
+										linkClass: "link link-black link--orange",
+									}, {
+										name: "Инвестиции",
+										href: "partners.html",
+										linkClass: "link link-black link--orange",
+									}, 
+								]
 							})
 							div(class="header-favorites")
 								a(href="#", class="link header-favorites-holder")
