@@ -15,14 +15,14 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 			robots: "index, follow",
 			viewport: "width=device-width, initial-scale=1.0"
 		})
-		+openGraph({
+		+openGraph({ 
 			type: "website",
 			siteName: info.siteName,
 			title: info.title,
 			description: info.description,
 			url: info.productionUrl,
 			image: info.image
-		})
+		}) 
 		+webIcons({
 			favicon: {
 				src: "/i/favicon.ico"
@@ -46,6 +46,14 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 			{
 				media: "screen",
 				href: "../css/plugins/magnific-popup.css",
+				noCache: true,
+			}, {
+				media: "screen",
+				href: "../css/plugins/owl.carousel.min.css",
+				noCache: true,
+			}, {
+				media: "screen",
+				href: "../css/plugins/lightslider.min.css",
 				noCache: true,
 			}, {
 				media: "screen",
@@ -106,7 +114,7 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 						div(class="header-row-items")
 							div(class="header-logo")
 								a(href="home.html", class="link header-logo-img")
-									include ../svg/logo.svg
+									include ../../prod/svg/logo.svg
 								span(class="header-logo-title") Вся жилая и коммерческая недвижимость в Сочи с помощью выбора и оформления
 							
 							div(class="header-mobile")
@@ -118,43 +126,46 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				div(class="header-row header-row--bottom")
 					div(class="page-inner page-inner--w1")
 						div(class="header-row-items")
+							div(class="header-logo header-logo--mini")
+								a(href="home.html", class="link header-logo-img")
+									include ../../prod/svg/logo-mini.svg
 							+menu({
-							rootClass: "header-bottom",
-							items: [
-								{
-									name: "Новостройки",
-									href: "about.html",
-									linkClass: "link link-black link--orange",
-								}, {
-									name: "Квартиры",
-									href: "personals.html",
-									linkClass: "link link-black link--orange",
-								}, {
-									name: "Элитные",
-									href: "reviews.html",
-									linkClass: "link link-black link--orange",
-								}, {
-									name: "Дома",
-									href: "news.html",
-									linkClass: "link link-black link--orange",
-								}, {
-									name: "Участки",
-									href: "blog.html",
-									linkClass: "link link-black link--orange",
-								}, {
-									name: "Коммерческие",
-									href: "builders.html",
-									linkClass: "link link-black link--orange",
-								}, {
-									name: "Инвестиции",
-									href: "partners.html",
-									linkClass: "link link-black link--orange",
-								}, 
-							]
+								rootClass: "header-bottom",
+								items: [
+									{
+										name: "Новостройки",
+										href: "about.html",
+										linkClass: "link link-black link--orange",
+									}, {
+										name: "Квартиры",
+										href: "personals.html",
+										linkClass: "link link-black link--orange",
+									}, {
+										name: "Элитные",
+										href: "reviews.html",
+										linkClass: "link link-black link--orange",
+									}, {
+										name: "Дома",
+										href: "news.html",
+										linkClass: "link link-black link--orange",
+									}, {
+										name: "Участки",
+										href: "blog.html",
+										linkClass: "link link-black link--orange",
+									}, {
+										name: "Коммерческие",
+										href: "builders.html",
+										linkClass: "link link-black link--orange",
+									}, {
+										name: "Инвестиции",
+										href: "partners.html",
+										linkClass: "link link-black link--orange",
+									}, 
+								]
 							})
 							div(class="header-favorites")
 								a(href="#", class="link header-favorites-holder")
-									include ../svg/star.svg
+									include ../../prod/svg/star.svg
 								span(class="header-favorites-count", data-favorite="0") 0
 				
 			main(class="page-content") 
@@ -245,13 +256,13 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 							span(class="footer-creators-name") Aheadstudio
 					div(class="footer-social")
 						div(class="footer-social-item")
-							include ../svg/vk.svg
+							include ../../prod/svg/vk.svg
 						div(class="footer-social-item")
-							include ../svg/fb.svg
+							include ../../prod/svg/fb.svg
 						div(class="footer-social-item")
-							include ../svg/instagram.svg
+							include ../../prod/svg/instagram.svg
 						div(class="footer-social-item")
-							include ../svg/youtube.svg
+							include ../../prod/svg/youtube.svg
 
 		+addJS([
 			{
@@ -266,6 +277,14 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				src: "../js/plugins/jcf.select.js"
 			}, {
 				src: "../js/plugins/jquery.magnific-popup.min.js"
+			}, {	
+				src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDOtcx9Sm_hunFMGzh4eqe_XRkFUYMWIao&sensor=true"
+			}, {	
+				src: "../js/plugins/owl.carousel.min.js"
+			}, {	
+				src: "../js/plugins/jquery.mask.min.js"
+			}, {	
+				src: "../js/plugins/lightslider.min.js"
 			}, {
 				src: "../js/" + info.code + ".js"
 			}

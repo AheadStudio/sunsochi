@@ -7,6 +7,44 @@
 		$sel.body = $("body", $sel.html);
 
 		return {
+			common: {
+				go: function(topPos, speed, callback) {
+					var curTopPos = $sel.window.scrollTop(),
+						diffTopPos = Math.abs(topPos - curTopPos);
+					$sel.body.add($sel.html).animate({
+						"scrollTop": topPos
+					}, speed, function() {
+						if(callback) {
+							callback();
+						}
+					});
+				}
+			},
+
+			header: {
+				init: function() {
+					var self = this;
+
+					self.scroll.init();
+				},
+				scroll: {
+					init: function() {
+						$sel.window.on("scroll", function() {
+							var hh = $(".page-header").outerHeight(),
+								sTop = $sel.window.scrollTop();
+							if(sTop > hh+50) {
+								$sel.body.addClass("fixed-header");
+								setTimeout(function() {
+									$sel.body.addClass("fixed-header--show");
+								}, 100);
+							} else {
+								$sel.body.removeClass("fixed-header--show");
+								$sel.body.removeClass("fixed-header");
+							}
+						});
+					}
+				},
+			},
 
 			filter: {
 
@@ -14,7 +52,6 @@
 					var self = this;
 
 					self.toggleTabs.init();
-
 					self.formFilter.init();
 				},
 
@@ -28,8 +65,6 @@
 						var self = this,
 							$filterItem = $("[data-filter-tab]");
 
-						self.forms = $(".form-filter");
-
 						$filterItem.on("click", function(e) {
 							var item = $(this),
 								dataItem = item.data("filterTab"),
@@ -38,21 +73,7 @@
 
 							if (dataItem === 0) {
 								self.hideAll($allItem);
-
 								item.removeClass("active");
-
-								self.forms.each(function() {
-									var $form = $(this),
-										$itemForm = $form.find(".form-item");
-
-									$form[0].reset();
-
-									$itemForm.each(function() {
-										(function(el) {
-											jcf.refresh(el);
-										})($(this));
-									})
-								});
 								event.preventDefault();
 							}
 							$filterItem.removeClass("active-tab");
@@ -109,14 +130,18 @@
 
 					filter: "",
 
+					forms: "",
+
 					init: function() {
 						var self = this;
 
 						self.filter = $(".filter");
+						self.forms = $(".form-filter");
 
 						self.changeRange();
 						self.regions.init();
 						self.watchChangeInput();
+						self.resetFilter();
 					},
 
 					changeRange: function() {
@@ -126,40 +151,66 @@
 						$rangeInput.each(function() {
 
 							(function(el) {
-								var inputEl = $(el),
-									jcfContainer = inputEl.closest(".jcf-range"),
-									jcfFrom = jcfContainer.find(".jcf-index-1"),
-									jcfFromField = $(".jcf-range-count-number", jcfFrom),
-									jcfTo = jcfContainer.find(".jcf-index-2"),
-									jcfToField = $(".jcf-range-count-number", jcfTo),
+								var $inputEl = $(el),
+									$jcfContainer = $inputEl.closest(".jcf-range"),
+									jcfFrom = $jcfContainer.find(".jcf-index-1"),
+									$jcfFromField = $(".jcf-range-count-number", jcfFrom),
+									$jcfTo = $jcfContainer.find(".jcf-index-2"),
+									$jcfToField = $(".jcf-range-count-number", $jcfTo),
+									tplText = $inputEl.data("valtext"),
 									fromVal,toVal,valueArray;
 
-								valueArray = inputEl[0].defaultValue.split(",");
+								valueArray = $inputEl[0].defaultValue.split(",");
 
 								// text in container
-								jcfFromField.text(valueArray[0] + " м").append("<sup>2</sup>");
-								jcfToField.text(valueArray[1] + " м").append("<sup>2</sup>");
+								$jcfFromField.text(valueArray[0]).append(tplText);
+								$jcfToField.text(valueArray[1]).append(tplText);
 
-								inputEl.attr("data-valfrom", valueArray[0]);
-								inputEl.attr("data-valto", valueArray[1]);
+								$inputEl.attr("data-valfrom", valueArray[0]);
+								$inputEl.attr("data-valto", valueArray[1]);
 
-								inputEl.on("change input", function(e) {
-									var element = $(this);
+								$inputEl.on("change input", function(e) {
+									var $element = $(this);
+									fromVal = $element[0].valueLow;
+									toVal = $element[0].valueHigh;
 
-									fromVal = element[0].valueLow;
-									jcfFromField.text(fromVal + " м").append("<sup>2</sup>");
+									$jcfFromField.text(fromVal).append(tplText);
+									$jcfToField.text(toVal).append(tplText);
 
-									toVal = element[0].valueHigh;
-									jcfToField.text(toVal + " м").append("<sup>2</sup>");
+									$element.attr("data-valfrom", fromVal);
+									$element.attr("data-valto", toVal);
 
-									element.attr("data-valfrom", fromVal);
-									element.attr("data-valto", toVal);
+									var currentStateRange = jcf.getInstance($inputEl);
+									currentStateRange.refresh();
+
+									self.positionTextTrueRange($element);
 								});
 
 							})($(this));
 
 						});
 
+					},
+
+					positionTextTrueRange: function(trueElem) {
+						var self = this,
+							$jcfContainer = trueElem.closest(".jcf-range"),
+							$minRange = $jcfContainer.find(".jcf-index-1"),
+							$maxRange = $jcfContainer.find(".jcf-index-2"),
+							$textLeft = $minRange.find(".jcf-range-count-number"),
+							$textRight = $maxRange.find(".jcf-range-count-number");
+
+						if ($minRange.position().left < 10 ) {
+							$textLeft.addClass("left");
+						} else {
+							$textLeft.removeClass("left");
+						}
+
+						if ($maxRange.position().left > ($jcfContainer.width() - 20) || $maxRange.position().left === 0) {
+							$textRight.addClass("right");
+						} else {
+							$textRight.removeClass("right");
+						}
 					},
 
 					watchChangeInput: function() {
@@ -254,6 +305,44 @@
 							})
 
 						},
+
+					},
+
+					resetFilter: function() {
+						var self = this,
+							$clearFilter = $(".filter-clear", self.filter);
+
+						$clearFilter.on("click", function() {
+							var $regionsLi = $("li.select", ".regions-container");
+							var $regionsCheckbox = $(".filter-selected-regions-item");
+
+							$regionsLi.removeClass("select");
+							$regionsCheckbox.remove();
+
+							self.forms.each(function() {
+								var $form = $(this),
+									$itemForm = $form.find(".form-item");
+
+								$form[0].reset();
+								setTimeout(function() {
+									$itemForm.each(function() {
+										(function(el) {
+
+											if (el.hasClass("form-item--range")) {
+												var currentStateRange = jcf.getInstance(el);
+												currentStateRange.values = [currentStateRange.minValue, currentStateRange.maxValue];
+												currentStateRange.refresh();
+												self.positionTextTrueRange(el);
+											}
+											jcf.refresh(el);
+										})($(this));
+									})
+								}, 100);
+							});
+						});
+
+
+
 					}
 				},
 
@@ -269,6 +358,14 @@
 					}
 
 					self.applyJcf($form);
+					self.mask($form);
+				},
+
+				mask: function($form) {
+					$("[data-number]", $form).each(function() {
+						var $item = $(this);
+						$item.mask($item.data("number"));
+					});
 				},
 
 				applyJcf: function($form) {
@@ -342,6 +439,7 @@
 							midClick: true,
 							closeMarkup: '<button title="%title%" type="button" class="mfp-close regions-container-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.8 44.8"><g data-name="Слой 2"><path d="M19.6 22.4L0 42l2.8 2.8 19.6-19.6L42 44.8l2.8-2.8-19.6-19.6L44.8 2.8 42 0 22.4 19.6 2.8 0 0 2.8z" fill="#d0d0d0" data-name="Слой 1"/></g></svg></button>',
 							mainClass: "mfp-fade",
+							removalDelay: 300,
 							callbacks: {
 								open: function(el) {
 									$(".regions-container-close").on("click", function() {
@@ -353,14 +451,186 @@
 					}
 				}
 
-			}
+			},
+
+			maps: {
+				init: function() {
+					$(".map", $sel.body).each(function() {
+						var $map = $(this),
+							lng = parseFloat($map.data("lng"), 10) || 0,
+							lat = parseFloat($map.data("lat"), 10) || 0,
+							zoom = parseInt($map.data("zoom"));
+
+						var options = {
+							center: new google.maps.LatLng(lat, lng),
+							zoom: zoom,
+							mapTypeControl: false,
+							panControl: false,
+							zoomControl: true,
+							zoomControlOptions: {
+								style: google.maps.ZoomControlStyle.LARGE,
+								position: google.maps.ControlPosition.TOP_RIGHT
+							},
+							scaleControl: true,
+							streetViewControl: true,
+							streetViewControlOptions: {
+								position: google.maps.ControlPosition.TOP_RIGHT
+							},
+							mapTypeId: google.maps.MapTypeId.ROADMAP,
+							/*styles: [
+								{"featureType": "landscape", "stylers": [
+									{"saturation": -100},
+									{"lightness": 0},
+									{"visibility": "on"}
+								]},
+								{"featureType": "poi", "stylers": [
+									{"saturation": -300},
+									{"lightness": -10},
+									{"visibility": "simplified"}
+								]},
+								{"featureType": "road.highway", "stylers": [
+									{"saturation": -100},
+									{"visibility": "simplified"}
+								]},
+								{"featureType": "road.arterial", "stylers": [
+									{"saturation": -100},
+									{"lightness": 0},
+									{"visibility": "on"}
+								]},
+								{"featureType": "road.local", "stylers": [
+									{"saturation": -100},
+									{"lightness": 0},
+									{"visibility": "on"}
+								]},
+								{"featureType": "transit", "stylers": [
+									{"saturation": -100},
+									{"visibility": "simplified"}
+								]},
+								{"featureType": "administrative.province", "stylers": [
+									{"visibility": "off"}
+								]},
+								{"featureType": "water", "elementType": "labels", "stylers": [
+									{"visibility": "on"},
+									{"lightness": -25},
+									{"saturation": -100}
+								]},
+								{"featureType": "water", "elementType": "geometry", "stylers": [
+									{"hue": "#ffff00"},
+									{"lightness": -25},
+									{"saturation": -97}
+								]}
+							]*/
+						};
+
+						var iconMap= {
+							url: $map.data("icon"),
+							size: new google.maps.Size(45, 65),
+						};
+						var api = new google.maps.Map($map[0], options);
+						var point = new google.maps.Marker({
+							position: new google.maps.LatLng(lat, lng),
+							map: api,
+							icon: $map.data("icon")
+						});
+
+					});
+				}
+			},
+
+			sliders: {
+
+				init: function() {
+					var self = this;
+
+					self.owlCarousel();
+					self.lightSlider();
+				},
+
+				owlCarousel:function() {
+					var self = this,
+						owlSlider = $('.owl-carousel');
+
+					$('.owl-carousel').owlCarousel({
+						margin: 10,
+						loop: false,
+						items: 1,
+						dots: true,
+						smartSpeed: 1000,
+					})
+
+				},
+
+				lightSlider: function() {
+					var self = this,
+						$lightSlider = $(".light-slider");
+
+						$lightSlider.lightSlider({
+					        item: 1,
+							auto: true,
+							controls: true,
+					        loop: true,
+					        slideMove: 1,
+							pause: 5000,
+					        easing: "cubic-bezier(0.250, 0.460, 0.450, 0.940)",
+					        speed: 800,
+							gallery: true,
+							slideMargin: 10,
+							thumbItem: 8,
+							addClass: "apartment-slider",
+							prevHtml: '<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 119.21 218"><path d="M8 116.47l95.64 95.64 8-8-95.7-95.61 95.64-95.64-8-8L0 108.5z" fill="#fff"/></svg>',
+						  	nextHtml: '<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127 214"><path d="M118.14 98.53L22.5 2.89l-8 8 95.64 95.64-95.61 95.61 8 8L126.11 106.5z" fill="#fff"/></svg>',
+					    });
+				},
+
+			},
+
+			ajaxLoader: function() {
+				$sel.body.on("click", ".load-more", function(event) {
+					var $linkAddress = $(this),
+						href = $linkAddress.attr("href"),
+						selector = $linkAddress.data("itemsselector"),
+						$container = $($linkAddress.data("container"));
+
+					$linkAddress.addClass("loading");
+
+					(function(href, $container, $link, selector) {
+						$.ajax({
+							url: href,
+							success: function(data) {
+								var $data = $('<div />').append(data),
+									$items = $data.find(selector),
+									$preloader = $data.find(".load");
+
+								$items.addClass("load-events-item");
+								$container.append($items);
+								$link.parent().remove();
+
+								if($preloader && $preloader.length) {
+									$container.parent().append($preloader);
+								}
+
+								setTimeout(function() {
+									$container.find(".load-events-item").removeClass("load-events-item");
+									$linkAddress.removeClass("loading");
+								}, 100);
+
+							}
+						})
+					})(href, $container, $linkAddress, selector);
+					event.preventDefault();
+				})
+			},
 
 		};
 
 	})();
 
+	SUNSOCHI.header.init();
 	SUNSOCHI.forms.init();
 	SUNSOCHI.filter.init();
+	SUNSOCHI.maps.init();
+	SUNSOCHI.sliders.init();
 	SUNSOCHI.modalWindow.init();
+	SUNSOCHI.ajaxLoader();
 
 })(jQuery);

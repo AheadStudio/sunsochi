@@ -1,0 +1,62 @@
+extends ../templates/base
+
+block content
+    div(class="apartment")
+        div(class="page-inner page-inner--w1")    
+            div(class="apartment-title") 3-комп. квартира, 170 м
+                sup 2
+            div(class="apartment-location") Сочи
+                a(href="#",class="link link-black link-black--bottom", target="_blank") Район Светлана,
+                a(href="#",class="link link-black link-black--bottom", target="_blank") ЖК &#171;Тауер&#187;
+                a(href="#", class="link link-orange link-orange--bottom apartment-location-map", target="_blank") На карте
+                
+        div(class="page-inner page-inner--max")    
+            div(class="apartment-preview")
+                div(class="page-inner page-inner--w1")
+                    div(class="apartment-preview-container")
+                        div(class="light-slider")
+                            div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_1.png")
+                                img(src="../dummy/apartment/slide_1.png", alt="")
+                            div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_2.jpg")
+                                img(src="../dummy/apartment/slide_2.jpg", alt="")
+                            div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_3.jpg")
+                                img(src="../dummy/apartment/slide_3.jpg", alt="")
+                            div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_4.jpg")
+                                img(src="../dummy/apartment/slide_4.jpg", alt="")
+                            div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_5.jpg")
+                                img(src="../dummy/apartment/slide_5.jpg", alt="")
+                            div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_6.jpg")
+                                img(src="../dummy/apartment/slide_6.jpg", alt="")
+                            div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_7.jpg")
+                                img(src="../dummy/apartment/slide_7.jpg", alt="")
+                            div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_8.jpg")
+                                img(src="../dummy/apartment/slide_8.jpg", alt="")
+                        div(class="apartment-preview-text")
+                            a(href="#", class="link apartment-preview-text-icon")
+                                include ../../prod/svg/star_orage.svg
+                            div(class="apartment-preview-text-price") 80 000 000
+                            div(class="apartment-preview-text-credit") 470 000 м
+                                sup 2
+                            div(class="apartment-preview-text-id") ID 265437
+                            a(href="#", class="link button button--orange-reverse apartment-preview-order") Заявка
+                            
+        div(class="page-inner page-inner--w3")
+            div(class="apartment-information")
+                div(class="page-text")
+                    div(class="apartment-features")
+                        div(class="apartment-features-item")
+                            div(class="apartment-features-item-icon")
+                                include ../../prod/svg/sea.svg
+                            div(class="apartment-features-item-text") Вид на море
+                        div(class="apartment-features-item")
+                            div(class="apartment-features-item-icon")
+                                include ../../prod/svg/original.svg
+                            div(class="apartment-features-item-text") Оригинальный проект
+                        div(class="apartment-features-item")
+                            div(class="apartment-features-item-icon")
+                                include ../../prod/svg/save.svg
+                            div(class="apartment-features-item-text") Охраняемая территория
+                        div(class="apartment-features-item")
+                            div(class="apartment-features-item-icon")
+                                include ../../prod/svg/original.svg
+                            div(class="apartment-features-item-text") Магазины рядом
