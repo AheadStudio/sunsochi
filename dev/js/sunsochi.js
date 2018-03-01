@@ -557,7 +557,6 @@
 						dots: true,
 						smartSpeed: 1000,
 					})
-
 				},
 
 				lightSlider: function() {

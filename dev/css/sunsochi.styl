@@ -2111,10 +2111,10 @@ body
 
 		.light-slider
 			visibility hidden
-			transition visibility 0.6s $transitionAnimation
+			transition all 0.6s $transitionAnimation
 
 			&.lightSlider
-				visibility visible
+				visibility inherit
 
 		.apartment-slider
 			position relative
@@ -2126,8 +2126,6 @@ body
 				width 100%
 				height 475px
 
-				opacity 0
-				transition opacity 0.3s $transitionAnimation
 
 				img
 					display block
@@ -2135,9 +2133,6 @@ body
 					height 100%
 
 					object-fit cover
-
-				&.active
-					opacity 1
 
 			.lSAction
 				.lSPrev
@@ -2240,6 +2235,7 @@ body
 
 		.apartment-features-item
 			max-width 105px
+			margin-right 25px
 
 			.apartment-features-item-icon
 				max-width 65px

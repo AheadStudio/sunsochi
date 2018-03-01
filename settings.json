@@ -55,6 +55,23 @@
                 "tablet": "0",
                 "mobile": "0"
             }
+        },
+        "new-buildings": {
+            "name": "Новостройки",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "offers-load": {
+            "name": "Подгрузка домов",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            },
+            "note": "Страница для подгрузки"
         }
     },
     "paths": {
