@@ -21,6 +21,25 @@
 				}
 			},
 
+			goEl: function() {
+				var self = this;
+					$goEl = $("[data-goto]");
+
+				$goEl.on("click", function(event) {
+					var $nameEl = $sel.body.find($(this).data("goto"));
+
+					if ($nameEl.length === 0) {
+						alert("Возможно вы не правильно указали элемент");
+						return;
+					} else {
+						var posEl = $nameEl.offset().top;
+						SUNSOCHI.common.go(posEl-150, 1000);
+					}
+					event.preventDefault();
+				});
+
+			},
+
 			header: {
 				init: function() {
 					var self = this;
@@ -454,8 +473,8 @@
 			},
 
 			maps: {
-				init: function() {
-					$(".map", $sel.body).each(function() {
+				googleMap: function() {
+					$("#mapGoogle", $sel.body).each(function() {
 						var $map = $(this),
 							lng = parseFloat($map.data("lng"), 10) || 0,
 							lat = parseFloat($map.data("lat"), 10) || 0,
@@ -534,7 +553,53 @@
 						});
 
 					});
-				}
+				},
+				yandexMap: {
+					$map: false,
+					map: false,
+					points: false,
+					init: function() {
+						var self = this;
+						self.$map = $("#mapYandex", $sel.body);
+						if(!self.$map.length) {
+							return false;
+						}
+
+						self.map = new ymaps.Map(self.$map[0], {
+							center: self.$map.data("center"),
+							zoom: self.$map.data("zoom")
+						});
+						self.map.behaviors.disable("scrollZoom");
+						self.map.controls.remove("trafficControl").remove("scaleLine").remove("typeSelector").remove("searchControl");
+						self.points = eval(self.$map.data("points"));
+
+						var point = self.points[0],
+							placemark,
+							pointPosition = point.position.split(","),
+							iconSize,
+							iconW = point.iconW,
+							iconH = point.iconH;
+
+
+						if (iconW || iconH) {
+							iconSize = [iconW, iconH];
+						} else {
+							iconSize = "";
+						}
+
+						placemark = new ymaps.Placemark(
+							[parseFloat(pointPosition[0]), parseFloat(pointPosition[1])], {
+								balloonContent: point.description,
+							}, {
+								iconImageHref: point.icon,
+								iconImageSize: iconSize,
+							}
+						);
+
+						self.map.geoObjects.add(placemark);
+					}
+				},
+
 			},
 
 			sliders: {
@@ -575,9 +640,30 @@
 							gallery: true,
 							slideMargin: 10,
 							thumbItem: 8,
-							addClass: "apartment-slider",
 							prevHtml: '<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 119.21 218"><path d="M8 116.47l95.64 95.64 8-8-95.7-95.61 95.64-95.64-8-8L0 108.5z" fill="#fff"/></svg>',
 						  	nextHtml: '<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127 214"><path d="M118.14 98.53L22.5 2.89l-8 8 95.64 95.64-95.61 95.61 8 8L126.11 106.5z" fill="#fff"/></svg>',
+							onBeforeStart: function(el) {
+								var parentSlider = el.closest(".for-preloader");
+								if (parentSlider.length !== 0) {
+									parentSlider.addClass("preloader-active");
+									parentSlider.append('<span class="preloader-bcg"><span class="preloader-container"><img src="../svg/logo-mini.svg", class="preloader-img"></span></span>');
+								}
+							},
+							onSliderLoad: function(el) {
+								var parentSlider = el.closest(".for-preloader");
+								if (parentSlider.length !== 0) {
+									$sel.window.on("load", function() {
+										setTimeout(function() {
+											parentSlider.removeClass("preloader-active");
+											parentSlider.addClass("preloader-destroy");
+											setTimeout(function() {
+												parentSlider.find(".preloader-bcg").remove();
+											},1600);
+										}, 1000);
+
+									})
+								}
+							},
 					    });
 				},
 
@@ -625,9 +711,12 @@
 	})();
 
 	SUNSOCHI.header.init();
+	SUNSOCHI.goEl();
 	SUNSOCHI.forms.init();
 	SUNSOCHI.filter.init();
-	SUNSOCHI.maps.init();
+	ymaps.ready(function() {
+		SUNSOCHI.maps.yandexMap.init();
+	});
 	SUNSOCHI.sliders.init();
 	SUNSOCHI.modalWindow.init();
 	SUNSOCHI.ajaxLoader();
