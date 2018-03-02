@@ -40,6 +40,42 @@
 
 			},
 
+			fixedBlock: function() {
+				var self = this,
+					$ficedBlock = $(".fixed-block");
+
+				$ficedBlock.each(function() {
+					(function(el) {
+						var elWidth = el.innerWidth()+100,
+							elLeft = el.offset().left;
+
+						$sel.window.on("scroll", function() {
+							var hh = el.outerHeight(),
+								sTop = $sel.window.scrollTop();
+							if(sTop > hh+50) {
+								el.css({
+									"position": "fixed",
+									"top" : "70px",
+									"left": elLeft,
+									"width": elWidth,
+									"padding": "50px",
+									"z-index": "200"
+								});
+							} else {
+								el.css({
+									"position": "inherit",
+									"top" : "",
+									"left": "",
+									"width": "",
+									"padding": "",
+								});
+							}
+						});
+
+					})($(this))
+				})
+			},
+
 			header: {
 				init: function() {
 					var self = this;
@@ -712,6 +748,7 @@
 
 	SUNSOCHI.header.init();
 	SUNSOCHI.goEl();
+	SUNSOCHI.fixedBlock();
 	SUNSOCHI.forms.init();
 	SUNSOCHI.filter.init();
 	ymaps.ready(function() {
