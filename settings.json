@@ -56,10 +56,10 @@
                 "mobile": "0"
             }
         },
-        "new-buildings": {
-            "name": "Новостройки",
+        "new-building-card": {
+            "name": "Карточка новстройка",
             "progress": {
-                "desktop": "100",
+                "desktop": "0",
                 "tablet": "0",
                 "mobile": "0"
             }

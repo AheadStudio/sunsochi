@@ -1,0 +1,162 @@
+extends ../templates/base
+
+block content
+    div(class="apartment")
+        div(class="page-inner page-inner--w1") 
+            div(class="apartment-header")
+                div(class="apartment-header-col")
+                    div(class="apartment-title") 3-комп. квартира, 170 м
+                        sup 2
+                    div(class="apartment-location") Сочи
+                        a(href="#",class="link link-black link-black--bottom", target="_blank") Район Дагомыс
+                        a(href="#", class="link link-orange link-orange--bottom apartment-location-map", data-goto="#mapYandex") На карте
+                    div(class="apartment-deadline")
+                        div(class="apartment-deadline-term") Срок сдачи: IV кв. 2018
+                        div(class="apartment-deadline-finish") Готовность: 40%
+                div(class="apartment-header-col")
+                    div(class="apartment-preview-text")
+                        a(href="#", class="link apartment-preview-text-icon")
+                            include ../../prod/svg/star_orage.svg
+                        div(class="apartment-preview-text-info")
+                            div(class="apartment-preview-text-price") от 10 250 000 000
+                            div(class="apartment-preview-text-credit") 470 000 м
+                                sup 2
+                            a(href="#", class="link button button--orange-reverse apartment-preview-order") Оставить заявку
+
+        div(class="page-inner page-inner--max")    
+            div(class="apartment-preview")
+                div(class="page-inner page-inner--w1")
+                    div(class="apartment-preview-container")
+                        div(class="apartment-slider apartment-slider--w100 for-preloader")
+                            div(class="light-slider")
+                                div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_1.png")
+                                    img(src="../dummy/apartment/slide_1.png", alt="")
+                                div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_2.jpg")
+                                    img(src="../dummy/apartment/slide_2.jpg", alt="")
+                                div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_3.jpg")
+                                    img(src="../dummy/apartment/slide_3.jpg", alt="")
+                                div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_4.jpg")
+                                    img(src="../dummy/apartment/slide_4.jpg", alt="")
+                                div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_5.jpg")
+                                    img(src="../dummy/apartment/slide_5.jpg", alt="")
+                                div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_6.jpg")
+                                    img(src="../dummy/apartment/slide_6.jpg", alt="")
+                                div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_7.jpg")
+                                    img(src="../dummy/apartment/slide_7.jpg", alt="")
+                                div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_8.jpg")
+                                    img(src="../dummy/apartment/slide_8.jpg", alt="")
+    
+        div(class="page-inner page-inner--w3")
+            div(class="apartment-information")
+                div(class="filter-tabs")
+                    div(class="filter-tab", data-filter-tab="1") Описание
+                    div(class="filter-tab", data-filter-tab="2") Готовность
+                    div(class="filter-tab", data-filter-tab="3") Квартиры
+                    div(class="filter-tab", data-filter-tab="4") На карте
+                    div(class="filter-tab", data-filter-tab="5") Видеобзор
+                div(class="filter-list")
+                    div(class="apartment-item filter-item", data-filter-item="1")
+                        div(class="page-text")
+                            div(class="apartment-features")
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/sea.svg 
+                                    div(class="apartment-features-item-text") Вид на море 
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/original.svg 
+                                    div(class="apartment-features-item-text") Оригинальный проект
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/save.svg
+                                    div(class="apartment-features-item-text") Охраняемая территория
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/original.svg
+                                    div(class="apartment-features-item-text") Магазины рядом
+                            div(class="border-text")
+                                p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
+                    div(class="apartment-item filter-item hide hide-block", data-filter-item="2")
+                        div(class="page-text")
+                            div(class="apartment-features")
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/sea.svg 
+                                    div(class="apartment-features-item-text") Вид на море 
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/original.svg 
+                                    div(class="apartment-features-item-text") Оригинальный проект
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/save.svg
+                                    div(class="apartment-features-item-text") Охраняемая территория
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/original.svg
+                                    div(class="apartment-features-item-text") Магазины рядом
+                            div(class="border-text")
+                                p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
+                    div(class="apartment-item filter-item hide hide-block", data-filter-item="3")
+                        div(class="page-text")
+                            div(class="apartment-features")
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/sea.svg 
+                                    div(class="apartment-features-item-text") Вид на море 
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/original.svg 
+                                    div(class="apartment-features-item-text") Оригинальный проект
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/save.svg
+                                    div(class="apartment-features-item-text") Охраняемая территория
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/original.svg
+                                    div(class="apartment-features-item-text") Магазины рядом
+                            div(class="border-text")
+                                p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
+                    div(class="apartment-item filter-item hide hide-block", data-filter-item="4")
+                        div(class="page-text")
+                            div(class="apartment-features")
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/sea.svg 
+                                    div(class="apartment-features-item-text") Вид на море 
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/original.svg 
+                                    div(class="apartment-features-item-text") Оригинальный проект
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/save.svg
+                                    div(class="apartment-features-item-text") Охраняемая территория
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/original.svg
+                                    div(class="apartment-features-item-text") Магазины рядом
+                            div(class="border-text")
+                                p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
+                    div(class="apartment-item filter-item hide hide-block", data-filter-item="5")
+                        div(class="page-text")
+                            div(class="apartment-features")
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/sea.svg 
+                                    div(class="apartment-features-item-text") Вид на море 
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/original.svg 
+                                    div(class="apartment-features-item-text") Оригинальный проект
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/save.svg
+                                    div(class="apartment-features-item-text") Охраняемая территория
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/original.svg
+                                    div(class="apartment-features-item-text") Магазины рядом
+                            div(class="border-text")
+                                p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.

@@ -3,18 +3,20 @@ extends ../templates/base
 block content
     div(class="apartment")
         div(class="page-inner page-inner--w1")    
-            div(class="apartment-title") 3-комп. квартира, 170 м
-                sup 2
-            div(class="apartment-location") Сочи
-                a(href="#",class="link link-black link-black--bottom", target="_blank") Район Светлана,
-                a(href="#",class="link link-black link-black--bottom", target="_blank") ЖК &#171;Тауер&#187;
-                a(href="#", class="link link-orange link-orange--bottom apartment-location-map", data-goto="#mapYandex") На карте
+            div(class="apartment-header")
+                div(class="apartment-header-col")
+                    div(class="apartment-title") 3-комп. квартира, 170 м
+                        sup 2
+                    div(class="apartment-location") Сочи
+                        a(href="#",class="link link-black link-black--bottom", target="_blank") Район Светлана,
+                        a(href="#",class="link link-black link-black--bottom", target="_blank") ЖК &#171;Тауер&#187;
+                        a(href="#", class="link link-orange link-orange--bottom apartment-location-map", data-goto="#mapYandex") На карте
                 
         div(class="page-inner page-inner--max")    
             div(class="apartment-preview")
                 div(class="page-inner page-inner--w1")
                     div(class="apartment-preview-container")
-                        div(class="apartment-slider for-preloader")
+                        div(class="apartment-slider apartment-slider--w75 for-preloader")
                             div(class="light-slider")
                                 div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_1.png")
                                     img(src="../dummy/apartment/slide_1.png", alt="")
@@ -41,7 +43,7 @@ block content
                             div(class="apartment-preview-text-id") ID 265437
                             a(href="#", class="link button button--orange-reverse apartment-preview-order") Заявка
                             
-        div(class="page-inner page-inner--w3")
+        div(class="page-inner page-inner--w4")
             div(class="apartment-information")
                 div(class="page-text")
                     div(class="apartment-features")

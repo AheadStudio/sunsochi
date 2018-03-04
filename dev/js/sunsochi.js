@@ -52,23 +52,23 @@
 						$sel.window.on("scroll", function() {
 							var hh = el.outerHeight(),
 								sTop = $sel.window.scrollTop();
-							if(sTop > hh+50) {
+							if(sTop > hh + 50) {
+								el.addClass("fixed-element");
 								el.css({
-									"position": "fixed",
-									"top" : "70px",
-									"left": elLeft,
-									"width": elWidth,
-									"padding": "50px",
-									"z-index": "200"
+									"left" : elLeft,
+									"min-width" : elWidth,
 								});
+
+								setTimeout(function() {
+									el.addClass("fixed-element--show");
+								}, 100);
 							} else {
 								el.css({
-									"position": "inherit",
-									"top" : "",
 									"left": "",
-									"width": "",
-									"padding": "",
+									"min-width": "",
 								});
+								el.removeClass("fixed-element--show");
+								el.removeClass("fixed-element");
 							}
 						});
 
