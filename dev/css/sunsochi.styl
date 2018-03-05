@@ -2580,6 +2580,37 @@ body
 				tr
 					cursor pointer
 
+					th
+						position relative
+
+						.tablesorter-header-inner
+							position relative
+
+							&:after
+								content "\2193"
+
+								position absolute
+								top -2px
+								margin-left 2px
+
+								transition transform 0.3s $transitionAnimation
+
+								font-size 22px
+
+						&.tablesorter-headerAsc
+							.tablesorter-header-inner
+								&:after
+									content "\2193"
+
+						&.tablesorter-headerDesc
+							.tablesorter-header-inner
+								&:after
+									content "\2191"
+
+						&:first-child
+							.tablesorter-header-inner
+								&:after
+									content none
 					td
 						transition background-color 0.3s $transitionAnimation
 

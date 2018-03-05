@@ -690,13 +690,14 @@
 								var parentSlider = el.closest(".for-preloader");
 								if (parentSlider.length !== 0) {
 									$sel.window.on("load", function() {
-										/*setTimeout(function() {
+										setTimeout(function() {
 											parentSlider.removeClass("preloader-active");
 											parentSlider.addClass("preloader-destroy");
 											setTimeout(function() {
 												parentSlider.find(".preloader-bcg").remove();
 											},1600);
-										}, 1000);*/
+
+										}, 1000);
 
 									})
 								}
