@@ -45,19 +45,23 @@ block content
                                     img(src="../dummy/apartment/slide_7.jpg", alt="")
                                 div(class="apartment-slider-item", data-thumb="../dummy/apartment/slide_8.jpg")
                                     img(src="../dummy/apartment/slide_8.jpg", alt="")
-    
-        div(class="page-inner page-inner--w3")
-            div(class="apartment-information")
-                div(class="filter-tabs")
-                    div(class="filter-tab", data-filter-tab="1") Описание
-                    div(class="filter-tab", data-filter-tab="2") Готовность
-                    div(class="filter-tab", data-filter-tab="3") Квартиры
-                    div(class="filter-tab", data-filter-tab="4") На карте
-                    div(class="filter-tab", data-filter-tab="5") Видеобзор
+        
+        div(class="apartment-information")
+            div(class="page-inner page-inner--max")        
+                div(class="apartment-tabs")
+                    div(class="filter-tabs")
+                        div(class="filter-tab", data-filter-tab="1") Описание
+                        div(class="filter-tab", data-filter-tab="2") Готовность
+                        div(class="filter-tab", data-filter-tab="3") Квартиры
+                        div(class="filter-tab", data-filter-tab="4") На карте
+                        div(class="filter-tab", data-filter-tab="5") Видеобзор
+            div(class="page-inner page-inner--w3")
                 div(class="filter-list")
                     div(class="apartment-item filter-item", data-filter-item="1")
                         div(class="page-text")
-                            div(class="apartment-features")
+                            div(class="border-text border-text--bottom")
+                                p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
+                            div(class="apartment-features border-text border-text--bottom")
                                 div(class="apartment-features-item")
                                     div(class="apartment-features-item-icon")
                                         include ../../prod/svg/sea.svg 
@@ -74,8 +78,19 @@ block content
                                     div(class="apartment-features-item-icon")
                                         include ../../prod/svg/original.svg
                                     div(class="apartment-features-item-text") Магазины рядом
-                            div(class="border-text")
-                                p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/save.svg
+                                    div(class="apartment-features-item-text") Охраняемая территория
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/original.svg
+                                    div(class="apartment-features-item-text") Магазины рядом
+                                div(class="apartment-features-item")
+                                    div(class="apartment-features-item-icon")
+                                        include ../../prod/svg/original.svg
+                                    div(class="apartment-features-item-text") Магазины рядом
+
                     div(class="apartment-item filter-item hide hide-block", data-filter-item="2")
                         div(class="page-text")
                             div(class="apartment-features")

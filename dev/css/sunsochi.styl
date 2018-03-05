@@ -86,7 +86,7 @@ body
 		padding 0 20px
 
 	&--w3
-		max-width 780px
+		max-width 925px
 		padding 0 20px
 
 	&--w4
@@ -426,10 +426,14 @@ body
 		padding 40px 0 20px 0
 		box-sizing border-box
 
-		border-top 1px solid #d0d0d0
-		border-bottom 1px solid #d0d0d0
-
 		margin-bottom 30px
+
+		&--full
+			border-top 1px solid #d0d0d0
+			border-bottom 1px solid #d0d0d0
+
+		&--bottom
+			border-bottom 1px solid #d0d0d0
 
 	sup
 		font-size 12px
@@ -2165,7 +2169,6 @@ body
 			vertical-align top
 			font-size: 20px
 
-
 	.apartment-location
 		a
 			margin-left 5px
@@ -2321,7 +2324,7 @@ body
 			font-family "ProximaNovaSemibold"
 
 	.apartment-information
-		margin-top 40px
+		margin-top 30px
 
 		dl
 			justify-items baseline
@@ -2333,6 +2336,13 @@ body
 			dd
 				font-family "ProximaNovaRegular"
 				font-size 18px
+
+		.apartment-tabs
+			border-bottom 1px solid $colorLightGray
+
+			.filter-tabs
+				text-align center
+				margin-bottom 25px
 
 		.apartment-map
 			width 100%
@@ -2354,7 +2364,7 @@ body
 		flex-wrap wrap
 
 		.apartment-features-item
-			max-width 105px
+			max-width 85px
 			margin-right 25px
 
 			.apartment-features-item-icon
