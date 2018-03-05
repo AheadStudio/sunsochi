@@ -2653,7 +2653,7 @@ body
 
 		transform translate(-50%,-50%)
 
-		background $colorTurquoise
+		background $colorBlue
 		opacity 0.8
 
 		border-radius 50%
@@ -2662,6 +2662,8 @@ body
 		box-shadow: 0 0 0 rgba(#f99d22, 0.4)
 
 		animation pulse 1.5s infinite
+
+		z-index -1
 
 		&:hover
 			animation none
@@ -2676,12 +2678,15 @@ body
 
 
 			transform translateX(-50%)
+
+			z-index 100
 /*** //preloader ***/
 
 
 /*** tooltip apartment ***/
 
 .tooltip-container
+	display none
 	padding 25px 25px 30px 25px
 	box-sizing border-box
 
@@ -2718,6 +2723,7 @@ body
 	color #000
 
 	.tooltip-container
+		display block
 		.form
 			margin-top 0
 
