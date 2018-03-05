@@ -57,6 +57,10 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				noCache: true,
 			}, {
 				media: "screen",
+				href: "../css/plugins/tooltipster.bundle.min.css",
+				noCache: true,
+			}, {
+				media: "screen",
 				href: "../css/" + info.code + ".css",
 				noCache: true,
 			}, {
@@ -175,7 +179,14 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				
 			main(class="page-content") 
 				block content
-
+		
+		div(class="tooltip-container", data-tooltip-apartment)
+			form(class="form")
+				div(class="tooltip-apartment-title", data-tooltip-apartment-title)
+				div(class="tooltip-apartment-id", data-tooltip-apartment-id)
+				div(class="tooltip-apartment-holder")
+					img(src="", class="tooltip-apartment-img", data-tooltip-apartment-img)
+				button(type="submit", class="button button--orange-reverse") Оставить заявку
 		footer(class="page-footer", itemscope, itemtype="http://schema.org/WPFooter")
 			div(class="page-inner page-inner--w1")
 				div(class="footer-row footer-row--top")
@@ -296,6 +307,10 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				src: "../js/plugins/jquery.mask.min.js"
 			}, {	
 				src: "../js/plugins/lightslider.min.js"
+			}, {	
+				src: "../js/plugins/jquery.table-sorter.js"
+			}, {	
+				src: "../js/plugins/tooltipster.bundle.min.js"
 			}, {
 				src: "../js/" + info.code + ".js"
 			}

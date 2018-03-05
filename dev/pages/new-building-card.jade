@@ -5,9 +5,8 @@ block content
         div(class="page-inner page-inner--w1") 
             div(class="apartment-header")
                 div(class="apartment-header-col")
-                    div(class="apartment-title") 3-комп. квартира, 170 м
-                        sup 2
-                    div(class="apartment-location") Сочи
+                    div(class="apartment-title") ЖК &#171;Лазурный берег 2&#187;
+                    div(class="apartment-location")
                         a(href="#",class="link link-black link-black--bottom", target="_blank") Район Дагомыс
                         a(href="#", class="link link-orange link-orange--bottom apartment-location-map", data-goto="#mapYandex") На карте
                     div(class="apartment-deadline")
@@ -47,131 +46,687 @@ block content
                                     img(src="../dummy/apartment/slide_8.jpg", alt="")
         
         div(class="apartment-information")
-            div(class="page-inner page-inner--max")        
-                div(class="apartment-tabs")
-                    div(class="filter-tabs")
-                        div(class="filter-tab", data-filter-tab="1") Описание
-                        div(class="filter-tab", data-filter-tab="2") Готовность
-                        div(class="filter-tab", data-filter-tab="3") Квартиры
-                        div(class="filter-tab", data-filter-tab="4") На карте
-                        div(class="filter-tab", data-filter-tab="5") Видеобзор
-            div(class="page-inner page-inner--w3")
-                div(class="filter-list")
-                    div(class="apartment-item filter-item", data-filter-item="1")
+            div(class="page-inner page-inner--max")
+                div(class="page-text")       
+                    div(class="apartment-tabs border-text--bottom")
+                        div(class="filter-tabs")
+                            div(class="filter-tab", data-filter-tab="1") Описание
+                            div(class="filter-tab", data-filter-tab="2") Готовность
+                            div(class="filter-tab", data-filter-tab="3") Квартиры
+                            div(class="filter-tab", data-filter-tab="4") На карте
+                            div(class="filter-tab", data-filter-tab="5") Видеобзор
+            div(class="filter-list")
+                div(class="page-inner page-inner--w2")
+                    div(class="apartment-item filter-item hide hide-block", data-filter-item="1")
                         div(class="page-text")
-                            div(class="border-text border-text--bottom")
-                                p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
-                            div(class="apartment-features border-text border-text--bottom")
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/sea.svg 
-                                    div(class="apartment-features-item-text") Вид на море 
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/original.svg 
-                                    div(class="apartment-features-item-text") Оригинальный проект
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/save.svg
-                                    div(class="apartment-features-item-text") Охраняемая территория
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/original.svg
-                                    div(class="apartment-features-item-text") Магазины рядом
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/save.svg
-                                    div(class="apartment-features-item-text") Охраняемая территория
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/original.svg
-                                    div(class="apartment-features-item-text") Магазины рядом
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/original.svg
-                                    div(class="apartment-features-item-text") Магазины рядом
-
+                            div(class="apartment-description-item")
+                                div(class="border-text border-text--bottom")
+                                    p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
+                            div(class="apartment-description-item")
+                                div(class="apartment-features apartment-features--around border-text border-text--bottom")
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/sea.svg 
+                                        div(class="apartment-features-item-text") Вид на море 
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/original.svg 
+                                        div(class="apartment-features-item-text") Оригинальный проект
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/save.svg
+                                        div(class="apartment-features-item-text") Охраняемая территория
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/original.svg
+                                        div(class="apartment-features-item-text") Магазины рядом
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/save.svg
+                                        div(class="apartment-features-item-text") Охраняемая территория
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/original.svg
+                                        div(class="apartment-features-item-text") Магазины рядом
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/original.svg
+                                        div(class="apartment-features-item-text") Магазины рядом
+                            
+                            div(class="apartment-description-item")
+                                div(class="apartment-detail-info border-text border-text--bottom")
+                                    dl
+                                        dt Срок сдачи
+                                        dd IV кв. 2018
+                                        dt Застройщик
+                                        dd
+                                            a(href="#", class="link link-black link-black--bottom") Стройуниверсал
+                                        dt Всего квартир 
+                                        dd 300
+                                        dt Этажей
+                                        dd 3
+                                        dt Площадь квартир
+                                        dd от 55 до 132.7 м
+                                            sup 2
+                                        dt Класс здания
+                                        dd элитный
+                                        dt Высота потолков 
+                                        dd 3.3 м
+                                        dt Отделка
+                                        dd без ремонта
+                                        dt Парковка
+                                        dd придомовая и подземная
+                                        dt Тип здания
+                                        dd монолит
+                                        dt Расстояние до моря
+                                        dd 300 м
+                                        dt Отделка
+                                        dd без ремонта
+                                        dt Ипотека 
+                                        dd да
+                                        dt Федеральный закон 214
+                                        dd да
+                                        dt Возможна расстрочка
+                                        dd да
+                                        dt Цель покупки
+                                        dd для жизни, для отдыха
+                                div(class="apartment-detail-info")
+                                    dl(class="dark")
+                                        dt(class="title") Инфраструктура рядом
+                                        dd(class="title") На территории ЖК
+                                        dt Благоустроенный пляж
+                                        dd Ресторан
+                                        dt Минимаркет
+                                        dd Тренажерный зал
+                                        dt Остановка
+                                        dd Детская площадка
+                                        dt Санаторий "Дагомыс"
+                                        dd Теннисный корт
+                                        dt 
+                                        dd Придомовой паркинг
+                                        dt 
+                                        dd Детский сад
+                                        dt 
+                                        dd Свой пляж
+                                        dt 
+                                        dd Травсфер
+                                        dt 
+                                        dd Панорамное остекление
+                                        dt 
+                                        dd Ланшафтный дизайн
+                                        dt 
+                                        dd СПА-комплекс
+                div(class="page-inner page-inner--w2")
                     div(class="apartment-item filter-item hide hide-block", data-filter-item="2")
                         div(class="page-text")
-                            div(class="apartment-features")
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/sea.svg 
-                                    div(class="apartment-features-item-text") Вид на море 
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/original.svg 
-                                    div(class="apartment-features-item-text") Оригинальный проект
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/save.svg
-                                    div(class="apartment-features-item-text") Охраняемая территория
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/original.svg
-                                    div(class="apartment-features-item-text") Магазины рядом
-                            div(class="border-text")
-                                p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
-                    div(class="apartment-item filter-item hide hide-block", data-filter-item="3")
-                        div(class="page-text")
-                            div(class="apartment-features")
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/sea.svg 
-                                    div(class="apartment-features-item-text") Вид на море 
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/original.svg 
-                                    div(class="apartment-features-item-text") Оригинальный проект
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/save.svg
-                                    div(class="apartment-features-item-text") Охраняемая территория
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/original.svg
-                                    div(class="apartment-features-item-text") Магазины рядом
-                            div(class="border-text")
-                                p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
+                            div(class="apartment-description-item")
+                                div(class="border-text border-text--bottom")
+                                    p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
+                            div(class="apartment-description-item")
+                                div(class="apartment-features apartment-features--around border-text border-text--bottom")
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/sea.svg 
+                                        div(class="apartment-features-item-text") Вид на море 
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/original.svg 
+                                        div(class="apartment-features-item-text") Оригинальный проект
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/save.svg
+                                        div(class="apartment-features-item-text") Охраняемая территория
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/original.svg
+                                        div(class="apartment-features-item-text") Магазины рядом
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/save.svg
+                                        div(class="apartment-features-item-text") Охраняемая территория
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/original.svg
+                                        div(class="apartment-features-item-text") Магазины рядом
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/original.svg
+                                        div(class="apartment-features-item-text") Магазины рядом
+                            
+                            div(class="apartment-description-item")
+                                div(class="apartment-detail-info border-text border-text--bottom")
+                                    dl
+                                        dt Срок сдачи
+                                        dd IV кв. 2018
+                                        dt Застройщик
+                                        dd
+                                            a(href="#", class="link link-black link-black--bottom") Стройуниверсал
+                                        dt Всего квартир 
+                                        dd 300
+                                        dt Этажей
+                                        dd 3
+                                        dt Площадь квартир
+                                        dd от 55 до 132.7 м
+                                            sup 2
+                                        dt Класс здания
+                                        dd элитный
+                                        dt Высота потолков 
+                                        dd 3.3 м
+                                        dt Отделка
+                                        dd без ремонта
+                                        dt Парковка
+                                        dd придомовая и подземная
+                                        dt Тип здания
+                                        dd монолит
+                                        dt Расстояние до моря
+                                        dd 300 м
+                                        dt Отделка
+                                        dd без ремонта
+                                        dt Ипотека 
+                                        dd да
+                                        dt Федеральный закон 214
+                                        dd да
+                                        dt Возможна расстрочка
+                                        dd да
+                                        dt Цель покупки
+                                        dd для жизни, для отдыха
+                                div(class="apartment-detail-info")
+                                    dl(class="dark")
+                                        dt(class="title") Инфраструктура рядом
+                                        dd(class="title") На территории ЖК
+                                        dt Благоустроенный пляж
+                                        dd Ресторан
+                                        dt Минимаркет
+                                        dd Тренажерный зал
+                                        dt Остановка
+                                        dd Детская площадка
+                                        dt Санаторий "Дагомыс"
+                                        dd Теннисный корт
+                                        dt 
+                                        dd Придомовой паркинг
+                                        dt 
+                                        dd Детский сад
+                                        dt 
+                                        dd Свой пляж
+                                        dt 
+                                        dd Травсфер
+                                        dt 
+                                        dd Панорамное остекление
+                                        dt 
+                                        dd Ланшафтный дизайн
+                                        dt 
+                                        dd СПА-комплекс
+                div(class="page-inner page-inner--max")
+                    div(class="filter-item", data-filter-item="3")
+                        div(class="apartment-result")
+                            div(class="page-inner page-inner--w1")
+                                div(class="apartment-result-container")
+                                    div(class="apartment-result-text") Всего квартир: 273
+                                    div(class="apartment-result-controls")
+                                        button(type="button", class="button apartment-result-button apartment-result-button--list active")
+                                            span(class="apartment-result-button-icon")
+                                                include ../../prod/svg/point-map-mini.svg
+                                            span(class="apartment-result-button-text") списком
+                                        button(type="button", class="button apartment-result-button apartment-result-button--grid")
+                                            span(class="apartment-result-button-icon")
+                                                include ../../prod/svg/list-grid.svg
+                                            span(class="apartment-result-button-text") шахматка
+                        div(class="page-inner page-inner--w1")                                      
+                            div(class="apartment-list")
+                                div(class="apartment-types-list")
+                                    div(class="apartment-type")
+                                        div(class="apartment-type-badge apartment-type-badge--gray", data-badge="1")
+                                        div(class="apartment-type-text") Продано:
+                                        div(class="apartment-type-count") 136
+                                    div(class="apartment-type")
+                                        div(class="apartment-type-badge apartment-type-badge--yellow", data-badge="2")
+                                        div(class="apartment-type-text") Забронировано:
+                                        div(class="apartment-type-count") 30
+                                    div(class="apartment-type")
+                                        div(class="apartment-type-badge apartment-type-badge--green", data-badge="3")
+                                        div(class="apartment-type-text") В продаже:
+                                        div(class="apartment-type-count") 78
+                                    div(class="apartment-type")
+                                        div(class="apartment-type-badge apartment-type-badge--orange", data-badge="4")
+                                        div(class="apartment-type-text") Акция:
+                                        div(class="apartment-type-count") 5
+                                div(class="page-text")
+                                    div(class="apartment-table")
+                                        table(class="sort-table")
+                                            thead
+                                                tr
+                                                    th
+                                                    th Площадь
+                                                    th Этаж
+                                                    th Цена
+                                                    th Цена м
+                                                        sup 2
+                                                    th Отделка
+                                                    th Статус
+                                            tbody
+                                                tr(class="tooltip-item", data-apartment-info='{"apartment": "3-х ком. квартира", "id": 51515, "image": "../dummy/apartment-icon/1.png"}')
+                                                    td 
+                                                        a(href="#", class="link link-black link-black--bottom") 3-х ком. квартира
+                                                    td 112 м
+                                                        sup 2
+                                                    td 3
+                                                    td 16 800 000 &#8381;
+                                                    td 149 800 &#8381;/м
+                                                        sup 2
+                                                    td без отделки
+                                                    td
+                                                        div(class="apartment-type-badge apartment-type-badge--orange")
+                                                tr(class="tooltip-item", data-apartment-info='{"apartment": "3-х ком. квартира", "id": 1515, "image": "../dummy/apartment-icon/1.png"}')
+                                                    td 3-х ком. квартира
+                                                    td 123 м
+                                                        sup 2
+                                                    td 3
+                                                    td 16 800 000 &#8381;
+                                                    td 150 000 &#8381;/м
+                                                        sup 2
+                                                    td под чистовую
+                                                    td
+                                                        div(class="apartment-type-badge apartment-type-badge--green")
+                                                tr(class="tooltip-item", data-apartment-info='{"apartment": "2-х ком. квартира", "id": 11111, "image": "../dummy/apartment-icon/1.png"}')
+                                                    td 
+                                                        a(href="#", class="link link-black link-black--bottom") 2-х ком. квартира
+                                                    td 78 м
+                                                        sup 2
+                                                    td 2
+                                                    td 9 000 000 &#8381;
+                                                    td 150 000 &#8381;/м
+                                                        sup 2
+                                                    td без отделки
+                                                    td
+                                                        div(class="apartment-type-badge apartment-type-badge--yellow")
+                                                tr(class="not-active tooltip-item", data-apartment-info='{"apartment": "1-х ком. квартира", "id": 9849498, "image": "../dummy/apartment-icon/1.png"}')
+                                                    td 
+                                                        a(href="#", class="link link-black link-black--bottom") 1-х ком. квартира
+                                                    td 45 м
+                                                        sup 2
+                                                    td 2
+                                                    td 7 000 000 &#8381;
+                                                    td 150 000 &#8381;/м
+                                                        sup 2
+                                                    td без отделки
+                                                    td
+                                                        div(class="apartment-type-badge apartment-type-badge--gray")
+                                                tr(class="tooltip-item", data-apartment-info='{"apartment": "4-х ком. квартира", "id": 84919345, "image": "../dummy/apartment-icon/1.png"}')
+                                                    td 
+                                                        a(href="#", class="link link-black link-black--bottom") 4-х ком. квартира
+                                                    td 45 м
+                                                        sup 2
+                                                    td 2
+                                                    td 7 000 000 &#8381;
+                                                    td 150 000 &#8381;/м
+                                                        sup 2
+                                                    td без отделки
+                                                    td
+                                                        div(class="apartment-type-badge apartment-type-badge--green")
+                                                tr(class="not-active tooltip-item")
+                                                    td 3-х ком. квартира
+                                                    td 45 м
+                                                        sup 2
+                                                    td 2
+                                                    td 7 000 000 &#8381;
+                                                    td 150 000 &#8381;/м
+                                                        sup 2
+                                                    td без отделки
+                                                    td
+                                                        div(class="apartment-type-badge apartment-type-badge--gray")
+                                                tr(class="tooltip-item")
+                                                    td 1-х ком. квартира
+                                                    td 45 м
+                                                        sup 2
+                                                    td 2
+                                                    td 7 000 000 &#8381;
+                                                    td 150 000 &#8381;/м
+                                                        sup 2
+                                                    td без отделки
+                                                    td
+                                                        div(class="apartment-type-badge apartment-type-badge--yellow")
+                                                tr(class="tooltip-item")
+                                                    td 2-х ком. квартира
+                                                    td 45 м
+                                                        sup 2
+                                                    td 2
+                                                    td 7 000 000 &#8381;
+                                                    td 150 000 &#8381;/м
+                                                        sup 2
+                                                    td без отделки
+                                                    td
+                                                        div(class="apartment-type-badge apartment-type-badge--yellow")
+                                                tr(class="tooltip-item")
+                                                    td 
+                                                        a(href="#", class="link link-black link-black--bottom") 4-х ком. квартира
+                                                    td 45 м
+                                                        sup 2
+                                                    td 2
+                                                    td 7 000 000 &#8381;
+                                                    td 150 000 &#8381;/м
+                                                        sup 2
+                                                    td без отделки
+                                                    td
+                                                        div(class="apartment-type-badge apartment-type-badge--yellow")
+                                                tr(class="tooltip-item")
+                                                    td 5-х ком. квартира
+                                                    td 45 м
+                                                        sup 2
+                                                    td 2
+                                                    td 7 000 000 &#8381;
+                                                    td 150 000 &#8381;/м
+                                                        sup 2
+                                                    td без отделки
+                                                    td
+                                                        div(class="apartment-type-badge apartment-type-badge--yellow")
+                                                tr(class="tooltip-item")
+                                                    td 5-х ком. квартира
+                                                    td 45 м
+                                                        sup 2
+                                                    td 2
+                                                    td 7 000 000 &#8381;
+                                                    td 150 000 &#8381;/м
+                                                        sup 2
+                                                    td без отделки
+                                                    td
+                                                        div(class="apartment-type-badge apartment-type-badge--yellow")
+                                                tr(class="tooltip-item")
+                                                    td 5-х ком. квартира
+                                                    td 45 м
+                                                        sup 2
+                                                    td 2
+                                                    td 7 000 000 &#8381;
+                                                    td 150 000 &#8381;/м
+                                                        sup 2
+                                                    td без отделки
+                                                    td
+                                                        div(class="apartment-type-badge apartment-type-badge--yellow")
+                                                
+                div(class="page-inner page-inner--w2")    
                     div(class="apartment-item filter-item hide hide-block", data-filter-item="4")
                         div(class="page-text")
-                            div(class="apartment-features")
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/sea.svg 
-                                    div(class="apartment-features-item-text") Вид на море 
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/original.svg 
-                                    div(class="apartment-features-item-text") Оригинальный проект
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/save.svg
-                                    div(class="apartment-features-item-text") Охраняемая территория
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/original.svg
-                                    div(class="apartment-features-item-text") Магазины рядом
-                            div(class="border-text")
-                                p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
+                            div(class="apartment-description-item")
+                                div(class="border-text border-text--bottom")
+                                    p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
+                            div(class="apartment-description-item")
+                                div(class="apartment-features apartment-features--around border-text border-text--bottom")
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/sea.svg 
+                                        div(class="apartment-features-item-text") Вид на море 
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/original.svg 
+                                        div(class="apartment-features-item-text") Оригинальный проект
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/save.svg
+                                        div(class="apartment-features-item-text") Охраняемая территория
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/original.svg
+                                        div(class="apartment-features-item-text") Магазины рядом
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/save.svg
+                                        div(class="apartment-features-item-text") Охраняемая территория
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/original.svg
+                                        div(class="apartment-features-item-text") Магазины рядом
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/original.svg
+                                        div(class="apartment-features-item-text") Магазины рядом
+                            
+                            div(class="apartment-description-item")
+                                div(class="apartment-detail-info border-text border-text--bottom")
+                                    dl
+                                        dt Срок сдачи
+                                        dd IV кв. 2018
+                                        dt Застройщик
+                                        dd
+                                            a(href="#", class="link link-black link-black--bottom") Стройуниверсал
+                                        dt Всего квартир 
+                                        dd 300
+                                        dt Этажей
+                                        dd 3
+                                        dt Площадь квартир
+                                        dd от 55 до 132.7 м
+                                            sup 2
+                                        dt Класс здания
+                                        dd элитный
+                                        dt Высота потолков 
+                                        dd 3.3 м
+                                        dt Отделка
+                                        dd без ремонта
+                                        dt Парковка
+                                        dd придомовая и подземная
+                                        dt Тип здания
+                                        dd монолит
+                                        dt Расстояние до моря
+                                        dd 300 м
+                                        dt Отделка
+                                        dd без ремонта
+                                        dt Ипотека 
+                                        dd да
+                                        dt Федеральный закон 214
+                                        dd да
+                                        dt Возможна расстрочка
+                                        dd да
+                                        dt Цель покупки
+                                        dd для жизни, для отдыха
+                                div(class="apartment-detail-info")
+                                    dl(class="dark")
+                                        dt(class="title") Инфраструктура рядом
+                                        dd(class="title") На территории ЖК
+                                        dt Благоустроенный пляж
+                                        dd Ресторан
+                                        dt Минимаркет
+                                        dd Тренажерный зал
+                                        dt Остановка
+                                        dd Детская площадка
+                                        dt Санаторий "Дагомыс"
+                                        dd Теннисный корт
+                                        dt 
+                                        dd Придомовой паркинг
+                                        dt 
+                                        dd Детский сад
+                                        dt 
+                                        dd Свой пляж
+                                        dt 
+                                        dd Травсфер
+                                        dt 
+                                        dd Панорамное остекление
+                                        dt 
+                                        dd Ланшафтный дизайн
+                                        dt 
+                                        dd СПА-комплекс
+                
+                div(class="page-inner page-inner--w2")
                     div(class="apartment-item filter-item hide hide-block", data-filter-item="5")
                         div(class="page-text")
-                            div(class="apartment-features")
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/sea.svg 
-                                    div(class="apartment-features-item-text") Вид на море 
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/original.svg 
-                                    div(class="apartment-features-item-text") Оригинальный проект
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/save.svg
-                                    div(class="apartment-features-item-text") Охраняемая территория
-                                div(class="apartment-features-item")
-                                    div(class="apartment-features-item-icon")
-                                        include ../../prod/svg/original.svg
-                                    div(class="apartment-features-item-text") Магазины рядом
-                            div(class="border-text")
-                                p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
+                            div(class="apartment-description-item")
+                                div(class="border-text border-text--bottom")
+                                    p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
+                            div(class="apartment-description-item")
+                                div(class="apartment-features apartment-features--around border-text border-text--bottom")
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/sea.svg 
+                                        div(class="apartment-features-item-text") Вид на море 
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/original.svg 
+                                        div(class="apartment-features-item-text") Оригинальный проект
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/save.svg
+                                        div(class="apartment-features-item-text") Охраняемая территория
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/original.svg
+                                        div(class="apartment-features-item-text") Магазины рядом
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/save.svg
+                                        div(class="apartment-features-item-text") Охраняемая территория
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/original.svg
+                                        div(class="apartment-features-item-text") Магазины рядом
+                                    div(class="apartment-features-item")
+                                        div(class="apartment-features-item-icon")
+                                            include ../../prod/svg/original.svg
+                                        div(class="apartment-features-item-text") Магазины рядом
+                            
+                            div(class="apartment-description-item")
+                                div(class="apartment-detail-info border-text border-text--bottom")
+                                    dl
+                                        dt Срок сдачи
+                                        dd IV кв. 2018
+                                        dt Застройщик
+                                        dd
+                                            a(href="#", class="link link-black link-black--bottom") Стройуниверсал
+                                        dt Всего квартир 
+                                        dd 300
+                                        dt Этажей
+                                        dd 3
+                                        dt Площадь квартир
+                                        dd от 55 до 132.7 м
+                                            sup 2
+                                        dt Класс здания
+                                        dd элитный
+                                        dt Высота потолков 
+                                        dd 3.3 м
+                                        dt Отделка
+                                        dd без ремонта
+                                        dt Парковка
+                                        dd придомовая и подземная
+                                        dt Тип здания
+                                        dd монолит
+                                        dt Расстояние до моря
+                                        dd 300 м
+                                        dt Отделка
+                                        dd без ремонта
+                                        dt Ипотека 
+                                        dd да
+                                        dt Федеральный закон 214
+                                        dd да
+                                        dt Возможна расстрочка
+                                        dd да
+                                        dt Цель покупки
+                                        dd для жизни, для отдыха
+                                div(class="apartment-detail-info")
+                                    dl(class="dark")
+                                        dt(class="title") Инфраструктура рядом
+                                        dd(class="title") На территории ЖК
+                                        dt Благоустроенный пляж
+                                        dd Ресторан
+                                        dt Минимаркет
+                                        dd Тренажерный зал
+                                        dt Остановка
+                                        dd Детская площадка
+                                        dt Санаторий "Дагомыс"
+                                        dd Теннисный корт
+                                        dt 
+                                        dd Придомовой паркинг
+                                        dt 
+                                        dd Детский сад
+                                        dt 
+                                        dd Свой пляж
+                                        dt 
+                                        dd Травсфер
+                                        dt 
+                                        dd Панорамное остекление
+                                        dt 
+                                        dd Ланшафтный дизайн
+                                        dt 
+                                        dd СПА-комплекс
+        
+        div(class="page-inner page-inner--max", style="background:#f7f8fb")
+            div(class="page-inner page-inner--w1")
+                div(class="page-text")
+                    h2 Похожие объекты
+
+                    div(class="offers-list")
+                        div(class="offers-item")
+                            div(class="offers-container-favorites")
+                                button(type="button", class="link offers-container-favorites-icon") 
+                                    include ../../prod/svg/star_orage.svg
+                                button(type="button", class="link link-orange link-orange--bottom offers-container-favorites-text") Добавить в избранное
+    
+                            div(class="offers-container")
+                                img(src="../dummy/home_1.png", alt  class="offers-container-img")
+                                div(class="offers-container-price") 1 167 920 &#8381;
+                            div(class="offers-information")
+                                div(class="page-text")
+                                    div(class="offers-name") ЖК Семейный
+                                    div(class="offers-district") Лазаревский район
+                                    div(class="offers-floor") Этаж:
+                                        span(class="active") 3
+                                        / 10                
+                            a(href="#", class="link button button--orange offers-container-more") Подробнее
+                    
+                        div(class="offers-item")
+                            div(class="offers-container-favorites")
+                                button(type="button", class="link offers-container-favorites-icon") 
+                                    include ../../prod/svg/star_orage.svg
+                                button(type="button", class="link link-orange link-orange--bottom offers-container-favorites-text") Добавить в избранное
+    
+                            div(class="offers-container")
+                                img(src="../dummy/home_2.png", alt  class="offers-container-img")
+                                div(class="offers-container-price") 2 200 900 &#8381;
+                            div(class="offers-information")
+                                div(class="page-text")
+                                    div(class="offers-name") ЖК Эко Хаус 2
+                                    div(class="offers-district") Район Хоста
+                                    div(class="offers-floor") Этаж:
+                                        span(class="active") 1
+                                        / 10
+                                            
+                            a(href="#", class="link button button--orange offers-container-more") Подробнее
+                    
+                        div(class="offers-item")
+                            div(class="offers-container-favorites")
+                                button(type="button", class="link offers-container-favorites-icon") 
+                                    include ../../prod/svg/star_orage.svg
+                                button(type="button", class="link link-orange link-orange--bottom offers-container-favorites-text") Добавить в избранное
+    
+                            div(class="offers-container")
+                                img(src="../dummy/home_3.png", alt  class="offers-container-img")
+                                div(class="offers-container-price") 2 330 000 &#8381;
+                            div(class="offers-information")
+                                div(class="page-text")
+                                    div(class="offers-name") ЖК Лесная поляна 
+                                        br 
+                                        | (2-я очередь)
+                                    div(class="offers-district") Район Дагомыс
+                                    div(class="offers-floor") Этаж:
+                                        span(class="active") 7
+                                        / 11
+                                            
+                            a(href="#", class="link button button--orange offers-container-more") Подробнее
+    
+        div(class="page-inner page-inner--max", style="background:#009ecc")
+            div(class="page-inner page-inner--w1")
+                div(class="order-call")
+                    div(class="page-text")
+                        h2 Закажите профессиональный подбор сейчас
+                    form(class="form form-order-call")
+                        div(class="form-row form-row--100")
+                            input(type="text", id="name", name="name", class="form-item form-item--text", required, data-error="Ваше имя", aria-required="true", placeholder="Ваше имя")
+                        div(class="form-row form-row--100")
+                            input(type="text", id="mobile", name="mobile", class="form-item form-item--text", required, data-error="Укажите телефон", aria-required="true", data-pattern="mobileRU", data-number="+7 (000) 000-00-00", placeholder="Контактный телефон")
+                        div(class="form-row form-row--100")
+                            div(class="order-call-privacy") Нажимая на кнопку "Отправить заявку", вы даете
+                                a(href="#", class="link link-white link--opacity") согласие на обработку своих персональных данных
+                        div(class="form-row form-row--100")
+                            button(type="submit", class="button button--orange-flood send-order") Отправить заявку
+                    div(class="order-call-hotline")
+                        span(class="order-call-hotline-text") Бесплатная горячая линия
+                        a(href="tel:+78007075523", class="link link-white link--opacity order-call-hotline-mobile") 8-800-707-55-23
+                        span(class="order-call-hotline-text") операторы доступны
+                        span(class="order-call-hotline-text") с 8:00 до 22:00 МСК
+                    div(class="order-call-icon")
+                        include ../../prod/svg/call.svg

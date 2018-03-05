@@ -86,7 +86,7 @@ body
 		padding 0 20px
 
 	&--w3
-		max-width 925px
+		max-width 750px
 		padding 0 20px
 
 	&--w4
@@ -392,7 +392,7 @@ body
 
 		line-height 54px
 
-		color $colorLightBlack
+		color$colorLightBlack
 
 	h3
 		font-size 16px
@@ -413,32 +413,74 @@ body
 			color #4a494a
 			text-align right
 
+		&.dark
+			dd
+			dt
+				color $colorLightBlack
+
+				&.title
+					font-family "ProximaNovaSemibold"
+					margin-bottom 30px
 	p
 		line-height 22px
 		margin-bottom 30px
 
-		font-size 16px
+		font-size 18px
 		font-family "ProximaNovaRegular"
 
-		color #4A494A
+		&:last-child
+			margin-bottom 0
 
 	.border-text
-		padding 40px 0 20px 0
 		box-sizing border-box
-
-		margin-bottom 30px
 
 		&--full
 			border-top 1px solid #d0d0d0
+			padding 30px 0 30px 0
 			border-bottom 1px solid #d0d0d0
 
 		&--bottom
+			padding 0 0 30px 0
 			border-bottom 1px solid #d0d0d0
 
 	sup
 		font-size 12px
 		vertical-align top
 
+	table
+		width 100%
+
+		thead
+			tr
+				th
+					padding 17px 0 15px 0
+					box-sizing border-box
+					background-color #e1e8eb
+					border-bottom 2px solid #d0d0d0
+
+					font-family "ProximaNovaSemibold"
+
+					color #000
+		tr
+			width 100%
+
+			td
+				padding 25px 0
+				box-sizing border-box
+
+				border-bottom 1px solid $colorLightGray
+
+				color #000
+				font-size 18px
+
+				&:first-child
+					padding-left 5px
+
+				&:last-child
+					padding-left 10px
+
+			&.not-active
+				opacity 0.4
 /** //footer **/
 
 /** button and link **/
@@ -2252,7 +2294,7 @@ body
 				&:hover
 				&.active
 					border-radius 0
-					border 2px solid $colorOrange
+					border 4px solid $colorOrange
 					box-sizing border-box
 
 	.apartment-preview-text
@@ -2328,7 +2370,6 @@ body
 
 		dl
 			justify-items baseline
-			margin-bottom 30px
 
 			dt
 				color #9B9A9B
@@ -2337,9 +2378,13 @@ body
 				font-family "ProximaNovaRegular"
 				font-size 18px
 
-		.apartment-tabs
-			border-bottom 1px solid $colorLightGray
+			&.dark
+				dt
+				dd
+					color $colorLightBlack
 
+		.apartment-tabs
+			padding-bottom 0
 			.filter-tabs
 				text-align center
 				margin-bottom 25px
@@ -2354,6 +2399,14 @@ body
 				width 100%
 				height 100%
 
+		.apartment-detail-info
+			margin-top 30px
+
+	.apartment-item
+		margin-top 30px
+
+	.apartment-description-item
+		margin-bottom 40px
 
 	.apartment-features
 		display flex
@@ -2364,7 +2417,7 @@ body
 		flex-wrap wrap
 
 		.apartment-features-item
-			max-width 85px
+			max-width 100px
 			margin-right 25px
 
 			.apartment-features-item-icon
@@ -2385,6 +2438,155 @@ body
 			.apartment-features-item-text
 				font-size 14px
 				line-height 16px
+
+		&--around
+			justify-content space-between
+
+			.apartment-features-item
+				margin-right 0
+
+	.apartment-result
+		padding 25px 0
+		box-sizing border-box
+
+		margin-bottom 30px
+
+		border-bottom 1px solid $colorLightGray
+
+		background-color #f7f8fb
+
+		.apartment-result-container
+			display flex
+			justify-content space-between
+			align-items center
+
+			.apartment-result-text
+				font-size 18px
+				font-family "ProximaNovaBold"
+
+		.apartment-result-button
+			position relative
+			display inline-block
+			padding 15px 25px 15px 45px
+			box-sizing border-box
+
+			vertical-align top
+
+			margin-right 20px
+
+			background #fff
+			border 2px solid #fff
+
+			transition border-color 0.3s $transitionAnimation
+
+			&:hover
+				border-color $colorOrange
+
+			&:last-child
+				margin-right 0
+
+			.apartment-result-button-icon
+				position absolute
+				top 50%
+				left 10px
+
+				display block
+				max-width 25px
+				margin-right 15px
+
+				vertical-align middle
+
+				transform translateY(-50%)
+
+				svg
+					display block
+					width 100%
+
+					path
+						fill $colorGray
+
+						transition  0.3s $transitionAnimation
+
+			.apartment-result-button-text
+				display inline-block
+
+				vertical-align middle
+
+			&.active
+				.apartment-result-button-icon
+					svg
+						path
+							fill $colorOrange
+				.apartment-result-button-text
+					color $colorOrange
+
+	.apartment-list
+
+		.apartment-types-list
+			display flex
+			justify-content flex-start
+			flex-wrap wrap
+
+			.apartment-type
+				margin-right 40px
+				margin-bottom 30px
+
+				.apartment-type-text
+					display inline-block
+					vertical-align middle
+
+					color $colorGray
+
+				.apartment-type-count
+					display inline-block
+					vertical-align middle
+					font-family "ProximaNovaSemibold"
+
+		.apartment-type-badge
+			display inline-block
+			width 25px
+			height 25px
+
+			margin-right 10px
+
+			border-radius 50%
+
+			vertical-align middle
+
+			&--gray
+				background $colorGray
+
+			&--yellow
+				background #ffe200
+
+			&--green
+				background #41aa33
+
+			&--orange
+				background $colorOrange
+
+
+		.apartment-table
+			position relative
+			max-height 800px
+			overflow hidden
+			overflow-y auto
+
+			table
+				.apartment-type-badge
+					width 20px
+					height 20px
+
+				tr
+					cursor pointer
+
+					td
+						transition background-color 0.3s $transitionAnimation
+
+					&:hover
+						td
+							background-color #f7f8fb
+
 
 /*** //apartment ***/
 
@@ -2475,3 +2677,58 @@ body
 
 			transform translateX(-50%)
 /*** //preloader ***/
+
+
+/*** tooltip apartment ***/
+
+.tooltip-container
+	padding 25px 25px 30px 25px
+	box-sizing border-box
+
+	.tooltip-apartment-title
+		margin-bottom 20px
+		font-size 18px
+
+	.tooltip-apartment-id
+		margin-bottom 25px
+		font-size 18px
+
+	.tooltip-apartment-holder
+		margin 0 auto 25px auto
+		text-align center
+		max-width 200px
+
+		.tooltip-apartment-img
+			display block
+			width 100%
+
+
+.tooltipster-sidetip.tooltipster-noir.tooltipster-noir-customized .tooltipster-box
+	border 1px solid $colorLightGray
+	background #fff
+	box-shadow 5px 5px 10px -5px #000
+	border-radius 0
+
+.tooltipster-sidetip.tooltipster-noir.tooltipster-noir-customized .tooltipster-content
+	min-width 300px
+	padding 0
+	overflow hidden
+	line-height inherit
+
+	color #000
+
+	.tooltip-container
+		.form
+			margin-top 0
+
+	.tooltip-apartment-empty
+		display block
+		width 100%
+		padding 20px
+		box-sizing border-box
+
+		font-size 18px
+
+		text-align center
+
+/*** //tooltip apartment ***/

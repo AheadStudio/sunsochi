@@ -123,7 +123,7 @@
 						$filterItem.on("click", function(e) {
 							var item = $(this),
 								dataItem = item.data("filterTab"),
-								$allItem = $(".filter-item[data-filter-item]"),
+								$allItem = $("[data-filter-item]"),
 								$showItem;
 
 							if (dataItem === 0) {
@@ -137,16 +137,17 @@
 								item.addClass("active-tab");
 							}, 50);
 
-							$showItem = $(".filter-item[data-filter-item *='"+dataItem+"']");
+							$showItem = $("[data-filter-item *='"+dataItem+"']");
 
 							self.show($showItem, $allItem);
 
+							$(".sort-table").trigger("update");
 						});
 
 						$filterItem.each(function() {
 							var el = $(this),
 								dataItem = el.data("filterTab"),
-								itemfilter = $(".filter-item[data-filter-item *='"+dataItem+"']");
+								itemfilter = $("[data-filter-item *='"+dataItem+"']");
 
 							if (!itemfilter.hasClass("hide")) {
 								el.addClass("active-tab");
@@ -742,6 +743,117 @@
 				})
 			},
 
+			apartmentTable: {
+
+				table: null,
+				toolItems: null,
+
+				init: function() {
+					var self = this;
+
+					self.table = $(".apartment-table");
+					self.toolItems = $(".tooltip-item");
+
+					self.tableSort();
+					self.toolTip(self.toolItems);
+				},
+
+				tableSort: function(params) {
+					var self = this;
+					if (!params) {
+						params = {
+							widgets: ["stickyHeaders"],
+							widgetOptions: {
+								 stickyHeaders_attachTo: self.table
+							}
+						}
+					}
+					$(".sort-table").tablesorter(params);
+				},
+
+				toolTip: function($tooltipElement) {
+
+					if ($(window).width() <= 768) {
+						$trigger = "click";
+					} else {
+						$trigger = "hover";
+					}
+
+					(function($el) {
+						$el.tooltipster({
+							content: $sel.body.find("[data-tooltip-apartment]"),
+							contentCloning: true,
+
+							contentAsHTML: true,
+							interactive: true,
+
+							animation: "fade",
+							animationDuration: 100,
+
+							arrow: false,
+
+							updateAnimation: "fade",
+
+							theme: ["tooltipster-noir", "tooltipster-noir-customized"],
+
+							trigger: $trigger,
+
+							site: "bottom",
+
+							/*functionBefore: function(instance, helper) {
+								var idOrigin = helper.origin.dataset.tooltipElement;
+								//for getting information about the store from a file
+					            $.get("tooltip-element.php", function(data) {
+									jsonToolTip = $.parseJSON(data);
+
+									for (var itemIdShop = 0; itemIdShop < jsonToolTip.length; itemIdShop++) {
+
+										if (idOrigin == jsonToolTip[itemIdShop].id) {
+
+
+											instance.content('<div id="'+idOrigin+'" class="tooltip-container"><p>'+ jsonToolTip[itemIdShop].id.toUpperCase() +'</p><p>т.'+ jsonToolTip[itemIdShop].mobile +'</p><p>'+ jsonToolTip[itemIdShop].shopProducts +'</p><p>'+ jsonToolTip[itemIdShop].timeWork +'</p><a href="shops_detail.html" class="link link--darkgray tooltip-container-link animation-link rippler rippler-default">Узнать больше</a></div><div class="tooltip-close"><span>x</span></div>');
+
+											$(".tooltip-close").on("click", function(){
+												instance._$origin.tooltipster("hide");
+											});
+											return;
+										} else {
+											instance.content("<span class='no-info'>Информация по данному магазину отсутствует</span>");
+										}
+
+									}
+
+					            });
+
+						    },*/
+							functionFormat: function(instance, helper, content){
+								var $content = instance.content(),
+									$contentTitle = $content.find("[data-tooltip-apartment-title]"),
+									$contentId = $content.find("[data-tooltip-apartment-id]"),
+									$contentImg = $content.find("[data-tooltip-apartment-img]"),
+									apartmentData = instance._$origin.data("apartmentInfo");
+
+								if (!apartmentData) {
+									$content = "<span class='tooltip-apartment-empty'>Нет информации</span>";
+									return $content;
+								}
+								$contentId.text("ID " + apartmentData.id);
+								$contentTitle.text(apartmentData.apartment);
+								$contentImg.attr("src", apartmentData.image);
+
+						        return $content;
+						    },
+						});
+					})($tooltipElement)
+
+				},
+
+				findIdentical: function() {
+					var self = this;
+				}
+
+			},
+
 		};
 
 	})();
@@ -755,6 +867,7 @@
 		SUNSOCHI.maps.yandexMap.init();
 	});
 	SUNSOCHI.sliders.init();
+	SUNSOCHI.apartmentTable.init();
 	SUNSOCHI.modalWindow.init();
 	SUNSOCHI.ajaxLoader();
 

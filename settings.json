@@ -57,21 +57,12 @@
             }
         },
         "new-building-card": {
-            "name": "Карточка новстройка",
+            "name": "Карточка новостройка",
             "progress": {
-                "desktop": "0",
+                "desktop": "50",
                 "tablet": "0",
                 "mobile": "0"
             }
-        },
-        "offers-load": {
-            "name": "Подгрузка домов",
-            "progress": {
-                "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
-            },
-            "note": "Страница для подгрузки"
         }
     },
     "paths": {
