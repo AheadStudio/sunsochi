@@ -869,12 +869,12 @@
 				gridBlock: {
 
 					$blocks: null,
+					$gridContainer: null,
 
-					templateRow: null,
-
-					templateCell: null,
-
-					templateMatrix: null,
+					cells: null,
+					colls: null,
+					rows: null,
+					finalGrid: null,
 
 					init: function() {
 						var self = this;
@@ -887,8 +887,11 @@
 						var self = this;
 						self.$blocks.each(function() {
 							(function($el) {
+
 								var dataEl = $el.data("structure");
+								self.$gridContainer = $el.find(".apartment-structure-grid-container");
 								self.createObjects(dataEl);
+
 							})($(this));
 						});
 					},
@@ -899,6 +902,9 @@
 							sizeMatrix = params.size;
 
 						sortMatrix = matrixArray(params.size.row, params.size.col);
+
+						self.colls = params.size.col;
+						self.rows = params.size.row;
 
 						function matrixArray(rows, columns){
 							var arr = new Array();
@@ -917,23 +923,63 @@
 							params.objects[i].gridArea = "area" + params.objects[i].id;
 
 						}
-						console.log(params.objects);
-						console.log(sortMatrix);
-						self.replaceMarix(sortMatrix, params.objects);
+						self.createStructure(self.replaceMarix(sortMatrix, params.objects), function() {
+							var $alltooltip = $sel.body.find(".tooltip-item");
+							$alltooltip.removeClass(".tooltip-item");
+						});
 					},
 
 					replaceMarix: function(matrix, obj) {
-						var self = this,
-							stringMatrix;
-						for(var i = 0; i < matrix.length; i++) {
-							stringMatrix += matrix[i].join("|");
-						}
+						var self = this;
+
+						self.cells = obj;
+
 						for (var d = 0; d < obj.length; d++) {
-							console.log(obj[d]);
+							for(var i = 0; i < matrix.length; i++) {
+								for(var j = 0; j < matrix[i].length; j++) {
+									if (obj[d].posMatrix.indexOf(matrix[i][j]) !== -1) {
+										matrix[i][j] = obj[d].gridArea;
+									}
+								}
+							}
 						}
 
-						console.log(stringMatrix);
-					}
+						return matrix;
+					},
+
+					createStructure: function(callback1, callback2) {
+						var self = this,
+							resultMatrix = callback1,
+							stringMatrix = "";
+
+						for(var i = 0; i < resultMatrix.length; i++) {
+							stringMatrix += '"';
+							for(var j = 0; j < resultMatrix[i].length; j++) {
+								stringMatrix += resultMatrix[i][j] + " ";
+							}
+							stringMatrix += '" ';
+						}
+						self.finalGrid = stringMatrix;
+						self.$gridContainer.css({
+							"grid-template-areas": self.finalGrid,
+							"grid-template-columns": "repeat("+self.colls+", 35px)",
+							"grid-template-rows": "repeat("+self.rows+", 35px)"
+						});
+
+						for (var d = 0; d < self.cells.length; d++) {
+							var information = "";
+							if (self.cells[d].info) {
+								information = JSON.stringify(self.cells[d].info);
+							}
+							self.$gridContainer.prepend("<div class='apartment-structure-grid-cell tooltip-item' data-apartment-info='" + information + "' style='background-color:" + self.cells[d].color + "; grid-area:" + self.cells[d].gridArea + "'></div>");
+						}
+
+						if (callback2) {
+							SUNSOCHI.apartments.tableBlock.init();
+						}
+					},
+
+
 
 				},
 			},
