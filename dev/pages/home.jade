@@ -10,20 +10,20 @@ block content
         div(class="page-text")
             h2 Поиск по объектам
         div(class="filter")
-            a(href="#", class="link filter-clear", data-filter-tab="0") Очистить все
+            a(href="#", class="link filter-clear", data-filter-tab="0", data-filter-tie="mainfilter") Очистить все
             div(class="filter-tabs")
-                div(class="filter-tab", data-filter-tab="1") Новостройки
-                div(class="filter-tab", data-filter-tab="2") Квартиры
-                div(class="filter-tab", data-filter-tab="3") Дома
-                div(class="filter-tab", data-filter-tab="4") Участки
-                div(class="filter-tab", data-filter-tab="5") Коммерческие
+                div(class="filter-tab", data-filter-tab="1", data-filter-tie="mainfilter") Новостройки
+                div(class="filter-tab", data-filter-tab="2", data-filter-tie="mainfilter") Квартиры
+                div(class="filter-tab", data-filter-tab="3", data-filter-tie="mainfilter") Дома
+                div(class="filter-tab", data-filter-tab="4", data-filter-tie="mainfilter") Участки
+                div(class="filter-tab", data-filter-tab="5", data-filter-tie="mainfilter") Коммерческие
             div(class="filter-list")
-                div(class="filter-item hide hide-block", data-filter-item="0")
+                div(class="filter-item hide hide-block", data-filter-item="0", data-filter-tie-item="mainfilter")
                     form(class="form form-filter", action="#")
                         div(class="filter-selected-regions-list")
                         button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
                 
-                div(class="filter-item", data-filter-item="1")
+                div(class="filter-item", data-filter-item="1", data-filter-tie-item="mainfilter")
                     form(class="form form-filter", action="#")
                         div(class="form-row") 
                             div(class="form-row-100")
@@ -146,7 +146,7 @@ block content
                                     
                         button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
                 
-                div(class="filter-item hide hide-block", data-filter-item="2")
+                div(class="filter-item hide hide-block", data-filter-item="2", data-filter-tie-item="mainfilter")
                     form(class="form form-filter", action="#")
                         div(class="form-row")
                             div(class="form-row-100")
@@ -274,7 +274,7 @@ block content
                                     
                         button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
                 
-                div(class="filter-item hide hide-block", data-filter-item="3")
+                div(class="filter-item hide hide-block", data-filter-item="3", data-filter-tie-item="mainfilter")
                     form(class="form form-filter", action="#")                        
                         div(class="form-row") 
                             div(class="form-row-50")
@@ -378,7 +378,7 @@ block content
                                     
                         button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
                 
-                div(class="filter-item hide hide-block", data-filter-item="4")
+                div(class="filter-item hide hide-block", data-filter-item="4", data-filter-tie-item="mainfilter")
                     form(class="form form-filter", action="#")                        
                         div(class="form-row")
                             div(class="form-row-100")
@@ -492,7 +492,7 @@ block content
                                     
                         button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
                 
-                div(class="filter-item hide hide-block", data-filter-item="5")
+                div(class="filter-item hide hide-block", data-filter-item="5", data-filter-tie-item="mainfilter")
                     form(class="form form-filter", action="#")
                         div(class="form-row")
                             div(class="form-row-50")

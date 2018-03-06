@@ -123,7 +123,7 @@
 						$filterItem.on("click", function(e) {
 							var item = $(this),
 								dataItem = item.data("filterTab"),
-								$allItem = $("[data-filter-item]"),
+								$allItem = $("[data-filter-tie-item='"+item.data("filterTie")+"']"),
 								$showItem;
 
 							if (dataItem === 0) {
@@ -683,7 +683,7 @@
 								var parentSlider = el.closest(".for-preloader");
 								if (parentSlider.length !== 0) {
 									parentSlider.addClass("preloader-active");
-									parentSlider.append('<span class="preloader-bcg"><span class="preloader-container"><img src="../svg/logo-mini.svg", class="preloader-img"></span></span>');
+									parentSlider.append('<span class="preloader-bcg"><span class="preloader-container"><img src="../svg/logo-mini_preload.svg", class="preloader-img"></span></span>');
 								}
 							},
 							onSliderLoad: function(el) {
@@ -744,112 +744,198 @@
 				})
 			},
 
-			apartmentTable: {
-
-				table: null,
-				toolItems: null,
+			apartments: {
 
 				init: function() {
 					var self = this;
 
-					self.table = $(".apartment-table");
-					self.toolItems = $(".tooltip-item");
-
-					self.tableSort();
-					self.toolTip(self.toolItems);
+					self.tableBlock.init();
+					self.gridBlock.init();
 				},
 
-				tableSort: function(params) {
-					var self = this;
-					if (!params) {
-						params = {
-							widgets: ["stickyHeaders"],
-							widgetOptions: {
-								 stickyHeaders_attachTo: self.table
+				tableBlock: {
+
+					table: null,
+					toolItems: null,
+
+					init: function() {
+						var self = this;
+
+						self.table = $(".apartment-table");
+						self.toolItems = $(".tooltip-item");
+
+						self.tableSort();
+						self.toolTip(self.toolItems);
+					},
+
+					tableSort: function(params) {
+						var self = this;
+						if (!params) {
+							params = {
+								widgets: ["stickyHeaders"],
+								widgetOptions: {
+									 stickyHeaders_attachTo: self.table
+								}
 							}
 						}
-					}
-					$(".sort-table").tablesorter(params);
-				},
+						$(".sort-table").tablesorter(params);
+					},
 
-				toolTip: function($tooltipElement) {
+					toolTip: function($tooltipElement) {
 
-					if ($(window).width() <= 768) {
-						$trigger = "click";
-					} else {
-						$trigger = "hover";
-					}
+						if ($(window).width() <= 768) {
+							$trigger = "click";
+						} else {
+							$trigger = "hover";
+						}
 
-					(function($el) {
-						$el.tooltipster({
-							content: $sel.body.find("[data-tooltip-apartment]"),
-							contentCloning: true,
+						(function($el) {
 
-							contentAsHTML: true,
-							interactive: true,
+							$el.tooltipster({
+								content: $sel.body.find("[data-tooltip-apartment]"),
+								contentCloning: true,
 
-							animation: "fade",
-							animationDuration: 100,
+								contentAsHTML: true,
+								interactive: true,
 
-							arrow: false,
+								animation: "fade",
+								animationDuration: 100,
 
-							updateAnimation: "fade",
+								arrow: false,
 
-							theme: ["tooltipster-noir", "tooltipster-noir-customized"],
+								updateAnimation: "fade",
 
-							trigger: $trigger,
-							/*functionBefore: function(instance, helper) {
-								var idOrigin = helper.origin.dataset.tooltipElement;
-								//for getting information about the store from a file
-					            $.get("tooltip-element.php", function(data) {
-									jsonToolTip = $.parseJSON(data);
+								theme: ["tooltipster-noir", "tooltipster-noir-customized"],
 
-									for (var itemIdShop = 0; itemIdShop < jsonToolTip.length; itemIdShop++) {
+								trigger: $trigger,
 
-										if (idOrigin == jsonToolTip[itemIdShop].id) {
+								/*functionBefore: function(instance, helper) {
+									/*var idOrigin = helper.origin.dataset.tooltipElement;
+									//for getting information about the store from a file
+									$.get("tooltip-element.php", function(data) {
+										jsonToolTip = $.parseJSON(data);
+
+										for (var itemIdShop = 0; itemIdShop < jsonToolTip.length; itemIdShop++) {
+
+											if (idOrigin == jsonToolTip[itemIdShop].id) {
 
 
-											instance.content('<div id="'+idOrigin+'" class="tooltip-container"><p>'+ jsonToolTip[itemIdShop].id.toUpperCase() +'</p><p>т.'+ jsonToolTip[itemIdShop].mobile +'</p><p>'+ jsonToolTip[itemIdShop].shopProducts +'</p><p>'+ jsonToolTip[itemIdShop].timeWork +'</p><a href="shops_detail.html" class="link link--darkgray tooltip-container-link animation-link rippler rippler-default">Узнать больше</a></div><div class="tooltip-close"><span>x</span></div>');
+												instance.content('<div id="'+idOrigin+'" class="tooltip-container"><p>'+ jsonToolTip[itemIdShop].id.toUpperCase() +'</p><p>т.'+ jsonToolTip[itemIdShop].mobile +'</p><p>'+ jsonToolTip[itemIdShop].shopProducts +'</p><p>'+ jsonToolTip[itemIdShop].timeWork +'</p><a href="shops_detail.html" class="link link--darkgray tooltip-container-link animation-link rippler rippler-default">Узнать больше</a></div><div class="tooltip-close"><span>x</span></div>');
 
-											$(".tooltip-close").on("click", function(){
-												instance._$origin.tooltipster("hide");
-											});
-											return;
-										} else {
-											instance.content("<span class='no-info'>Информация по данному магазину отсутствует</span>");
+												$(".tooltip-close").on("click", function(){
+													instance._$origin.tooltipster("hide");
+												});
+												return;
+											} else {
+												instance.content("<span class='no-info'>Информация по данному магазину отсутствует</span>");
+											}
+
 										}
 
+									});
+
+								},*/
+
+								functionFormat: function(instance, helper, content){
+									var $content = instance.content(),
+										$contentTitle = $content.find("[data-tooltip-apartment-title]"),
+										$contentId = $content.find("[data-tooltip-apartment-id]"),
+										$contentImg = $content.find("[data-tooltip-apartment-img]"),
+										apartmentData = instance._$origin.data("apartmentInfo");
+
+									if (!apartmentData) {
+										$content = "<span class='tooltip-apartment-empty'>Нет информации</span>";
+										return $content;
 									}
+									$contentId.text("ID " + apartmentData.id);
+									$contentTitle.text(apartmentData.apartment);
+									$contentImg.attr("src", apartmentData.image);
 
-					            });
-
-						    },*/
-							functionFormat: function(instance, helper, content){
-								var $content = instance.content(),
-									$contentTitle = $content.find("[data-tooltip-apartment-title]"),
-									$contentId = $content.find("[data-tooltip-apartment-id]"),
-									$contentImg = $content.find("[data-tooltip-apartment-img]"),
-									apartmentData = instance._$origin.data("apartmentInfo");
-
-								if (!apartmentData) {
-									$content = "<span class='tooltip-apartment-empty'>Нет информации</span>";
 									return $content;
-								}
-								$contentId.text("ID " + apartmentData.id);
-								$contentTitle.text(apartmentData.apartment);
-								$contentImg.attr("src", apartmentData.image);
+								},
 
-						        return $content;
-						    },
-						});
-					})($tooltipElement)
+							});
+
+						})($tooltipElement);
+
+					},
+
+					findIdentical: function() {
+						var self = this;
+					},
 
 				},
 
-				findIdentical: function() {
-					var self = this;
-				}
+				gridBlock: {
 
+					$blocks: null,
+
+					templateRow: null,
+
+					templateCell: null,
+
+					templateMatrix: null,
+
+					init: function() {
+						var self = this;
+
+						self.$blocks = $("[data-structure]");
+						self.getParams();
+					},
+
+					getParams: function() {
+						var self = this;
+						self.$blocks.each(function() {
+							(function($el) {
+								var dataEl = $el.data("structure");
+								self.createObjects(dataEl);
+							})($(this));
+						});
+					},
+
+					createObjects: function(params) {
+						var self = this,
+							sortMatrix,
+							sizeMatrix = params.size;
+
+						sortMatrix = matrixArray(params.size.row, params.size.col);
+
+						function matrixArray(rows, columns){
+							var arr = new Array();
+							for(var i = 0; i < rows; i++) {
+								arr[i] = new Array();
+								for(var j = 0; j < columns; j++) {
+									arr[i][j] = i+","+j;
+								}
+							}
+							return arr;
+						}
+
+						for(var i = 0; i < params.objects.length; i++) {
+							params.objects[i].posMatrix = params.objects[i].position.join("|");
+							params.objects[i].id = i + params.objects[i].posMatrix.replace(/\,/g, "").replace(/\|/g, "");
+							params.objects[i].gridArea = "area" + params.objects[i].id;
+
+						}
+						console.log(params.objects);
+						console.log(sortMatrix);
+						self.replaceMarix(sortMatrix, params.objects);
+					},
+
+					replaceMarix: function(matrix, obj) {
+						var self = this,
+							stringMatrix;
+						for(var i = 0; i < matrix.length; i++) {
+							stringMatrix += matrix[i].join("|");
+						}
+						for (var d = 0; d < obj.length; d++) {
+							console.log(obj[d]);
+						}
+
+						console.log(stringMatrix);
+					}
+
+				},
 			},
 
 		};
@@ -865,7 +951,7 @@
 		SUNSOCHI.maps.yandexMap.init();
 	});
 	SUNSOCHI.sliders.init();
-	SUNSOCHI.apartmentTable.init();
+	SUNSOCHI.apartments.init();
 	SUNSOCHI.modalWindow.init();
 	SUNSOCHI.ajaxLoader();
 

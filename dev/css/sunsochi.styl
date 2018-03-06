@@ -2512,7 +2512,7 @@ body
 
 				vertical-align middle
 
-			&.active
+			&.active-tab
 				.apartment-result-button-icon
 					svg
 						path
@@ -2525,6 +2525,7 @@ body
 		.apartment-types-list
 			display flex
 			justify-content flex-start
+			align-items center
 			flex-wrap wrap
 
 			.apartment-type
@@ -2587,31 +2588,43 @@ body
 							position relative
 
 							&:after
-								content "\2193"
+								content ""
 
 								position absolute
 								top -2px
-								margin-left 2px
+								margin-left 5px
+
+								display inline-block
+								width 10px
+								height 21px
+								background-image url("../svg/arrow_table.svg")
+								background-size contain
+								background-repeat no-repeat
 
 								transition transform 0.3s $transitionAnimation
 
-								font-size 22px
 
 						&.tablesorter-headerAsc
 							.tablesorter-header-inner
 								&:after
-									content "\2193"
+									content ""
+									background-image url("../svg/arrow_table.svg")
+									background-size contain
+									background-repeat no-repeat
 
 						&.tablesorter-headerDesc
 							.tablesorter-header-inner
 								&:after
-									content "\2191"
+									content ""
+									transform rotate(-180deg)
 
 						&:first-child
 							.tablesorter-header-inner
 								&:after
 									content none
+
 					td
+						min-width 85px
 						transition background-color 0.3s $transitionAnimation
 
 					&:hover
@@ -2676,8 +2689,8 @@ body
 		left 50%
 
 		display block
-		width 100px
-		height 100px
+		width 88px
+		height 88px
 
 		padding 10px
 		box-sizing border-box
@@ -2730,14 +2743,42 @@ body
 		font-size 18px
 
 	.tooltip-apartment-holder
+		max-width 200px
+
 		margin 0 auto 25px auto
 		text-align center
-		max-width 200px
 
 		.tooltip-apartment-img
 			display block
 			width 100%
 
+	.tooltip-apartment-icon
+		display inline-block
+		max-width 20px
+		vertical-align middle
+
+		margin-right 20px
+		transition transform 0.3s $transitionAnimation
+
+		will-change transform
+
+		svg
+			display block
+			width 100%
+
+			path
+				transition fill 0.3s $transitionAnimation
+				stroke-width 8
+
+		&:hover
+			transform scale(1.2)
+			svg
+				path
+					fill $colorOrange
+
+	.tooltip-apartment-button
+		display inline-block
+		vertical-align middle
 
 .tooltipster-sidetip.tooltipster-noir.tooltipster-noir-customized .tooltipster-box
 	border 1px solid $colorLightGray
@@ -2746,7 +2787,7 @@ body
 	border-radius 0
 
 .tooltipster-sidetip.tooltipster-noir.tooltipster-noir-customized .tooltipster-content
-	min-width 300px
+	min-width 350px
 	padding 0
 	overflow hidden
 	line-height inherit
@@ -2769,3 +2810,64 @@ body
 		text-align center
 
 /*** //tooltip apartment ***/
+
+
+/*** apartment grid ***/
+
+.apartment-structure
+	margin-top 40px
+
+.apartment-structure-item
+	padding 30px 0
+	box-sizing border-box
+	border-top 1px solid $colorLightGray
+
+	&:last-child
+		border-bottom 1px solid $colorLightGray
+
+	.apartment-structure-name
+		display inline-block
+		width 19%
+
+		vertical-align top
+		font-family "ProximaNovaSemibold"
+
+	.apartment-structure-grid
+		position relative
+		display inline-block
+		vertical-align top
+		width 80%
+
+		.apartment-structure-floor
+			position absolute
+			top 50%
+			left 0
+			display block
+			margin-right 10px
+
+			vertical-align middle
+
+			transform rotate(-90deg) translateY(-50%)
+
+			text-align left
+
+		.apartment-structure-grid-container
+			display grid
+			grid-gap 5px
+			padding-left 50px
+			box-sizing border-box
+
+			.apartment-structure-floor-number
+				display inline-block
+				padding 10px 20px
+				box-sizing border-box
+
+				text-align center
+
+			.apartment-structure-grid-cell
+				display inline-block
+				padding 10px
+
+
+
+/*** //apartment grid ***/

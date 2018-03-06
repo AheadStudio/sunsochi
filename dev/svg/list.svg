@@ -1,0 +1,11 @@
+<svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 102">
+  <defs>
+    <clipPath id="clip-path">
+      <rect x="-3114" y="-4601" width="4400" height="13712" fill="none"/>
+    </clipPath>
+  </defs>
+  <title>list</title>
+  <g clip-path="url(#clip-path)">
+    <path d="M98,3H2V15H98ZM2,31H98V43H2ZM98,59H2V71H98Zm0,28H2V99H98Z" fill="#f99d21"/>
+  </g>
+</svg>

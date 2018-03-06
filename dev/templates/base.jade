@@ -186,7 +186,15 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				div(class="tooltip-apartment-id", data-tooltip-apartment-id)
 				div(class="tooltip-apartment-holder")
 					img(src="", class="tooltip-apartment-img", data-tooltip-apartment-img)
-				button(type="submit", class="button button--orange-reverse") Оставить заявку
+				a(href="#", class="link tooltip-apartment-icon")
+					include ../../prod/svg/download.svg
+				a(href="#", class="link tooltip-apartment-icon")
+					include ../../prod/svg/print.svg
+				a(href="#", class="link tooltip-apartment-icon")
+					include ../../prod/svg/star_orage.svg
+					
+				button(type="submit", class="button button--orange-reverse tooltip-apartment-button") Оставить заявку
+				
 		footer(class="page-footer", itemscope, itemtype="http://schema.org/WPFooter")
 			div(class="page-inner page-inner--w1")
 				div(class="footer-row footer-row--top")
