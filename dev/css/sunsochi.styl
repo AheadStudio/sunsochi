@@ -94,7 +94,7 @@ body
 		padding 0 20px
 
 	&--max
-		max-width auto
+		max-width 100%
 
 /** header **/
 .page-header
@@ -719,6 +719,9 @@ body
 		padding-top 25px
 
 		border-top 1px solid $colorTurquoise
+
+		&--center
+			text-align center
 
 	.filter-clear
 		position absolute
@@ -2170,37 +2173,37 @@ body
 			padding 0
 			background transparent
 
-			.apartment-preview-text-icon
-				display inline-block
-				margin-right 15px
+		.apartment-preview-text-icon
+			display inline-block
+			margin-right 15px
 
-			.apartment-preview-text-info
-				display inline-block
-				vertical-align top
-				margin-top 15px
+		.apartment-preview-text-info
+			display inline-block
+			vertical-align top
+			margin-top 15px
 
-				.apartment-preview-text-price
-					margin-bottom 15px
+		.apartment-preview-text-price
+			margin-bottom 15px
 
-				.apartment-preview-text-credit
-					margin-bottom 15px
+		.apartment-preview-text-credit
+			margin-bottom 15px
 
-				.apartment-preview-order
-					padding 13px 35px
+		.apartment-preview-order
+			padding 13px 35px
 
 		.apartment-deadline
 			margin-top 25px
 
-			.apartment-deadline-term
-				display inline-block
-				font-size 18px
-				color $colorGray
+		.apartment-deadline-term
+			display inline-block
+			font-size 18px
+			color $colorGray
 
-			.apartment-deadline-finish
-				display inline-block
-				margin-left 40px
-				font-size 18px
-				color $colorGray
+		.apartment-deadline-finish
+			display inline-block
+			margin-left 40px
+			font-size 18px
+			color $colorGray
 
 	.apartment-title
 		margin-bottom 25px
@@ -2317,53 +2320,53 @@ body
 
 			z-index 200
 
-		.apartment-preview-text-icon
-			display block
-			width 55px
-			margin-bottom 25px
+	.apartment-preview-text-icon
+		display block
+		width 55px
+		margin-bottom 25px
 
-			svg
-				display block
-				width 100%
-
-				path
-					transition fill 0.3s $transitionAnimation
-					stroke-width 8
-
-			&:hover
-				svg
-					path
-						fill $colorOrange
-
-		.apartment-preview-text-price
-			margin-bottom 25px
-			font-size 28px
-			font-family "ProximaNovaSemibold"
-
-		.apartment-preview-text-credit
-			margin-bottom 35px
-			font-size 18px
-			color #9B9A9B
-
-			sup
-				font-size 12px
-				vertical-align top
-
-		.apartment-preview-text-id
-			margin-bottom 40px
-
-		.apartment-preview-order
+		svg
 			display block
 			width 100%
-			max-width 215px
 
-			padding 13px
-			box-sizing border-box
+			path
+				transition fill 0.3s $transitionAnimation
+				stroke-width 8
 
-			text-align center
+		&:hover
+			svg
+				path
+					fill $colorOrange
 
-			font-size 18px
-			font-family "ProximaNovaSemibold"
+	.apartment-preview-text-price
+		margin-bottom 25px
+		font-size 28px
+		font-family "ProximaNovaSemibold"
+
+	.apartment-preview-text-credit
+		margin-bottom 35px
+		font-size 18px
+		color #9B9A9B
+
+		sup
+			font-size 12px
+			vertical-align top
+
+	.apartment-preview-text-id
+		margin-bottom 40px
+
+	.apartment-preview-order
+		display block
+		width 100%
+		max-width 215px
+
+		padding 13px
+		box-sizing border-box
+
+		text-align center
+
+		font-size 18px
+		font-family "ProximaNovaSemibold"
 
 	.apartment-information
 		margin-top 30px
@@ -2385,8 +2388,8 @@ body
 
 		.apartment-tabs
 			padding-bottom 0
+
 			.filter-tabs
-				text-align center
 				margin-bottom 25px
 
 		.apartment-map
@@ -2420,24 +2423,24 @@ body
 			max-width 100px
 			margin-right 25px
 
-			.apartment-features-item-icon
-				max-width 65px
+		.apartment-features-item-icon
+			max-width 65px
+			width 100%
+			margin-bottom 15px
+
+			transition transform 0.3s $transitionAnimation
+
+			svg
+				display block
 				width 100%
-				margin-bottom 15px
 
-				transition transform 0.3s $transitionAnimation
-
-				svg
-					display block
-					width 100%
-
-				&:hover
-					transform translateY(-10px)
+			&:hover
+				transform translateY(-10px)
 
 
-			.apartment-features-item-text
-				font-size 14px
-				line-height 16px
+		.apartment-features-item-text
+			font-size 14px
+			line-height 16px
 
 		&--around
 			justify-content space-between
@@ -2743,14 +2746,21 @@ body
 		font-size 18px
 
 	.tooltip-apartment-holder
+		display flex
+		align-items center
+		justify-content space-between
 		max-width 200px
+		min-height 300px
 
 		margin 0 auto 25px auto
 		text-align center
 
-		.tooltip-apartment-img
-			display block
-			width 100%
+	.tooltip-apartment-img
+		display block
+		width 100%
+		height 100%
+
+		object-fit cover
 
 	.tooltip-apartment-icon
 		display inline-block
@@ -2832,44 +2842,152 @@ body
 		vertical-align top
 		font-family "ProximaNovaSemibold"
 
-	.apartment-structure-grid
+.apartment-structure-grid
+	position relative
+	display inline-block
+	vertical-align top
+	width 80%
+
+.apartment-structure-floor
+	position absolute
+	top 50%
+	left 0
+	display block
+
+	vertical-align middle
+
+	transform rotate(-90deg) translateY(-50%)
+
+	text-align left
+
+.apartment-structure-grid-container-list
+	display grid
+	grid-gap 5px
+	padding-left 50px
+	box-sizing border-box
+
+	.apartment-structure-floor-number
 		position relative
 		display inline-block
-		vertical-align top
-		width 80%
+		padding 10px 20px
+		box-sizing border-box
 
-		.apartment-structure-floor
-			position absolute
-			top 50%
-			left 0
-			display block
-			margin-right 10px
+		text-align center
 
-			vertical-align middle
+		z-index 10
 
-			transform rotate(-90deg) translateY(-50%)
+	.apartment-structure-grid-cell
+		position relative
+		display inline-block
+		padding 10px
 
-			text-align left
+		cursor pointer
 
-		.apartment-structure-grid-container
-			display grid
-			grid-gap 5px
-			padding-left 50px
-			box-sizing border-box
+		z-index 10
 
-			.apartment-structure-floor-number
-				display inline-block
-				padding 10px 20px
-				box-sizing border-box
+		opacity 0
+		transform translateY(-20px)
 
-				text-align center
+		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
 
-			.apartment-structure-grid-cell
-				display inline-block
-				padding 10px
+		&.show
+			opacity 1
+			transform translateY(0px)
 
-				cursor pointer
+		&:hover
+			opacity 0.4
 
 
+
+	.apartment-structure-grid-cell-text
+		display flex
+		justify-content flex-start
+
+.apartment-structure-grid-container-floors
+	position absolute
+	top 0
+	left 0
+	bottom 0
+	right 0
+
+	display block
+	padding-left 40px
+	box-sizing border-box
+
+	.apartment-structure-grid-container-floors-item
+		display flex
+		justify-content flex-end
+		align-items center
+		width 100%
+
+		height 35px
+		margin-bottom 5px
+
+		transition background 0.3s $transitionAnimation
+
+		cursor pointer
+
+		&:last-child
+			margin-bottom 0
+
+		&:hover
+			background #F7F8FB
+
+	.apartment-structure-grid-container-floors-link
+		display block
+		width auto
+		margin-right 15px
+
+		font-size 16px
+
+		color $colorBlue
 
 /*** //apartment grid ***/
+
+
+/*** apartment progress ***/
+
+.apartment-progress
+	padding 40px 0
+
+.apartment-progress-text
+	display block
+	margin-bottom 25px
+
+	font-size 18px
+	font-family "ProximaNovaBold"
+
+.apartment-progress-bar
+	position relative
+
+	margin-bottom 20px
+	width 100%
+	height 10px
+
+	background $colorTurquoise
+
+	.apartment-progress-bar-fill
+		position absolute
+		left 0
+		top 0
+		bottom 0
+
+		display block
+		width 0
+		height 100%
+
+		background $colorBlue
+
+.apartment-progress-list
+	display flex
+	justify-content space-between
+
+	.apartment-progress-item
+		font-size 14px
+
+		&.active
+			color $colorBlue
+			font-family "ProximaNovaSemibold"
+
+
+/*** //apartment progress ***/

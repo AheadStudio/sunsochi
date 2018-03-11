@@ -46,9 +46,9 @@ block content
                                     img(src="../dummy/apartment/slide_8.jpg", alt="")
         
         div(class="apartment-information")
-            div(class="page-inner page-inner--max")
-                div(class="page-text")       
-                    div(class="apartment-tabs border-text--bottom")
+            div(class="page-text")       
+                div(class="apartment-tabs border-text--bottom")
+                    div(class="page-inner page-inner--w1")
                         div(class="filter-tabs")
                             div(class="filter-tab", data-filter-tab="1", data-filter-tie="info") Описание
                             div(class="filter-tab", data-filter-tab="2", data-filter-tie="info") Готовность
@@ -158,105 +158,21 @@ block content
                                         dd СПА-комплекс
                 div(class="page-inner page-inner--w2 filter-item hide hide-block", data-filter-item="2", data-filter-tie-item="info")
                     div(class="apartment-item")
-                        div(class="page-text")
-                            div(class="apartment-description-item")
-                                div(class="border-text border-text--bottom")
-                                    p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
-                            div(class="apartment-description-item")
-                                div(class="apartment-features apartment-features--around border-text border-text--bottom")
-                                    div(class="apartment-features-item")
-                                        div(class="apartment-features-item-icon")
-                                            include ../../prod/svg/sea.svg 
-                                        div(class="apartment-features-item-text") Вид на море 
-                                    div(class="apartment-features-item")
-                                        div(class="apartment-features-item-icon")
-                                            include ../../prod/svg/original.svg 
-                                        div(class="apartment-features-item-text") Оригинальный проект
-                                    div(class="apartment-features-item")
-                                        div(class="apartment-features-item-icon")
-                                            include ../../prod/svg/save.svg
-                                        div(class="apartment-features-item-text") Охраняемая территория
-                                    div(class="apartment-features-item")
-                                        div(class="apartment-features-item-icon")
-                                            include ../../prod/svg/original.svg
-                                        div(class="apartment-features-item-text") Магазины рядом
-                                    div(class="apartment-features-item")
-                                        div(class="apartment-features-item-icon")
-                                            include ../../prod/svg/save.svg
-                                        div(class="apartment-features-item-text") Охраняемая территория
-                                    div(class="apartment-features-item")
-                                        div(class="apartment-features-item-icon")
-                                            include ../../prod/svg/original.svg
-                                        div(class="apartment-features-item-text") Магазины рядом
-                                    div(class="apartment-features-item")
-                                        div(class="apartment-features-item-icon")
-                                            include ../../prod/svg/original.svg
-                                        div(class="apartment-features-item-text") Магазины рядом
-                            
-                            div(class="apartment-description-item")
-                                div(class="apartment-detail-info border-text border-text--bottom")
-                                    dl
-                                        dt Срок сдачи
-                                        dd IV кв. 2018
-                                        dt Застройщик
-                                        dd
-                                            a(href="#", class="link link-black link-black--bottom") Стройуниверсал
-                                        dt Всего квартир 
-                                        dd 300
-                                        dt Этажей
-                                        dd 3
-                                        dt Площадь квартир
-                                        dd от 55 до 132.7 м
-                                            sup 2
-                                        dt Класс здания
-                                        dd элитный
-                                        dt Высота потолков 
-                                        dd 3.3 м
-                                        dt Отделка
-                                        dd без ремонта
-                                        dt Парковка
-                                        dd придомовая и подземная
-                                        dt Тип здания
-                                        dd монолит
-                                        dt Расстояние до моря
-                                        dd 300 м
-                                        dt Отделка
-                                        dd без ремонта
-                                        dt Ипотека 
-                                        dd да
-                                        dt Федеральный закон 214
-                                        dd да
-                                        dt Возможна расстрочка
-                                        dd да
-                                        dt Цель покупки
-                                        dd для жизни, для отдыха
-                                div(class="apartment-detail-info")
-                                    dl(class="dark")
-                                        dt(class="title") Инфраструктура рядом
-                                        dd(class="title") На территории ЖК
-                                        dt Благоустроенный пляж
-                                        dd Ресторан
-                                        dt Минимаркет
-                                        dd Тренажерный зал
-                                        dt Остановка
-                                        dd Детская площадка
-                                        dt Санаторий "Дагомыс"
-                                        dd Теннисный корт
-                                        dt 
-                                        dd Придомовой паркинг
-                                        dt 
-                                        dd Детский сад
-                                        dt 
-                                        dd Свой пляж
-                                        dt 
-                                        dd Травсфер
-                                        dt 
-                                        dd Панорамное остекление
-                                        dt 
-                                        dd Ланшафтный дизайн
-                                        dt 
-                                        dd СПА-комплекс
-                
+                        div(class="apartment-progress", data-progress="40")
+                            div(class="apartment-progress-text", data-progress-text="Готовность дома - $count%")
+                            div(class="apartment-progress-bar")
+                                div(class="apartment-progress-bar-fill", data-progress-fill) 
+                            div(class="apartment-progress-list")
+                                div(class="apartment-progress-item active") Проект
+                                div(class="apartment-progress-item active") Котлован
+                                div(class="apartment-progress-item active") Фундамент
+                                div(class="apartment-progress-item active") Строительство
+                                div(class="apartment-progress-item") Коммуникации
+                                div(class="apartment-progress-item") Остекленение
+                                div(class="apartment-progress-item") Фасад
+                                div(class="apartment-progress-item") Ландшафт
+                                div(class="apartment-progress-item") Заселен
+                                        
                 div(class="page-inner page-inner--max filter-item", data-filter-item="3", data-filter-tie-item="info")
                     div(class="apartment-result")
                         div(class="page-inner page-inner--w1")
@@ -476,19 +392,25 @@ block content
                                 div(class="apartment-structure")
                                     div(class="apartment-structure-item")
                                         div(class="apartment-structure-name") Блок Г2
-                                        div(class="apartment-structure-grid", data-structure='{"size":{"row":3, "col": 3}, "objects": [ {"position": ["0,0", "0,1"], "type": 1, "color": "#ffe200", "info": {"apartment": "3-х ком. квартира", "id": 51515, "image": "../dummy/apartment-icon/1.png"} }, {"position": ["0,2"], "type": "", "color": "#9b9b9b", "info": {"apartment": "3-х ком. квартира", "id": 512312, "image": "../dummy/apartment-icon/1.png"}},{"position": ["1,0", "2,0"], "type": "", "color": "#498FE1"},{"position": ["1,1"], "type": "", "color": "#9b9b9b"},{"position": ["1,2"], "type": "","color": "#9b9b9b"},{"position": ["2,1"], "type": "", "color": "#9b9b9b"},{"position": ["2,2"], "type": "", "color": "#41aa33"}]}')
+                                        div(class="apartment-structure-grid", data-structure='{"size":{"row":4, "col": 3}, "floorslink": [123, 111, 222], "objects": [ {"position": ["0,0", "0,1", "0,2"], "text": "4+", "color": "#ffe200", "info": {"apartment": "3-х ком. квартира", "id": 231231, "image": "../dummy/apartment-icon/1.png"} }, {"position": ["1,0", "2,0"], "text": "2", "color": "#498FE1"},{"position": ["1,1"], "text": "1", "color": "#9b9b9b"},{"position": ["1,2"], "text": "3","color": "#9b9b9b"},{"position": ["2,1"], "text": "1", "color": "#9b9b9b"},{"position": ["2,2"], "text": "C", "color": "#41aa33"},{"position": ["3,0","3,1","3,2"], "text": "10", "color": "#41aa33"}]}')
                                             div(class="apartment-structure-floor") Этажи
-                                            div(class="apartment-structure-grid-container")                                    
+                                            div(class="apartment-structure-grid-container")       
+                                                div(class="apartment-structure-grid-container-floors")                                  
+                                                div(class="apartment-structure-grid-container-list")                                    
                                     div(class="apartment-structure-item")
                                         div(class="apartment-structure-name") Блок C2
-                                        div(class="apartment-structure-grid", data-structure='{"size":{"row":3, "col": 5}, "objects": [{"position": ["0,0", "0,1", "0,2"], "type": 1, "color": "#498FE1", "info": {"apartment": "3-х ком. квартира", "id": 51515, "image": "../dummy/apartment-icon/1.png"} }, {"position": ["0,3"], "type": "", "color": "#9b9b9b", "info": {"apartment": "3-х ком. квартира", "id": 512312, "image": "../dummy/apartment-icon/1.png"}}, {"position": ["0,4"], "type": "", "color": "#41aa33", "info": {"apartment": "3-х ком. квартира", "id": 512312, "image": "../dummy/apartment-icon/1.png"}}, {"position": ["1,0", "2,0"], "type": "", "color": "#f99d22"}, {"position": ["1,1"], "type": "", "color": "#9b9b9b"}, {"position": ["1,2", "1,3"], "type": "","color": "#E147D9"}, {"position": ["1,4"], "type": "","color": "#9b9b9b"}, {"position": ["2,1"], "type": "", "color": "#9b9b9b"}, {"position": ["2,2", "2,3", "2,4"], "type": "", "color": "#ffe200"}]}')
+                                        div(class="apartment-structure-grid", data-structure='{"size":{"row":3, "col": 5}, "floorslink": [123, 1311, 2252], "objects": [{"position": ["0,0", "0,1", "0,2"], "text": "5+", "color": "#498FE1", "info": {"apartment": "3-х ком. квартира", "id": 12412112, "image": "../dummy/apartment-icon/1.png"} }, {"position": ["0,3"], "text": "C", "color": "#9b9b9b", "info": {"apartment": "3-х ком. квартира", "id": 512312, "image": "../dummy/apartment-icon/1.png"}}, {"position": ["0,4"], "text": "2", "color": "#41aa33", "info": {"apartment": "3-х ком. квартира", "id": 657688, "image": "../dummy/apartment-icon/1.png"}}, {"position": ["1,0", "2,0"], "text": "1", "color": "#f99d22"}, {"position": ["1,1"], "text": "3", "color": "#9b9b9b"}, {"position": ["1,2", "1,3"], "text": "2","color": "#E147D9"}, {"position": ["1,4"], "text": "4","color": "#9b9b9b"}, {"position": ["2,1"], "text": "2", "color": "#9b9b9b"}, {"position": ["2,2", "2,3", "2,4"], "text": "1", "color": "#ffe200"}]}')
                                             div(class="apartment-structure-floor") Этажи
-                                            div(class="apartment-structure-grid-container")                                    
+                                            div(class="apartment-structure-grid-container")           
+                                                div(class="apartment-structure-grid-container-floors")                              
+                                                div(class="apartment-structure-grid-container-list")                                    
                                     div(class="apartment-structure-item")
                                         div(class="apartment-structure-name") Блок D2
-                                        div(class="apartment-structure-grid", data-structure='{"size":{"row":3, "col": 5}, "objects": [{"position": ["0,0", "0,1", "0,2"], "type": 1, "color": "#498FE1", "info": {"apartment": "3-х ком. квартира", "id": 51515, "image": "../dummy/apartment-icon/1.png"} }, {"position": ["0,3"], "type": "", "color": "#9b9b9b", "info": {"apartment": "3-х ком. квартира", "id": 512312, "image": "../dummy/apartment-icon/1.png"}}, {"position": ["0,4"], "type": "", "color": "#41aa33", "info": {"apartment": "3-х ком. квартира", "id": 512312, "image": "../dummy/apartment-icon/1.png"}}, {"position": ["1,0", "2,0"], "type": "", "color": "#f99d22"}, {"position": ["1,1"], "type": "", "color": "#9b9b9b"}, {"position": ["1,2", "1,3"], "type": "","color": "#E147D9"}, {"position": ["1,4"], "type": "","color": "#9b9b9b"}, {"position": ["2,1"], "type": "", "color": "#9b9b9b"}, {"position": ["2,2", "2,3", "2,4"], "type": "", "color": "#ffe200"}]}')
+                                        div(class="apartment-structure-grid", data-structure='{"size":{"row":3, "col": 7}, "floorslink": [123,  1511, 2222], "objects": [{"position": ["0,0", "0,1", "0,2"], "text": "1", "color": "#498FE1", "info": {"apartment": "3-х ком. квартира", "id": 11111123, "image": "../dummy/apartment-icon/1.png"} }, {"position": ["0,3"], "text": "3", "color": "#9b9b9b", "info": {"apartment": "3-х ком. квартира", "id": 512312, "image": "../dummy/apartment-icon/1.png"}}, {"position": ["0,4"], "text": "3", "color": "#41aa33", "info": {"apartment": "3-х ком. квартира", "id": 51554612, "image": "../dummy/apartment-icon/1.png"}}, {"position": ["1,0", "2,0"], "text": "2", "color": "#f99d22"}, {"position": ["1,1"], "text": "C", "color": "#9b9b9b"}, {"position": ["1,2", "1,3"], "text": "2","color": "#E147D9"}, {"position": ["1,4"], "text": "C","color": "#9b9b9b"}, {"position": ["2,1"], "text": "1", "color": "#9b9b9b"}, {"position": ["2,2", "2,3", "2,4"], "text": "4+", "color": "#ffe200"}, {"position": ["0,5", "0,6", "1,5", "1,6", "2,5", "2,6"], "text": "4+", "color": "#ccc", "info": {"apartment": "Крутая квартира", "id": "01110000", "image": "../dummy/apartment-icon/1.png"}}]}')
                                             div(class="apartment-structure-floor") Этажи
-                                            div(class="apartment-structure-grid-container")                                    
+                                            div(class="apartment-structure-grid-container")                                        
+                                                div(class="apartment-structure-grid-container-floors")                                        
+                                                div(class="apartment-structure-grid-container-list")                                        
                 
                 
                 

@@ -751,6 +751,7 @@
 
 					self.tableBlock.init();
 					self.gridBlock.init();
+					self.progressBlock.init();
 				},
 
 				tableBlock: {
@@ -870,11 +871,14 @@
 
 					$blocks: null,
 					$gridContainer: null,
+					$floorContainer: null,
 
 					cells: null,
 					colls: null,
 					rows: null,
 					finalGrid: null,
+
+					floorsLink: null,
 
 					init: function() {
 						var self = this;
@@ -883,29 +887,38 @@
 						self.getParams();
 					},
 
+					//--- получение параметров из data атрибута ---//
 					getParams: function() {
 						var self = this;
 						self.$blocks.each(function() {
 							(function($el) {
 
 								var dataEl = $el.data("structure");
-								self.$gridContainer = $el.find(".apartment-structure-grid-container");
+								self.$gridContainer = $el.find(".apartment-structure-grid-container-list");
+								self.$floorContainer = self.$gridContainer.parent().find(".apartment-structure-grid-container-floors");
 								self.createObjects(dataEl);
 
 							})($(this));
 						});
 					},
 
+					//--- создание матрицы (2-мерного массива) ---//
 					createObjects: function(params) {
 						var self = this,
 							sortMatrix,
 							sizeMatrix = params.size;
 
-						sortMatrix = matrixArray(params.size.row, params.size.col);
-
+						// размеры сетки
 						self.colls = params.size.col;
 						self.rows = params.size.row;
 
+						// планы этажей
+						self.floorsLink = params.floorslink;
+
+						// увеличиваем на одну ячейку для ячейки этажа
+						sortMatrix = matrixArray(self.rows, self.colls + 1);
+
+						// создание матрицы
 						function matrixArray(rows, columns){
 							var arr = new Array();
 							for(var i = 0; i < rows; i++) {
@@ -917,15 +930,25 @@
 							return arr;
 						}
 
-						for(var i = 0; i < params.objects.length; i++) {
-							params.objects[i].posMatrix = params.objects[i].position.join("|");
-							params.objects[i].id = i + params.objects[i].posMatrix.replace(/\,/g, "").replace(/\|/g, "");
-							params.objects[i].gridArea = "area" + params.objects[i].id;
+						// создание объекта позиции
+						for(var itemObj = 0; itemObj < params.objects.length; itemObj++) {
 
+							for (var itemPos = 0; itemPos < params.objects[itemObj].position.length; itemPos++) {
+								// смещаем на одну ячейку все ячейки
+								var changePostion = Math.round((Number(params.objects[itemObj].position[itemPos].replace(",",".")) + 0.1) * 100) / 100;
+
+								// записываем измененные данные
+								params.objects[itemObj].position[itemPos] = String(changePostion).replace(".", ",");
+							}
+
+							params.objects[itemObj].posMatrix = params.objects[itemObj].position.join("|");
+							params.objects[itemObj].id = itemObj + params.objects[itemObj].posMatrix.replace(/\,/g, "").replace(/\|/g, "");
+							params.objects[itemObj].gridArea = "area" + String(params.objects[itemObj].id);
 						}
+
 						self.createStructure(self.replaceMarix(sortMatrix, params.objects), function() {
-							var $alltooltip = $sel.body.find(".tooltip-item");
 							$alltooltip.removeClass(".tooltip-item");
+							var $alltooltip = $sel.body.find(".tooltip-item").destroy();
 						});
 					},
 
@@ -937,6 +960,8 @@
 						for (var d = 0; d < obj.length; d++) {
 							for(var i = 0; i < matrix.length; i++) {
 								for(var j = 0; j < matrix[i].length; j++) {
+									matrix[i][0] = "flor" + Number(matrix.length - i);
+
 									if (obj[d].posMatrix.indexOf(matrix[i][j]) !== -1) {
 										matrix[i][j] = obj[d].gridArea;
 									}
@@ -960,28 +985,91 @@
 							stringMatrix += '" ';
 						}
 						self.finalGrid = stringMatrix;
+
 						self.$gridContainer.css({
 							"grid-template-areas": self.finalGrid,
-							"grid-template-columns": "repeat("+self.colls+", 35px)",
-							"grid-template-rows": "repeat("+self.rows+", 35px)"
+							"grid-template-columns": "50px repeat(" + self.colls + ", 35px)",
+							"grid-template-rows": "repeat(" + self.rows + ", 35px)"
 						});
+
+						for (var flor = 0; flor < self.rows; flor++) {
+							self.$gridContainer.prepend("<div class='apartment-structure-floor-number' style='grid-area: flor" + Number(self.rows - flor) + "'><div class='apartment-structure-grid-cell-text'>" + Number(self.rows - flor) + "</div></div>");
+							self.$floorContainer.prepend("<div class='apartment-structure-grid-container-floors-item'><a href='" + self.floorsLink[Number(self.rows - flor)] + "' class='link link-blue--bottom apartment-structure-grid-container-floors-link'>Поэтажный план</a></div>");
+						}
 
 						for (var d = 0; d < self.cells.length; d++) {
 							var information = "";
 							if (self.cells[d].info) {
 								information = JSON.stringify(self.cells[d].info);
 							}
-							self.$gridContainer.prepend("<div class='apartment-structure-grid-cell tooltip-item' data-apartment-info='" + information + "' style='background-color:" + self.cells[d].color + "; grid-area:" + self.cells[d].gridArea + "'></div>");
+							self.$gridContainer.prepend("<div class='apartment-structure-grid-cell tooltip-item' data-apartment-info='" + information + "' style='background-color:" + self.cells[d].color + "; grid-area:" + self.cells[d].gridArea + "'><div class='apartment-structure-grid-cell-text'>" + self.cells[d].text + "</div></div>");
 						}
+
+						self.showElements();
 
 						if (callback2) {
 							SUNSOCHI.apartments.tableBlock.init();
 						}
 					},
 
+					showElements: function() {
+						var self = this,
+							itemNum = 0,
+							$allCells = self.$gridContainer.find(".apartment-structure-grid-cell");
 
+						$sel.window.on("load", function() {
+							setTimeout(function() {
+								$allCells.each(function() {
+									(function($el) {
+										$el.css("transition-delay", itemNum+"s").addClass("show");
+										$el.on("mouseenter", function() {
+											$(this).css("transition-delay","");
+										})
+									})($(this));
+									itemNum += 0.25;
+								})
+							}, 800);
+						});
+					}
 
 				},
+
+				progressBlock: {
+
+					$progressContainer: null,
+					progressCount: null,
+
+					init: function() {
+						var self = this;
+							$allElement = $sel.body.find("[data-progress]");
+
+						self.getParams($allElement);
+					},
+
+					getParams: function($elements) {
+						var self = this;
+
+						$elements.each(function() {
+							(function($el) {
+								self.$progressContainer = $el;
+								self.progressCount = self.$progressContainer.data("progress");
+								self.createObjects();
+							})($(this))
+						});
+					},
+
+					createObjects: function() {
+						var self = this,
+							$progressText = self.$progressContainer.find("[data-progress-text]"),
+							$progressTextData = $progressText.data("progressText"),
+							$areaFill = self.$progressContainer.find("[data-progress-fill]"),
+							areaFillWidth;
+
+						$progressText.text($progressTextData.replace("$count", self.progressCount));
+						$areaFill.width(self.progressCount+"%");
+					}
+				},
+
 			},
 
 		};
