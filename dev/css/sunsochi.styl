@@ -185,7 +185,7 @@ body
 
 
 .header-row--middle
-	margin-bottom 30px
+	margin-bottom 20px
 
 .header-bottom-inner
 	.header-bottom-item-holder
@@ -230,12 +230,12 @@ body
 		color $colorLightBlack
 
 .header-row--bottom
-	padding 20px 0
+	padding 15px 0
 	border-top 2px solid $colorLightBlue
 
 .fixed-header
 	.header-row--middle
-		margin-bottom 97px
+		margin-bottom 78px
 
 	.header-row--bottom
 		position fixed
@@ -609,7 +609,7 @@ body
 .intro
 	position relative
 	width 100%
-	margin-bottom 50px
+	margin-bottom 35px
 
 	&:after
 		content ""
@@ -646,7 +646,7 @@ body
 		max-width 850px
 		margin 0 auto
 
-		padding 130px 0
+		padding 110px 0
 		box-sizing border-box
 
 		text-align center
@@ -705,6 +705,10 @@ body
 				font-family "ProximaNovaSemibold"
 
 				color #fff
+
+				sup
+					vertical-align top
+					font-size 14px
 /*** //block intro ***/
 
 
@@ -712,7 +716,7 @@ body
 .filter
 	position relative
 
-	margin-top 30px
+	margin-top 10px
 	margin-bottom 35px
 
 	.filter-tabs
@@ -726,12 +730,12 @@ body
 	.filter-clear
 		position absolute
 		right 0
-		top -65px
+		top -40px
 
 		color #9B9A9B
 
 		font-family "ProximaNovaSemibold"
-		font-size 13px
+		font-size 12px
 
 		&.active
 			color #F89C21
@@ -1260,7 +1264,7 @@ body
 /*** block offers ***/
 
 .section-shadow
-	padding-top 75px
+	padding-top 55px
 	padding-bottom 80px
 	box-sizing border-box
 
@@ -1271,9 +1275,9 @@ body
 .offers-list
 	display grid
 	grid-template-columns repeat(3, minmax(290px, 1fr))
-	grid-gap 45px 35px
+	grid-gap 30px 35px
 
-	margin-top 65px
+	margin-top 50px
 
 .offers-item
 	position relative
@@ -1342,6 +1346,36 @@ body
 			color #fff
 
 			z-index 15
+
+		.offers-container-discount
+			position absolute
+			bottom 40px
+			right 0
+
+			display block
+			padding 5px 25px 5px 20px
+			box-sizing border-box
+
+			background-color $colorOrange
+
+			font-size 15px
+			font-family "ProximaNovaSemibold"
+			letter-spacing 1px
+
+			color #fff
+			z-index 15
+
+			&:before
+				content ""
+				position absolute
+				top 11px
+				left 5px
+				right 5px
+
+				width 92%
+				height 2px
+
+				background $colorRed
 
 		.offers-container-img
 			position absolute
@@ -1450,7 +1484,7 @@ body
 
 	.offers-information
 		position relative
-		padding 30px 15px
+		padding 25px 10px
 		box-sizing border-box
 
 		background-color #fff
@@ -1493,6 +1527,7 @@ body
 			margin-top 50px
 			overflow hidden
 
+			font-size 16px
 			dt
 				color #9B9A9B
 
@@ -1501,32 +1536,54 @@ body
 					padding-right 5px
 					background #fff
 					z-index 10
+
 				&:after
 					content ""
 					position absolute
+					top 10px
 					bottom 2px
 					left 0
 					width 100em
+					height 1px
 
 					border-bottom 1px dotted
 			dd
 				span
+					display inline-block
 					position relative
 					padding-left 5px
 
 					background #fff
 					z-index 10
 
+				&.old-price
+						position relative
+
+						&:before
+							content ""
+							position absolute
+							top 11px
+							left: 5px
+							right: 5px
+
+							width 92%
+							height 2px
+							background #f01624
+
 	&.load-events-item
 		transform translateY(-30px)
 		opacity 0
+
 .offers-more
-	margin-top 55px
+	margin-top 40px
 	text-align center
 
-	.link
+	.load-more
+		padding 12px 15px
 		max-width 220px
 		margin 0 auto
+
+		font-family "ProximaNovaSemibold"
 /*** //block offers ***/
 
 
@@ -1535,7 +1592,8 @@ body
 	display flex
 	justify-content space-between
 
-	margin-bottom 90px
+	margin 50px 0 90px 0
+
 
 .section-item
 	width 50%
@@ -1650,12 +1708,11 @@ body
 
 .order-call
 	position relative
-	padding-top 70px
-	padding-bottom 80px
+	padding 50px 0 60px 0
 	box-sizing border-box
 
 	h2
-		margin-bottom 55px
+		margin-bottom 40px
 		font-size 28px
 
 		color #fff
@@ -1729,11 +1786,10 @@ body
 /*** feature ***/
 
 .feature
-	margin-top 65px
-	margin-bottom 90px
+	margin 65px 0 80px 0
 
 	h2
-		margin-bottom 65px
+		margin-bottom 40px
 
 .feature-list
 	display flex
@@ -1783,11 +1839,10 @@ body
 /*** about ***/
 
 .about
-	padding-top 60px
-	padding-bottom 70px
+	padding 35px 0 70px 0
 
 	h2
-		margin-bottom 50px
+		margin-bottom 35px
 
 	.about-video
 		display block
@@ -1807,7 +1862,7 @@ body
 	width 100%
 	height 735px
 
-	margin-bottom 70px
+	margin-bottom 50px
 
 	.map
 		display block
@@ -1859,7 +1914,7 @@ body
 	margin-bottom 90px
 
 	h2
-		margin-bottom 60px
+		margin-bottom 45px
 
 	.reviews-all
 		display block
@@ -1875,10 +1930,10 @@ body
 		.owl-dot
 			position relative
 			display inline-block
-			width 15px
-			height 15px
+			width 10px
+			height 10px
 
-			margin-right 25px
+			margin-right 30px
 
 			border-radius 50%
 
@@ -1932,13 +1987,16 @@ body
 		height 100%
 		margin-left 40%
 
-		padding 30px 50px 45px 140px
+		padding 30px 50px 45px 130px
 		box-sizing border-box
 
 		transition opacity 0.3s $transitionAnimation, transform 0.3s $transitionAnimation
 		transition-delay 0.5s
 		transform translateY(20px)
+
 		opacity 0
+
+		background $colorLightBlue
 
 		&:after
 			content ""
@@ -1947,7 +2005,7 @@ body
 			left 10%
 			width 0
 			height 0
-			border-top 30px solid $colorOrange
+			border-top 30px solid $colorLightBlue
 			border-right 30px solid transparent
 
 		.reviews-icon
@@ -1969,6 +2027,7 @@ body
 				width 100%
 
 				path
+					stroke #d1d1d1
 					stroke-width 8
 
 		.reviews-name
@@ -2019,11 +2078,11 @@ body
 /*** causes ***/
 
 .causes
-	padding 70px 0 50px 0
+	padding 55px 0 50px 0
 	width 100%
 
 	h2
-		margin-bottom 55px
+		margin-bottom 40px
 		font-size 28px
 
 	.causes-text
@@ -2031,9 +2090,11 @@ body
 		column-gap 40px
 
 		margin-bottom 60px
+		font-size 16px
 
 		p
 			display flex
+			font-size 16px
 
 	.causes-more
 		display block
@@ -2051,7 +2112,7 @@ body
 .popular
 	display flex
 	justify-content space-between
-	margin-bottom 85px
+	margin-bottom 40px
 
 	h3
 		display block
@@ -2078,9 +2139,9 @@ body
 
 		.popular-item-link
 			display inline-block
-			margin-right 15px
+			margin-right 10px
 			font-size 14px
-			margin-bottom 15px
+			margin-bottom 10px
 
 		.popular-item-count
 			font-size 14px
@@ -2090,9 +2151,51 @@ body
 	display block
 	overflow hidden
 
-	.find-result-text
+	.find-result-form
 		display inline-block
+
+	.jcf-select-find-result-select
+		position relative
+		display inline-block
+		width 235px
+
+		padding 13px 20px
+		box-sizing border-box
+
+		background #ffffff
+
+		border 1px solid $colorLightGray
+		border-radius 30px
+
+		cursor pointer
+
+		.jcf-select-text
+			font-family "ProximaNovaSemibold"
+
+		.jcf-select-opener
+			position absolute
+			right 15px
+			top 18px
+
+			width 20px
+			height 10px
+
+			background-image url("../svg/arrow_bottom.svg")
+			background-size contain
+			background-repeat no-repeat
+
+			transition transform 0.3s $transitionAnimation
+
+		&.jcf-drop-active
+			.jcf-select-opener
+				transform rotate(180deg)
+
+	.find-result-text
+		display block
+		margin-bottom 30px
 		font-size 24px
+		font-family "ProximaNovaSemibold"
+		text-align center
 		color $colorLightBlack
 
 	.find-result-button
@@ -2100,7 +2203,7 @@ body
 		float right
 		display inline-block
 
-		padding 15px 15px 15px 40px
+		padding 15px 15px 15px 45px
 		box-sizing border-box
 
 		vertical-align top
@@ -2135,6 +2238,15 @@ body
 
 				path
 					transition fill 0.3s $transitionAnimation
+
+		&.find-result-button--map
+			.find-result-button-icon
+				svg
+					path
+						fill #9b9a9b
+
+			.find-result-button-text
+				color #9b9a9b
 
 		&:hover
 			border-color $colorBlue
@@ -2226,7 +2338,7 @@ body
 		border-top 1px solid #ebebeb
 		border-bottom 1px solid #ebebeb
 
-		background #f7f8fb
+		background $colorLightBlue
 
 	.apartment-preview-container
 		display flex
@@ -2306,7 +2418,7 @@ body
 		padding-left 35px
 		box-sizing border-box
 
-		background #f7f8fb
+		background $colorLightBlue
 
 		transition top 0.3s $transitionAnimation
 
@@ -2456,7 +2568,7 @@ body
 
 		border-bottom 1px solid $colorLightGray
 
-		background-color #f7f8fb
+		background-color $colorLightBlue
 
 		.apartment-result-container
 			display flex
@@ -2632,7 +2744,7 @@ body
 
 					&:hover
 						td
-							background-color #f7f8fb
+							background-color $colorLightBlue
 
 
 /*** //apartment ***/
@@ -2931,7 +3043,7 @@ body
 			margin-bottom 0
 
 		&:hover
-			background #F7F8FB
+			background $colorLightBlue
 
 	.apartment-structure-grid-container-floors-link
 		display block

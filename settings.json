@@ -39,6 +39,22 @@
                 "mobile": "0"
             }
         },
+        "apartments": {
+            "name": "Квартиры",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "houses": {
+            "name": "Дома",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
         "offers-load": {
             "name": "Подгрузка домов",
             "progress": {

@@ -454,10 +454,13 @@
 					});
 
 					$selects.each(function() {
-						var $select = $(this);
+						var $select = $(this),
+							selectPlaceholder = $select.attr("placeholder");
+
 						if ($select.data("jcfapply") !== "off") {
 							jcf.replace($select);
 						}
+
 					});
 
 					$numbers.each(function() {

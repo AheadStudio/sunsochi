@@ -3,25 +3,26 @@ extends ../templates/base
 block content
     div(class="page-inner page-inner--max")
         div(class="intro")
-            img(src="../dummy/new-bildings.png", class="intro-img")
-            div(class="intro-text") Новостройки Сочи и Адлера
+            img(src="../dummy/houses.png", class="intro-img")
+            div(class="intro-text") Квартиры в Сочи и Адлера
             div(class="intro-advantages")
                 div(class="intro-advantages-item")
                     div(class="intro-advantages-icon")
                         include ../../prod/svg/check.svg
-                    div(class="intro-advantages-text") Вcе объекты проверены
+                    div(class="intro-advantages-text") Площади
+                        br
+                        | 50 &#8212; 1200 м
+                        sup 2
                 div(class="intro-advantages-item")
                     div(class="intro-advantages-icon")
                         include ../../prod/svg/check.svg
-                    div(class="intro-advantages-text") Квартиры 
+                    div(class="intro-advantages-text") Дома 
                         br
-                        | от 900 тысяч рублей
+                        | от 3,9 тысяч рублей
                 div(class="intro-advantages-item")
                     div(class="intro-advantages-icon")
                         include ../../prod/svg/check.svg
-                    div(class="intro-advantages-text") Квартиры
-                        br
-                        | от 900 тысяч рублей
+                    div(class="intro-advantages-text") Гарантия актуальной цены
             
     div(class="page-inner page-inner--w1")
         div(class="page-text")
@@ -752,21 +753,8 @@ block content
                                 div(class="page-text")
                                     div(class="offers-name") ЖК Семейный
                                     div(class="offers-district") Лазаревский район
-                                    span(class="offers-time") II кв. 2020
-                                    dl
-                                        dt 
-                                            span Студия
-                                        dd
-                                            span от 1 167 920 &#8381;
-                                        dt
-                                            span 1 комн.
-                                        dd
-                                            span от 1 910 920 &#8381;
-                                        dt
-                                            span 2 комн.
-                                        dd
-                                            span от 1 910 920 &#8381;
-                            
+                                    div(class="offers-floor") Этажность
+                                        span(class="active") 3 &#8212; 5
                             a(href="#", class="link button button--orange offers-container-more") Подробнее
 
                         div(class="offers-item")
@@ -808,7 +796,8 @@ block content
                             div(class="offers-container")
                                 div(class="offers-container-mark") Лучшиее инвестиции
                                 img(src="../dummy/home_3.png", alt  class="offers-container-img")
-                                div(class="offers-container-price") 2 330 000 &#8381;
+                                div(class="offers-container-discount") 22 330 000 &#8381;
+                                div(class="offers-container-price") 17 330 000 &#8381;
                             div(class="offers-information")
                                 div(class="page-text")
                                     div(class="offers-name") ЖК Лесная поляна 
@@ -818,17 +807,10 @@ block content
                                     span(class="offers-time") СДАН
                                     dl
                                         dt 
-                                            span Студия
+                                            span Цена
                                         dd
-                                            span от 1 167 920 &#8381;
-                                        dt
-                                            span 1 комн.
-                                        dd
-                                            span от 1 910 920 &#8381;
-                                        dt
-                                            span 2 комн.
-                                        dd
-                                            span от 1 910 920 &#8381;
+                                            span(сlass="old-price") от 22 330 000 &#8381;
+                                            span от 17 330 000 &#8381;
                                             
                             a(href="#", class="link button button--orange offers-container-more") Подробнее
             
