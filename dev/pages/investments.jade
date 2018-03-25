@@ -1,0 +1,94 @@
+extends ../templates/base
+
+block content
+    div(class="page-inner page-inner--max")
+        div(class="intro")
+            img(src="../dummy/investments.png", class="intro-img")
+            div(class="intro-text") Инвестиции в недвижимость Сочи с прибылью от 20% годовых
+            div(class="intro-advantages")
+                div(class="intro-advantages-item")
+                    div(class="intro-advantages-icon")
+                        include ../../prod/svg/check.svg
+                    div(class="intro-advantages-text") Доход выше накопительных вкладов
+                div(class="intro-advantages-item")
+                    div(class="intro-advantages-icon")
+                        include ../../prod/svg/check.svg
+                    div(class="intro-advantages-text") Долгосрочные и краткосрочные вложения денег
+                div(class="intro-advantages-item")
+                    div(class="intro-advantages-icon")
+                        include ../../prod/svg/check.svg
+                    div(class="intro-advantages-text") Безопаснее банковских вкладов
+
+    div(class="page-inner page-inner--w1")
+        div(class="options")
+            div(class="page-text")
+                h1 Выберите наиболее подходящий вариант
+            div(class="options-list options-list--3")
+                div(class="options-item options-item--hover")
+                    div(class="options-container")
+                        img(src="../dummy/options/options_1.png", alt="", class="options-img")
+                    div(class="options-title") Перепродажа
+                    div(class="options-text") Вкладывайте деньги в недвижимость на этапе строительства и продавайте по выгодной цене на более поздних этапах готовности объекта или когда объект уже сдан.
+                    a(href="#", class="link button button--orange options-more") Подробнее
+                div(class="options-item options-item--hover")
+                    div(class="options-container")
+                        img(src="../dummy/options/options_2.png", alt="", class="options-img")
+                    div(class="options-title") Аренда
+                    div(class="options-text") Получайте стабильный доход на сдаче недвижимости в аренду. Возможны варианты с краткосрочной и долгосрочной арендой. Отличный вариант пассивного дохода.
+                    a(href="#", class="link button button--orange options-more") Подробнее
+                div(class="options-item options-item--hover")
+                    div(class="options-container")
+                        img(src="../dummy/options/options_3.png", alt="", class="options-img")
+                    div(class="options-title") Строительство
+                    div(class="options-text") Для тех, кто готов подождать ради максимальной отдачи инвестиций. Ваши деньги обернутся при строительстве коттеджного поселка и принесут от 200% чистой прибыли.
+                    a(href="#", class="link button button--orange options-more") Подробнее
+                
+    div(style="background:#f7f8fb", class="page-inner page-inner--max")
+        div(class="page-inner page-inner--w1")
+            div(class="investments-info")
+                div(class="page-text")
+                    h1 Инвестиции в недвижимость Сочи - альтернативный вариант обычным вложениям
+                    img(src="../dummy/sochi_3.png", class="img img-w50 img--right")
+                    p Сейчас все больше людей выбирают вклады в недвижимость, как выгодный и безопасный вид инвестирования. Доходность таких инвестиций зависит от многих факторов, в том числе от этапа строительства объекта недвижимости, его стоимости и, конечно, расположения. Есть много хороших вариантов для покупки недвижимости, но среди всех особняком стоит недвижимость в Сочи. За последние годы город-курорт Сочи стал настоящим хитом по продажам недвижимости и по праву может считаться наиболее востребованным в плане инвестиций городом.
+                    div(class="options-list options-list--3")
+                        div(class="options-item")
+                            div(class="options-container")
+                                div(class="options-icon")
+                                    include ../../prod/svg/check_blue.svg
+                            div(class="options-title") Постоянно развивающаяся инфраструктура города
+                            div(class="options-text") За последние 5 лет город сильно изменился. Были построены современные объекты инфраструктуры, дорожные развязки, социально-значимые объекты. Город привлекает все больше туристов и развивается стремительными темпами.
+                        div(class="options-item")
+                            div(class="options-container")
+                                div(class="options-icon")
+                                    include ../../prod/svg/check_blue.svg
+                            div(class="options-title") Высокие темпы роста цен на недвижимость в Сочи
+                            div(class="options-text") Для некоторых объектов наблюдается рост стоимости до 50% в год. Если грамотно подойти к вопросу и получить проверенную информацию по объектам у специалистов, то инвестиция может быть не только надежной, но и сверхприбыльной.
+                        div(class="options-item")
+                            div(class="options-container")
+                                div(class="options-icon")
+                                    include ../../prod/svg/check_blue.svg
+                            div(class="options-title") Недвижимость в городе у моря всегда будет в цене
+                            div(class="options-text") Знал бы прикуп - жил бы в Сочи. Желание жить на черноморском побережье было, есть и будет. Количество желающих купить недвижимость в Сочи с каждым годом только растет.
+
+    div(class="page-inner page-inner--max", style="background:#009ecc")
+        div(class="page-inner page-inner--w1") 
+            div(class="order-call")
+                div(class="page-text")
+                    h2 Закажите профессиональный подбор сейчас
+                form(class="form form-order-call")
+                    div(class="form-row form-row--100")
+                        input(type="text", id="name", name="name", class="form-item form-item--text", required, data-error="Ваше имя", aria-required="true", placeholder="Ваше имя")
+                    div(class="form-row form-row--100")
+                        input(type="text", id="mobile", name="mobile", class="form-item form-item--text", required, data-error="Укажите телефон", aria-required="true", data-pattern="mobileRU", data-number="+7 (000) 000-00-00", placeholder="Контактный телефон")
+                    div(class="form-row form-row--100")
+                        div(class="order-call-privacy") Нажимая на кнопку "Отправить заявку", вы даете
+                            a(href="#", class="link link-white link--opacity") согласие на обработку своих персональных данных
+                    div(class="form-row form-row--100")
+                        button(type="submit", class="button button--orange-flood send-order") Отправить заявку
+                div(class="order-call-hotline")
+                    span(class="order-call-hotline-text") Бесплатная горячая линия
+                    a(href="tel:+78007075523", class="link link-white link--opacity order-call-hotline-mobile") 8-800-707-55-23
+                    span(class="order-call-hotline-text") операторы доступны
+                    span(class="order-call-hotline-text") с 8:00 до 22:00 МСК
+                div(class="order-call-icon")
+                    include ../../prod/svg/call.svg

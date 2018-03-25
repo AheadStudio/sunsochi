@@ -55,6 +55,46 @@
                 "mobile": "0"
             }
         },
+        "areas": {
+            "name": "Участки",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "investments": {
+            "name": "Инвестиции",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "investments-build": {
+            "name": "Инвестиции в строительство",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "employees": {
+            "name": "Сотрудники",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "vacancies": {
+            "name": "Вакансии",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
         "offers-load": {
             "name": "Подгрузка домов",
             "progress": {

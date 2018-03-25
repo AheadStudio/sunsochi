@@ -1,0 +1,66 @@
+extends ../templates/base
+
+block content
+    div(class="page-inner page-inner--max")
+        div(class="intro")
+            img(src="../dummy/investments_build.png", class="intro-img")
+            div(class="intro-text") Инвестирование в строительство на участках
+            div(class="intro-advantages")
+                div(class="intro-advantages-item")
+                    div(class="intro-advantages-icon")
+                        include ../../prod/svg/check.svg
+                    div(class="intro-advantages-text") Быстрое получение прибыли
+                div(class="intro-advantages-item")
+                    div(class="intro-advantages-icon")
+                        include ../../prod/svg/check.svg
+                    div(class="intro-advantages-text") Разработка проекта "под ключ"
+                div(class="intro-advantages-item")
+                    div(class="intro-advantages-icon")
+                        include ../../prod/svg/check.svg
+                    div(class="intro-advantages-text") Возможность дистанционной покупки
+    
+    div(class="page-inner page-inner--w1")
+        div(class="investments-info")
+            div(class="page-text")
+                img(src="../dummy/investments_house.png", class="img img-w50 img--left")
+                p Реализация проектов “под ключ” любой сложности (жилого дома, коттеджного поселка или коммерческого объекта) на земельных участках. Мы осуществляем подбор земельного участка, подготовку проекта под строительство (разработка индивидуальной концепции) и курируем каждый этап работ. Гарантируем выполнение согласованного плана продаж в строящемся или уже реализованном объекте недвижимости. При сдаче в аренду (сезонную или долгосрочную) гарантируем загруженность объекта недвижимости.
+
+    div(style="background:#f7f8fb", class="page-inner page-inner--max")
+        div(class="page-inner page-inner--w1")
+            div(class="investments-info")
+                div(class="page-text")
+                    h2 Что мы предлагаем
+                    div(class="check-list check-list--2")
+                        div(class="check-item") 3 направления инвестиций в строительство: жилой дом, коттеджный поселок, коммерческий объект.
+                        div(class="check-item") Гарантия загруженности объекта при сдаче в аренду.
+                        div(class="check-item") Согласование всей документации на всех этапах реализации проекта.
+                        div(class="check-item") Работаем только с проверенными временем партнерами.
+                        div(class="check-item") Экспертный подбор земельного участка, отвечающего всем требованиям выбранного направления инвестиций
+                        div(class="check-item") Реальная вовлеченность во все процессы.
+                        div(class="check-item") Только креативные решения
+                        div(class="check-item") Гарантия продаж, согласно утвержденного плана.
+                div(class="offers-more load")
+                    a(href="offers-load.html?PAGE=test", data-container="#offers-list-load", data-itemsselector=".offers-item", class="link button button--blue load-more") Смотреть объекты
+
+    div(class="page-inner page-inner--max", style="background:#009ecc")
+        div(class="page-inner page-inner--w1") 
+            div(class="order-call")
+                div(class="page-text")
+                    h2 Закажите профессиональный подбор сейчас
+                form(class="form form-order-call")
+                    div(class="form-row form-row--100")
+                        input(type="text", id="name", name="name", class="form-item form-item--text", required, data-error="Ваше имя", aria-required="true", placeholder="Ваше имя")
+                    div(class="form-row form-row--100")
+                        input(type="text", id="mobile", name="mobile", class="form-item form-item--text", required, data-error="Укажите телефон", aria-required="true", data-pattern="mobileRU", data-number="+7 (000) 000-00-00", placeholder="Контактный телефон")
+                    div(class="form-row form-row--100")
+                        div(class="order-call-privacy") Нажимая на кнопку "Отправить заявку", вы даете
+                            a(href="#", class="link link-white link--opacity") согласие на обработку своих персональных данных
+                    div(class="form-row form-row--100")
+                        button(type="submit", class="button button--orange-flood send-order") Отправить заявку
+                div(class="order-call-hotline")
+                    span(class="order-call-hotline-text") Бесплатная горячая линия
+                    a(href="tel:+78007075523", class="link link-white link--opacity order-call-hotline-mobile") 8-800-707-55-23
+                    span(class="order-call-hotline-text") операторы доступны
+                    span(class="order-call-hotline-text") с 8:00 до 22:00 МСК
+                div(class="order-call-icon")
+                    include ../../prod/svg/call.svg

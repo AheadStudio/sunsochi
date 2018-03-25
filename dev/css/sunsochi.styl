@@ -221,6 +221,11 @@ body
 				path
 					fill $colorOrange
 
+		&.active
+			svg
+				path
+					fill $colorOrange
+
 	.header-favorites-count
 		padding-left 10px
 		box-sizing border-box
@@ -232,6 +237,7 @@ body
 .header-row--bottom
 	padding 15px 0
 	border-top 2px solid $colorLightBlue
+	border-bottom 2px solid $colorLightBlue
 
 .fixed-header
 	.header-row--middle
@@ -383,6 +389,15 @@ body
 	font-size 16px
 	font-family "ProximaNovaRegular"
 
+	h1
+		display block
+		text-align center
+
+		font-family "ProximaNovaSemibold"
+		font-size 28px
+
+		line-height 45px
+
 	h2
 		display block
 		text-align center
@@ -391,8 +406,6 @@ body
 		font-size 24px
 
 		line-height 54px
-
-		color$colorLightBlack
 
 	h3
 		font-size 16px
@@ -481,6 +494,91 @@ body
 
 			&.not-active
 				opacity 0.4
+
+
+	.img
+		display block
+		width 100%
+
+		&-w50
+			width 50%
+
+		&--right
+			float right
+			margin 0 0 40px 60px
+
+		&--left
+			float left
+			margin 0 60px 40px 0
+
+	.check-list
+		display flex
+		flex-wrap wrap
+		justify-content space-between
+
+		.check-item
+			position relative
+
+			display block
+			width 48%
+
+			margin-bottom 45px
+
+			padding-left 40px
+			box-sizing border-box
+
+			font-size 18px
+			font-family "ProximaNovaSemibold"
+
+			color #4A494A
+
+			line-height 25px
+
+			&:before
+				content ""
+				position absolute
+				left 0
+				top 5px
+
+				display block
+				width 25px
+				height 25px
+
+				background-image url("../svg/check_blue.svg")
+				background-repeat no-repeat
+				background-size contain
+	ul
+		display block
+
+		li
+			position relative
+			display block
+			padding-left 40px
+			box-sizing border-box
+			margin-bottom 20px
+
+			&:before
+				content "\2022"
+				position absolute
+				left 10px
+				top -2px
+
+	.page-title
+		display block
+		margin 55px 0 30px 0
+
+		font-size 50px
+		font-family "ProximaNovaBold"
+
+		color #4A494A
+		text-align center
+
+	.page-subtitle
+		margin-bottom 50px
+		font-size 20px
+		font-family "ProximaNovaSemibold"
+		color #333333
+		text-align center
 /** //footer **/
 
 /** button and link **/
@@ -537,6 +635,13 @@ body
 
 	&:hover
 		border-bottom-color transparent
+
+.link-white--bottom-reverse
+	border-bottom 1px solid transparent
+	transition border-bottom-color 0.3s $transitionAnimation
+
+	&:hover
+		border-bottom-color #fff
 
 .button
 	display block
@@ -687,6 +792,7 @@ body
 			.intro-advantages-icon
 				display inline-block
 				width 25px
+				min-width 25px
 
 				margin-right 20px
 
@@ -705,6 +811,8 @@ body
 				font-family "ProximaNovaSemibold"
 
 				color #fff
+
+				line-height 25px
 
 				sup
 					vertical-align top
@@ -1416,7 +1524,7 @@ body
 		top 65px
 		left 50%
 
-		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+		transition all 0.3s $transitionAnimation
 
 		transform translate(-50%,-30px)
 
@@ -1461,7 +1569,7 @@ body
 		left 50%
 
 		width auto
-		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+		transition all 0.3s $transitionAnimation
 
 		transform translate(-50%,30px)
 
@@ -1556,15 +1664,15 @@ body
 					background #fff
 					z-index 10
 
-				&.old-price
+					&.old-price
 						position relative
 
 						&:before
 							content ""
 							position absolute
-							top 11px
-							left: 5px
-							right: 5px
+							top 6px
+							left 5px
+							right 5px
 
 							width 92%
 							height 2px
@@ -1708,7 +1816,7 @@ body
 
 .order-call
 	position relative
-	padding 50px 0 60px 0
+	padding 30px 0 60px 0
 	box-sizing border-box
 
 	h2
@@ -2139,7 +2247,7 @@ body
 
 		.popular-item-link
 			display inline-block
-			margin-right 10px
+			margin-right 5px
 			font-size 14px
 			margin-bottom 10px
 
@@ -2180,11 +2288,37 @@ body
 			width 20px
 			height 10px
 
-			background-image url("../svg/arrow_bottom.svg")
-			background-size contain
-			background-repeat no-repeat
-
 			transition transform 0.3s $transitionAnimation
+
+			&:before
+			&:after
+				content ""
+				position absolute
+				top 0
+				left 0
+				display block
+				width 100%
+				height 100%
+
+				background-size contain
+				background-repeat no-repeat
+
+				transition opacity 0.3s $transitionAnimation
+
+			&:before
+				opacity 1
+				background-image url("../svg/arrow_bottom.svg")
+			&:after
+				opacity 0
+				background-image url("../svg/arrow_bottom_orange.svg")
+
+
+		&:hover
+			.jcf-select-opener
+				&:before
+					opacity 0
+				&:after
+					opacity 1
 
 		&.jcf-drop-active
 			.jcf-select-opener
@@ -2203,7 +2337,7 @@ body
 		float right
 		display inline-block
 
-		padding 15px 15px 15px 45px
+		padding 13px 15px 13px 45px
 		box-sizing border-box
 
 		vertical-align top
@@ -2264,7 +2398,31 @@ body
 						path
 							fill $colorBlue
 
+.jcf-select-drop.jcf-select-find-result-select
+	display block
+	padding 13px 20px
+	box-sizing border-box
 
+	background #ffffff
+
+	border 1px solid $colorLightGray
+
+	z-index 1000
+
+	.jcf-list-content
+		li
+			cursor pointer
+			margin-bottom 20px
+
+			.jcf-option
+				font-family "ProximaNovaSemibold"
+				transition 0.3s color $transitionAnimation
+
+				&:hover
+					color $colorOrange
+
+			&:last-child
+				margin-bottom 0
 /*** apartment ***/
 
 .apartment
@@ -3045,6 +3203,10 @@ body
 		&:hover
 			background $colorLightBlue
 
+		&:hover
+			.apartment-structure-grid-container-floors-link
+				opacity 1
+
 	.apartment-structure-grid-container-floors-link
 		display block
 		width auto
@@ -3053,6 +3215,10 @@ body
 		font-size 16px
 
 		color $colorBlue
+		opacity 0
+		transition opacity 0.3s $transitionAnimation
+
+
 
 /*** //apartment grid ***/
 
@@ -3103,3 +3269,288 @@ body
 
 
 /*** //apartment progress ***/
+
+
+/*** options ***/
+
+.options
+	padding 30px 0 50px 0
+	box-sizing border-box
+
+	h1
+		margin-bottom 55px
+
+.options-list
+	display flex
+	width 100%
+	flex-wrap wrap
+	justify-content flex-start
+	align-items baseline
+
+	&--2
+		.options-item
+			width 49%
+			margin-right 2%
+
+			&:nth-child(2n)
+				margin-right 0
+	&--3
+		.options-item
+			width 30%
+			margin-right 5%
+
+			&:nth-child(3n)
+				margin-right 0
+	&--4
+		.options-item
+			width 24%
+			margin-right 2%
+
+			&:nth-child(4n)
+				margin-right 0
+
+.options-item
+	position relative
+	padding 0 0 30px 0
+	box-sizing border-box
+
+	.options-container
+		position relative
+		width 100%
+		margin-bottom 25px
+
+	.options-img
+		display block
+		width 100%
+		height 100%
+
+		object-fit cover
+
+	.options-title
+		margin-bottom 25px
+		font-size 20px
+		color #333333
+
+		font-family "ProximaNovaSemibold"
+
+	.options-text
+		font-size 16px
+		line-height 22px
+		color #4A494A
+
+	.options-more
+		position absolute
+		top 50%
+		left 50%
+
+		max-width 170px
+		opacity 0
+
+		text-align center
+
+		transform translate(-50%,-60%)
+		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+		z-index 20
+
+	&.options-item--hover
+		box-shadow 0px 0px 22px -2px transparent
+
+		transition box-shadow 0.3s $transitionAnimation
+
+		&:before
+			content ""
+			position absolute
+			top 0
+			left 0
+			bottom 0
+			right 0
+
+			display block
+			width 100%
+			height 100%
+
+			transform scale(0.8)
+			background rgba(255, 255, 255, 0.95)
+
+			opacity 0
+			transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+			z-index 10
+
+	.options-icon
+		display block
+		max-width 25px
+		height 25px
+		width 100%
+
+		svg
+			display block
+			width 100%
+			min-height 100%
+
+			transition transform 0.3s $transitionAnimation
+
+	&:hover
+		&.options-item--hover
+			box-shadow 0px 0px 30px -5px rgba(0,0,0,0.75)
+
+			&:before
+				transform scale(1)
+				opacity 1
+
+		.options-more
+			opacity 1
+			transform translate(-50%,-50%)
+
+		.options-icon
+			svg
+				transform translateX(10px)
+				opacity 0.3
+
+/*** //options ***/
+
+
+/*** investments-info ***/
+
+.investments-info
+	padding 70px 0 100px 0
+	box-sizing border-box
+
+	h1
+		max-width 725px
+		margin 0 auto 60px auto
+
+	h2
+		margin 0 auto 40px auto
+	p
+		line-height 26px
+
+	.options-list
+		margin-top 60px
+
+/*** //investments-info ***/
+
+
+/*** employees ***/
+
+.employees
+	padding 0 0 110px 0
+
+	.employees-section
+		display block
+		margin-bottom 75px
+
+		font-size 20px
+		font-family "ProximaNovaSemibold"
+
+		color #333333
+		text-align center
+
+.employees-list
+	display flex
+	justify-content flex-start
+	flex-wrap wrap
+
+.employees-item
+	display flex
+	justify-content space-between
+	flex-wrap wrap
+	margin-bottom 90px
+
+	width 45%
+	margin-right 7%
+
+	&:nth-child(2n)
+		margin-right 0
+
+	.employees-container
+		width 50%
+		padding-right 50px
+		box-sizing border-box
+
+	.employees-img
+		display block
+		width 100%
+		height 100%
+
+		object-fit cover
+
+	.employees-info
+		width 50%
+
+	.employees-name
+		margin 5px 0 7px 0
+
+		font-family "ProximaNovaSemibold"
+		font-size 18px
+
+	.employees-position
+		margin 0 0 15px 0
+
+		font-size 18px
+		line-height 25px
+
+	.employees-contact
+		display inline-block
+		margin-bottom 10px
+
+/*** //employees ***/
+
+
+/*** vacancies ***/
+
+.vacancies
+	.page-title
+		margin-bottom 70px
+
+.vacancies-container
+	display flex
+	justify-content space-between
+	flex-wrap wrap
+.vacancies-list
+	width 70%
+	padding 50px 55px
+	box-sizing border-box
+
+	background $colorLightBlue
+
+.vacancies-item
+	margin-bottom 25px
+
+	.vacancies-item-title
+		margin-bottom 40px
+
+		font-size 25px
+		font-family "ProximaNovaSemibold"
+
+	.vacancies-item-subtitle
+		margin 50px 0 30px 0
+		font-size 20px
+		font-family "ProximaNovaSemibold"
+
+		color #333333
+
+	.vacancies-link
+		margin-top 50px
+		max-width 270px
+
+		text-align center
+
+.vacancies-contacts
+	width 30%
+	padding 50px 0 0 40px
+	box-sizing border-box
+
+	.vacancies-subtitle
+		margin-bottom 20px
+		font-size 20px
+		font-family "ProximaNovaSemibold"
+		color #333333
+
+	.vacancies-link
+		display inline-block
+		margin-bottom 20px
+		font-size 18px
+		color #4A494A
+/*** //vacancies ***/
