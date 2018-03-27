@@ -564,6 +564,7 @@ body
 				top -2px
 
 	.page-title
+	h1
 		display block
 		margin 55px 0 30px 0
 
@@ -1946,7 +1947,7 @@ body
 
 /*** about ***/
 
-.about
+.about-home
 	padding 35px 0 70px 0
 
 	h2
@@ -3501,6 +3502,7 @@ body
 /*** vacancies ***/
 
 .vacancies
+	margin-bottom 100px
 	.page-title
 		margin-bottom 70px
 
@@ -3554,3 +3556,57 @@ body
 		font-size 18px
 		color #4A494A
 /*** //vacancies ***/
+
+
+/*** about ***/
+
+.about-info
+	margin 65px 0 35px 0
+	padding-bottom 70px
+
+	h2
+		padding 65px 0 50px 0
+
+	.about-info-container
+		position relative
+		min-height 500px
+
+		.about-info-item
+			position absolute
+			display block
+			//opacity 0
+			transition opacity 0.3s $transitionAnimation
+
+			.about-info-title
+				display block
+				margin-bottom 15px
+				font-size 64px
+				color #009DCC
+
+			.about-info-text
+				display block
+				font-size 25px
+				color #009DCC
+
+			&:nth-child(1)
+				top 0
+				left 50px
+			&:nth-child(2)
+				top 105px
+				left 150px
+			&:nth-child(3)
+				top -45px
+				left 485px
+			&:nth-child(4)
+				top 215px
+				left 500px
+			&:nth-child(5)
+				top 268px
+				left 0px
+			&:nth-child(6)
+				top 420px
+				left 270px
+			&:nth-child(7)
+				top 350px
+				left 570px
+/*** //about ***/

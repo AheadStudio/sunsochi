@@ -1075,6 +1075,73 @@
 
 			},
 
+			moveAboutItem: {
+
+				$moveAboutContainer: null,
+
+				speed: null,
+				margin: null,
+
+				widthContainer: null,
+				heightContainer: null,
+
+				init: function() {
+					var self = this;
+
+					self.$moveAboutContainer = $("[data-movesetting]");
+					self.speed = self.$moveAboutContainer.data("movesetting").speed;
+					self.margin = self.$moveAboutContainer.data("movesetting").margin;
+
+					self.widthContainer = self.$moveAboutContainer.width();
+					self.heightContainer = self.$moveAboutContainer.height();
+
+					self.$moveItems = self.$moveAboutContainer.children(self.$moveAboutContainer.data("moveitems"));
+
+					self.moveitems();
+				},
+
+				moveitems: function() {
+					var self = this;
+
+					self.$moveItems.each(function() {
+						(function($el) {
+							setTimeout(function () {
+								self.biasItems($el);
+							}, 1000);
+						})($(this))
+					})
+				},
+
+				biasItems: function(el) {
+					var self = this,
+						posT = el.position().top,
+						posL = el.position().left,
+						newPosL, newPosT;
+
+					if ( posL > (Number(self.widthContainer)/2) || posT > (Number(self.heightContainer)/2) ) {
+						newPosT = posT - Math.floor(Math.random() * 10);
+						newPosL = posL - Math.floor(Math.random() * 10);
+					} else {
+						newPosT = posT + Math.floor(Math.random() * 10);
+						newPosL = posL + Math.floor(Math.random() * 10);
+					}
+
+					el.css({
+						"opacity": 1,
+						"top": newPosT,
+						"left": newPosL,
+						"margin": self.margin,
+					});
+
+					setTimeout(function () {
+				        self.biasItems(el);
+				    }, 1200)
+				},
+
+
+			},
+
+
 		};
 
 	})();
@@ -1089,6 +1156,7 @@
 	});
 	SUNSOCHI.sliders.init();
 	SUNSOCHI.apartments.init();
+	//SUNSOCHI.moveAboutItem.init();
 	SUNSOCHI.modalWindow.init();
 	SUNSOCHI.ajaxLoader();
 

@@ -95,6 +95,14 @@
                 "mobile": "0"
             }
         },
+        "about": {
+            "name": "О компании",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
         "offers-load": {
             "name": "Подгрузка домов",
             "progress": {
