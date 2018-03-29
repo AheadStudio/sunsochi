@@ -103,6 +103,57 @@
                 "mobile": "0"
             }
         },
+        "news": {
+            "name": "Новости",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "news-detail": {
+            "name": "Новость",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "news-detail-load": {
+            "name": "Новость",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            },
+            "note": "Страница для подгрузки"
+        },
+        "news-load": {
+            "name": "Подгрузка новости",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            },
+            "note": "Страница для подгрузки"
+        },
+        "reviews": {
+            "name": "Отзывы",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "reviews-load": {
+            "name": "Отзывы",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            },
+            "note": "Страница для подгрузки"
+        },
         "offers-load": {
             "name": "Подгрузка домов",
             "progress": {

@@ -599,47 +599,61 @@ body
 	color $colorOrange
 
 .link--orange
-	transition color 0.3s $transitionAnimation
+	transition all 0.3s $transitionAnimation
 
 	&:hover
 		color $colorOrange
 
 .link--opacity
-	transition opacity 0.3s $transitionAnimation
+	transition all 0.3s $transitionAnimation
 	&:hover
 		opacity 0.8
 
 .link-blue--bottom
 	border-bottom 1px solid transparent
-	transition border-bottom-color 0.3s $transitionAnimation
+	transition all 0.3s $transitionAnimation
 
 	&:hover
 		border-bottom-color $colorBlue
 
 .link-black--bottom
 	border-bottom 1px solid $colorLightBlack
-	transition border-bottom-color 0.3s $transitionAnimation
+	transition all 0.3s $transitionAnimation
 
 	&:hover
 		border-bottom-color transparent
 
+.link-black--bottom-inverse
+	border-bottom 1px solid transparent
+	transition all 0.3s $transitionAnimation
+
+	&:hover
+		border-bottom-color $colorLightBlack
+
 .link-orange--bottom
 	border-bottom 1px solid transparent
-	transition border-bottom-color 0.3s $transitionAnimation
+	transition all 0.3s $transitionAnimation
 
 	&:hover
 		border-bottom-color $colorOrange
 
+.link-orange--bottom-reverse
+	border-bottom 1px solid $colorOrange
+	transition all 0.3s $transitionAnimation
+
+	&:hover
+		border-bottom-color transparent
+
 .link-white--bottom
 	border-bottom 1px solid #fff
-	transition border-bottom-color 0.3s $transitionAnimation
+	transition all 0.3s $transitionAnimation
 
 	&:hover
 		border-bottom-color transparent
 
 .link-white--bottom-reverse
 	border-bottom 1px solid transparent
-	transition border-bottom-color 0.3s $transitionAnimation
+	transition all 0.3s $transitionAnimation
 
 	&:hover
 		border-bottom-color #fff
@@ -1687,12 +1701,12 @@ body
 	margin-top 40px
 	text-align center
 
-	.load-more
-		padding 12px 15px
-		max-width 220px
-		margin 0 auto
-
-		font-family "ProximaNovaSemibold"
+.load-more
+	padding 12px 15px
+	max-width 220px
+	margin 0 auto
+	text-align center
+	font-family "ProximaNovaSemibold"
 /*** //block offers ***/
 
 
@@ -2017,22 +2031,22 @@ body
 /*** //map ***/
 
 
-/*** reviews ***/
+/*** reviews-home ***/
 
-.reviews
+.reviews-home
 	margin-bottom 90px
 
 	h2
 		margin-bottom 45px
 
-	.reviews-all
+	.reviews-home-all
 		display block
 		width 87px
 		margin 0 auto
 		margin-top 50px
 
 
-.reviews-slider
+.reviews-home-slider
 	.owl-dots
 		margin-top 35px
 		text-align center
@@ -2071,11 +2085,11 @@ body
 					background $colorOrange
 
 
-.reviews-item
+.reviews-home-item
 	position relative
 	padding-bottom 30px
 
-	.reviews-video
+	.reviews-home-video
 		position absolute
 		top 10%
 
@@ -2090,7 +2104,7 @@ body
 
 		z-index 10
 
-	.reviews-container
+	.reviews-home-container
 		display block
 		width 60%
 		height 100%
@@ -2117,7 +2131,7 @@ body
 			border-top 30px solid $colorLightBlue
 			border-right 30px solid transparent
 
-		.reviews-icon
+		.reviews-home-icon
 			display block
 			max-width 85px
 			width 100%
@@ -2139,17 +2153,17 @@ body
 					stroke #d1d1d1
 					stroke-width 8
 
-		.reviews-name
+		.reviews-home-name
 			margin-bottom 40px
 			font-size 16px
 
 			color #000
 
-			.reviews-name-lastname
+			.reviews-home-name-lastname
 				font-family "ProximaNovaSemibold"
 
 
-		.reviews-text
+		.reviews-home-text
 			position relative
 
 			max-height 215px
@@ -2168,20 +2182,20 @@ body
 
 .owl-item
 	&.active
-		.reviews-item
-			.reviews-video
+		.reviews-home-item
+			.reviews-home-video
 				transform translateX(0px)
 				opacity 1
 
-			.reviews-container
+			.reviews-home-container
 				transform translateY(0px)
 				opacity 1
 
-				.reviews-icon
+				.reviews-home-icon
 					transform translateY(0)
 					opacity 1
 
-/*** //reviews ***/
+/*** //reviews-home ***/
 
 
 /*** causes ***/
@@ -2211,8 +2225,6 @@ body
 		margin 0 auto
 
 		color #4A494A
-
-		transition color 0.3s $transitionAnimation
 
 		&:hover
 			color $colorOrange
@@ -3569,7 +3581,7 @@ body
 
 	.about-info-container
 		position relative
-		min-height 500px
+		min-height 600px
 
 		.about-info-item
 			position absolute
@@ -3588,25 +3600,272 @@ body
 				font-size 25px
 				color #009DCC
 
+				text-transform lowercase
+
 			&:nth-child(1)
-				top 0
-				left 50px
+				top -35px
+				left 320px
+
 			&:nth-child(2)
-				top 105px
-				left 150px
+				top 145px
+				right 0px
+
 			&:nth-child(3)
-				top -45px
-				left 485px
+				top 60px
+				left 50px
+
 			&:nth-child(4)
-				top 215px
-				left 500px
+				top 270px
+				left 400px
+
 			&:nth-child(5)
 				top 268px
 				left 0px
+
 			&:nth-child(6)
-				top 420px
+				top 470px
 				left 270px
+
 			&:nth-child(7)
-				top 350px
-				left 570px
+				top 410px
+				left 650px
+
 /*** //about ***/
+
+
+/*** news **/
+
+.news
+	h1
+		margin-bottom 95px
+
+.news-list
+	.news-item
+		display flex
+		justify-content space-between
+		margin-bottom 55px
+		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+		&.load-events-item
+			transform translateY(-30px)
+			opacity 0
+
+	.news-holder
+		display block
+		width 50%
+
+		overflow hidden
+
+		.news-img
+			display block
+			width 100%
+			transition transform 0.3s $transitionAnimation
+
+		&:hover
+			.news-img
+				transform scale(1.1)
+
+	.news-info
+		display block
+		width 50%
+		padding 45px 50px 25px 35px
+
+		background-color $colorLightBlue
+
+	.news-date
+		margin-bottom 20px
+		font-size 14px
+		color #4A494A
+
+	.news-title
+		font-size 20px
+		font-family "ProximaNovaSemibold"
+		color #333333
+
+	.news-text
+		height 115px
+		margin-top 35px
+
+		font-size 16px
+
+		line-height 22px
+		overflow hidden
+
+		color #4A494A
+
+.news-more
+	margin-bottom 60px
+
+
+.news-detail
+	h1
+		margin-bottom 55px
+		text-align left
+
+	.news-detail-date
+		margin-bottom 50px
+
+	.news-detail-subtitle
+		margin 50px 0 30px 0
+		font-size 20px
+		font-family "ProximaNovaSemibold"
+		color #333333
+
+	.new-detail-info
+		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+		&.load-events-item
+			transform translateY(-30px)
+			opacity 0
+
+.news-detail-more
+	text-align left
+	margin 100px 0 120px 0
+
+	.load-more
+		margin 0
+
+/*** //news **/
+
+
+/*** reviews ***/
+
+.reviews
+	h1
+		margin-bottom 85px
+
+.reviews-list
+	margin-bottom 100px
+
+.reviews-item
+	position relative
+
+	display flex
+	justify-content flex-end
+	margin-bottom 110px
+	transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+	&.load-events-item
+		transform translateX(-30px)
+		opacity 0
+
+	.reviews-video
+		position absolute
+		top 50px
+		left 0
+
+		display block
+		max-width 50%
+		width 100%
+
+		height 320px
+
+		z-index 10
+
+	.reviews-container
+		position relative
+		max-width 60%
+		width 100%
+
+		padding 40px 60px 40px 15%
+		border 2px solid $colorOrange
+		box-sizing border-box
+
+		.reviews-icon
+			width 65px
+			margin-bottom 30px
+
+			svg
+				display block
+				width 100%
+
+				path
+					fill $colorLightBlue
+					stroke $colorLightBlue
+
+		.reviews-name
+			margin-bottom 25px
+			font-size 16px
+			color #000
+
+			.reviews-name-lastname
+				font-family "ProximaNovaSemibold"
+
+		.reviews-text
+			margin-bottom 25px
+
+			font-size 16px
+			line-height 24px
+
+		&:after
+			content ""
+			position absolute
+			bottom -52px
+			left 10%
+			display block
+			width 0
+			height 0
+			border-top 52px solid $colorOrange
+			border-right 52px solid transparent
+			z-index 5
+
+		&:before
+			content ""
+			position absolute
+			bottom -47px
+			left 10.4%
+			display block
+			width 0
+			height 0
+			border-top 47.5px solid #fff
+			border-right 48px solid transparent
+			z-index 6
+
+	&:nth-child(2n)
+		flex-flow row
+		justify-content flex-start
+
+		.reviews-video
+			left auto
+			right 0
+
+		.reviews-container
+			padding 40px 15% 40px 60px
+
+			&:after
+				right 10%
+				left auto
+				border-top 52px solid $colorOrange
+				border-left 52px solid transparent
+				border-right none
+
+			&:before
+				right 10.4%
+				left auto
+				border-top 47.5px solid #fff
+				border-left 48px solid transparent
+				border-right none
+
+
+.reviews-more
+	text-align center
+	margin-bottom 100px
+
+	.reviews-more
+		max-width 215px
+		margin 0 auto
+		text-align center
+
+.toggle-container
+	display none
+	opacity 0
+	transform translateX(-50px)
+	transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+	&.active
+		display block
+
+	&.active-animation
+		opacity 1
+		transform translateX(0)
+/*** //reviews ***/

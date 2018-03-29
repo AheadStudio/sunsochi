@@ -1,0 +1,30 @@
+extends ../templates/base
+
+block content
+    div(class="news-list", id="news-list-load")
+        div(class="news-item")
+            div(class="news-holder")
+                img(src="../dummy/news/news1.png", class="news-img")
+            div(class="news-info")
+                div(class="news-date") 28 июля 2017
+                a(href="news-detail", class="link link-black link-black--bottom-inverse news-title") На ремонт дорог в Сочи выделили более полумиллиарда рублей
+                div(class="news-text") В Сочи осуществят ремонт дорог на 97 улицах на сумму, превышающую полмиллиарда рублей. Одну вторую часть от этой суммы город уже получил и начал осваивать. Сейчас ремонт идёт на 45 объектах в четырех районах курорта.
+        
+        div(class="news-item")
+            div(class="news-holder")
+                img(src="../dummy/news/news2.png", class="news-img")
+            div(class="news-info")
+                div(class="news-date") 28 июля 2017
+                a(href="news-detail", class="link link-black link-black--bottom-inverse news-title") Новый закон регулирования сделок с долями в недвижимости станет более надежным благодаря нотариусу
+                div(class="news-text") 2 июня 2016 года Глава Российской Федерации Владимир Путин поставил свою подпись под Федеральным законом №172-ФЗ, которой вводит неотъемлемое нотариальное свидетельство абсолютно всех сделок по отчуждению долей недвижимого имущества.
+        
+        div(class="news-item")
+            div(class="news-holder")
+                img(src="../dummy/news/news3.png", class="news-img")
+            div(class="news-info")
+                div(class="news-date") 28 июля 2017
+                a(href="news-detail", class="link link-black link-black--bottom-inverse news-title") Отмена выдачи свидетельств о государственной регистрации права
+                div(class="news-text") С 15 июля встили в силу новые поправки в закон, отменяющие выдачу свидетельств о государственной регистрации прав на недвижимое имущество.
+        
+    div(class="news-more load")
+        a(href="news-load.html?PAGE=test", data-container="#news-list-load", data-itemsselector=".news-item", class="link button button--blue load-more") Показать еще

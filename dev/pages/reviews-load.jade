@@ -1,0 +1,21 @@
+extends ../templates/base
+
+block content
+    div(class="page-inner page-inner--w1")
+        div(class="reviews-list", id="reviews-list-load")
+            div(class="reviews-item")
+                div(class="reviews-video")
+                    iframe(frameborder="0", height="100%", width="100%", src="https://www.youtube.com/embed/WuiuPyfmSSc?rel=0&amp;controls=0&amp;showinfo=0", allow="autoplay; encrypted-media", allowfullscreen)
+                div(class="reviews-container")
+                    div(class="reviews-icon")
+                        include ../../prod/svg/quotes.svg
+                    div(class="reviews-name")
+                        span(class="reviews-name-lastname") Александр
+                        | , Майкоп
+                    div(class="reviews-text") Благодарю компанию “Солнечный Сочи” за проведение сделки, которая прошла гладко!  Меня зовут Александр, в Сочи я переехал из Майкопа. Это республика Адыгея, находится недалеко – в 250 километрах.  После того, как принял решение остаться, встал вопрос с недвижимостью – снимать дорого. В Майкопе продал квартиру, вложился в стройку, это было еще в 2011 году, в 2014 квартиру мне отдали. И еще много текста сюда напишу для проверки размера и как он будет обрезаться
+                        div(data-toggle="moreinfo", class="toggle-container") 
+                            p Благодарю компанию “Солнечный Сочи” за проведение сделки, которая прошла гладко!  Меня зовут Александр, в Сочи я переехал из Майкопа. Это республика Адыгея, находится недалеко – в 250 километрах.  После того, как принял решение остаться, встал вопрос с недвижимостью – снимать дорого. В Майкопе продал квартиру, вложился в стройку, это было еще в 2011 году, в 2014 квартиру мне отдали. И еще много текста сюда напишу для проверки размера и как он будет обрезаться
+                    a(href="reviews.html", class="link link-orange link-orange--bottom-reverse reviews-more toggle", data-toggle-link="moreinfo", data-toggle-text="Свернуть") Далее
+        
+        div(class="reviews-more load")
+            a(href="reviews-load.html?PAGE=test", data-container="#reviews-list-load", data-itemsselector=".reviews-item", class="link button button--blue reviews-more load-more") Показать еще

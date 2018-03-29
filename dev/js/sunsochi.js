@@ -927,11 +927,14 @@
 							for(var i = 0; i < rows; i++) {
 								arr[i] = new Array();
 								for(var j = 0; j < columns; j++) {
-									arr[i][j] = i+","+j;
+									arr[i][j] = Number(rows-i) +","+j;
 								}
 							}
 							return arr;
 						}
+
+						// все позиции перечисленные в html
+						params.allpostion = "";
 
 						// создание объекта позиции
 						for(var itemObj = 0; itemObj < params.objects.length; itemObj++) {
@@ -944,34 +947,44 @@
 								params.objects[itemObj].position[itemPos] = String(changePostion).replace(".", ",");
 							}
 
+							// позиция элемента в виде строки
 							params.objects[itemObj].posMatrix = params.objects[itemObj].position.join("|");
+
+							// шв элемента
 							params.objects[itemObj].id = itemObj + params.objects[itemObj].posMatrix.replace(/\,/g, "").replace(/\|/g, "");
+
 							params.objects[itemObj].gridArea = "area" + String(params.objects[itemObj].id);
+							params.allpostion += params.objects[itemObj].position.join("|");
 						}
 
-						self.createStructure(self.replaceMarix(sortMatrix, params.objects), function() {
-							$alltooltip.removeClass(".tooltip-item");
-							var $alltooltip = $sel.body.find(".tooltip-item").destroy();
+						self.createStructure(self.replaceMarix(sortMatrix, params), function() {
+							//$alltooltip.removeClass(".tooltip-item");
+							//var $alltooltip = $sel.body.find(".tooltip-item").destroy();
 						});
 					},
 
 					replaceMarix: function(matrix, obj) {
-						var self = this;
+						var self = this,
+							cloneMatrix = matrix;
 
-						self.cells = obj;
+						self.cells = obj.objects;
 
-						for (var d = 0; d < obj.length; d++) {
-							for(var i = 0; i < matrix.length; i++) {
-								for(var j = 0; j < matrix[i].length; j++) {
-									matrix[i][0] = "flor" + Number(matrix.length - i);
+						(function(cloneMatrix, matrix) {
+							for (var d = 0; d < obj.objects.length; d++) {
+								for(var i = 0; i < matrix.length; i++) {
+									for(var j = 0; j < matrix[i].length; j++) {
+										matrix[i][0] = "flor" + Number(matrix.length - i);
 
-									if (obj[d].posMatrix.indexOf(matrix[i][j]) !== -1) {
-										matrix[i][j] = obj[d].gridArea;
+										if (obj.objects[d].posMatrix.indexOf(matrix[i][j]) !== -1) {
+											matrix[i][j] = obj.objects[d].gridArea;
+										}
+										if (obj.allpostion.indexOf(matrix[i][j]) === -1) {
+											console.log(cloneMatrix[i][j]);
+										}
 									}
 								}
 							}
-						}
-
+						})(cloneMatrix, matrix);
 						return matrix;
 					},
 
@@ -987,6 +1000,7 @@
 							}
 							stringMatrix += '" ';
 						}
+
 						self.finalGrid = stringMatrix;
 
 						self.$gridContainer.css({
@@ -1141,6 +1155,67 @@
 
 			},
 
+			toggleElements: function() {
+				var self = this,
+					$toggle = $(".toggle");
+
+				$toggle.each(function() {
+					(function(el) {
+						el.on("click", function(e) {
+							var toggleEl = $(this),
+								toggleId = toggleEl.data("toggleLink"),
+								toggleLinkTextNew = toggleEl.attr("data-toggle-text"),
+								toggleLinkTextOld = toggleEl.text();
+								$container = $sel.body.find("[data-toggle='"+toggleId+"']");
+
+							if (toggleEl.hasClass("active")) {
+								toggleEl.removeClass("active-animation");
+
+								toggleEl.attr("data-toggle-text", toggleLinkTextOld);
+								toggleEl.text(toggleLinkTextNew);
+
+								$container.removeClass("active-animation");
+
+								setTimeout(function() {
+									toggleEl.removeClass("active");
+									$container.removeClass("active");
+								}, 300);
+
+							} else {
+								toggleEl.addClass("active");
+								$container.addClass("active");
+
+								toggleEl.attr("data-toggle-text", toggleLinkTextOld);
+								toggleEl.text(toggleLinkTextNew);
+
+								setTimeout(function() {
+									toggleEl.addClass("active-animation");
+									$container.addClass("active-animation");
+								}, 300);
+
+							}
+
+							if (toggleEl.closest("reviews-container")) {
+								SUNSOCHI.animations.animateHeightReviews($(".reviews-container"), "height", "auto");
+							}
+
+							e.preventDefault();
+						})
+					})($(this));
+				})
+			},
+
+			animations: {
+				init: function() {
+					var self = this;
+				},
+
+				animateHeightReviews: function($el, params, val) {
+					$el.animate({
+						params: val,
+					});
+				},
+			},
 
 		};
 
@@ -1158,6 +1233,7 @@
 	SUNSOCHI.apartments.init();
 	//SUNSOCHI.moveAboutItem.init();
 	SUNSOCHI.modalWindow.init();
+	SUNSOCHI.toggleElements();
 	SUNSOCHI.ajaxLoader();
 
 })(jQuery);
