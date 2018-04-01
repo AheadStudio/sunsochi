@@ -241,7 +241,7 @@ body
 
 .fixed-header
 	.header-row--middle
-		margin-bottom 78px
+		margin-bottom 80px
 
 	.header-row--bottom
 		position fixed
@@ -279,6 +279,7 @@ body
 
 .footer-row
 	display flex
+	flex-wrap wrap
 	justify-content space-between
 	align-items center
 
@@ -468,7 +469,7 @@ body
 				th
 					padding 17px 0 15px 0
 					box-sizing border-box
-					background-color #e1e8eb
+					background-color $colorTurquoise
 					border-bottom 2px solid #d0d0d0
 
 					font-family "ProximaNovaSemibold"
@@ -502,6 +503,9 @@ body
 
 		&-w50
 			width 50%
+
+		&-w30
+			width 30%
 
 		&--right
 			float right
@@ -604,12 +608,25 @@ body
 	&:hover
 		color $colorOrange
 
+.link--blue
+	transition all 0.3s $transitionAnimation
+
+	&:hover
+		color $colorBlue
+
 .link--opacity
 	transition all 0.3s $transitionAnimation
 	&:hover
 		opacity 0.8
 
 .link-blue--bottom
+	border-bottom 1px solid transparent
+	transition all 0.3s $transitionAnimation
+
+	&:hover
+		border-bottom-color $colorBlue
+
+.link-blue--bottom-reverse
 	border-bottom 1px solid transparent
 	transition all 0.3s $transitionAnimation
 
@@ -629,6 +646,13 @@ body
 
 	&:hover
 		border-bottom-color $colorLightBlack
+
+.link-black--bottom-blue
+	border-bottom 1px solid $colorLightBlack
+	transition all 0.3s $transitionAnimation
+
+	&:hover
+		border-bottom-color $colorBlue
 
 .link-orange--bottom
 	border-bottom 1px solid transparent
@@ -657,6 +681,21 @@ body
 
 	&:hover
 		border-bottom-color #fff
+
+.link--showdow-black-blue
+	box-shadow inset 0 -1px $colorLightBlack, inset 0 -4px transparent
+	transition box-shadow 0.3s $transitionAnimation, color 0.3s $transitionAnimation
+
+	&:hover
+		color $colorBlue
+		box-shadow inset 0 -1px $colorBlue, inset 0 -4px transparent
+
+.link--showdow-blue
+	box-shadow inset 0 -1px transparent, inset 0 -4px transparent
+	transition box-shadow 0.3s $transitionAnimation, color 0.3s $transitionAnimation
+
+	&:hover
+		box-shadow inset 0 -1px $colorBlue, inset 0 -4px transparent
 
 .button
 	display block
@@ -971,6 +1010,7 @@ body
 	margin-top 35px
 
 	.form-row
+		position relative
 		display flex
 		justify-content space-between
 
@@ -1003,7 +1043,7 @@ body
 			font-size 16px
 			background #fff
 
-			transition background 0.3s $transitionAnimation
+			transition background 0.3s $transitionAnimation, border-color 0.3s $transitionAnimation
 
 			&:hover
 				background $colorLightGray
@@ -1011,6 +1051,10 @@ body
 			&--hidden
 				position absolute
 				opacity 0
+
+			&.error
+				background #f6bcbc
+				border-color #f6bcbc
 
 		.form-filter-search
 			position absolute
@@ -1037,6 +1081,14 @@ body
 			&:hover
 				.form-filter-search-icon
 					transform rotate(15deg)
+
+	label.error
+		position absolute
+		top 50px
+		display block
+
+		color #f6bcbc
+		font-size 14px
 
 .form-label
 	display inline-block
@@ -1339,7 +1391,7 @@ body
 						background $colorBlue
 						color #fff
 
-	.regions-container-close
+	.btn-container-close
 		position absolute
 		top 20px
 		right 20px
@@ -1361,8 +1413,13 @@ body
 					fill $colorLightBlack
 
 .mfp-bg
-	background transparent
-	opacity 0
+	&.mfp-fade
+		background transparent
+		opacity 0
+
+	&.mfp-blue
+		background $colorBlue
+		opacity 1
 
 .mfp-fade
 	.mfp-content
@@ -1707,10 +1764,12 @@ body
 	margin 0 auto
 	text-align center
 	font-family "ProximaNovaSemibold"
+
 /*** //block offers ***/
 
 
 /*** section block ***/
+
 .section
 	display flex
 	justify-content space-between
@@ -1853,6 +1912,8 @@ body
 			color $colorLightBlack
 
 	.order-call-privacy
+		font-size 14px
+
 		.link
 			display block
 			width 100%
@@ -1904,6 +1965,36 @@ body
 		width 100%
 
 /*** //form-call block ***/
+
+
+/*** form-sub ***/
+
+.order-sub
+	position relative
+	padding 55px 0 20px 0
+	box-sizing border-box
+
+	h2
+		margin-bottom 40px
+		font-size 28px
+
+		color #fff
+		line-height 32px
+
+
+.form-order-sub
+	width 100%
+	max-width 465px
+	margin 0 auto
+
+	.send-order
+		max-width 250px
+		width 100%
+		margin 0 auto
+
+		font-size 16px
+		font-family "ProximaNovaSemibold"
+/*** //form-sub ***/
 
 
 /*** feature ***/
@@ -3015,7 +3106,16 @@ body
 
 /*** tooltip apartment ***/
 
+.tooltipster-base
+	position fixed !important
+	top 0 !important
+	right 0 !important
+	bottom 0 !important
+	left auto !important
+	width auto !important
+
 .tooltip-container
+	position relative
 	display none
 	padding 25px 25px 30px 25px
 	box-sizing border-box
@@ -3023,19 +3123,31 @@ body
 	.tooltip-apartment-title
 		margin-bottom 20px
 		font-size 18px
+		font-family "ProximaNovaSemibold"
 
 	.tooltip-apartment-id
 		margin-bottom 25px
-		font-size 18px
+		font-size 16px
+
+		color #9B9A9B
 
 	.tooltip-apartment-holder
 		display flex
 		align-items center
-		justify-content space-between
+		justify-content flex-start
 		max-width 200px
 		min-height 300px
 
-		margin 0 auto 25px auto
+		margin 0 0 25px 0
+		text-align center
+
+	.tooltip-apartment-holder-sheme
+		display flex
+		align-items center
+		justify-content flex-start
+		max-width 320px
+
+		margin 0 0 25px 0
 		text-align center
 
 	.tooltip-apartment-img
@@ -3072,6 +3184,48 @@ body
 	.tooltip-apartment-button
 		display inline-block
 		vertical-align middle
+
+	.tooltip-close
+		position absolute
+		top 25px
+		right 25px
+
+		display block
+		width 25px
+		height 25px
+
+		svg
+			display block
+			width 100%
+
+	.tooltip-apartment-price
+		margin-bottom 30px
+		font-size 18px
+		font-family "ProximaNovaSemibold"
+		color #4A494A
+
+		&-old
+			position relative
+			display inline-block
+			margin-right 5px
+
+			vertical-align middle
+
+			&:before
+				content ""
+				position absolute
+				top 8px
+				left 5px
+				right 5px
+				width 92%
+				height 2px
+				background #f01624
+
+		&-new
+			position relative
+			display inline-block
+
+			vertical-align middle
 
 .tooltipster-sidetip.tooltipster-noir.tooltipster-noir-customized .tooltipster-box
 	border 1px solid $colorLightGray
@@ -3152,7 +3306,7 @@ body
 	.apartment-structure-floor-number
 		position relative
 		display inline-block
-		padding 10px 20px
+		padding 8px 22px
 		box-sizing border-box
 
 		text-align center
@@ -3162,7 +3316,7 @@ body
 	.apartment-structure-grid-cell
 		position relative
 		display inline-block
-		padding 10px
+		padding 8px
 
 		cursor pointer
 
@@ -3203,7 +3357,7 @@ body
 		align-items center
 		width 100%
 
-		height 35px
+		height 30px
 		margin-bottom 5px
 
 		transition background 0.3s $transitionAnimation
@@ -3869,3 +4023,571 @@ body
 		opacity 1
 		transform translateX(0)
 /*** //reviews ***/
+
+
+/*** developers ***/
+
+.developers
+	margin-bottom 100px
+
+	.page-subtitle
+		max-width 570px
+		margin 0 auto
+		line-height 26px
+
+	.developers-list
+		display flex
+		justify-content flex-start
+		flex-wrap wrap
+		align-items flex-start
+
+		margin-top 65px
+
+	.developers-item
+		display block
+		width 32%
+		margin 0 2% 60px 0
+		min-width 300px
+
+		&:nth-child(3n)
+			margin-right 0
+
+	.developers-letter
+		margin-bottom 25px
+		font-size 64px
+		color $colorBlue
+
+	.developers-link
+		display table
+		width auto
+		margin-bottom 15px
+		color #4A494A
+
+		&:hover
+			color $colorBlue
+
+	.developer-info
+		.img
+			width 100%
+			max-width 225px
+
+		p.right
+			padding-left 280px
+			box-sizing border-box
+
+.developers-offers
+	padding 60px 0 70px 0
+
+/*** //developers ***/
+
+
+/*** partners ***/
+
+.partners
+	margin-bottom 180px
+
+	h1
+		margin-bottom 60px
+
+	.partners-list
+		display flex
+		flex-wrap wrap
+		justify-content flex-start
+
+	.partners-item
+		width 48%
+		min-width 300px
+		margin-right 4%
+		margin-bottom 130px
+
+		&:nth-child(2n)
+			margin-right 0
+
+	.partners-holder
+		display block
+		width 70%
+		max-height 130px
+		margin-bottom 40px
+
+	.partners-img
+		display block
+		max-height 130px
+
+	.partners-title
+		margin-bottom 25px
+		font-size 20px
+		font-family "ProximaNovaSemibold"
+
+		color #333333
+
+	.partners-text
+		font-size 16px
+		line-height 24px
+		color #4A494A
+
+/*** //partners ***/
+
+
+/*** blog ***/
+
+.blog
+	padding-bottom 60px
+
+	h1
+		margin-bottom 45px
+
+	.blog-search
+		margin-bottom 40px
+		padding 40px 40px
+		box-sizing border-box
+
+		background $colorLightBlue
+
+	.form
+		margin-top 0
+
+	.form-row
+		margin-bottom 0
+
+	.blog-info
+		display flex
+		flex-wrap wrap
+		justify-content space-between
+
+		margin-bottom 55px
+
+	.blog-container
+		width 60%
+
+	.blog-holder
+		display block
+		width 100%
+		margin-bottom 55px
+
+		overflow hidden
+
+		.blog-img
+			display block
+			width 100%
+			height 100%
+			transition transform 0.3s $transitionAnimation
+			will-change transform
+
+		&:hover
+			.blog-img
+				transform scale(1.01)
+
+	.blog-title
+		margin-bottom 30px
+
+		font-size 25px
+		font-family "ProximaNovaSemibold"
+
+	.blog-data
+		display inline-block
+		margin 0 30px 30px 0
+	    vertical-align middle
+
+		font-size 14px
+		color #4A494A
+
+	.blog-views
+		display inline-block
+		vertical-align middle
+		margin-right 30px
+
+		.blog-views-icon
+			display inline-block
+			width 35px
+			height 20px
+			margin-right 5px
+			float left
+
+			svg
+				display block
+				width 100%
+
+		&.active
+			.blog-views-icon
+				svg
+					path
+						fill $colorOrange
+
+		.blog-views-count
+			display inline-block
+			margin-top 5px
+			font-size 13px
+			font-family "ProximaNovaSemibold"
+			color #4A494A
+
+	.blog-rating
+		display inline-block
+		vertical-align middle
+
+		img
+			display inline-block
+			width 20px
+			height 20px
+
+			margin-right 10px
+
+			&:last-child
+				margin-right 0
+
+	.blog-text
+		margin-bottom 25px
+		font-size 16px
+		line-height 22px
+		color #4A494A
+
+	.blog-tags
+		display flex
+		justify-content flex-start
+		align-items center
+		flex-wrap wrap
+
+		margin-bottom 30px
+
+		.blog-tag
+			margin-right 10px
+			padding 10px 25px
+			box-sizing border-box
+
+			border-radius 25px
+
+			text-align center
+			background #eceded
+
+			font-size 13px
+			font-family "ProximaNovaSemibold"
+
+			color #4A494A
+
+			cursor pointer
+
+	.blog-topics
+		width 35%
+		padding 40px 20px
+		box-sizing border-box
+
+		background $colorLightBlue
+
+		p
+			margin-bottom 40px
+
+	.blog-topics-title
+		margin-bottom 40px
+		font-family "ProximaNovaSemibold"
+
+	.blog-topics-item
+		line-height 20px
+		color #009DCC
+		font-family "ProximaNovaSemibold"
+
+	.blog-list
+		display flex
+		justify-content flex-start
+		flex-wrap wrap
+		align-items flex-start
+
+		padding-bottom 64px
+		box-sizing border-box
+		margin-bottom 50px
+		border-bottom 1px solid $colorTurquoise
+
+	.blog-item
+		width 48%
+		min-width 300px
+
+		margin 0 4% 55px 0
+		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+		&:nth-child(2n)
+			margin-right 0
+
+		&.load-events-item
+			transform translateY(-30px)
+			opacity 0
+
+		.blog-holder
+			margin-bottom 30px
+
+	&.blog-detail
+		h1
+			text-align left
+			margin-bottom 35px
+
+		h3
+			margin-bottom 20px
+			font-size 20px
+			color #333333
+
+		p
+			font-size 16px
+			line-height 22px
+			color #4A494A
+
+	.blog-actions
+		display flex
+		justify-content space-between
+		align-items center
+		flex-wrap wrap
+
+		margin-bottom 30px
+
+		padding 25px 0
+		box-sizing border-box
+
+		border-top 1px solid $colorTurquoise
+		border-bottom: 1px solid $colorTurquoise
+
+		.blog-share
+			display flex
+			justify-content flex-start
+			align-items center
+
+			.blog-share-title
+				margin-right 20px
+
+				font-size 15px
+				font-family "ProximaNovaSemibold"
+
+			.blog-share-items
+
+				.blog-share-item
+					display inline-block
+					width 25px
+					height 25px
+
+					margin-right 10px
+
+					cursor pointer
+					svg
+						display block
+						width 100%
+
+						path
+							fill $colorGray
+							fill-opacity 1
+							transition fill 0.3s $transitionAnimation
+
+					&:last-child
+						margin-right 0
+
+					&:hover
+						svg
+							path
+								fill $colorOrange
+
+		.blog-estimate
+			display flex
+			justify-content flex-start
+			align-items center
+
+			.blog-estimate-title
+				margin-right 20px
+
+				font-size 15px
+				font-family "ProximaNovaSemibold"
+
+.blog-offers
+	padding 60px 0 0 0
+	box-sizing border-box
+
+	h2
+		margin-bottom 50px
+
+	.blog-list
+		margin-bottom 0
+		padding-bottom 0
+		border none
+
+	.blog-tags
+		.blog-tag
+			background #fff
+
+/*** //blog ***/
+
+
+/*** contacts ***/
+
+.contacts
+	h1
+		margin-bottom 65px
+
+	.map-container
+		height 565px
+		margin-bottom 0
+
+	.contacts-holder
+		width 100%
+		margin-bottom 85px
+
+		.contacts-img
+			display block
+			width 100%
+
+	.contacts-container
+		display flex
+		justify-content flex-start
+		align-items baseline
+
+		flex-wrap wrap
+
+		margin-bottom 120px
+
+		.contacts-item
+			width 48%
+			min-width 300px
+
+			margin-right 4%
+
+			&:last-child
+				margin-right 0
+
+			p
+				display block
+				margin-bottom 20px
+
+		.contacts-title
+			margin-bottom 25px
+			font-size 20px
+			font-family "ProximaNovaSemibold"
+
+			color #333333
+
+/*** //contacts ***/
+
+
+/*** 404 ***/
+
+.page-404
+	position relative
+
+	height 100vh
+	padding 95px 0 40px 0
+	box-sizing border-box
+	text-align center
+
+	.page-404-logo
+		display block
+		max-width 240px
+		margin 0 auto 35px auto
+
+		svg
+			display block
+			width 100%
+
+	.page-404-desc
+		font-size 14px
+		margin-bottom 70px
+
+	.page-404-icon
+		max-width 74px
+		margin 0 auto 50px auto
+
+		svg
+			width 100%
+
+	.page-404-title
+		margin-bottom 50px
+
+	.page-404-back
+		font-size 16px
+		line-height 28px
+		color #4A494A
+
+	.page-404-copyrights
+		position absolute
+		bottom 40px
+		left 50%
+
+		transform translateX(-50%)
+/*** //404 ***/
+
+
+/*** form-popup ***/
+
+.form-popup
+	h2
+		font-size 28px
+		margin-bottom 30px
+
+	h3
+		display block
+		max-width 400px
+		margin 0 auto
+
+		font-size 18px
+		font-family "ProximaNovaRegular"
+
+		text-align center
+
+	.form-order-call
+		display block
+		width 100%
+		max-width 420px
+		margin 0 auto
+
+		.send-order
+			margin 0 auto
+			font-size 18px
+			font-family "ProximaNovaSemibold"
+	.order-call-icon
+		position inherit
+		display block
+		max-width 155px
+		width 100%
+
+		margin 20px auto 40px auto
+
+		svg
+			path:not([fill="none"])
+				fill $colorBlue
+
+	.order-call-privacy
+		.link
+			display inline-block
+			color $colorBlue
+
+
+
+.mfp-blue
+	.form-popup
+		h2
+			color #fff
+		h3
+
+		.order-call-icon
+			svg
+				path:not([fill="none"])
+					fill #fff
+
+		.order-call-privacy
+			.link
+				display inline-block
+				color #fff
+
+	.btn-container-close
+		position absolute
+		top 30px
+		right 30px
+
+		display block
+		width 20px
+		height 20px
+
+		svg
+			display block
+			width 100%
+
+			path
+				transition fill 0.3s $transitionAnimation
+				fill #fff
+
+		&:hover
+			svg
+				path
+					fill $colorLightBlack
+
+/*** //form-popup ***/

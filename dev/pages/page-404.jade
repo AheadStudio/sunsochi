@@ -1,0 +1,20 @@
+extends ../templates/base
+
+block content
+    div(class="page-inner page-inner--w4")
+        div(class="page-text")
+            div(class="page-404")
+                a(href="home.html", class="link page-404-logo")
+                    include ../../prod/svg/logo.svg
+                div(class="page-404-desc") Вся жилая и коммерческая недвижимость в Сочи 
+                    br 
+                    | с помощью выбора и оформления
+                div(class="page-404-icon")
+                    include ../../prod/svg/404.svg
+                h1(class="page-404-title") 404-ошибка
+                div(class="page-404-back") Страница не найдена или удалена.
+                    br
+                    a(href="home.html", class="link link-black link-black--bottom") Вернуться на главную
+                div(class="page-404-copyrights") &#169; SunSochi.com - Недвижимость в Сочи.
+                    
+                    

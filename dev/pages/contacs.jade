@@ -1,0 +1,33 @@
+extends ../templates/base
+
+block content
+    div(class="page-inner page-inner--w1")
+        div(class="contacts")
+            div(class="page-text")
+                h1 Контакты
+            
+            div(class="contacts-holder")
+                img(src="../dummy/contacts.png", class="contacts-img")
+            
+            div(class="contacts-container")
+                div(class="contacts-item")
+                    div(class="contacts-title") Офис
+                    p
+                        a(href="yandexnavi://build_route_on_map?lat_to=43.60405218&amp;lon_to=39.73541935", itemprop="addressLocality", class="link link-black contacts-location") г. Сочи, ул. Пластунская, 81, 3 этаж, офис 17 
+                    p
+                        a(href="tell:+78007075523", itemprop="telephone", class="link link-black link--orange contacts-mobile") 8-800-707-55-23
+                    p
+                        a(href="mail:info@sunsochi.com", itemprop="email", class="link link-black link-black--bottom-inverse contacts-mail") info@sunsochi.com 
+                div(class="contacts-item")
+                    div(class="contacts-title") Реквизиты
+                    p Общество с Ограниченной Ответсвенностью 
+                    p «СОЛНЕЧНЫЙ СОЧИ» 
+                    p ИНН: 2320240206 КПП: 232001001 
+                    p Адрес: 354000, г. Сочи, ул. Пластунская, 81, офис 17
+                    p Р/сч: 40702810730060002826, 
+                    p ЮГО-ЗАПАДНЫЙ БАНК ПАО СБЕРБАНК
+                    
+    div(class="page-inner page-inner--max")    
+        div(class="contacts")
+            div(class="map-container")
+                div(class="map", id="mapYandex", data-center="[43.60405218, 39.73541935]", data-zoom="18", data-points='[{name:"1", position: "43.604412115253794,39.73532647212506", icon: "../svg/point_map.svg", iconW: 55, iconH: 85, description:"Сочи, ул. Пластунская, 81, 3 этаж, офис 17"}]')

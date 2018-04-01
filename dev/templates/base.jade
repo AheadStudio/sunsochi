@@ -72,7 +72,8 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 
 	body(itemscope, itemtype="http://schema.org/WebPage")
 		div(class="page")
-			header(class="page-header", itemscope, itemtype="http://schema.org/WPHeader")
+			if page.code != "page-404"
+				header(class="page-header", itemscope, itemtype="http://schema.org/WPHeader")
 				div(class="header-row header-row--top")
 					div(class="page-inner page-inner--w1")
 						+menu({
@@ -130,8 +131,8 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 								span(class="header-mobile-title") Звоните нам бесплатно по РФ
 								a(href="tell:+78007075523", class="link header-mobile-item") 8-800-707-55-23
 
-							a(href="#", class="link button button--orange header-call") Заказать звонок
-							
+							a(href="form-call.html", class="link button button--orange header-call mfp-modal", data-mfp-type="ajax", data-mfp-ajaxcontent="#form-call", data-mfp-bcg="#009ecc", data-mfp-closeinside="false") Заказать звонок
+
 				div(class="header-row header-row--bottom")
 					div(class="page-inner page-inner--w1")
 						div(class="header-row-items")
@@ -183,9 +184,12 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 		div(class="tooltip-container", data-tooltip-apartment)
 			form(class="form")
 				div(class="tooltip-apartment-title", data-tooltip-apartment-title)
+				div(class="tooltip-apartment-price", data-tooltip-apartment-price)
 				div(class="tooltip-apartment-id", data-tooltip-apartment-id)
 				div(class="tooltip-apartment-holder")
 					img(src="", class="tooltip-apartment-img", data-tooltip-apartment-img)
+				div(class="tooltip-apartment-holder-sheme")
+					img(src="", class="tooltip-apartment-img", data-tooltip-apartment-imgsheme)
 				a(href="#", class="link tooltip-apartment-icon")
 					include ../../prod/svg/download.svg
 				a(href="#", class="link tooltip-apartment-icon")
@@ -193,104 +197,108 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				a(href="#", class="link tooltip-apartment-icon")
 					include ../../prod/svg/star_orage.svg
 					
-				button(type="submit", class="button button--orange-reverse tooltip-apartment-button") Оставить заявку
-				
-		footer(class="page-footer", itemscope, itemtype="http://schema.org/WPFooter")
-			div(class="page-inner page-inner--w1")
-				div(class="footer-row footer-row--top")
-					+menu({
-						rootClass: "footer-top",
-						items: [
-							{
-								name: "Новостройки",
-								href: "about.html",
-								linkClass: "link link-white link-white--bottom-reverse",
-							}, {
-								name: "Квартиры",
-								href: "personals.html",
-								linkClass: "link link-white link-white--bottom-reverse",
-							}, {
-								name: "Элитные",
-								href: "reviews.html",
-								linkClass: "link link-white link-white--bottom-reverse",
-							}, {
-								name: "Дома",
-								href: "news.html",
-								linkClass: "link link-white link-white--bottom-reverse",
-							}, {
-								name: "Участки",
-								href: "blog.html",
-								linkClass: "link link-white link-white--bottom-reverse",
-							}, {
-								name: "Коммерческие",
-								href: "builders.html",
-								linkClass: "link link-white link-white--bottom-reverse",
-							}, {
-								name: "Инвестиции",
-								href: "partners.html",
-								linkClass: "link link-white link-white--bottom-reverse",
-							}, 
-						]
-					})
-				div(class="footer-row footer-row--top")
-					+menu({
-						rootClass: "footer-next",
-						items: [
-							{
-								name: "О компании",
-								href: "about.html",
-								linkClass: "link link-white link-white--bottom-reverse",
-							}, {
-								name: "Сотрудники",
-								href: "personals.html",
-								linkClass: "link link-white link-white--bottom-reverse",
-							}, {
-								name: "Отзывы",
-								href: "reviews.html",
-								linkClass: "link link-white link-white--bottom-reverse",
-							}, {
-								name: "Новости",
-								href: "news.html",
-								linkClass: "link link-white link-white--bottom-reverse",
-							}, {
-								name: "Блог",
-								href: "blog.html",
-								linkClass: "link link-white link-white--bottom-reverse",
-							}, {
-								name: "Застройщики",
-								href: "builders.html",
-								linkClass: "link link-white link-white--bottom-reverse",
-							}, {
-								name: "Партнеры",
-								href: "partners.html",
-								linkClass: "link link-white link-white--bottom-reverse",
-							}, {
-								name: "Контакты",
-								href: "contacts.html",
-								linkClass: "link link-white link-white--bottom-reverse",
-							}, {
-								name: "Вакансии",
-								href: "vacancy.html",
-								linkClass: "link link-white link-white--bottom-reverse",
-							}, 
-						]
-					})
-				div(class="footer-row footer-row--bottom")
-					div(class="footer-info")
-						a(href="#", class="link link-bottom-orange footer-info-private") Политика обработки персональных данных
-						div(class="footer-info-name") SunSochi.com - Недвижимость в Сочи
-						a(href="#", class="link footer-creators") 
-							span(class="footer-creators-title") Поддержка сайта
-							span(class="footer-creators-name") Aheadstudio
-					div(class="footer-social")
-						div(class="footer-social-item")
-							include ../../prod/svg/vk.svg
-						div(class="footer-social-item")
-							include ../../prod/svg/fb.svg
-						div(class="footer-social-item")
-							include ../../prod/svg/instagram.svg
-						div(class="footer-social-item")
-							include ../../prod/svg/youtube.svg
+				a(href="form-bid.html", class="link button button--orange-reverse tooltip-apartment-button mfp-modal", data-mfp-type="ajax", data-mfp-ajaxcontent="#form-call", data-mfp-bcg="#009ecc", data-mfp-closeinside="false") Оставить заявку
+
+			button(type="button", class="tooltip-close")
+				include ../../prod/svg/close_gray.svg
+			
+		if page.code != "page-404"
+			footer(class="page-footer", itemscope, itemtype="http://schema.org/WPFooter")
+				div(class="page-inner page-inner--w1")
+					div(class="footer-row footer-row--top")
+						+menu({
+							rootClass: "footer-top",
+							items: [
+								{
+									name: "Новостройки",
+									href: "about.html",
+									linkClass: "link link-white link-white--bottom-reverse",
+								}, {
+									name: "Квартиры",
+									href: "personals.html",
+									linkClass: "link link-white link-white--bottom-reverse",
+								}, {
+									name: "Элитные",
+									href: "reviews.html",
+									linkClass: "link link-white link-white--bottom-reverse",
+								}, {
+									name: "Дома",
+									href: "news.html",
+									linkClass: "link link-white link-white--bottom-reverse",
+								}, {
+									name: "Участки",
+									href: "blog.html",
+									linkClass: "link link-white link-white--bottom-reverse",
+								}, {
+									name: "Коммерческие",
+									href: "builders.html",
+									linkClass: "link link-white link-white--bottom-reverse",
+								}, {
+									name: "Инвестиции",
+									href: "partners.html",
+									linkClass: "link link-white link-white--bottom-reverse",
+								}, 
+							]
+						})
+					div(class="footer-row footer-row--top")
+						+menu({
+							rootClass: "footer-next",
+							items: [
+								{
+									name: "О компании",
+									href: "about.html",
+									linkClass: "link link-white link-white--bottom-reverse",
+								}, {
+									name: "Сотрудники",
+									href: "personals.html",
+									linkClass: "link link-white link-white--bottom-reverse",
+								}, {
+									name: "Отзывы",
+									href: "reviews.html",
+									linkClass: "link link-white link-white--bottom-reverse",
+								}, {
+									name: "Новости",
+									href: "news.html",
+									linkClass: "link link-white link-white--bottom-reverse",
+								}, {
+									name: "Блог",
+									href: "blog.html",
+									linkClass: "link link-white link-white--bottom-reverse",
+								}, {
+									name: "Застройщики",
+									href: "builders.html",
+									linkClass: "link link-white link-white--bottom-reverse",
+								}, {
+									name: "Партнеры",
+									href: "partners.html",
+									linkClass: "link link-white link-white--bottom-reverse",
+								}, {
+									name: "Контакты",
+									href: "contacts.html",
+									linkClass: "link link-white link-white--bottom-reverse",
+								}, {
+									name: "Вакансии",
+									href: "vacancy.html",
+									linkClass: "link link-white link-white--bottom-reverse",
+								}, 
+							]
+						})
+					div(class="footer-row footer-row--bottom")
+						div(class="footer-info")
+							a(href="#", class="link link-bottom-orange footer-info-private") Политика обработки персональных данных
+							div(class="footer-info-name") SunSochi.com - Недвижимость в Сочи
+							a(href="#", class="link footer-creators") 
+								span(class="footer-creators-title") Поддержка сайта
+								span(class="footer-creators-name") Aheadstudio
+						div(class="footer-social")
+							div(class="footer-social-item")
+								include ../../prod/svg/vk.svg
+							div(class="footer-social-item")
+								include ../../prod/svg/fb.svg
+							div(class="footer-social-item")
+								include ../../prod/svg/instagram.svg
+							div(class="footer-social-item")
+								include ../../prod/svg/youtube.svg
 
 		+addJS([
 			{
@@ -319,6 +327,10 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				src: "../js/plugins/jquery.table-sorter.js"
 			}, {	
 				src: "../js/plugins/tooltipster.bundle.min.js"
+			}, {	
+				src: "../js/plugins/jquery.raty.js"
+			}, {	
+				src: "../js/plugins/jquery.validate.min.js"
 			}, {
 				src: "../js/" + info.code + ".js"
 			}

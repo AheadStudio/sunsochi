@@ -415,6 +415,8 @@
 
 					self.applyJcf($form);
 					self.mask($form);
+					self.rating.init();
+					self.validate.init($(".form", $sel.body));
 				},
 
 				mask: function($form) {
@@ -481,6 +483,119 @@
 
 				},
 
+				rating: {
+					init: function() {
+						var $rating = $("[data-rating]");
+
+						$rating.each(function() {
+							(function(el) {
+								var elScore = el.data("ratingValue"),
+									elRead = el.data("ratingRead");
+
+								if (!elRead) {
+									elRead = false;
+								}
+
+								el.raty({
+									score: elScore,
+									number: 5,
+									readOnly: elRead,
+									scoreName: "result-blog-rating",
+									starOff: "../svg/star.svg",
+									starOn: "../svg/star_orage_fill.svg",
+								});
+							})($(this))
+						})
+					},
+				},
+
+				validate: {
+
+					init: function($form) {
+						var self = this;
+
+						$form.each(function() {
+							(function($form) {
+								var $formFields = $form.find("[data-error]"),
+									formParams = {
+										rules: {
+										},
+										messages: {
+										}
+									};
+
+								$.validator.addMethod("mobileRU", function(phone_number, element) {
+									phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
+									return this.optional(element) || phone_number.length > 5 && phone_number.match(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{6,10}$/);
+								}, "Error");
+
+								$formFields.each(function() {
+									var $field = $(this),
+										fieldPattern = $field.data("pattern"),
+										fieldError = $field.data("error");
+									if(fieldError) {
+										formParams.messages[$field.attr("name")] = $field.data("error");
+									} else {
+										formParams.messages[$field.attr("name")] = "Ошибка заполнения";
+									}
+									if(fieldPattern) {
+										formParams.rules[$field.attr("name")] = {};
+										formParams.rules[$field.attr("name")][fieldPattern] = true;
+									}
+								});
+
+								$("[data-number]", $form).each(function() {
+									var $item = $(this);
+									$item.mask($item.data("number"));
+								});
+
+								if($form.data("success")) {
+
+									formParams.submitHandler = function(form) {
+										e.preventDefault();
+										$.ajax({
+											type: "POST",
+											url: $form.data("success"),
+											success: function(data) {
+												var $data = $('<div />').append(data),
+													formResult = $data.find("#$data");
+
+												$.magnificPopup.open({
+													items: {
+														src: formResult,
+														type: "inline"
+													},
+													midClick: true,
+													closeMarkup: '<button title="%title%" type="button" class="mfp-close btn-container-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.8 44.8"><g data-name="Слой 2"><path d="M19.6 22.4L0 42l2.8 2.8 19.6-19.6L42 44.8l2.8-2.8-19.6-19.6L44.8 2.8 42 0 22.4 19.6 2.8 0 0 2.8z" fill="#d0d0d0" data-name="Слой 1"/></g></svg></button>',
+													mainClass: "mfp-fade mfp-blue",
+													removalDelay: 300,
+													closeBtnInside: "false",
+													callbacks: {
+														open: function(el) {
+															$(".btn-container-close").on("click", function() {
+																$.magnificPopup.close();
+															});
+
+														},
+														ajaxContentAdded: function() {
+															SUNSOCHI.reload();
+														},
+													}
+
+												});
+											},
+										});
+									};
+								}
+								$form.validate(formParams);
+
+							})($(this))
+						});
+
+					},
+
+				},
+
 			},
 
 			modalWindow: {
@@ -493,20 +608,58 @@
 
 				mfp: {
 					init: function() {
-						$(".mfp-modal").magnificPopup({
-							type: "inline",
-							midClick: true,
-							closeMarkup: '<button title="%title%" type="button" class="mfp-close regions-container-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.8 44.8"><g data-name="Слой 2"><path d="M19.6 22.4L0 42l2.8 2.8 19.6-19.6L42 44.8l2.8-2.8-19.6-19.6L44.8 2.8 42 0 22.4 19.6 2.8 0 0 2.8z" fill="#d0d0d0" data-name="Слой 1"/></g></svg></button>',
-							mainClass: "mfp-fade",
-							removalDelay: 300,
-							callbacks: {
-								open: function(el) {
-									$(".regions-container-close").on("click", function() {
-										$.magnificPopup.close();
-									});
-								},
+						var $popup = $(".mfp-modal");
+
+						$popup.each(function() {
+							var el = $(this),
+								elType = el.data("mfpType"),
+								elAjaxContent = el.data("mfpAjaxcontent"),
+								elClose = el.data("mfpCloseinside"),
+								elbcg = el.data("mfpBcg");
+
+							if (!elbcg) {
+								classBcg = "";
+							} else {
+								classBcg = "mfp-blue";
 							}
-						});
+
+							if (!elType) {
+								elType = "inline";
+							}
+
+							if (!elType) {
+								elClose = "true";
+							}
+
+							if (elAjaxContent) {
+						 		parseAjax = function(mfpResponse) {
+									mfpResponse.data = $(mfpResponse.data).find(elAjaxContent);
+								}
+							} else {
+								parseAjax = null;
+							}
+
+							el.magnificPopup({
+								type: elType,
+								midClick: true,
+								closeMarkup: '<button title="%title%" type="button" class="mfp-close btn-container-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.8 44.8"><g data-name="Слой 2"><path d="M19.6 22.4L0 42l2.8 2.8 19.6-19.6L42 44.8l2.8-2.8-19.6-19.6L44.8 2.8 42 0 22.4 19.6 2.8 0 0 2.8z" fill="#d0d0d0" data-name="Слой 1"/></g></svg></button>',
+								mainClass: "mfp-fade" + " " + classBcg,
+								removalDelay: 300,
+								closeBtnInside: elClose,
+								callbacks: {
+									open: function(el) {
+										$(".btn-container-close").on("click", function() {
+											$.magnificPopup.close();
+										});
+
+									},
+									ajaxContentAdded: function() {
+										SUNSOCHI.reload();
+									},
+									parseAjax: parseAjax,
+								}
+							});
+						})
 					}
 				}
 
@@ -811,9 +964,14 @@
 
 								theme: ["tooltipster-noir", "tooltipster-noir-customized"],
 
-								trigger: $trigger,
+								trigger: "click",
 
-								/*functionBefore: function(instance, helper) {
+								functionBefore: function(instance, helper) {
+									/*var content = instance.content('My new content');
+									console.log("123",content);
+									var elementBlock = $sel.body.find("[data-tooltip-apartment]");
+									instance.content(elementBlock);
+
 									/*var idOrigin = helper.origin.dataset.tooltipElement;
 									//for getting information about the store from a file
 									$.get("tooltip-element.php", function(data) {
@@ -836,26 +994,56 @@
 
 										}
 
-									});
+									});*/
 
-								},*/
+								},
 
 								functionFormat: function(instance, helper, content){
+									/*var content = instance.content(""),
+									 	elementBlock = $sel.body.find("[data-tooltip-apartment]");
+
+									instance.content(elementBlock);*/
+
 									var $content = instance.content(),
 										$contentTitle = $content.find("[data-tooltip-apartment-title]"),
 										$contentId = $content.find("[data-tooltip-apartment-id]"),
 										$contentImg = $content.find("[data-tooltip-apartment-img]"),
+										$contentImgSheme = $content.find("[data-tooltip-apartment-imgsheme]"),
+										$contentPrice = $content.find("[data-tooltip-apartment-price]"),
 										apartmentData = instance._$origin.data("apartmentInfo");
+
 
 									if (!apartmentData) {
 										$content = "<span class='tooltip-apartment-empty'>Нет информации</span>";
 										return $content;
 									}
+
+									$contentId.text("");
 									$contentId.text("ID " + apartmentData.id);
+
+									$contentTitle.text("");
 									$contentTitle.text(apartmentData.apartment);
+
+									$contentImg.attr("src", "");
 									$contentImg.attr("src", apartmentData.image);
 
+									$contentImgSheme.attr("src", "");
+									$contentImgSheme.attr("src", apartmentData.imagesheme);
+
+									$contentPrice.empty();
+
+									$contentPrice.append("<div class='tooltip-apartment-price-old'>"+apartmentData.oldprice+" &#8381;</div>");
+									$contentPrice.append("<div class='tooltip-apartment-price-new'>"+apartmentData.price+" &#8381;</div>");
+
 									return $content;
+								},
+
+
+								functionReady: function(instance, helper) {
+									$sel.body.find(".tooltip-close").on("click", function(){
+										instance._$origin.tooltipster("hide");
+									});
+									SUNSOCHI.reload();
 								},
 
 							});
@@ -978,9 +1166,9 @@
 										if (obj.objects[d].posMatrix.indexOf(matrix[i][j]) !== -1) {
 											matrix[i][j] = obj.objects[d].gridArea;
 										}
-										if (obj.allpostion.indexOf(matrix[i][j]) === -1) {
+										/*if (obj.allpostion.indexOf(matrix[i][j]) === -1) {
 											console.log(cloneMatrix[i][j]);
-										}
+										}*/
 									}
 								}
 							}
@@ -1005,8 +1193,8 @@
 
 						self.$gridContainer.css({
 							"grid-template-areas": self.finalGrid,
-							"grid-template-columns": "50px repeat(" + self.colls + ", 35px)",
-							"grid-template-rows": "repeat(" + self.rows + ", 35px)"
+							"grid-template-columns": "55px repeat(" + self.colls + ", 40px)",
+							"grid-template-rows": "repeat(" + self.rows + ", 30px)"
 						});
 
 						for (var flor = 0; flor < self.rows; flor++) {
@@ -1223,7 +1411,7 @@
 
 	SUNSOCHI.header.init();
 	SUNSOCHI.goEl();
-	SUNSOCHI.fixedBlock();
+	//SUNSOCHI.fixedBlock();
 	SUNSOCHI.forms.init();
 	SUNSOCHI.filter.init();
 	ymaps.ready(function() {
@@ -1231,9 +1419,13 @@
 	});
 	SUNSOCHI.sliders.init();
 	SUNSOCHI.apartments.init();
-	//SUNSOCHI.moveAboutItem.init();
 	SUNSOCHI.modalWindow.init();
 	SUNSOCHI.toggleElements();
 	SUNSOCHI.ajaxLoader();
+
+	SUNSOCHI.reload = function() {
+		SUNSOCHI.forms.init();
+		SUNSOCHI.modalWindow.init();
+	};
 
 })(jQuery);

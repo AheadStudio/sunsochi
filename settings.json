@@ -154,6 +154,63 @@
             },
             "note": "Страница для подгрузки"
         },
+        "developers": {
+            "name": "Застройщики",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "developers-detail": {
+            "name": "Застройщик детальная",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "partners": {
+            "name": "Партнеры",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "blog": {
+            "name": "Блог",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "blog-detail": {
+            "name": "Блог статья",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "blog-load": {
+            "name": "Блог",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            },
+            "note": "Страница для подгрузки"
+        },
+        "contacs": {
+            "name": "Контакты",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
         "offers-load": {
             "name": "Подгрузка домов",
             "progress": {
@@ -174,7 +231,39 @@
         "new-building-card": {
             "name": "Карточка новостройка",
             "progress": {
-                "desktop": "50",
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "page-404": {
+            "name": "404",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "form-call": {
+            "name": "Форма: заказать звонок",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "form-bid": {
+            "name": "Форма: заявка на объект",
+            "progress": {
+                "desktop": "100",
+                "tablet": "0",
+                "mobile": "0"
+            }
+        },
+        "form-result": {
+            "name": "Форма: результат",
+            "progress": {
+                "desktop": "100",
                 "tablet": "0",
                 "mobile": "0"
             }

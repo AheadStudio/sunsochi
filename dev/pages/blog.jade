@@ -1,0 +1,130 @@
+extends ../templates/base
+
+block content
+    div(class="page-inner page-inner--w1")
+        div(class="blog")
+            div(class="page-text")
+                h1 Блог
+            
+            div(class="blog-search")
+                form(method="post", action="#", class="form")
+                    div(class="form-row")
+                        div(class="form-row-100")
+                            div(class="form-holder")
+                                input(type="text", placeholder="Поиск по блогу", class="form-item form-item--text")
+                                button(type="button", class="form-filter-search")
+                                    span(class="form-filter-search-icon")
+                                        include ../../prod/svg/loupe.svg
+            
+            div(class="blog-info")
+                div(class="blog-container")
+                    div(class="blog-holder")
+                        img(src="../dummy/blog/1.png", class="blog-img")
+                    div(class="blog-title") Налог на землю для пенсионеров
+                    div(class="blog-data") 14 марта 2018
+                    div(class="blog-views active")
+                        span(class="blog-views-icon")
+                            include ../../prod/svg/views.svg 
+                        span(class="blog-views-count") 203
+                    div(class="blog-rating", data-rating, data-rating-value="3")
+                    div(class="blog-text") Принципы уплаты налога на землю пенсионерами и другими гражданами, относящимися к социально уязвимым категориям, регулярно обсуждаются и пересматриваются. 
+                    div(class="blog-tags")
+                        div(class="blog-tag") Налоги
+                        div(class="blog-tag") Пенсионеры
+                        
+                div(class="blog-topics")
+                    div(class="blog-topics-title") Популярные темы
+                    p
+                        a(href="#", class="link link-blue link--showdow-blue blog-topics-item") Как купить квартиру за биткоины
+                    p
+                        a(href="#", class="link link-blue link--showdow-blue blog-topics-item") Как выгодно сдать квартиру
+                    p
+                        a(href="#", class="link link-blue link--showdow-blue blog-topics-item") Фестивали в Сочи
+                    p
+                        a(href="#", class="link link-blue link--showdow-blue blog-topics-item") Как выгодно сдать квартиру
+                    p
+                        a(href="#", class="link link-blue link--showdow-blue blog-topics-item") Фестивали в Сочи
+                    p
+                        a(href="#", class="link link-blue link--showdow-blue blog-topics-item") Земля для пнсионеров
+                    p
+                        a(href="#", class="link link-blue link--showdow-blue blog-topics-item") Где лучше купить квартиру в Сочи: советы, рекомендации
+                    p
+                        a(href="#", class="link link-blue link--showdow-blue blog-topics-item") Безопасность в Сочи
+
+            div(class="blog-list", id="blog-list-load")
+                div(class="blog-item")     
+                    div(class="blog-holder")
+                        img(src="../dummy/blog/2.png", class="blog-img")
+                    div(class="blog-title") Как взять ипотеку ИП
+                    div(class="blog-data") 14 марта 2018
+                    div(class="blog-views active")
+                        span(class="blog-views-icon")
+                            include ../../prod/svg/views.svg 
+                        span(class="blog-views-count") 203
+                    div(class="blog-rating", data-rating, data-rating-value="3")
+                    div(class="blog-text") Для многих индивидуальных предпринимателей ипотечное кредитование – единственная возможность выгодно для себя приобрести жилую или коммерческую недвижимость. 
+                    div(class="blog-tags")
+                        div(class="blog-tag") Кредит
+                        div(class="blog-tag") Индивидуальный предприниматель
+                div(class="blog-item")     
+                    div(class="blog-holder")
+                        img(src="../dummy/blog/3.png", class="blog-img")
+                    div(class="blog-title") Аванс, задаток и залог при сделках с имуществом
+                    div(class="blog-data") 2 февраля 2018
+                    div(class="blog-views")
+                        span(class="blog-views-icon")
+                            include ../../prod/svg/views.svg
+                        span(class="blog-views-count")
+                    div(class="blog-rating", data-rating, data-rating-value="2")
+                    div(class="blog-text") Приобретение недвижимости, как правило, сопровождается не только приятным предвкушением, но и вполне объясняемыми опасениями, мифами и страхами, как минимум, с точки зрения самого популярного - потерять собственные средства и “сесть в калошу”.
+                    div(class="blog-tags")
+                        div(class="blog-tag") Кредит
+                        div(class="blog-tag") Участки
+                div(class="blog-item")     
+                    div(class="blog-holder")
+                        img(src="../dummy/blog/4.png", class="blog-img")
+                    div(class="blog-title") Квартира в сданном доме до 1 млн. рублей
+                    div(class="blog-data") 14 марта 2018
+                    div(class="blog-views")
+                        span(class="blog-views-icon")
+                            include ../../prod/svg/views.svg
+                        span(class="blog-views-count") 203
+                    div(class="blog-rating", data-rating, data-rating-value="2")
+                    div(class="blog-text") Второй по очереди, но не по значению, рассмотрим поселок Дагомыс в Лазаревском районе.
+                    div(class="blog-tags")
+                        div(class="blog-tag") Догомыс
+                        div(class="blog-tag") Догомыс
+                div(class="blog-item")     
+                    div(class="blog-holder")
+                        img(src="../dummy/blog/5.png", class="blog-img")
+                    div(class="blog-title") Климат в Сочи
+                    div(class="blog-data") 14 марта 2018
+                    div(class="blog-views")
+                        span(class="blog-views-icon")
+                            include ../../prod/svg/views.svg
+                        span(class="blog-views-count") 203
+                    div(class="blog-rating", data-rating, data-rating-value="1")
+                    div(class="blog-text") Самый известный курорт России, ее летняя столица, всегда встречает гостей великолепными видами и хорошей погодой. Климат в Сочи уникален за счет расположения города, территория которого лежит сразу в 5 природно-климатических зонах.
+                    div(class="blog-tags")
+                        div(class="blog-tag") Кредит
+                        div(class="blog-tag") Индивидуальный предприниматель
+            
+            
+            div(class="blog-more load")
+                a(href="blog-load.html?PAGE=test", data-container="#blog-list-load", data-itemsselector=".blog-item", class="link button button--blue blog-more load-more") Показать еще
+    
+    div(class="page-inner page-inner--max", style="background:#009ecc")
+        div(class="page-inner page-inner--w1") 
+            div(class="order-sub")
+                div(class="page-text")
+                    h2 Быть в курсе – просто. 
+                        br
+                        | Подпишитесь!
+                form(class="form form-order-sub")
+                    div(class="form-row form-row--100")
+                        input(type="email", id="name", name="name", class="form-item form-item--text", required, data-error="Укажите Ваш e-mail", aria-required="true", placeholder="Укажите e-mail")
+                    div(class="form-row form-row--100")
+                        div(class="order-call-privacy") Нажимая на кнопку "Отправить заявку", вы даете&nbsp;
+                            a(href="#", class="link link-white link--opacity") согласие на обработку своих персональных данных
+                    div(class="form-row form-row--100")
+                        button(type="submit", class="button button--orange-flood send-order") Подписаться на блог

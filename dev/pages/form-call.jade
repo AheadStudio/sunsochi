@@ -1,0 +1,19 @@
+extends ../templates/base
+
+block content
+    div(class="page-inner page-inner--w1")
+        div(id="form-call", class="form-popup")
+            div(class="order-call-icon")
+                include ../../prod/svg/call.svg 
+            div(class="page-text")
+                h2 Заказать звонок
+            form(class="form form-order-call", action="#", data-success="form-result.html")
+                div(class="form-row form-row--100")
+                    input(type="text", id="name", name="name", class="form-item form-item--text", required, data-error="Ваше имя", aria-required="true", placeholder="Ваше имя")
+                div(class="form-row form-row--100")
+                    input(type="text", id="mobile", name="mobile", class="form-item form-item--text", required, data-error="Укажите телефон", aria-required="true", data-pattern="mobileRU", data-number="+7 (000) 000-00-00", placeholder="Контактный телефон")
+                div(class="form-row form-row--100")
+                    div(class="order-call-privacy") Нажимая на кнопку "Отправить заявку", вы даете
+                        a(href="#", class="link link-white link--opacity") согласие на обработку своих персональных данных
+                div(class="form-row form-row--100")
+                    button(type="submit", class="button button--orange-flood send-order") Отправить заявку
