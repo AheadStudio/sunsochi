@@ -124,6 +124,9 @@ body
 			font-size 14px
 			font-family "ProximaNovaSemibold"
 
+			&.active
+				color $colorOrange
+
 .header-logo
 	display flex
 	max-width 460px
@@ -183,6 +186,7 @@ body
 		font-size 14px
 		max-height 47px
 
+		white-space nowrap
 
 .header-row--middle
 	margin-bottom 20px
@@ -199,6 +203,9 @@ body
 			font-size 16px
 
 			font-family "ProximaNovaSemibold"
+
+			&.active
+				color $colorOrange
 
 .header-favorites
 	display flex
@@ -302,7 +309,7 @@ body
 
 .footer-next-item-holder
 	display inline-block
-	margin-right 30px
+	margin-right 23px
 
 	&:last-child
 		margin-right 0
@@ -411,6 +418,7 @@ body
 	h3
 		font-size 16px
 		font-family "ProximaNovaSemibold"
+
 	dl
 		display grid
 		grid-template-columns 1fr 1fr
@@ -435,11 +443,12 @@ body
 				&.title
 					font-family "ProximaNovaSemibold"
 					margin-bottom 30px
+
 	p
 		line-height 22px
 		margin-bottom 30px
 
-		font-size 18px
+		font-size 16px
 		font-family "ProximaNovaRegular"
 
 		&:last-child
@@ -450,7 +459,7 @@ body
 
 		&--full
 			border-top 1px solid #d0d0d0
-			padding 30px 0 30px 0
+			padding 40px 0 50px 0
 			border-bottom 1px solid #d0d0d0
 
 		&--bottom
@@ -475,6 +484,7 @@ body
 					font-family "ProximaNovaSemibold"
 
 					color #000
+
 		tr
 			width 100%
 
@@ -495,7 +505,6 @@ body
 
 			&.not-active
 				opacity 0.4
-
 
 	.img
 		display block
@@ -551,6 +560,7 @@ body
 				background-image url("../svg/check_blue.svg")
 				background-repeat no-repeat
 				background-size contain
+
 	ul
 		display block
 
@@ -584,6 +594,34 @@ body
 		font-family "ProximaNovaSemibold"
 		color #333333
 		text-align center
+
+	b
+		font-family "ProximaNovaSemibold"
+
+	strong
+		font-family "ProximaNovaSemibold"
+
+	i
+		font-style italic
+
+	em
+		font-style italic
+
+	ol
+		list-style: circle;
+
+		li
+			margin-bottom 20px
+
+	figure
+		display block
+		width 100%
+
+	figcaption
+		display block
+		margin-top 10px
+		font-size 14px
+
 /** //footer **/
 
 /** button and link **/
@@ -768,6 +806,7 @@ body
 .intro
 	position relative
 	width 100%
+	min-height 400px
 	margin-bottom 35px
 
 	&:after
@@ -1010,6 +1049,9 @@ body
 .form
 	margin-top 35px
 
+	input[type="text"]:disabled
+		background #eeecec
+
 	.form-row
 		position relative
 		display flex
@@ -1128,7 +1170,7 @@ body
 
 			display block
 			width 22px
-			height 22px
+			height 20px
 
 			background-image url("../svg/check_blue.svg")
 			background-repeat no-repeat
@@ -2557,6 +2599,9 @@ body
 	h2
 		padding-top 50px
 
+	p
+		font-size 18px
+
 	.offers-list
 		padding-bottom 65px
 
@@ -2764,8 +2809,9 @@ body
 		font-size 18px
 		font-family "ProximaNovaSemibold"
 
+
 	.apartment-information
-		margin-top 30px
+		margin 30px 0 0 0
 
 		dl
 			justify-items baseline
@@ -2791,7 +2837,7 @@ body
 		.apartment-map
 			width 100%
 			height 430px
-			margin-bottom 45px
+			margin 30px 0 45px 0
 
 			.map
 				display block
@@ -2801,17 +2847,21 @@ body
 		.apartment-detail-info
 			margin-top 30px
 
+	&.apartment-card
+			.apartment-information
+				margin 30px 65px 0 0
+
 	.apartment-item
 		margin-top 30px
 
 	.apartment-description-item
-		margin-bottom 40px
+		margin-bottom 20px
 
 	.apartment-features
 		display flex
 		justify-content flex-start
 		align-items baseline
-		margin-bottom 30px
+		margin-bottom 25px
 
 		flex-wrap wrap
 
@@ -2826,10 +2876,15 @@ body
 
 			transition transform 0.3s $transitionAnimation
 
+			background-color $colorLightBlue
+			border-radius 50%
+
 			svg
 				display block
 				width 100%
 
+				path
+					fill $colorBlue
 			&:hover
 				transform translateY(-10px)
 
@@ -3982,7 +4037,7 @@ body
 					stroke $colorLightBlue
 
 		.reviews-name
-			margin-bottom 25px
+			margin-bottom 15px
 			font-size 16px
 			color #000
 
@@ -4074,6 +4129,9 @@ body
 .developers
 	margin-bottom 100px
 
+	h1
+		margin-bottom 45px
+
 	.page-subtitle
 		max-width 570px
 		margin 0 auto
@@ -4085,7 +4143,7 @@ body
 		flex-wrap wrap
 		align-items flex-start
 
-		margin-top 65px
+		margin-top 50px
 
 	.developers-item
 		display block
@@ -4097,14 +4155,16 @@ body
 			margin-right 0
 
 	.developers-letter
-		margin-bottom 25px
+		margin-bottom 10px
 		font-size 64px
+		font-family "ProximaNovaLight"
+
 		color $colorBlue
 
 	.developers-link
 		display table
 		width auto
-		margin-bottom 15px
+		margin-bottom 12px
 		color #4A494A
 
 		&:hover
@@ -4131,7 +4191,7 @@ body
 	margin-bottom 180px
 
 	h1
-		margin-bottom 60px
+		margin-bottom 80px
 
 	.partners-list
 		display flex
@@ -4151,14 +4211,14 @@ body
 		display block
 		width 70%
 		max-height 130px
-		margin-bottom 40px
+		margin-bottom 70px
 
 	.partners-img
 		display block
-		max-height 130px
+		max-height 150px
 
 	.partners-title
-		margin-bottom 25px
+		margin-bottom 15px
 		font-size 20px
 		font-family "ProximaNovaSemibold"
 
@@ -4181,7 +4241,7 @@ body
 		margin-bottom 45px
 
 	.blog-search
-		margin-bottom 40px
+		margin-bottom 60px
 		padding 40px 40px
 		box-sizing border-box
 
@@ -4198,15 +4258,15 @@ body
 		flex-wrap wrap
 		justify-content space-between
 
-		margin-bottom 55px
+		margin-bottom 35px
 
 	.blog-container
-		width 60%
+		width 66%
 
 	.blog-holder
 		display block
 		width 100%
-		margin-bottom 55px
+		margin-bottom 50px
 
 		overflow hidden
 
@@ -4222,14 +4282,14 @@ body
 				transform scale(1.01)
 
 	.blog-title
-		margin-bottom 30px
+		margin-bottom 20px
 
 		font-size 25px
 		font-family "ProximaNovaSemibold"
 
 	.blog-data
 		display inline-block
-		margin 0 30px 30px 0
+		margin 0 10px 25px 0
 	    vertical-align middle
 
 		font-size 14px
@@ -4238,7 +4298,7 @@ body
 	.blog-views
 		display inline-block
 		vertical-align middle
-		margin-right 30px
+		margin-right 20px
 
 		.blog-views-icon
 			display inline-block
@@ -4273,7 +4333,7 @@ body
 			width 20px
 			height 20px
 
-			margin-right 10px
+			margin-right 5px
 
 			&:last-child
 				margin-right 0
@@ -4310,17 +4370,17 @@ body
 			cursor pointer
 
 	.blog-topics
-		width 35%
+		width 30%
 		padding 40px 20px
 		box-sizing border-box
 
 		background $colorLightBlue
 
 		p
-			margin-bottom 40px
+			margin-bottom 35px
 
 	.blog-topics-title
-		margin-bottom 40px
+		margin-bottom 35px
 		font-family "ProximaNovaSemibold"
 
 	.blog-topics-item
@@ -4359,7 +4419,7 @@ body
 	&.blog-detail
 		h1
 			text-align left
-			margin-bottom 35px
+			margin-bottom 45px
 
 		h3
 			margin-bottom 20px
@@ -4391,7 +4451,7 @@ body
 			align-items center
 
 			.blog-share-title
-				margin-right 20px
+				margin-right 10px
 
 				font-size 15px
 				font-family "ProximaNovaSemibold"
@@ -4433,6 +4493,12 @@ body
 
 				font-size 15px
 				font-family "ProximaNovaSemibold"
+
+			.blog-rating
+				img
+					width 25px
+					height 25px
+					margin-right 8px
 
 .blog-offers
 	padding 60px 0 0 0
@@ -4478,7 +4544,7 @@ body
 
 		flex-wrap wrap
 
-		margin-bottom 120px
+		margin-bottom 100px
 
 		.contacts-item
 			width 48%
@@ -4494,7 +4560,7 @@ body
 				margin-bottom 20px
 
 		.contacts-title
-			margin-bottom 25px
+			margin-bottom 15px
 			font-size 20px
 			font-family "ProximaNovaSemibold"
 
