@@ -526,7 +526,7 @@ body
 			display block
 			width 48%
 
-			margin-bottom 45px
+			margin-bottom 35px
 
 			padding-left 40px
 			box-sizing border-box
@@ -778,7 +778,7 @@ body
 		right 0
 		bottom 0
 
-		background-color rgba(0, 0, 0, 0.5)
+		background-color rgba(0, 0, 0, 0.3)
 		z-index 1
 
 	.intro-img
@@ -833,44 +833,45 @@ body
 
 		z-index 10
 
-		.intro-advantages-item
-			display flex
-			justify-content flex-start
-			width 30%
+	.intro-advantages-item
+		display flex
+		justify-content flex-start
+		width 30%
 
-			margin-right 3%
+		margin-right 3%
 
-			&:last-child
-				margin-right 0
+		&:last-child
+			margin-right 0
 
-			.intro-advantages-icon
-				display inline-block
-				width 25px
-				min-width 25px
+		.intro-advantages-icon
+			display inline-block
+			width 25px
+			min-width 25px
 
-				margin-right 20px
+			margin-right 20px
 
-				vertical-align top
+			vertical-align top
 
-				svg
-					display block
-					width 100%
+			svg
+				display block
+				width 100%
 
-					path
-						fill #fff
+				path
+					fill #fff
 
-			.intro-advantages-text
-				display inline-block
-				font-size 20px
-				font-family "ProximaNovaSemibold"
+		.intro-advantages-text
+			display inline-block
+			font-size 20px
+			font-family "ProximaNovaSemibold"
 
-				color #fff
+			color #fff
 
-				line-height 25px
+			line-height 25px
 
-				sup
-					vertical-align top
-					font-size 14px
+		sup
+			vertical-align top
+			font-size 12px
+			line-height 1
 /*** //block intro ***/
 
 
@@ -1453,17 +1454,26 @@ body
 	background $colorLightBlue
 
 .offers-list
-	display grid
-	grid-template-columns repeat(3, minmax(290px, 1fr))
-	grid-gap 30px 35px
-
+	display flex
+	justify-content flex-start
+	flex-wrap wrap
 	margin-top 50px
 
 .offers-item
 	position relative
-	height max-content
+	width 31%
+	min-width 250px
+	height 100%
+
+	margin 0 3.12222% 45px 0
+
 	color $colorLightBlack
+
 	transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+
+	&:nth-child(3n)
+		margin-right 0
+
 	&:before
 		content ""
 		position absolute
@@ -1701,6 +1711,7 @@ body
 				margin-left 10px
 				margin-right 5px
 				color $colorLightBlack
+				font-family "ProximaNovaSemibold"
 				font-size 16px
 
 		dl
@@ -1757,6 +1768,13 @@ body
 .offers-more
 	margin-top 40px
 	text-align center
+
+	a
+		padding 12px 15px
+		max-width 220px
+		margin 0 auto
+		text-align center
+		font-family "ProximaNovaSemibold"
 
 .load-more
 	padding 12px 15px
@@ -1890,7 +1908,7 @@ body
 
 .order-call
 	position relative
-	padding 30px 0 60px 0
+	padding 50px 0 60px 0
 	box-sizing border-box
 
 	h2
@@ -1902,6 +1920,10 @@ body
 .form-order-call
 	display inline-block
 	width 50%
+	max-width 420px
+
+	padding-left 8%
+
 	margin-top 0
 
 	.form-row
@@ -1955,7 +1977,7 @@ body
 .order-call-icon
 	position absolute
 	bottom 50px
-	right 0
+	right 30px
 
 	display block
 	max-width 190px
@@ -2000,7 +2022,7 @@ body
 /*** feature ***/
 
 .feature
-	margin 65px 0 80px 0
+	margin 60px 0 80px 0
 
 	h2
 		margin-bottom 40px
@@ -3444,7 +3466,7 @@ body
 	padding 30px 0 50px 0
 	box-sizing border-box
 
-	h1
+	h2
 		margin-bottom 55px
 
 .options-list
@@ -3581,21 +3603,25 @@ body
 /*** investments-info ***/
 
 .investments-info
-	padding 70px 0 100px 0
+	padding 30px 0 100px 0
 	box-sizing border-box
 
-	h1
-		max-width 725px
-		margin 0 auto 60px auto
-
 	h2
-		margin 0 auto 40px auto
+		max-width 725px
+		font-size 28px
+		line-height 43px
+		margin 0 auto 60px auto
 	p
 		line-height 26px
 
 	.options-list
 		margin-top 60px
 
+.investments-offers
+	padding 40px 0
+
+	h2
+		margin-bottom 20px
 /*** //investments-info ***/
 
 
@@ -3676,8 +3702,9 @@ body
 	display flex
 	justify-content space-between
 	flex-wrap wrap
+
 .vacancies-list
-	width 70%
+	width 66%
 	padding 50px 55px
 	box-sizing border-box
 
@@ -3706,7 +3733,7 @@ body
 		text-align center
 
 .vacancies-contacts
-	width 30%
+	width 34%
 	padding 50px 0 0 40px
 	box-sizing border-box
 
@@ -3725,17 +3752,24 @@ body
 
 
 /*** about ***/
+.about
+	h1
+		margin 55px 0 50px 0
+
+	p
+		font-size 16px
+		color #4A494A
 
 .about-info
 	margin 65px 0 35px 0
-	padding-bottom 70px
+	padding 50px 0 95px 0
 
 	h2
-		padding 65px 0 50px 0
+		margin-bottom 20px
 
 	.about-info-container
 		position relative
-		min-height 600px
+		min-height 480px
 
 		.about-info-item
 			position absolute
@@ -3745,44 +3779,48 @@ body
 
 			.about-info-title
 				display block
-				margin-bottom 15px
+
 				font-size 64px
+				font-family "ProximaNovaLight"
+
 				color #009DCC
 
 			.about-info-text
 				display block
-				font-size 25px
+
+				font-size 20px
+				font-family "ProximaNovaSemibold"
+
+				line-height 25px
 				color #009DCC
 
-				text-transform lowercase
-
 			&:nth-child(1)
-				top -35px
+				top 0px
 				left 320px
 
 			&:nth-child(2)
-				top 145px
-				right 0px
+				top 105px
+				right 10px
 
 			&:nth-child(3)
-				top 60px
-				left 50px
+				top 62px
+				left 75px
 
 			&:nth-child(4)
-				top 270px
-				left 400px
+				top 230px
+				left 415px
 
 			&:nth-child(5)
-				top 268px
-				left 0px
+				top 255px
+				left 20px
 
 			&:nth-child(6)
-				top 470px
-				left 270px
+				top 395px
+				left 265px
 
 			&:nth-child(7)
-				top 410px
-				left 650px
+				top 365px
+				right 60px
 
 /*** //about ***/
 
@@ -3834,11 +3872,12 @@ body
 	.news-title
 		font-size 20px
 		font-family "ProximaNovaSemibold"
+		line-height 30px
 		color #333333
 
 	.news-text
 		height 115px
-		margin-top 35px
+		margin-top 15px
 
 		font-size 16px
 
@@ -3853,17 +3892,22 @@ body
 
 .news-detail
 	h1
-		margin-bottom 55px
+		margin-bottom 40px
 		text-align left
+		line-height 53px
 
 	.news-detail-date
 		margin-bottom 50px
 
 	.news-detail-subtitle
-		margin 50px 0 30px 0
+		margin 50px 0 20px 0
 		font-size 20px
 		font-family "ProximaNovaSemibold"
 		color #333333
+
+	p
+		font-size 16px
+		margin-bottom 25px
 
 	.new-detail-info
 		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
@@ -4528,6 +4572,8 @@ body
 		width 100%
 		max-width 420px
 		margin 0 auto
+
+		padding-left 0
 
 		.send-order
 			margin 0 auto
