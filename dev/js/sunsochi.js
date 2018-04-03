@@ -120,6 +120,18 @@
 						var self = this,
 							$filterItem = $("[data-filter-tab]");
 
+						$filterItem.each(function functionName() {
+							var el = $(this);
+							if (!el.hasClass("active")) {
+								var hideTab = $("[data-filter-item *='"+ el.data("filterTab") +"']");
+								el.removeClass("active-tab");
+								hideTab.addClass("hide-block");
+								hideTab.addClass("hide");
+
+							} else {
+								el.addClass("active-tab");
+							}
+						});
 						$filterItem.on("click", function(e) {
 							var item = $(this),
 								dataItem = item.data("filterTab"),
@@ -898,6 +910,7 @@
 									$linkAddress.removeClass("loading");
 								}, 100);
 
+								SUNSOCHI.reload();
 							}
 						})
 					})(href, $container, $linkAddress, selector);
@@ -1156,6 +1169,7 @@
 						});
 					},
 
+					//--- замена элементов матрицы нашими позициями ---//
 					replaceMarix: function(matrix, obj) {
 						var self = this,
 							cloneMatrix = matrix;
@@ -1359,7 +1373,7 @@
 								toggleId = toggleEl.data("toggleLink"),
 								toggleLinkTextNew = toggleEl.attr("data-toggle-text"),
 								toggleLinkTextOld = toggleEl.text();
-								$container = $sel.body.find("[data-toggle='"+toggleId+"']");
+								$container = toggleEl.parent().find("[data-toggle='"+toggleId+"']");
 
 							if (toggleEl.hasClass("active")) {
 								toggleEl.removeClass("active-animation");
@@ -1431,6 +1445,8 @@
 	SUNSOCHI.reload = function() {
 		SUNSOCHI.forms.init();
 		SUNSOCHI.modalWindow.init();
+		SUNSOCHI.toggleElements();
+		SUNSOCHI.ajaxLoader();
 	};
 
 })(jQuery);
