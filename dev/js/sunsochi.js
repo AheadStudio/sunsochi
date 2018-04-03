@@ -895,14 +895,16 @@
 							success: function(data) {
 								var $data = $('<div />').append(data),
 									$items = $data.find(selector),
-									$preloader = $data.find(".load");
+									$preloader = $data.find(".load-more"),
+									$linkParent = $link.parent();
+
 
 								$items.addClass("load-events-item");
 								$container.append($items);
-								$link.parent().remove();
+								$link.remove();
 
 								if($preloader && $preloader.length) {
-									$container.parent().append($preloader);
+									$linkParent.append($preloader);
 								}
 
 								setTimeout(function() {
@@ -1441,12 +1443,11 @@
 	SUNSOCHI.modalWindow.init();
 	SUNSOCHI.toggleElements();
 	SUNSOCHI.ajaxLoader();
-
+	
 	SUNSOCHI.reload = function() {
 		SUNSOCHI.forms.init();
 		SUNSOCHI.modalWindow.init();
 		SUNSOCHI.toggleElements();
-		SUNSOCHI.ajaxLoader();
 	};
 
 })(jQuery);
