@@ -124,6 +124,7 @@
 							var el = $(this);
 							if (!el.hasClass("active")) {
 								var hideTab = $("[data-filter-item *='"+ el.data("filterTab") +"']");
+
 								el.removeClass("active-tab");
 								hideTab.addClass("hide-block");
 								hideTab.addClass("hide");
@@ -135,36 +136,31 @@
 						$filterItem.on("click", function(e) {
 							var item = $(this),
 								dataItem = item.data("filterTab"),
-								$allItem = $("[data-filter-tie-item='"+item.data("filterTie")+"']"),
+								$allTabs = $("[data-filter-tab *='" + dataItem.split("_")[0] + "']"),
+								$allItem = $("[data-filter-item *= '" + dataItem.split("_")[0] + "']"),
 								$showItem;
 
-							if (dataItem === 0) {
+							if (dataItem.indexOf("reset") !== -1) {
 								self.hideAll($allItem);
+								item.removeClass("active-tab");
 								item.removeClass("active");
 								event.preventDefault();
 							}
-							$filterItem.removeClass("active-tab");
+
+							$allTabs.removeClass("active");
+							$allTabs.removeClass("active-tab");
 
 							setTimeout(function() {
+								item.addClass("active");
 								item.addClass("active-tab");
 							}, 50);
 
-							$showItem = $("[data-filter-item *='"+dataItem+"']");
+							$showItem = $("[data-filter-item='" + dataItem + "']");
 
 							self.show($showItem, $allItem);
 
 							$(".sort-table").trigger("update");
 						});
-
-						$filterItem.each(function() {
-							var el = $(this),
-								dataItem = el.data("filterTab"),
-								itemfilter = $("[data-filter-item *='"+dataItem+"']");
-
-							if (!itemfilter.hasClass("hide")) {
-								el.addClass("active-tab");
-							}
-						})
 
 					},
 
@@ -658,10 +654,10 @@
 
 							el.magnificPopup({
 								type: elType,
-								midClick: true,
 								closeMarkup: '<button title="%title%" type="button" class="mfp-close btn-container-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.8 44.8"><g data-name="Слой 2"><path d="M19.6 22.4L0 42l2.8 2.8 19.6-19.6L42 44.8l2.8-2.8-19.6-19.6L44.8 2.8 42 0 22.4 19.6 2.8 0 0 2.8z" fill="#d0d0d0" data-name="Слой 1"/></g></svg></button>',
 								mainClass: "mfp-fade" + " " + classBcg,
 								removalDelay: 300,
+								closeOnBgClick: false,
 								closeBtnInside: elClose,
 								callbacks: {
 									open: function(el) {
@@ -849,6 +845,7 @@
 					        speed: 800,
 							gallery: true,
 							slideMargin: 10,
+							slideEndAnimation: true,
 							thumbItem: 8,
 							prevHtml: '<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 119.21 218"><path d="M8 116.47l95.64 95.64 8-8-95.7-95.61 95.64-95.64-8-8L0 108.5z" fill="#fff"/></svg>',
 						  	nextHtml: '<svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127 214"><path d="M118.14 98.53L22.5 2.89l-8 8 95.64 95.64-95.61 95.61 8 8L126.11 106.5z" fill="#fff"/></svg>',
@@ -975,7 +972,7 @@
 								contentAsHTML: true,
 								interactive: true,
 
-								animation: "swing",
+								animation: "slide-right",
 								animationDuration: 200,
 
 								arrow: false,
@@ -1039,21 +1036,47 @@
 									}
 
 									$contentId.text("");
-									$contentId.text("ID " + apartmentData.id);
+
+									if (apartmentData.id) {
+										$contentId.text("ID " + apartmentData.id);
+									} else {
+										$contentId.text("Нет информации");
+									}
 
 									$contentTitle.text("");
-									$contentTitle.text(apartmentData.apartment);
+
+									if (apartmentData.apartment) {
+										$contentTitle.text(apartmentData.apartment);
+									} else {
+										$contentTitle.text(apartmentData.apartment);
+									}
 
 									$contentImg.attr("src", "");
-									$contentImg.attr("src", apartmentData.image);
+
+									if (apartmentData.image) {
+										$contentImg.attr("src", apartmentData.image);
+									} else {
+										$contentImg.remove();
+									}
 
 									$contentImgSheme.attr("src", "");
-									$contentImgSheme.attr("src", apartmentData.imagesheme);
+									if (apartmentData.imagesheme) {
+										$contentImgSheme.attr("src", apartmentData.imagesheme);
+									} else {
+										$contentImgSheme.remove();
+									}
 
 									$contentPrice.empty();
 
-									$contentPrice.append("<div class='tooltip-apartment-price-old'>"+apartmentData.oldprice+" &#8381;</div>");
-									$contentPrice.append("<div class='tooltip-apartment-price-new'>"+apartmentData.price+" &#8381;</div>");
+									if (apartmentData.oldprice) {
+										$contentPrice.append("<div class='tooltip-apartment-price-old'>"+apartmentData.oldprice+" &#8381;</div>");
+									}
+
+									if (apartmentData.price) {
+										$contentPrice.append("<div class='tooltip-apartment-price-new'>"+apartmentData.price+" &#8381;</div>");
+									} else {
+										$contentPrice.append("<div class='tooltip-apartment-price-new'>Нет информации</div>");
+									}
 
 									return $content;
 								},
@@ -1443,7 +1466,7 @@
 	SUNSOCHI.modalWindow.init();
 	SUNSOCHI.toggleElements();
 	SUNSOCHI.ajaxLoader();
-	
+
 	SUNSOCHI.reload = function() {
 		SUNSOCHI.forms.init();
 		SUNSOCHI.modalWindow.init();

@@ -50,13 +50,14 @@ block content
                 div(class="apartment-tabs border-text--bottom")
                     div(class="page-inner page-inner--w1")
                         div(class="filter-tabs")
-                            div(class="filter-tab active", data-filter-tab="1", data-filter-tie="info") Описание
-                            div(class="filter-tab", data-filter-tab="2", data-filter-tie="info") Готовность
-                            div(class="filter-tab", data-filter-tab="3", data-filter-tie="info") Квартиры
-                            div(class="filter-tab", data-filter-tab="4", data-filter-tie="info") На карте
-                            div(class="filter-tab", data-filter-tab="5", data-filter-tie="info") Видеобзор
+                            div(class="filter-tab active", data-filter-tab="prop_1") Описание
+                            div(class="filter-tab", data-filter-tab="prop_2") Готовность
+                            div(class="filter-tab", data-filter-tab="prop_3") Квартиры
+                            div(class="filter-tab", data-filter-tab="prop_4") На карте
+                            div(class="filter-tab", data-filter-tab="prop_5") Видеобзор
+                            
             div(class="filter-list")
-                div(class="page-inner page-inner--w2 filter-item active", data-filter-item="1", data-filter-tie-item="info")
+                div(class="page-inner page-inner--w2 filter-item", data-filter-item="prop_1")
                     div(class="apartment-item")
                         div(class="page-text")
                             div(class="apartment-description-item")
@@ -156,7 +157,8 @@ block content
                                         dd Ланшафтный дизайн
                                         dt 
                                         dd СПА-комплекс
-                div(class="page-inner page-inner--w2 filter-item", data-filter-item="2", data-filter-tie-item="info")
+                
+                div(class="page-inner page-inner--w2 filter-item", data-filter-item="prop_2")
                     div(class="apartment-item")
                         div(class="apartment-progress", data-progress="40")
                             div(class="apartment-progress-text", data-progress-text="Готовность дома - $count%")
@@ -173,23 +175,23 @@ block content
                                 div(class="apartment-progress-item") Ландшафт
                                 div(class="apartment-progress-item") Заселен
                                         
-                div(class="page-inner page-inner--max filter-item", data-filter-item="3", data-filter-tie-item="info")
+                div(class="page-inner page-inner--max filter-item", data-filter-item="prop_3")
                     div(class="apartment-result")
                         div(class="page-inner page-inner--w1")
                             div(class="apartment-result-container")
                                 div(class="apartment-result-text") Всего квартир: 273
                                 div(class="apartment-result-controls")
-                                    button(type="button", class="button apartment-result-button apartment-result-button--list active", data-filter-tab="10", data-filter-tie="apartmentlist")
+                                    button(type="button", class="button apartment-result-button apartment-result-button--list active", data-filter-tab="view_1")
                                         span(class="apartment-result-button-icon")
                                             include ../../prod/svg/list.svg
                                         span(class="apartment-result-button-text") списком
-                                    button(type="button", class="button apartment-result-button apartment-result-button--grid", data-filter-tab="11", data-filter-tie="apartmentlist")
+                                    button(type="button", class="button apartment-result-button apartment-result-button--grid", data-filter-tab="view_2")
                                         span(class="apartment-result-button-icon")
                                             include ../../prod/svg/list-grid.svg
                                         span(class="apartment-result-button-text") шахматка
                                         
                     div(class="page-inner page-inner--w1")                                      
-                        div(class="apartment-list filter-item active", data-filter-item="10", data-filter-tie-item="apartmentlist")
+                        div(class="apartment-list filter-item", data-filter-item="view_1")
                             div(class="apartment-types-list")
                                 //div(class="apartment-type")
                                 //    div(class="apartment-type-badge", data-badge="1", style="background:#9b9b9b")
@@ -359,7 +361,7 @@ block content
                                                 td
                                                     div(class="apartment-type-badge apartment-type-badge--yellow")                        
                                         
-                        div(class="apartment-list filter-item", data-filter-item="11", data-filter-tie-item="apartmentlist")
+                        div(class="apartment-list filter-item", data-filter-item="view_2")
                             div(class="apartment-types-list")
                                 div(class="apartment-type")
                                     div(class="apartment-type-badge", data-badge="1", style="background:#41aa33")
@@ -396,22 +398,20 @@ block content
                                                 div(class="apartment-structure-grid-container-list")                                    
                                     div(class="apartment-structure-item")
                                         div(class="apartment-structure-name") Блок C2
-                                        div(class="apartment-structure-grid", data-structure='{"size":{"row":3, "col": 3}, "floorslink": [123, 1311, 2252], "objects": [{"position": ["3,0", "2,0", "1,0"], "text": "1+", "color": "#498FE1", "info": {"apartment": "3-х ком. квартира", "id": 12412112, "image": "../dummy/apartment-icon/1.png"} }, {"position": ["3,1", "2,1", "1,1"], "text": "C", "color": "#41aa33", "info": {"apartment": "3-х ком. квартира", "id": 512312, "image": "../dummy/apartment-icon/1.png"}}, {"position": ["3,2", "2,2", "1,2"], "text": "2", "color": "#41aa33"}]}')
+                                        div(class="apartment-structure-grid", data-structure='{"size":{"row":3, "col": 3}, "floorslink": [123, 1311, 2252], "objects": [{"position": ["3,0", "2,0", "1,0"], "text": "1+", "color": "#498FE1", "info": {"apartment": "3-х ком. квартира", "price": "17 300 000", "oldprice": "22 300 000", "id": 231231, "image": "../dummy/apartment-icon/1.png", "imagesheme": "../dummy/apartment-icon/2.png"} }, {"position": ["3,1", "2,1", "1,1"], "text": "C", "color": "#41aa33", "info": {"apartment": "3-х ком. квартира", "price": "7 300 000", "oldprice": "2 300 000", "id": 5205, "image": "../dummy/apartment-icon/1.png", "imagesheme": "../dummy/apartment-icon/2.png"}}, {"position": ["3,2", "2,2", "1,2"], "text": "2", "color": "#41aa33"}]}')
                                             div(class="apartment-structure-floor") Этажи
                                             div(class="apartment-structure-grid-container")           
                                                 div(class="apartment-structure-grid-container-floors")                              
                                                 div(class="apartment-structure-grid-container-list")                                    
                                     div(class="apartment-structure-item")
                                         div(class="apartment-structure-name") Блок D2
-                                        div(class="apartment-structure-grid", data-structure='{"size":{"row":4, "col": 3}, "floorslink": [123, 111, 222], "objects": [ {"position": ["4,0", "4,1", "4,2"], "text": "4+", "color": "#ffe200", "info": {"apartment": "3-х ком. квартира", "id": 231231, "image": "../dummy/apartment-icon/1.png"} }, {"position": ["1,0", "2,0"], "text": "2", "color": "#498FE1"},{"position": ["1,1"], "text": "1", "color": "#41aa33"},{"position": ["1,2"], "text": "3","color": "#41aa33"},{"position": ["2,1"], "text": "1", "color": "#41aa33"},{"position": ["2,2"], "text": "C", "color": "#41aa33"},{"position": ["3,0","3,1","3,2"], "text": "10", "color": "#41aa33"}]}')
+                                        div(class="apartment-structure-grid", data-structure='{"size":{"row":4, "col": 3}, "floorslink": [123, 111, 222], "objects": [ {"position": ["4,0", "4,1", "4,2"], "text": "4+", "color": "#ffe200", "info": {"apartment": "3-х ком. квартира", "price": "17 300 000", "oldprice": "22 300 000", "id": 231231, "image": "../dummy/apartment-icon/1.png", "imagesheme": "../dummy/apartment-icon/2.png"} }, {"position": ["1,0", "2,0"], "text": "2", "color": "#498FE1"},{"position": ["1,1"], "text": "1", "color": "#41aa33"},{"position": ["1,2"], "text": "3","color": "#41aa33"},{"position": ["2,1"], "text": "1", "color": "#41aa33"},{"position": ["2,2"], "text": "C", "color": "#41aa33"},{"position": ["3,0","3,1","3,2"], "text": "10", "color": "#41aa33"}]}')
                                             div(class="apartment-structure-floor") Этажи
                                             div(class="apartment-structure-grid-container")                                        
                                                 div(class="apartment-structure-grid-container-floors")                                        
                                                 div(class="apartment-structure-grid-container-list")                                        
                 
-                
-                
-                div(class="page-inner page-inner--w2 filter-item", data-filter-item="4", data-filter-tie-item="info")    
+                div(class="page-inner page-inner--w2 filter-item", data-filter-item="prop_4")    
                     div(class="apartment-item")
                         div(class="page-text")
                             div(class="apartment-description-item")
@@ -511,7 +511,8 @@ block content
                                         dd Ланшафтный дизайн
                                         dt 
                                         dd СПА-комплекс
-                div(class="page-inner page-inner--w2 filter-item", data-filter-item="5", data-filter-tie-item="info")
+                
+                div(class="page-inner page-inner--w2 filter-item", data-filter-item="prop_5")
                     div(class="apartment-item")
                         div(class="page-text")
                             div(class="apartment-description-item")

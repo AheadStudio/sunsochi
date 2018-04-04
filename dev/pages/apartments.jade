@@ -25,22 +25,22 @@ block content
         div(class="page-text")
             h2 Поиск по объектам
         div(class="filter")
-            a(href="#", class="link filter-clear", data-filter-tab="0", data-filter-tie="mainfilter") Очистить все
+            a(href="#", class="link filter-clear", data-filter-tab="filter_reset", data-filter-tie="mainfilter") Очистить все
             div(class="filter-tabs")
-                div(class="filter-tab", data-filter-tab="1", data-filter-tie="mainfilter") Новостройки
-                div(class="filter-tab", data-filter-tab="2", data-filter-tie="mainfilter") Квартиры
-                div(class="filter-tab", data-filter-tab="3", data-filter-tie="mainfilter") Дома
-                div(class="filter-tab", data-filter-tab="4", data-filter-tie="mainfilter") Участки
-                div(class="filter-tab", data-filter-tab="5", data-filter-tie="mainfilter") Коммерческие
+                div(class="filter-tab", data-filter-tab="filter_1") Новостройки
+                div(class="filter-tab active", data-filter-tab="filter_2") Квартиры
+                div(class="filter-tab", data-filter-tab="filter_3") Дома
+                div(class="filter-tab", data-filter-tab="filter_4") Участки
+                div(class="filter-tab", data-filter-tab="filter_5") Коммерческие
             div(class="filter-list")
-                div(class="filter-item hide hide-block", data-filter-item="0", data-filter-tie-item="mainfilter")
+                div(class="filter-item", data-filter-item="filter_reset")
                     form(class="form form-filter", action="#")
                         div(class="filter-selected-regions-list")
                         button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
                 
-                div(class="filter-item", data-filter-item="1", data-filter-tie-item="mainfilter")
+                div(class="filter-item", data-filter-item="filter_1")
                     form(class="form form-filter", action="#")
-                        div(class="form-row")
+                        div(class="form-row") 
                             div(class="form-row-100")
                                 div(class="form-holder")
                                     label(class="form-label")
@@ -161,7 +161,7 @@ block content
                                     
                         button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
                 
-                div(class="filter-item hide hide-block", data-filter-item="2", data-filter-tie-item="mainfilter")
+                div(class="filter-item", data-filter-item="filter_2")
                     form(class="form form-filter", action="#")
                         div(class="form-row")
                             div(class="form-row-100")
@@ -289,7 +289,7 @@ block content
                                     
                         button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
                 
-                div(class="filter-item hide hide-block", data-filter-item="3", data-filter-tie-item="mainfilter")
+                div(class="filter-item", data-filter-item="filter_3")
                     form(class="form form-filter", action="#")                        
                         div(class="form-row") 
                             div(class="form-row-50")
@@ -393,7 +393,7 @@ block content
                                     
                         button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
                 
-                div(class="filter-item hide hide-block", data-filter-item="4", data-filter-tie-item="mainfilter")
+                div(class="filter-item", data-filter-item="filter_4")
                     form(class="form form-filter", action="#")                        
                         div(class="form-row")
                             div(class="form-row-100")
@@ -414,10 +414,11 @@ block content
                                 div(class="form-item-title") Цена
                                 div(class="form-holder")
                                     input(type="range", multiple="", value="10000000,50000000", min="700000", max="100000000", step="1000", class="form-item form-item--range", data-valfrom="", data-valto="", data-valtext='&thinsp;<svg aria-hidden="true" data-prefix="far" data-icon="ruble-sign" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="svg-inline--fa fa-ruble-sign fa-w-12"><path fill="currentColor" d="M243.128 314.38C324.987 314.38 384 257.269 384 172.238S324.987 32 243.128 32H76c-6.627 0-12 5.373-12 12v215.807H12c-6.627 0-12 5.373-12 12v30.572c0 6.627 5.373 12 12 12h52V352H12c-6.627 0-12 5.373-12 12v24c0 6.627 5.373 12 12 12h52v68c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12v-68h180c6.627 0 12-5.373 12-12v-24c0-6.627-5.373-12-12-12H128v-37.62h115.128zM128 86.572h105.61c53.303 0 86.301 31.728 86.301 85.666 0 53.938-32.998 87.569-86.935 87.569H128V86.572z" class=""></path></svg>')
+        
                         div(class="form-row")
                             div(class="form-row-50")
                                 div(class="form-holder")
-                                    div(id="regions-container--4", class="regions-container white-popup mfp-hide")
+                                    div(id="regions-container--1118", class="regions-container white-popup mfp-hide")
                                         div(class="regions-container-list")
                                             ul
                                                 li(name="adler")
@@ -490,7 +491,7 @@ block content
                                                     span(class="regions-text") Яна Фабрициуса     
                                                     div(class="regions-close")
                                                                                    
-                                    a(href="#regions-container--4", class="link link-black jcf-select-form-item--select mfp-modal")
+                                    a(href="#regions-container--1118", class="link link-black jcf-select-form-item--select mfp-modal")
                                         span(class="jcf-select-text")
                                             span Район
                                         span(class="jcf-select-opener")
@@ -506,12 +507,12 @@ block content
                                     
                         button(type="submit", class="button button--orange-flood filter-submit", data-filter-button-tpl="Показать {0} обектов") Показать 11 356 объектов
                 
-                div(class="filter-item hide hide-block", data-filter-item="5", data-filter-tie-item="mainfilter")
+                div(class="filter-item", data-filter-item="filter_5")
                     form(class="form form-filter", action="#")
                         div(class="form-row")
                             div(class="form-row-50")
                                 div(class="form-holder")
-                                    div(id="regions-container--5", class="regions-container white-popup mfp-hide")
+                                    div(id="regions-container--18", class="regions-container white-popup mfp-hide")
                                         div(class="regions-container-list")
                                             ul
                                                 li(name="adler")
@@ -557,7 +558,7 @@ block content
                                                     span(class="regions-text") Мацеста
                                                     div(class="regions-close")
                                                                                    
-                                    a(href="#regions-container--5", class="link link-black jcf-select-form-item--select mfp-modal")
+                                    a(href="#regions-container--18", class="link link-black jcf-select-form-item--select mfp-modal")
                                         span(class="jcf-select-text")
                                             span Гостиницы
                                         span(class="jcf-select-opener")
@@ -581,11 +582,10 @@ block content
                                 div(class="form-item-title") Цена
                                 div(class="form-holder")
                                     input(type="range", multiple="", value="10000000,50000000", min="700000", max="100000000", step="1000", class="form-item form-item--range", data-valfrom="", data-valto="", data-valtext='&thinsp;<svg aria-hidden="true" data-prefix="far" data-icon="ruble-sign" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="svg-inline--fa fa-ruble-sign fa-w-12"><path fill="currentColor" d="M243.128 314.38C324.987 314.38 384 257.269 384 172.238S324.987 32 243.128 32H76c-6.627 0-12 5.373-12 12v215.807H12c-6.627 0-12 5.373-12 12v30.572c0 6.627 5.373 12 12 12h52V352H12c-6.627 0-12 5.373-12 12v24c0 6.627 5.373 12 12 12h52v68c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12v-68h180c6.627 0 12-5.373 12-12v-24c0-6.627-5.373-12-12-12H128v-37.62h115.128zM128 86.572h105.61c53.303 0 86.301 31.728 86.301 85.666 0 53.938-32.998 87.569-86.935 87.569H128V86.572z" class=""></path></svg>')
-
                         div(class="form-row")
                             div(class="form-row-50")
                                 div(class="form-holder")
-                                    div(id="regions-container--6", class="regions-container white-popup mfp-hide")
+                                    div(id="regions-container--99", class="regions-container white-popup mfp-hide")
                                         div(class="regions-container-list")
                                             ul
                                                 li(name="adler")
@@ -658,7 +658,7 @@ block content
                                                     span(class="regions-text") Яна Фабрициуса     
                                                     div(class="regions-close")
                                                                                    
-                                    a(href="#regions-container--6", class="link link-black jcf-select-form-item--select mfp-modal")
+                                    a(href="#regions-container--99", class="link link-black jcf-select-form-item--select mfp-modal")
                                         span(class="jcf-select-text")
                                             span Район
                                         span(class="jcf-select-opener")
