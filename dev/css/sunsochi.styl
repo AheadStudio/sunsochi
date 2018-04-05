@@ -162,6 +162,16 @@ body
 		.header-logo-img
 			width 100%
 
+			svg
+				path
+					transition fill 0.3s $transitionAnimation
+
+		&:hover
+			.header-logo-img
+				svg
+					path
+						fill $colorOrange
+
 .header-mobile
 	.header-mobile-title
 		display block
@@ -655,7 +665,7 @@ body
 .link--opacity
 	transition all 0.3s $transitionAnimation
 	&:hover
-		opacity 0.8
+		opacity 0.6
 
 .link-blue--bottom
 	border-bottom 1px solid transparent
@@ -878,6 +888,15 @@ body
 		width 30%
 
 		margin-right 3%
+
+		opacity 0
+		transform translateY(-50%)
+
+		transition opacity 0.6s $transitionAnimation, transform 0.6s $transitionAnimation
+
+		&.active
+			opacity 1
+			transform translateY(0%)
 
 		&:last-child
 			margin-right 0
@@ -1686,6 +1705,16 @@ body
 			color $colorOrange
 
 			white-space nowrap
+
+		&:hover
+			.offers-container-favorites-icon
+				svg
+					path
+						fill $colorOrange
+
+			.offers-container-favorites-text
+				border-bottom-color $colorOrange
+
 
 	.offers-container-more
 		position absolute
@@ -2765,6 +2794,15 @@ body
 
 			z-index 200
 
+			opacity 0
+
+		&.fixed-element--show
+			opacity 1
+			transition opacity 0.5s $transitionAnimation
+
+		&.fixed-element--hide
+			opacity 0
+
 	.apartment-preview-text-icon
 		display block
 		width 55px
@@ -3180,6 +3218,16 @@ body
 			transform translateX(-50%)
 
 			z-index 100
+
+
+body
+	.body-preloader-bcg
+		&.preloader-active
+			transition opacity 0.3s $transitionAnimation
+
+		&.preloader-destroy
+			opacity 0
+			
 /*** //preloader ***/
 
 
@@ -3658,10 +3706,6 @@ body
 			opacity 1
 			transform translate(-50%,-50%)
 
-		.options-icon
-			svg
-				transform translateX(10px)
-				opacity 0.3
 
 /*** //options ***/
 
@@ -4286,12 +4330,22 @@ body
 			width 100%
 			height 100%
 
+			transition transform 0.3s $transitionAnimation
+
+
 	.blog-title
+		display block
 		margin-bottom 20px
 
 		font-size 25px
 		font-family "ProximaNovaSemibold"
 
+	.blog-link
+		&:hover
+			.blog-img
+				transform scale(1.1)
+			.blog-title
+				color $colorOrange
 	.blog-data
 		display inline-block
 		margin 0 10px 25px 0
@@ -4708,3 +4762,35 @@ body
 					fill $colorLightBlack
 
 /*** //form-popup ***/
+
+
+/*** autocomplete ***/
+
+.autocomplete-suggestions
+	padding 0 20px 20px 20px
+	box-sizing border-box
+
+	border 1px solid $colorLightGray
+
+	border-bottom-left-radius 5px
+	border-bottom-right-radius 5px
+
+	background #fff
+
+	.autocomplete-suggestion
+		margin-top 20px
+		cursor pointer
+
+	.autocomplate-item
+		font-size 16px
+		color $colorLightBlack
+
+		transition color 0.3s $transitionAnimation
+
+		&:hover
+			color #e3e3e3
+
+	b
+		font-family "ProximaNovaSemibold"
+
+/*** //autocomplete ***/

@@ -216,7 +216,11 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 
 			button(type="button", class="tooltip-close")
 				include ../../prod/svg/close_gray.svg
-			
+		
+		span(class="preloader-bcg body-preloader-bcg")
+			span(class="preloader-container")
+				img(src="../svg/logo-mini_preload.svg", class="preloader-img")
+		
 		if page.code != "page-404"
 			footer(class="page-footer", itemscope, itemtype="http://schema.org/WPFooter")
 				div(class="page-inner page-inner--w1")
@@ -362,6 +366,12 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				src: "../js/plugins/jquery.raty.js"
 			}, {	
 				src: "../js/plugins/jquery.validate.min.js"
+			}, {	
+				src: "../js/plugins/sticky-kit.js"
+			}, {	
+				src: "../js/plugins/jquery.autocomplete.js"
+			}, {	
+				src: "../js/plugins/jquery.cookie.js"
 			}, {
 				src: "../js/" + info.code + ".js"
 			}

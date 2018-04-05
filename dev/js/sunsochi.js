@@ -42,16 +42,19 @@
 
 			fixedBlock: function() {
 				var self = this,
-					$ficedBlock = $(".fixed-block");
+					$stickyBlocks = $("[data-sticky]"),
+					$fixedBlock = $(".fixed-block");
 
-				$ficedBlock.each(function() {
+				$fixedBlock.each(function() {
 					(function(el) {
 						var elWidth = el.innerWidth()+100,
 							elLeft = el.offset().left;
 
 						$sel.window.on("scroll", function() {
 							var hh = el.outerHeight(),
+								dataBlockLimit = $("[data-fixed-limit='" + el.data("fixedBlock") + "']"),
 								sTop = $sel.window.scrollTop();
+
 							if(sTop > hh + 50) {
 								el.addClass("fixed-element");
 								el.css({
@@ -61,7 +64,8 @@
 
 								setTimeout(function() {
 									el.addClass("fixed-element--show");
-								}, 100);
+								}, 300);
+
 							} else {
 								el.css({
 									"left": "",
@@ -70,10 +74,34 @@
 								el.removeClass("fixed-element--show");
 								el.removeClass("fixed-element");
 							}
+
+							var distanceBlock = dataBlockLimit.offset().top - el.offset().top - el.outerHeight();
+
+							if (distanceBlock < 10) {
+								el.addClass("fixed-element--hide");
+							} else {
+								el.removeClass("fixed-element--hide");
+							}
+
 						});
 
 					})($(this))
-				})
+
+				});
+
+				$stickyBlocks.each(function() {
+					var el = $(this),
+						offsetTOp = el.data("stickyOffsetTop"),
+						$container = el.parent();
+
+					el.stick_in_parent({
+						container: $container,
+						offset_top: offsetTOp
+					});
+
+				});
+
+
 			},
 
 			header: {
@@ -1440,6 +1468,9 @@
 			animations: {
 				init: function() {
 					var self = this;
+
+					self.animateItemsIntro();
+					self.animatePeloaderPage.init();
 				},
 
 				animateHeightReviews: function($el, params, val) {
@@ -1447,7 +1478,159 @@
 						params: val,
 					});
 				},
+
+				animateItemsIntro: function() {
+					var $showItem = $(".intro-advantages-item");
+
+					$timeShow = 100;
+
+					$sel.window.on("load", function() {
+						$showItem.each(function() {
+							var el = $(this);
+
+							setTimeout(function() {
+								el.addClass("active");
+							}, $timeShow);
+
+							$timeShow +=200;
+						});
+					});
+
+				},
+
+				animatePeloaderPage: {
+
+					loaded: false,
+
+					$checkCookie: null,
+					$bodyPreloader: null,
+
+					init: function() {
+						var self = this;
+
+						self.$bodyPreloader = $(".body-preloader-bcg");
+						self.$checkCookie = $.cookie("sunsochi-preloader");
+						self.create();
+
+					},
+
+					create: function() {
+						var self = this;
+
+						if (self.$checkCookie) {
+							self.$bodyPreloader.remove();
+							return;
+						} else {
+							$sel.window.on("scroll touchmove mousewheel", function(e) {
+								if(self.loaded == false) {
+									e.preventDefault();
+									e.stopPropagation();
+									return false;
+								}
+							});
+
+							self.$bodyPreloader.addClass("preloader-active");
+
+							$sel.window.on("load", function() {
+
+								$("html, body").animate({ scrollTop: 0 }, 100);
+
+								setTimeout(function() {
+									self.$bodyPreloader.addClass("preloader-destroy");
+
+									setTimeout(function() {
+										self.$bodyPreloader.remove();
+									}, 500);
+
+									self.loaded = true;
+
+								}, 2000);
+
+							});
+
+							$.cookie("sunsochi-preloader", true);
+						}
+
+					},
+
+				},
+
 			},
+
+			autocomplete: {
+
+				$elements: null,
+
+				init: function() {
+					var self = this;
+
+					self.$elements = $("[data-autocomplete='true']");
+					self.start();
+				},
+
+				start: function() {
+					var self = this;
+
+					self.$elements.autocomplete({
+						minChars: 3,
+						maxHeight: 400,
+						source: false,
+						lookup: [
+							{
+								value: "Центральная",
+								data: "Центральная улица",
+							}, {
+								value: "Южная",
+								data: "Южная",
+							}, {
+								value: "Северная",
+								data: "Северная",
+							}, {
+								value: "Красноармейская",
+								data: "Красноармейская",
+							}, {
+								value: "Красноармейская 1",
+								data: "Красноармейская 1",
+							}, {
+								value: "Красноармейская 2",
+								data: "Красноармейская 2",
+							}, {
+								value: "Красноармейская 3",
+								data: "Красноармейская 3",
+							}, {
+								value: "Красноармейская 4",
+								data: "Красноармейская 4",
+							}, {
+								value: "Красноармейская 5",
+								data: "Красноармейская 5",
+							}
+						],
+						formatResult: function(suggestion, currentValue) {
+							var strItem = "",
+								reg = new RegExp(currentValue, "gi");
+
+							itemName = suggestion.data.replace(reg, function(str) {
+								return "<b>" + str + "</b>";
+							});
+
+							strItem += '<div class="autocomplate-item">'
+											+ '<div class="autocomplate-item-name">' + itemName +
+											 '</div>'
+										+ '</div>';
+							return strItem;
+
+						},
+						onSelect: function(suggestion, element) {
+
+						}
+
+					});
+
+				},
+
+
+			},
+
 
 		};
 
@@ -1466,6 +1649,8 @@
 	SUNSOCHI.modalWindow.init();
 	SUNSOCHI.toggleElements();
 	SUNSOCHI.ajaxLoader();
+	SUNSOCHI.autocomplete.init();
+	SUNSOCHI.animations.init();
 
 	SUNSOCHI.reload = function() {
 		SUNSOCHI.forms.init();
