@@ -40,54 +40,173 @@
 
 			},
 
+			mobileMenu:{
+				button: null,
+				menu: null,
+				close: null,
+
+				init: function() {
+					var self = this;
+
+					self.button = $(".header-burger");
+					self.menu = $(".mobile-menu");
+					self.close = $(".mobile-menu-close");
+
+					self.swipeMenu();
+
+					self.button.on("click", function() {
+						var btn = $(this);
+
+						if (!btn.hasClass("active")) {
+							btn.addClass("active");
+
+							setTimeout(function() {
+								btn.addClass("active--hover");
+							}, 300);
+
+							self.show(self.menu);
+						} else {
+							btn.removeClass("active--hover");
+
+							setTimeout(function() {
+								btn.removeClass("active");
+							}, 300);
+
+							self.hide(self.menu);
+						}
+					});
+				},
+
+				show: function(menu) {
+					var self = this;
+
+					menu.addClass("active-block");
+
+					setTimeout(function() {
+
+						menu.addClass("active-show");
+
+						$sel.body.addClass("open-menu");
+
+					}, 200);
+				},
+
+				hide: function(menu) {
+					var self = this;
+
+					menu.removeClass("active-show");
+
+					setTimeout(function() {
+
+						$sel.body.removeClass("open-menu");
+
+					}, 300);
+
+					setTimeout(function() {
+
+						menu.removeClass("active-block");
+
+					}, 600);
+				},
+
+				swipeMenu: function() {
+					var self = this;
+
+					ssm.addStates([
+						{
+							id: "tabletLandscape",
+							query: "(max-width: 600px)",
+							onEnter: function() {
+								$sel.body.swipe({
+									swipeRight:function(event, direction, distance, duration, fingerCount) {
+										var $body = $(this),
+											btn = self.button;
+
+										if (!btn.hasClass("active")) {
+											btn.addClass("active");
+
+											setTimeout(function() {
+												btn.addClass("active--hover");
+											}, 300);
+
+											self.show(self.menu);
+										}
+
+									},
+									swipeLeft:function(event, direction, distance, duration, fingerCount) {
+										var $body = $(this),
+											btn = self.button;
+										if (btn.hasClass("active")) {
+											btn.removeClass("active--hover");
+
+											setTimeout(function() {
+												btn.removeClass("active");
+											}, 300);
+
+											self.hide(self.menu);
+										}
+									},
+									threshold: 100
+								});
+							},
+							onLeave: function() {
+								$sel.body.swipe("destroy");
+							}
+						}
+					]);
+				}
+			},
+
 			fixedBlock: function() {
 				var self = this,
 					$stickyBlocks = $("[data-sticky]"),
 					$fixedBlock = $(".fixed-block");
 
-				$fixedBlock.each(function() {
-					(function(el) {
-						var elWidth = el.innerWidth()+100,
-							elLeft = el.offset().left;
+				if ($sel.window.width() > "820") {
+					$fixedBlock.each(function() {
+						(function(el) {
+							var elWidth = el.innerWidth()+100,
+								elLeft = el.offset().left;
 
-						$sel.window.on("scroll", function() {
-							var hh = el.outerHeight(),
-								dataBlockLimit = $("[data-fixed-limit='" + el.data("fixedBlock") + "']"),
-								sTop = $sel.window.scrollTop();
+							$sel.window.on("scroll", function() {
+								var hh = el.outerHeight(),
+									dataBlockLimit = $("[data-fixed-limit='" + el.data("fixedBlock") + "']"),
+									sTop = $sel.window.scrollTop();
 
-							if(sTop > hh + 50) {
-								el.addClass("fixed-element");
-								el.css({
-									"left" : elLeft,
-									"min-width" : elWidth,
-								});
+								if(sTop > hh + 50) {
+									el.addClass("fixed-element");
+									el.css({
+										"left" : elLeft,
+										"min-width" : elWidth,
+									});
 
-								setTimeout(function() {
-									el.addClass("fixed-element--show");
-								}, 300);
+									setTimeout(function() {
+										el.addClass("fixed-element--show");
+									}, 300);
 
-							} else {
-								el.css({
-									"left": "",
-									"min-width": "",
-								});
-								el.removeClass("fixed-element--show");
-								el.removeClass("fixed-element");
-							}
+								} else {
+									el.css({
+										"left": "",
+										"min-width": "",
+									});
+									el.removeClass("fixed-element--show");
+									el.removeClass("fixed-element");
+								}
 
-							var distanceBlock = dataBlockLimit.offset().top - el.offset().top - el.outerHeight();
+								var distanceBlock = dataBlockLimit.offset().top - el.offset().top - el.outerHeight();
 
-							if (distanceBlock < 10) {
-								el.addClass("fixed-element--hide");
-							} else {
-								el.removeClass("fixed-element--hide");
-							}
+								if (distanceBlock < 10) {
+									el.addClass("fixed-element--hide");
+								} else {
+									el.removeClass("fixed-element--hide");
+								}
 
-						});
+							});
 
-					})($(this))
+						})($(this))
 
-				});
+					});
+				}
 
 				$stickyBlocks.each(function() {
 					var el = $(this),
@@ -900,6 +1019,15 @@
 									})
 								}
 							},
+							responsive : [
+								{
+									breakpoint: 620,
+									settings: {
+										thumbItem: 4
+									}
+								}
+						   ],
+
 					    });
 				},
 
@@ -1250,6 +1378,8 @@
 
 					createStructure: function(callback1, callback2) {
 						var self = this,
+							adaptWidthCol,
+							adaptWidthFlor,
 							resultMatrix = callback1,
 							stringMatrix = "";
 
@@ -1263,9 +1393,17 @@
 
 						self.finalGrid = stringMatrix;
 
+						if ($sel.window.width() < "520") {
+							adaptWidthCol = "25px";
+							adaptWidthFlor = "35px";
+						} else {
+							adaptWidthCol = "40px";
+							adaptWidthFlor = "55px";
+						}
+
 						self.$gridContainer.css({
 							"grid-template-areas": self.finalGrid,
-							"grid-template-columns": "55px repeat(" + self.colls + ", 40px)",
+							"grid-template-columns": "" + adaptWidthFlor + " repeat(" + self.colls + ", " + adaptWidthCol + ")",
 							"grid-template-rows": "repeat(" + self.rows + ", 30px)"
 						});
 
@@ -1471,6 +1609,7 @@
 
 					self.animateItemsIntro();
 					self.animatePeloaderPage.init();
+					self.animateNumbers.init();
 				},
 
 				animateHeightReviews: function($el, params, val) {
@@ -1508,7 +1647,7 @@
 					init: function() {
 						var self = this;
 
-						self.$bodyPreloader = $(".body-preloader-bcg");
+						self.$bodyPreloader = $(".body-preloader");
 						self.$checkCookie = $.cookie("sunsochi-preloader");
 						self.create();
 
@@ -1518,8 +1657,13 @@
 						var self = this;
 
 						if (self.$checkCookie) {
-							self.$bodyPreloader.remove();
+							self.$bodyPreloader.addClass("hide");
+							setTimeout(function() {
+								self.$bodyPreloader.remove();
+							},300);
+
 							return;
+
 						} else {
 							$sel.window.on("scroll touchmove mousewheel", function(e) {
 								if(self.loaded == false) {
@@ -1529,14 +1673,17 @@
 								}
 							});
 
-							self.$bodyPreloader.addClass("preloader-active");
+							self.$bodyPreloader.addClass("active");
 
 							$sel.window.on("load", function() {
 
 								$("html, body").animate({ scrollTop: 0 }, 100);
 
 								setTimeout(function() {
-									self.$bodyPreloader.addClass("preloader-destroy");
+									self.$bodyPreloader.addClass("disabled");
+									setTimeout(function() {
+										self.$bodyPreloader.addClass("hide");
+									},300);
 
 									setTimeout(function() {
 										self.$bodyPreloader.remove();
@@ -1554,6 +1701,60 @@
 					},
 
 				},
+
+				animateNumbers: {
+
+					$numberItem: null,
+
+					init: function() {
+						var self = this;
+
+						self.$numberItem = $("[data-animate-number]");
+
+						self.start();
+					},
+
+					start: function() {
+						var self = this,
+							timeStep = 500;
+
+						$sel.window.on("load", function() {
+							self.$numberItem.each(function() {
+								var element = $(this);
+								setTimeout(function() {
+									(function(el) {
+										var elEnd = el.data("animateNumber"),
+											container = el.parent(),
+											elPercent = el.data("percent"),
+											text,
+											elStep = el.data("animateNumberStep");
+
+										container.addClass("active");
+
+										if (elPercent) {
+											text = elPercent;
+										} else {
+											text = "";
+										}
+										el.animationCounter({
+											start: 0,
+											end: elEnd,
+											step: elStep,
+											delay: 200,
+											txt: text,
+											finalCalculation: function() {
+											}
+										});
+									})(element);
+								}, timeStep);
+
+								timeStep +=250;
+							});
+						});
+
+					}
+
+				}
 
 			},
 
@@ -1631,29 +1832,45 @@
 
 			},
 
-
+			printpage: function() {
+				$("[data-print]").click(function (e) {
+					window.print();
+					e.preventDefault();
+				});
+			}
 		};
 
 	})();
 
 	SUNSOCHI.header.init();
+	SUNSOCHI.mobileMenu.init();
+
 	SUNSOCHI.goEl();
 	SUNSOCHI.fixedBlock();
+
 	SUNSOCHI.forms.init();
 	SUNSOCHI.filter.init();
+
 	ymaps.ready(function() {
 		SUNSOCHI.maps.yandexMap.init();
 	});
 	SUNSOCHI.sliders.init();
 	SUNSOCHI.apartments.init();
 	SUNSOCHI.modalWindow.init();
+
 	SUNSOCHI.toggleElements();
 	SUNSOCHI.ajaxLoader();
+
+	SUNSOCHI.printpage();
+
 	SUNSOCHI.autocomplete.init();
 	SUNSOCHI.animations.init();
 
+
+
 	SUNSOCHI.reload = function() {
 		SUNSOCHI.forms.init();
+		SUNSOCHI.printpage();
 		SUNSOCHI.modalWindow.init();
 		SUNSOCHI.toggleElements();
 	};

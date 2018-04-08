@@ -27,245 +27,250 @@
             "name": "Главная",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "new-buildings": {
             "name": "Новостройки",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "apartments": {
             "name": "Квартиры",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "houses": {
             "name": "Дома",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "areas": {
             "name": "Участки",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "investments": {
             "name": "Инвестиции",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "investments-build": {
             "name": "Инвестиции в строительство",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "employees": {
             "name": "Сотрудники",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "vacancies": {
             "name": "Вакансии",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "about": {
             "name": "О компании",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "news": {
             "name": "Новости",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "news-detail": {
             "name": "Новость",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "news-detail-load": {
             "name": "Новость",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             },
-            "note": "Страница для подгрузки"
+
+            "fordev": true
         },
         "news-load": {
             "name": "Подгрузка новости",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             },
-            "note": "Страница для подгрузки"
+
+            "fordev": true
         },
         "reviews": {
             "name": "Отзывы",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "reviews-load": {
             "name": "Отзывы",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             },
-            "note": "Страница для подгрузки"
+
+            "fordev": true
         },
         "developers": {
             "name": "Застройщики",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "developers-detail": {
             "name": "Застройщик детальная",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "partners": {
             "name": "Партнеры",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "blog": {
             "name": "Блог",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "blog-detail": {
             "name": "Блог статья",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "blog-load": {
             "name": "Блог",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             },
-            "note": "Страница для подгрузки"
+            
+            "fordev": true
         },
         "contacs": {
             "name": "Контакты",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "offers-load": {
             "name": "Подгрузка домов",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             },
-            "note": "Страница для подгрузки"
+
+            "fordev": true
         },
         "apartment-card": {
             "name": "Карточка квартиры",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "new-building-card": {
             "name": "Карточка новостройка",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "page-404": {
             "name": "404",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "form-call": {
             "name": "Форма: заказать звонок",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "form-bid": {
             "name": "Форма: заявка на объект",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         },
         "form-result": {
             "name": "Форма: результат",
             "progress": {
                 "desktop": "100",
-                "tablet": "0",
-                "mobile": "0"
+                "tablet": "100",
+                "mobile": "100"
             }
         }
     },

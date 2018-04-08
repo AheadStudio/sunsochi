@@ -140,7 +140,11 @@ html(lang="ru")
 						- i++;
 						tr
 							td #{i}
+							
 							td
+								if page.fordev == true
+									small.text-muted.text-success Для разработчика
+									br
 								a(href="pages/#{code}.html", target="_blank") #{page.name}
 								if page.note
 									br

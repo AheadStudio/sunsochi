@@ -46,7 +46,6 @@ $colorBlue = #009ecc
 	src url("../fonts/ProximaNova-Bold.woff") format("woff")
 /* //fonts */
 
-
 html
 	height 100%
 body
@@ -59,6 +58,8 @@ body
 	font-family "ProximaNovaRegular"
 
 	color $colorLightBlack
+
+	transition opacity 0.3s $transitionAnimation
 
 /*** //Settings ***/
 
@@ -287,6 +288,229 @@ body
 			opacity 1
 			transform translateY(0)
 /** //header **/
+
+
+/** //mobile **/
+
+.header-burger
+	position relative
+	display none
+	width: 20px
+	height 14px
+	cursor pointer
+
+	transition transform 0.3s $transitionAnimation
+
+	.header-burger-inner
+		position absolute
+		top 6.5px
+		left 0
+		right 0
+
+		display block
+		width 100%
+		height 2px
+
+		background-color #4a4a4a
+		transition opacity 0.3s $transitionAnimation
+
+	&:before
+	&:after
+		content ""
+		position: absolute
+
+		left 0
+		right 0
+
+		display block
+		width 100%
+		height 2px
+
+		background-color #4a4a4a
+
+		transition transform 0.3s $transitionAnimation, background-color 0.3s $transitionAnimation
+
+	&:before
+		top 0
+
+	&:after
+		bottom 0
+
+	&.active
+		z-index 1010
+
+	&.active--hover
+		.header-burger-inner
+			opacity 0
+			background #fff
+		&:before
+			background #fff
+			transform rotate(-40deg) translateX(-3px) translateY(6.5px)
+		&:after
+			background #fff
+			transform rotate(40deg) translateX(-2px) translateY(-5px)
+
+.header-mobile-elements
+	display none
+
+.mobile-menu
+	position: fixed
+	left 0
+	right 0
+	top 0
+	bottom 0
+	display none
+	z-index 1000
+
+	&.active-block
+		display block
+		overflow-y auto
+
+body.open-menu
+	position fixed
+	top 0
+	left 0
+	right 0
+	bottom 0
+	overflow hidden
+	height 100%
+	-webkit-overflow-scrolling touch
+
+	.mfp-wrap
+		bottom 0
+		overflow-y auto
+
+	.header-logo
+		position relative
+		z-index: 10000
+
+		svg
+			path[fill='#009ecc']
+				fill #fff
+
+			path[fill='#f89d21']
+				fill $colorOrange
+
+	.page-header
+		position relative
+		background-color $colorBlue
+
+		z-index 1001
+
+		.mobile-favorites
+			opacity 0
+
+
+.mobile-menu
+	.mobile-menu-background
+		position fixed
+		top 0px
+		right 0
+		left 0
+		bottom 0
+		display block
+		width 100%
+		height 100%
+		background #009ecc
+		transform translateX(-100%)
+		opacity 0
+		transition transform 0.6s $transitionAnimation, opacity 0.3s $transitionAnimation
+		transition-delay 0.3s
+
+	.mobile-menu-container
+		position relative
+		display none
+		height auto
+		margin-top: 100px
+		padding-bottom 50px
+		box-sizing border-box
+		transform translateX(-50px)
+		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
+		transition-delay 0s
+		opacity 0
+
+.mobile-menu
+	&.active-block
+		.mobile-menu-container
+			display block
+
+	&.active-show
+		.mobile-menu-background
+			transform translateX(0)
+			opacity 1
+			transition-delay 0s
+
+		.mobile-menu-container
+			transform translateY(0)
+			opacity 1
+			transition-delay 0.4s
+
+
+.mobile-menu-container
+	.mobile-menu-title
+		padding 0 20px
+		box-sizing border-box
+		margin-bottom 30px
+		font-size 18px
+		color #fff
+
+	.header-mobile-title
+		display block
+		padding 0 20px
+		box-sizing border-box
+
+		margin-bottom 10px
+		color #fff
+
+	.header-mobile-item
+		padding 0 20px
+		box-sizing border-box
+
+		font-size 24px
+		font-family "ProximaNovaBold"
+
+		color #fff
+
+		&:hover
+			color $colorOrange
+
+	.header-call-mobile
+		padding 15px
+		margin 20px 0 0 20px
+		max-width 165px
+
+	.mobile-menu-top
+		margin-top 20px
+		padding 20px 20px 0 20px
+		border-top 1px solid $colorLightGray
+
+		.mobile-menu-top-item-holder
+			margin-bottom 30px
+
+			&:last-child
+				margin-bottom 0
+
+			.mobile-menu-top-item
+				font-size 20px
+				font-family "ProximaNovaSemibold"
+
+	.mobile-menu-bottom
+		margin-top 20px
+		padding  20px 20px 0 20px
+		border-top 1px solid $colorLightGray
+
+		.mobile-menu-bottom-item-holder
+			margin-bottom 30px
+
+			&:last-child
+				margin-bottom 0
+
+			.mobile-menu-bottom-item
+				font-size 16px
+				font-family "ProximaNovaSemibold"
+
+/** //mobile **/
+
 
 /** footer **/
 
@@ -967,6 +1191,7 @@ body
 	.filter-tab
 		display inline-block
 		margin-right 15px
+		margin-bottom 5px
 
 		padding 13px 20px
 		box-sizing border-box
@@ -1154,9 +1379,11 @@ body
 
 .form-label
 	display inline-block
-	margin-right 25px
+	margin 0 25px 20px 0
 
 	cursor pointer
+
+	vertical-align top
 
 	&:last-child
 		margin-right 0
@@ -1210,12 +1437,12 @@ body
 
 .checkbox-list-container
 	display inline-block
-	margin-right 25px
+	margin 0 25px 20px 0
 	vertical-align middle
 
 	.checkbox-list-container-title
 		display inline-block
-		margin-right 30px
+		margin 10px 30px 0 0
 
 	.form-label
 		position relative
@@ -2008,10 +2235,10 @@ body
 		font-size 14px
 
 		.link
-			display block
+			display inline
 			width 100%
-			line-height 25px
-			white-space nowrap
+			line-height 15px
+			white-space initial
 
 	.send-order
 		padding 10px 25px
@@ -2442,6 +2669,9 @@ body
 			columns 2
 			column-gap 0 20px
 
+		.popular-item
+			white-space nowrap
+
 		.popular-item-link
 			display inline-block
 			margin-right 5px
@@ -2469,10 +2699,15 @@ body
 
 		background #ffffff
 
-		border 1px solid $colorLightGray
+		border-top 1px solid $colorLightGray
+		border-right 1px solid $colorLightGray
+		border-left 1px solid $colorLightGray
+
 		border-radius 30px
 
 		cursor pointer
+
+		z-index 1001
 
 		.jcf-select-text
 			font-family "ProximaNovaSemibold"
@@ -2603,6 +2838,7 @@ body
 	background #ffffff
 
 	border 1px solid $colorLightGray
+	border-radius 20px
 
 	z-index 1000
 
@@ -2689,8 +2925,11 @@ body
 			margin-left 5px
 
 			&.apartment-location-map
-				margin-left 30px
+				margin-left 25px
 
+			&:first-child
+				margin-left 0
+				margin-right 5px
 	.apartment-preview
 		margin-top 45px
 		border-top 1px solid #ebebeb
@@ -2908,8 +3147,9 @@ body
 		flex-wrap wrap
 
 		.apartment-features-item
-			max-width 100px
-			margin-right 25px
+			max-width 110px
+			min-width 110px
+			margin 0 25px 5px 0
 
 		.apartment-features-item-icon
 			max-width 65px
@@ -3219,15 +3459,77 @@ body
 
 			z-index 100
 
+.body-preloader
+	position fixed
+	top 0
+	left 0
+	right 0
+	bottom 0
+	display block
+	width 100%
+	height 100%
 
-body
-	.body-preloader-bcg
-		&.preloader-active
+	z-index 10000000
+
+	background #fff
+
+	transition opacity 0.3s $transitionAnimation
+
+	.preloader-container
+		position absolute
+		top 50%
+		left 50%
+
+		display block
+		width 88px
+		height 88px
+
+		padding 10px
+		box-sizing border-box
+
+		transform translate(-50%,-50%)
+
+		background $colorBlue
+		opacity 0
+
+		border-radius 50%
+		text-align center
+
+		box-shadow: 0 0 0 rgba(#f99d22, 0.4)
+
+		animation pulse 1.5s infinite
+
+		z-index -1
+
+		&:hover
+			animation none
+
+		img
+			position relative
+			left 50%
+
+			display block
+			width 100%
+			height 100%
+
+
+			transform translateX(-50%)
+
+			z-index 100
+
+.body-preloader
+	&.hide
+		opacity 0
+
+	&.active
+		.preloader-container
+			opacity 1
 			transition opacity 0.3s $transitionAnimation
 
-		&.preloader-destroy
+	&.disabled
+		.preloader-container
 			opacity 0
-			
+
 /*** //preloader ***/
 
 
@@ -3240,6 +3542,7 @@ body
 	bottom 0 !important
 	left auto !important
 	width auto !important
+	z-index 1020 !important
 
 .tooltip-container
 	position relative
@@ -3289,7 +3592,7 @@ body
 		max-width 20px
 		vertical-align middle
 
-		margin-right 20px
+		margin-right 15px
 		transition transform 0.3s $transitionAnimation
 
 		will-change transform
@@ -3361,9 +3664,10 @@ body
 	border-radius 0
 
 .tooltipster-sidetip.tooltipster-noir.tooltipster-noir-customized .tooltipster-content
-	min-width 350px
+	min-width 300px
 	padding 0
 	overflow hidden
+	overflow-y auto
 	line-height inherit
 
 	color #000
@@ -3614,6 +3918,7 @@ body
 
 .options-item
 	position relative
+	min-width 200px
 	padding 0 0 30px 0
 	box-sizing border-box
 
@@ -3884,8 +4189,15 @@ body
 		.about-info-item
 			position absolute
 			display block
-			//opacity 0
-			transition opacity 0.3s $transitionAnimation
+			transform translateY(-20px)
+
+			opacity 0
+
+			transition opacity 0.3s $transitionAnimation, transform 0.3s $transitionAnimation
+
+			&.active
+				opacity 1
+				transform translateY(0)
 
 			.about-info-title
 				display block
@@ -3894,6 +4206,7 @@ body
 				font-family "ProximaNovaLight"
 
 				color #009DCC
+
 
 			.about-info-text
 				display block
@@ -3961,6 +4274,8 @@ body
 		.news-img
 			display block
 			width 100%
+			height 100%
+			object-fit cover
 			transition transform 0.3s $transitionAnimation
 
 		&:hover
@@ -3971,7 +4286,7 @@ body
 		display block
 		width 50%
 		padding 45px 50px 25px 35px
-
+		box-sizing border-box
 		background-color $colorLightBlue
 
 	.news-date
@@ -4159,7 +4474,7 @@ body
 	text-align center
 	margin-bottom 100px
 
-	.reviews-more
+	.load-more
 		max-width 215px
 		margin 0 auto
 		text-align center
@@ -4255,7 +4570,7 @@ body
 
 	.partners-item
 		width 48%
-		min-width 300px
+		min-width 250px
 		margin-right 4%
 		margin-bottom 130px
 
@@ -4349,7 +4664,7 @@ body
 	.blog-data
 		display inline-block
 		margin 0 10px 25px 0
-	    vertical-align middle
+		vertical-align middle
 
 		font-size 14px
 		color #4A494A
@@ -4357,7 +4672,7 @@ body
 	.blog-views
 		display inline-block
 		vertical-align middle
-		margin-right 20px
+		margin 0 10px 25px 0
 
 		.blog-views-icon
 			display inline-block
@@ -4385,6 +4700,8 @@ body
 
 	.blog-rating
 		display inline-block
+		margin 0 10px 25px 0
+
 		vertical-align middle
 
 		img
@@ -4412,7 +4729,7 @@ body
 		margin-bottom 30px
 
 		.blog-tag
-			margin-right 10px
+			margin 0 10px 10px 0
 			padding 10px 25px
 			box-sizing border-box
 
@@ -4460,7 +4777,7 @@ body
 
 	.blog-item
 		width 48%
-		min-width 300px
+		min-width 280px
 
 		margin 0 4% 55px 0
 		transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
@@ -4607,7 +4924,7 @@ body
 
 		.contacts-item
 			width 48%
-			min-width 300px
+			min-width 280px
 
 			margin-right 4%
 
@@ -4720,7 +5037,6 @@ body
 		.link
 			display inline-block
 			color $colorBlue
-
 
 
 .mfp-blue
