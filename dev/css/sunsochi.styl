@@ -277,7 +277,7 @@ body
 		transform translateY(-100px)
 		transition transform 0.3s $transitionAnimation
 
-		z-index 1000
+		z-index 1010
 
 		.header-logo
 			&.header-logo--mini
@@ -2705,9 +2705,12 @@ body.open-menu
 
 		border-radius 30px
 
-		cursor pointer
 
-		z-index 1001
+		&.jcf-drop-active
+
+			border-radius 21px 21px 0 0
+
+		cursor pointer
 
 		.jcf-select-text
 			font-family "ProximaNovaSemibold"
@@ -2837,8 +2840,12 @@ body.open-menu
 
 	background #ffffff
 
-	border 1px solid $colorLightGray
-	border-radius 20px
+	border-left 1px solid $colorLightGray
+	border-right 1px solid $colorLightGray
+	border-bottom 1px solid $colorLightGray
+
+	border-bottom-right-radius 30px
+	border-bottom-left-radius 30px
 
 	z-index 1000
 
@@ -2847,6 +2854,9 @@ body.open-menu
 			cursor pointer
 			margin-bottom 20px
 
+			&:first-child
+				display none
+
 			.jcf-option
 				font-family "ProximaNovaSemibold"
 				transition 0.3s color $transitionAnimation
@@ -2854,6 +2864,8 @@ body.open-menu
 				&:hover
 					color $colorOrange
 
+				&.jcf-option-disabled
+					display none
 			&:last-child
 				margin-bottom 0
 /*** apartment ***/

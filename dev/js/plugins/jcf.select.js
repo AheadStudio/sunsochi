@@ -435,6 +435,14 @@ jcf.addModule(function($, window) {
 				this.fakeElement.show();
 			}
 
+			/*var placeHolderText = self.realElement.attr('placeholder');
+
+			if (placeHolderText) {
+				this.selectText.attr('class', selectedOptionClasses).html(placeHolderText);
+			} else {
+				this.selectText.attr('class', selectedOptionClasses).html(selectedOption.innerHTML);
+			}
+			console.log(selectedOption.innerHTML);*/
             this.fakeElement.removeClass();
             this.fakeElement.addClass(getPrefixedClasses(this.realElement.prop('className').replace("jcf-hidden", ""), this.options.selectClassPrefix));
 			// refresh selected text

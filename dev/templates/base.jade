@@ -67,6 +67,10 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				media: "screen",
 				href: "../css/" + info.code + ".responsive.css",
 				noCache: true
+			}, {
+				media: "print",
+				href: "../css/" + info.code + ".print.css",
+				noCache: true
 			}
 		])
 
@@ -441,13 +445,13 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 								span(class="footer-creators-title") Поддержка сайта
 								span(class="footer-creators-name") Aheadstudio
 						div(class="footer-social")
-							div(class="footer-social-item")
+							a(href="https://vk.com/sunsochi_realty", class="link footer-social-item", target="_blank")
 								include ../../prod/svg/vk.svg
-							div(class="footer-social-item")
+							a(href="https://www.facebook.com/%D0%A1%D0%BE%D0%BB%D0%BD%D0%B5%D1%87%D0%BD%D1%8B%D0%B9-%D0%A1%D0%BE%D1%87%D0%B8-175668546203847/", class="link footer-social-item")
 								include ../../prod/svg/fb.svg
-							div(class="footer-social-item")
+							a(href="https://www.instagram.com/sunsochi_realty/", class="link footer-social-item", target="_blank")
 								include ../../prod/svg/instagram.svg
-							div(class="footer-social-item")
+							a(href="https://www.youtube.com/channel/UCx7OHybth-mBGI2csx9C9_A", class="link footer-social-item", target="_blank")
 								include ../../prod/svg/youtube.svg
 
 		+addJS([

@@ -1833,6 +1833,8 @@
 			},
 
 			printpage: function() {
+				$("[data-print]").off("click");
+
 				$("[data-print]").click(function (e) {
 					window.print();
 					e.preventDefault();

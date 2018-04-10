@@ -721,8 +721,8 @@ block content
                     div(class="find-result")            
                         div(class="find-result-text") По вашим параметрам найдено обектов: 43
                         form(action="#", class="find-result-form")
-                            select(class="find-result-select")
-                                option(selected="selected") Сортировка
+                            select(class="find-result-select", placeholder="Сортировка")
+                                option(value="", selected, class="disabled") Сортировка
                                 option По домам
                                 option По квартирам
                                 option По площади
