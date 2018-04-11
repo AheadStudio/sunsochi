@@ -7,9 +7,9 @@ block content
                 h1 Контакты
             
             div(class="contacts-holder")
-                img(src="../dummy/contacts.png", class="contacts-img")
+                img(src="../dummy/contacts.jpg", class="contacts-img")
             
-            div(class="contacts-container")
+            div(class="contacts-container", itemscope, itemtype="http://schema.org/Organization")
                 div(class="contacts-item")
                     div(class="contacts-title") Офис
                     p
@@ -18,12 +18,15 @@ block content
                         a(href="tel:+78007075523", itemprop="telephone", class="link link-black link--orange contacts-mobile") 8-800-707-55-23
                     p
                         a(href="mailto:info@sunsochi.com", itemprop="email", class="link link-black link-black--bottom-inverse contacts-mail") info@sunsochi.com 
-                div(class="contacts-item")
+                div(class="contacts-item", itemprop="address", itemscope, itemtype="http://schema.org/PostalAddress")
                     div(class="contacts-title") Реквизиты
                     p Общество с Ограниченной Ответсвенностью 
-                    p «СОЛНЕЧНЫЙ СОЧИ» 
+                    p(itemprop="name") «СОЛНЕЧНЫЙ СОЧИ» 
                     p ИНН: 2320240206 КПП: 232001001 
-                    p Адрес: 354000, г. Сочи, ул. Пластунская, 81, офис 17
+                    p Адрес: 
+                        span(itemprop="postalCode") 354000, 
+                        span(itemprop="addressLocality") г. Сочи, 
+                        span(itemprop="streetAddress") ул. Пластунская, 81, офис 17
                     p Р/сч: 40702810730060002826, 
                     p ЮГО-ЗАПАДНЫЙ БАНК ПАО СБЕРБАНК
                     
