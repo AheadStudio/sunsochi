@@ -44,6 +44,10 @@ $colorBlue = #009ecc
 @font-face
 	font-family "ProximaNovaBold"
 	src url("../fonts/ProximaNova-Bold.woff") format("woff")
+
+@font-face
+	font-family "Rubl"
+	src url("../fonts/rouble.woff") format("woff")
 /* //fonts */
 
 html
@@ -200,7 +204,7 @@ body
 		white-space nowrap
 
 .header-row--middle
-	margin-bottom 20px
+	padding-bottom 20px
 
 .header-bottom-inner
 	.header-bottom-item-holder
@@ -234,11 +238,6 @@ body
 			path
 				transition fill 0.3s $transitionAnimation
 
-		&:hover
-			svg
-				path
-					fill $colorOrange
-
 		&.active
 			svg
 				path
@@ -259,7 +258,7 @@ body
 
 .fixed-header
 	.header-row--middle
-		margin-bottom 80px
+		padding-bottom 88px
 
 	.header-row--bottom
 		position fixed
@@ -593,15 +592,6 @@ body.open-menu
 	grid-template-columns 1fr 1fr 1fr 1fr
 	grid-gap 0 20px
 
-	&:hover
-		.footer-social-item
-			svg
-				display block
-				width 100%
-
-				path[fill="#fff"]
-					fill-opacity 0.5
-
 	.footer-social-item
 		display block
 		width 25px
@@ -625,7 +615,7 @@ body.open-menu
 			svg
 				path[fill="#fff"]
 					fill #fff
-					fill-opacity 1
+					fill-opacity 0.5
 
 .page-text
 	font-size 16px
@@ -1028,11 +1018,11 @@ body.open-menu
 	color #fff
 	line-height 1
 
-	transition box-shadow 0.3s $transitionAnimation
+	transition background 0.3s $transitionAnimation
 	border-color $colorOrange
 
 	&:hover
-		box-shadow 0px 5px 15px -5px rgba(0,0,0,0.75)
+		background #e68f1a
 
 /*** main style ***/
 
@@ -1051,7 +1041,7 @@ body.open-menu
 		right 0
 		bottom 0
 
-		background-color rgba(0, 0, 0, 0.3)
+		background-color rgba(0, 0, 0, 0.4)
 		z-index 1
 
 	.intro-img
@@ -1182,8 +1172,8 @@ body.open-menu
 		font-family "ProximaNovaSemibold"
 		font-size 12px
 
-		&.active
-			color #F89C21
+		&.reset
+			color $colorOrange
 
 .filter-tabs
 	margin-bottom 30px
@@ -1638,11 +1628,29 @@ body.open-menu
 	z-index 100
 
 	.regions-container-list
+		.regions-title
+			padding-left 15px
+			box-sizing border-box
+			margin-bottom 40px
+			font-size 16px
+			font-family "ProximaNovaSemibold"
+
+		.regions-show
+			max-width 260px
+			margin 40px auto 0 auto
+
+			text-align center
+
+			font-size 16px
+			font-family "ProximaNovaSemibold"
+
 		ul
 			display grid
-			grid-template-columns 1fr 1fr 1fr
-			grid-gap 20px 80px
+			grid-template-columns repeat(auto-fill, minmax(170px, 1fr))
+			grid-gap 5px 80px
+			padding-bottom 30px
 
+			border-bottom 1px solid $colorLightGray
 			li
 				position relative
 				box-sizing border-box
@@ -1657,10 +1665,12 @@ body.open-menu
 
 					border-radius 50px
 					background #fff
-					color #000
 
 					transition background 0.3s $transitionAnimation, color 0.3s $transitionAnimation
 
+					font-size 14px
+
+					white-space nowrap
 
 				.regions-close
 					position absolute
@@ -1707,7 +1717,6 @@ body.open-menu
 		opacity 0
 
 	&.mfp-blue
-		background $colorBlue
 		opacity 1
 
 .mfp-fade
@@ -1728,6 +1737,12 @@ body.open-menu
 				opacity 0
 				transform translateY(-30px)
 
+	.mfp-iframe-scaler
+		.btn-container-close
+			top 20px
+			right 20px
+			width 30px
+			height 30px
 /*** //block filter home ***/
 
 /*** block offers ***/
@@ -1742,25 +1757,20 @@ body.open-menu
 	background $colorLightBlue
 
 .offers-list
-	display flex
-	justify-content flex-start
-	flex-wrap wrap
+	display grid
+	grid-template-columns repeat(auto-fill, minmax(250px, 1fr))
+	grid-gap 40px 30px
 	margin-top 50px
 
 .offers-item
 	position relative
-	width 31%
-	min-width 250px
 	height 100%
-
-	margin 0 3.12222% 45px 0
 
 	color $colorLightBlack
 
 	transition transform 0.3s $transitionAnimation, opacity 0.3s $transitionAnimation
 
-	&:nth-child(3n)
-		margin-right 0
+	background #fff
 
 	&:before
 		content ""
@@ -1846,12 +1856,14 @@ body.open-menu
 			&:before
 				content ""
 				position absolute
-				top 11px
-				left 5px
-				right 5px
+				top 50%
+				left 15px
+				right 15px
 
-				width 92%
+				display block
 				height 2px
+
+				margin-top -1px
 
 				background $colorRed
 
@@ -2026,6 +2038,9 @@ body.open-menu
 					background #fff
 					z-index 10
 
+					&.rub
+						padding-right 0
+
 				&:after
 					content ""
 					position absolute
@@ -2047,17 +2062,23 @@ body.open-menu
 
 					&.old-price
 						position relative
-
+						margin-bottom 4px
 						&:before
 							content ""
 							position absolute
-							top 6px
+							top 50%
 							left 5px
 							right 5px
 
-							width 92%
+							margin-top -1px
+
+
+							display block
 							height 2px
 							background #f01624
+
+					&.rub
+						padding-left 0
 
 	&.load-events-item
 		transform translateY(-30px)
@@ -2407,19 +2428,20 @@ body.open-menu
 		position absolute
 		top 50%
 		left 65px
-		transform translateY(-50%)
-
 		display block
 		width 395px
 
 		padding 50px 0 60px 0
 		box-sizing border-box
 
+		margin-top -185px
+
 		background $colorBlue
 
 		text-align center
 
 		z-index 10
+
 		font-family "ProximaNovaSemibold"
 
 		.map-contacts-title
@@ -2699,15 +2721,13 @@ body.open-menu
 
 		background #ffffff
 
-		border-top 1px solid $colorLightGray
-		border-right 1px solid $colorLightGray
-		border-left 1px solid $colorLightGray
+		border 1px solid $colorLightGray
 
 		border-radius 30px
 
 
 		&.jcf-drop-active
-
+			border-bottom none
 			border-radius 21px 21px 0 0
 
 		cursor pointer
@@ -2787,7 +2807,7 @@ body.open-menu
 		border-color #fff
 		background #fff
 
-		transition border-color 0.3s $transitionAnimation, color 0.3s $transitionAnimation
+		transition border-color 0.3s $transitionAnimation, color 0.3s $transitionAnimation, background 0.3s $transitionAnimation
 
 		&.link
 			margin-left 10px
@@ -2816,22 +2836,26 @@ body.open-menu
 
 			.find-result-button-text
 				color #9b9a9b
+				transition color 0.3s $transitionAnimation
 
 		&:hover
-			border-color $colorBlue
-			color $colorBlue
+			background $colorOrange
+			color #fff
 
 			&.find-result-button--list
 				.find-result-button-icon
 					svg
 						path
-							fill $colorOrange
+							fill #fff
 
 			&.find-result-button--map
 				.find-result-button-icon
 					svg
 						path
-							fill $colorBlue
+							fill #fff
+
+				.find-result-button-text
+					color #fff
 
 .jcf-select-drop.jcf-select-find-result-select
 	display block
@@ -3004,6 +3028,7 @@ body.open-menu
 
 		.lSGallery
 			li
+				position relative
 				height 65px
 				outline 3px solid transparent
 				outline-offset -3px
@@ -3024,6 +3049,21 @@ body.open-menu
 				&.active
 					border-radius 0
 					outline 3px solid $colorOrange
+
+				.tour
+					position absolute
+					top 0
+
+					z-index 15
+
+					.tour-text
+						position absolute
+						top 50%
+						left 50%
+						margin -13px 0 0 -35px
+
+						padding 5px 10px
+						background $colorOrange
 
 	.apartment-preview-text
 		width 25%
@@ -3141,8 +3181,11 @@ body.open-menu
 			margin-top 30px
 
 	&.apartment-card
-			.apartment-information
-				margin 30px 65px 0 0
+		.apartment-information
+			max-width 1000px
+			margin 30px auto 0 auto
+			padding 0 260px 0 110px
+			box-sizing border-box
 
 	.apartment-item
 		margin-top 30px
@@ -3161,7 +3204,7 @@ body.open-menu
 		.apartment-features-item
 			max-width 110px
 			min-width 110px
-			margin 0 25px 5px 0
+			margin 0 25px 13px 0
 
 		.apartment-features-item-icon
 			max-width 65px
@@ -3639,7 +3682,12 @@ body.open-menu
 		svg
 			display block
 			width 100%
-
+			path
+				transition fill 0.3s $transitionAnimation
+		&:hover
+			svg
+				path
+					fill #000
 	.tooltip-apartment-price
 		margin-bottom 30px
 		font-size 18px
@@ -4782,7 +4830,6 @@ body.open-menu
 		flex-wrap wrap
 		align-items flex-start
 
-		padding-bottom 64px
 		box-sizing border-box
 		margin-bottom 50px
 		border-bottom 1px solid $colorTurquoise
@@ -5046,6 +5093,7 @@ body.open-menu
 				fill $colorBlue
 
 	.order-call-privacy
+		line-height 20px
 		.link
 			display inline-block
 			color $colorBlue
@@ -5063,8 +5111,9 @@ body.open-menu
 					fill #fff
 
 		.order-call-privacy
+			line-height 20px
 			.link
-				display inline-block
+				display inline
 				color #fff
 
 	.btn-container-close
@@ -5122,3 +5171,132 @@ body.open-menu
 		font-family "ProximaNovaSemibold"
 
 /*** //autocomplete ***/
+
+
+/*** youtube video ***/
+
+.fake-preview
+	position relative
+	display block
+	width 100%
+	height 100%
+
+	background-image url(../dummy/youtube/preview_youtube.png)
+	background-repeat no-repeat
+	background-size cover
+
+	cursor pointer
+
+	&:before
+		content ""
+		position absolute
+		top 0
+		left 0
+		right 0
+		bottom 0
+
+		display block
+		width 100%
+		height 100%
+
+		background-color rgba(0, 0, 0, 0.5)
+
+		z-index 10
+
+	.fake-preview-icon
+		position absolute
+		top 50%
+		left 50%
+
+		display block
+		width 85px
+		height 85px
+
+		margin -42.5px 0 0 -42.5px
+
+		z-index 15
+
+		svg
+			display block
+			width 100%
+
+			path[stroke-width]
+				stroke-width 8px
+
+		transition opacity 0.3s $transitionAnimation
+
+	&:hover
+		.fake-preview-icon
+			opacity 0.5
+
+	.fake-preview-link
+		position absolute
+		top 0
+		left 0
+		right 0
+		bottom 0
+
+		z-index 20
+
+/*** //youtube video ***/
+
+span
+	&.rub
+		font-family "Rubl"
+
+
+
+body.fixed-apartment
+	.apartment-stub
+		padding-bottom 140px
+
+	.apartment-header-fixed
+		position fixed
+		top 70px
+		left 0
+		right 0
+
+		background #fff
+		border-bottom 3px solid #e3e3e3
+
+		z-index 100
+
+		padding 30px 0
+		box-sizing border-box
+		opacity 0
+
+		.apartment-header
+			align-items center
+			max-width 1000px
+			width 100%
+
+			margin 0 auto
+
+			padding 0 20px
+			box-sizing border-box
+
+			.apartment-preview-text-info
+				margin-top 5px
+
+			.apartment-title
+				margin-bottom 0
+
+			.apartment-preview-text-icon
+				margin-bottom 0
+
+			.apartment-location
+				display none
+
+			.apartment-deadline
+				display none
+
+			.apartment-preview-text-price
+				display none
+
+			.apartment-preview-text-credit
+				display none
+
+	&.fixed-apartment--show
+		.apartment-header-fixed
+			opacity 1	
+			transition opacity 0.6s $transitionAnimation

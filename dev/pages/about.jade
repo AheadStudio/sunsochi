@@ -60,5 +60,10 @@ block content
                 div(class="page-text")
                     h2 О нас за 100 секунд
                 div(class="about-video")
-                    iframe(frameborder="0", height="100%", width="100%", src="https://www.youtube.com/embed/4zGIoURvzsQ?rel=0&controls=0&showinfo=0", allow="autoplay; encrypted-media", allowfullscreen)
+                    div(class="fake-preview", style="background-image: url(../dummy/youtube/preview_youtube.png)")
+                        a(href="https://www.youtube.com/watch?v=4zGIoURvzsQ", class="link fake-preview-link mfp-modal", data-mfp-type="iframe", data-mfp-bcg="rgba(0, 158, 204, 0.9)", data-mfp-closeinside="false", data-mfp-closeonbcg="true")
+                        span(class="fake-preview-icon")
+                            include ../../prod/svg/play_youtube.svg
+
+                    //iframe(frameborder="0", height="100%", width="100%", src="https://www.youtube.com/embed/4zGIoURvzsQ?rel=0&controls=0&showinfo=0", allow="autoplay; encrypted-media", allowfullscreen)
                     

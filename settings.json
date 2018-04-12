@@ -204,7 +204,7 @@
                 "tablet": "100",
                 "mobile": "100"
             },
-            
+
             "fordev": true
         },
         "contacs": {
@@ -255,7 +255,8 @@
                 "desktop": "100",
                 "tablet": "100",
                 "mobile": "100"
-            }
+            },
+            "fordev": true
         },
         "form-bid": {
             "name": "Форма: заявка на объект",
@@ -263,7 +264,8 @@
                 "desktop": "100",
                 "tablet": "100",
                 "mobile": "100"
-            }
+            },
+            "fordev": true
         },
         "form-result": {
             "name": "Форма: результат",
@@ -271,7 +273,8 @@
                 "desktop": "100",
                 "tablet": "100",
                 "mobile": "100"
-            }
+            },
+            "fordev": true
         }
     },
     "paths": {

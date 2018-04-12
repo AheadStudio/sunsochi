@@ -7,7 +7,8 @@ block content
                 div(class="apartment-header-col")
                     div(class="apartment-title") 3-комп. квартира, 170 м
                         sup 2
-                    div(class="apartment-location") Сочи
+                    div(class="apartment-location") 
+                        span Сочи
                         a(href="#",class="link link-black link-black--bottom", target="_blank") Район Светлана,
                         a(href="#",class="link link-black link-black--bottom", target="_blank") ЖК &#171;Тауер&#187;
                         a(href="#", class="link link-orange link-orange--bottom apartment-location-map", data-goto="#mapYandex") На карте
@@ -43,67 +44,66 @@ block content
                             div(class="apartment-preview-text-id") ID 265437
                             a(href="form-bid.html", class="link button button--orange-reverse apartment-preview-order mfp-modal", data-mfp-type="ajax", data-mfp-ajaxcontent="#form-call", data-mfp-bcg="#009ecc", data-mfp-closeinside="false") Заявка
                             
-        div(class="page-inner page-inner--w4")
-            div(class="apartment-information")
-                div(class="page-text")
-                    div(class="apartment-description-item")
-                        div(class="apartment-features")
-                            div(class="apartment-features-item")
-                                div(class="apartment-features-item-icon")
-                                    include ../../prod/svg/sea.svg  
-                                div(class="apartment-features-item-text") Вид на море 
-                            div(class="apartment-features-item")
-                                div(class="apartment-features-item-icon")
-                                    include ../../prod/svg/original.svg  
-                                div(class="apartment-features-item-text") Оригинальный проект
-                            div(class="apartment-features-item")
-                                div(class="apartment-features-item-icon")
-                                    include ../../prod/svg/save.svg 
-                                div(class="apartment-features-item-text") Охраняемая территория
-                            div(class="apartment-features-item")
-                                div(class="apartment-features-item-icon")
-                                    include ../../prod/svg/shop_to_step.svg
-                                div(class="apartment-features-item-text") Магазины рядом
-                    div(class="apartment-description-item")
-                        div(class="border-text border-text--full")
-                            p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
-                    div(class="apartment-description-item")
-                        div(class="apartment-detail-info")
-                            dl
-                                dt Площадь
-                                dd 140м
-                                    sup 2
-                                dt Этаж
-                                dd 14
-                                dt Количество комнат 
-                                dd 5
-                                dt Количество сан узлов 
-                                dd 3
-                                dt Высота потолков 
-                                dd 3,3 м
-                                dt Отделка 
-                                dd с ремонтом
-                                dt Парковка 
-                                dd придомовая и подземная
-                                dt Тип постройки 
-                                dd монолит
-                                dt Расстояние до моря 
-                                dd 200 м
-                                dt Вид на море 
-                                dd да
-                                dt Коммуникации 
-                                dd центральные
-                                dt Отопление 
-                                dd центральное
-                                dt Канализация 
-                                dd центральная
-                    
-                    div(class="apartment-description-item")
-                        div(class="apartment-map")
-                            div(class="map", id="mapYandex", data-center="[43.56945161528474,39.73675069213602]", data-zoom="19", data-points='[{name:"1", position: "43.56945161528474,39.73675069213602", description:"Сочи, район Светлана, 3-комп. квартира, 170 м"}]')
-                            //div(class="map", id="mapGoogle", data-lat="43.60405218", data-lng="39.73541935", data-zoom="16", data-icon="../svg/point_map.svg")
+        div(class="apartment-information")
+            div(class="page-text")
+                div(class="apartment-description-item")
+                    div(class="apartment-features")
+                        div(class="apartment-features-item")
+                            div(class="apartment-features-item-icon")
+                                include ../../prod/svg/sea.svg  
+                            div(class="apartment-features-item-text") Вид на море 
+                        div(class="apartment-features-item")
+                            div(class="apartment-features-item-icon")
+                                include ../../prod/svg/original.svg  
+                            div(class="apartment-features-item-text") Оригинальный проект
+                        div(class="apartment-features-item")
+                            div(class="apartment-features-item-icon")
+                                include ../../prod/svg/save.svg 
+                            div(class="apartment-features-item-text") Охраняемая территория
+                        div(class="apartment-features-item")
+                            div(class="apartment-features-item-icon")
+                                include ../../prod/svg/shop_to_step.svg
+                            div(class="apartment-features-item-text") Магазины рядом
+                div(class="apartment-description-item")
+                    div(class="border-text border-text--full")
+                        p Квартира в элитном жилом комплексе, который расположен в историческом престижном районе с развитой инфраструктурой. В квартире тр спальни, три санузла, и просторная кухня-гостиная, а так же два балкона. Из окон открывается панорамный вид на море. ОТделка выполнена из дорогих материалов, напольное покрытие - паркетная доска. На кухне установлен дорогой итальянский гарнитур, фирменная встроенная бытовая техника. В гостиной находится биокамин - экологически чистый камин нового поколения. Установлена экскюзивная входная дверь с системой открытия с помощью пин-кода или отпечатка.
+                div(class="apartment-description-item")
+                    div(class="apartment-detail-info")
+                        dl
+                            dt Площадь
+                            dd 140м
+                                sup 2
+                            dt Этаж
+                            dd 14
+                            dt Количество комнат 
+                            dd 5
+                            dt Количество сан узлов 
+                            dd 3
+                            dt Высота потолков 
+                            dd 3,3 м
+                            dt Отделка 
+                            dd с ремонтом
+                            dt Парковка 
+                            dd придомовая и подземная
+                            dt Тип постройки 
+                            dd монолит
+                            dt Расстояние до моря 
+                            dd 200 м
+                            dt Вид на море 
+                            dd да
+                            dt Коммуникации 
+                            dd центральные
+                            dt Отопление 
+                            dd центральное
+                            dt Канализация 
+                            dd центральная
+                
+                div(class="apartment-description-item")
+                    div(class="apartment-map")
+                        div(class="map", id="mapYandex", data-center="[43.56945161528474,39.73675069213602]", data-zoom="19", data-points='[{name:"1", position: "43.56945161528474,39.73675069213602", description:"Сочи, район Светлана, 3-комп. квартира, 170 м"}]')
+                        //div(class="map", id="mapGoogle", data-lat="43.60405218", data-lng="39.73541935", data-zoom="16", data-icon="../svg/point_map.svg")
             
-        div(class="page-inner page-inner--max", style="background:#f7f8fb")
+        div(class="page-inner page-inner--max", style="background:#f7f8fb", data-fixed-limit="apartment-preview-text")
             div(class="page-inner page-inner--w1")
                 div(class="page-text")
                     h2 Похожие объекты
@@ -117,7 +117,8 @@ block content
     
                             div(class="offers-container")
                                 img(src="../dummy/home_1.jpg", alt  class="offers-container-img")
-                                div(class="offers-container-price") 1 167 920 &#8381;
+                                div(class="offers-container-price") 1 167 920
+                                    span(class="rub") i
                             div(class="offers-information")
                                 div(class="page-text")
                                     div(class="offers-name") ЖК Семейный
@@ -135,7 +136,8 @@ block content
     
                             div(class="offers-container")
                                 img(src="../dummy/home_2.jpg", alt  class="offers-container-img")
-                                div(class="offers-container-price") 2 200 900 &#8381;
+                                div(class="offers-container-price") 2 200 900
+                                    span(class="rub") i
                             div(class="offers-information")
                                 div(class="page-text")
                                     div(class="offers-name") ЖК Эко Хаус 2
@@ -154,7 +156,8 @@ block content
     
                             div(class="offers-container")
                                 img(src="../dummy/home_3.jpg", alt  class="offers-container-img")
-                                div(class="offers-container-price") 2 330 000 &#8381;
+                                div(class="offers-container-price") 2 330 000
+                                    span(class="rub") i
                             div(class="offers-information")
                                 div(class="page-text")
                                     div(class="offers-name") ЖК Лесная поляна 
@@ -167,7 +170,7 @@ block content
                                             
                             a(href="#", class="link button button--orange offers-container-more") Подробнее
     
-        div(class="page-inner page-inner--max", style="background:#009ecc", data-fixed-limit="apartment-preview-text")
+        div(class="page-inner page-inner--max", style="background:#009ecc")
             div(class="page-inner page-inner--w1")
                 div(class="order-call")
                     div(class="page-text")

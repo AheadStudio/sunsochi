@@ -5,7 +5,12 @@ block content
         div(class="reviews-list", id="reviews-list-load")
             div(class="reviews-item")
                 div(class="reviews-video")
-                    iframe(frameborder="0", height="100%", width="100%", src="https://www.youtube.com/embed/WiJGohGIs14?rel=0&amp;controls=0&amp;showinfo=0", allow="autoplay; encrypted-media", allowfullscreen)
+                    div(class="fake-preview", style="background-image: url(../dummy/youtube/preview_youtube_rew_2.png)")
+                        a(href="https://www.youtube.com/watch?v=Rew6R4P334s", class="link fake-preview-link mfp-modal", data-mfp-type="iframe", data-mfp-bcg="rgba(0, 158, 204, 0.9)", data-mfp-closeinside="false", data-mfp-closeonbcg="true")
+                        span(class="fake-preview-icon")
+                            include ../../prod/svg/play_youtube.svg
+
+                    //iframe(frameborder="0", height="100%", width="100%", src="https://www.youtube.com/embed/WiJGohGIs14?rel=0&amp;controls=0&amp;showinfo=0", allow="autoplay; encrypted-media", allowfullscreen)
                 div(class="reviews-container")
                     div(class="reviews-icon")
                         include ../../prod/svg/quotes.svg
