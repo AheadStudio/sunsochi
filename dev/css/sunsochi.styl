@@ -4251,13 +4251,17 @@ body.open-menu
 	margin 65px 0 35px 0
 	padding 50px 0 95px 0
 
+	background-image url(../svg/about_icon_all.svg)
+	background-repeat no-repeat
+	background-size 1120px
+	background-position center 8px
+
 	h2
 		margin-bottom 20px
 
 	.about-info-container
 		position relative
 		min-height 480px
-
 		.about-info-item
 			position absolute
 			display block
@@ -4267,6 +4271,7 @@ body.open-menu
 
 			transition opacity 0.3s $transitionAnimation, transform 0.3s $transitionAnimation
 
+			z-index 10
 			&.active
 				opacity 1
 				transform translateY(0)
